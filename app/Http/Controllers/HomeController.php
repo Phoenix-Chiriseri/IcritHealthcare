@@ -34,7 +34,7 @@ class HomeController extends Controller
         SELECT * 
         FROM daily_entries 
         INNER JOIN patients 
-        WHERE staff_name = :staff_name
+        WHERE staff_name = :staff_name ORDER BY daily_entries.id DESC
         ", ['staff_name' => $username]);
         /*$dailyEntries = DB::table('daily_entries')
         ->where('staff_name', '=', $username)

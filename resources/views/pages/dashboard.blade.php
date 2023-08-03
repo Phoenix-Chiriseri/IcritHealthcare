@@ -66,7 +66,7 @@
                         <th>Zip Code</th>
                         <th>Country</th>
                         <th>Phone Number</th>
-                        <th>COmunication Language</th>
+                        <th>Comunication Language</th>
                         <!-- Add more table headers for additional fields -->
                     </tr>
                 </thead>
