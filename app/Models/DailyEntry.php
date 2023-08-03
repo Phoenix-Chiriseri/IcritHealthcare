@@ -25,10 +25,4 @@ class DailyEntry extends Model
         'phone',
         'communication_language'
     ];
-
-
-    public function patient()
-    {
-        return $this->belongsTo(Patient::class);
-    }
 }

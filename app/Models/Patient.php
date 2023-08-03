@@ -7,11 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
-    use HasFactory;
-
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+  use HasFactory;
+  public function myStaffMember(){
+  return $this->hasMany("App\Models\DailyEntry",'id','Staff_Id');
+  }
 }

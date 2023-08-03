@@ -18,9 +18,15 @@ class PatientController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $patient = new Patient();
+        $patient->patient_name = $request->input("patient_name");
+        $patient->house = $request->input("house");
+        $patient->Staff_Id = $request->input("Staff_Id");
+        $patient->save();
+        return redirect("/dashboard");
     }
 
     /**

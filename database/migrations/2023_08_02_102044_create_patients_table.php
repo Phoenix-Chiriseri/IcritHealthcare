@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('patient_name');
+            $table->string("house");
+            $table->unsignedInteger("Staff_Id");
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

@@ -32,6 +32,9 @@ class HomeController extends Controller
 
         $dailyEntries = DB::select("
         SELECT * 
+        FROM daily_entries where staff_name= :staff_name",['staff_name' => $username]);        
+        /*$dailyEntries = DB::select("
+        SELECT * 
         FROM daily_entries 
         INNER JOIN patients 
         WHERE staff_name = :staff_name ORDER BY daily_entries.id DESC
