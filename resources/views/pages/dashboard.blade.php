@@ -46,7 +46,7 @@
 </div>
 <div class="container" style="margin-top:200px;">
     <h1 class="text-center">Daily Entry Results</h1>
-    @if ($dailyEntries->isEmpty())
+    @if (empty($dailyEntries))
         <p>No daily entries found.</p>
     @else
         <div class="table-responsive">

@@ -30,10 +30,16 @@ class HomeController extends Controller
         $username = Auth::user()->username;
         $house = Auth::user()->house;
 
-        $dailyEntries = DB::table('daily_entries')
+        $dailyEntries = DB::select("
+        SELECT * 
+        FROM daily_entries 
+        INNER JOIN patients 
+        WHERE staff_name = :staff_name
+        ", ['staff_name' => $username]);
+        /*$dailyEntries = DB::table('daily_entries')
         ->where('staff_name', '=', $username)
         ->orderBy('id', 'asc') // Replace 'asc' with 'desc' if you want descending order
-        ->get();
+        ->get();*/
 
         //$entries = Db::raw(Db::select('select * from daily_entries where staff_name='.$username));
         //$entries = DB::select(DB::raw("SELECT * FROM daily_entries where staff_name=$username"));

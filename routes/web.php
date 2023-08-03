@@ -24,7 +24,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword; 
-use App\Http\Controllers\DailyEntryController;             
+use App\Http\Controllers\DailyEntryController;  
+use App\Models\DailyEntries;
+use Illuminate\Support\Facades\DB;           
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
