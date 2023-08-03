@@ -30,7 +30,7 @@ use App\Http\Controllers\Admin;
 use App\Models\DailyEntries;
 use Illuminate\Support\Facades\DB;           
             
-Route::get('/registerPatient',[Admin::class,'index']);
+Route::get('/registerPatient',[PatientController::class,'index']);
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');

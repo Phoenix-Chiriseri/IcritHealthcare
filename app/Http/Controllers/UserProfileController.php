@@ -16,6 +16,7 @@ class UserProfileController extends Controller
         $patients = Patient::all();
         //$patients = DB::select(DB::raw("SELECT * FROM patients distinct order by id desc"));
         return view('pages.user-profile',compact('patients'))->with("user",$user);
+        
     }
 
     public function update(Request $request)
