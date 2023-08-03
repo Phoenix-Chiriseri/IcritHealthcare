@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    /*public function index()
     {
         //
-        return view('pages.registerPatient');
-    }
-
+        $patients = Patient::all();
+        $users = User::all();
+        return view("pages.virtualReality")->with("patients",$patients)->with("users",$users);
+    }*/
     /**
      * Show the form for creating a new resource.
      */

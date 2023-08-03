@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Patient;
 
 class PageController extends Controller
 {
@@ -17,13 +19,14 @@ class PageController extends Controller
         if (view()->exists("pages.{$page}")) {
             return view("pages.{$page}");
         }
-
         return abort(404);
     }
 
     public function vr()
     {
-        return view("pages.virtual-reality");
+        $patients = Patient::all();
+        $users = User::all();
+        return view("pages.virtual-reality")->with("patients",$patients)->with("users",$users);
     }
 
     public function rtl()

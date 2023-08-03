@@ -9,6 +9,6 @@ class Patient extends Model
 {
   use HasFactory;
   public function myStaffMember(){
-  return $this->hasMany("App\Models\DailyEntry",'id','Staff_Id');
+  return $this->hasMany("App\Models\User",'id','Staff_Id');
   }
 }
