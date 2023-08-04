@@ -1,6 +1,58 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
+<script type="text/javascript">  
+function generate() {  
+    var doc = new jsPDF('p', 'pt', 'letter');  
+    var htmlstring = '';  
+    var tempVarToCheckPageHeight = 0;  
+    var pageHeight = 0;  
+    orientation: "landscape";
+    unit: "in";
+    format: [4, 2];
+    pageHeight = doc.internal.pageSize.height;  
+    specialElementHandlers = {  
+        // element with id of "bypass" - jQuery style selector  
+        '#bypassme': function(element, renderer) {  
+            // true = "handled elsewhere, bypass text extraction"  
+            return true  
+        }  
+    };  
+    margins = {  
+        top: 150,  
+        bottom: 60,  
+        left: 40,  
+        right: 40,  
+        width: 600  
+    };  
+    var y = 20;  
+    doc.setLineWidth(2);  
+    doc.text(200, y = y + 30, "Daily Entry");  
+    doc.autoTable({  
+        html: '#simple_table',  
+        startY: 70,  
+        theme: 'grid',  
+        columnStyles: {  
+            0: {  
+                cellWidth: 250,  
+            },  
+            1: {  
+                cellWidth: 250,  
+            },  
+            2: {  
+                cellWidth: 250,  
+            }  
+        },  
+        styles: {  
+            minCellHeight: 80  
+        }  
+    })  
+    doc.save('Daily Entry Reports.pdf');  
+}  
+</script>   
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
@@ -50,7 +102,8 @@
         <p>No daily entries found.</p>
     @else
         <div class="table-responsive">
-            <table class="table table-hover">
+        <input type="button" onclick="generate()" class = "btn btn-success btn-lg" value="Export to PDF"/>
+            <table class="table table-hover" id = "simple_table">
                 <thead>
                     <tr>
                         <th>Staff Name</th>
