@@ -140,7 +140,6 @@
                 <label for="communication_language">Communication and Language</label>
                 <input type="text" class="form-control" id="communication_language" name="communication_language" required>
             </div>
-
             <!-- Add more fields here based on the given requirements -->
 
             <button type="submit" class="btn btn-primary">Submit</button>

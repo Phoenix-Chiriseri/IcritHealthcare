@@ -33,6 +33,7 @@ class DailyEntryController extends Controller
         // Create a new DailyEntry instance and fill it with the validated data
         $dailyEntry = new DailyEntry();
         $staff_name = Auth::user()->username;
+        $house = Auth::user()->house;
         $dailyEntry->fill([
             'staff_name'=>$staff_name,
             'patient_name'=>$request->input("patient_id"),
@@ -48,6 +49,7 @@ class DailyEntryController extends Controller
             'address_country' => $request->input('address_country'),
             'phone' => $request->input('phone'),
             'communication_language' => $request->input('communication_language'),
+            'house'=>$house
             // Add more fields as needed
         ]);
         // Save the entry to the database

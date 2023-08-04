@@ -23,6 +23,7 @@ class DailyEntry extends Model
         'address_zip',
         'address_country',
         'phone',
-        'communication_language'
+        'communication_language',
+        'house'
     ];
 }

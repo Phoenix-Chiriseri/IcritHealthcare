@@ -97,7 +97,6 @@
                                     @error('password') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
                                 </div>
                                 <select name="house" class = "form-control">
-                                <select value = select disabled>Select House</select>
                                 <option value="hearten">Hearten</option>
                                 <option value="lorraine">Lorraine</option>
                                 <option value="mercedes">Mercedes</option>

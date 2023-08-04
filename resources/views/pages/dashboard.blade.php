@@ -55,6 +55,7 @@
                     <tr>
                         <th>Staff Name</th>
                         <th>Patient Name</th>
+                        <th>House</th>
                         <th>Assessment Date</th>
                         <th>Nhs Number</th>
                         <th>Username</th>
@@ -67,6 +68,7 @@
                         <th>Country</th>
                         <th>Phone Number</th>
                         <th>Comunication Language</th>
+                        
                         <!-- Add more table headers for additional fields -->
                     </tr>
                 </thead>
@@ -75,6 +77,7 @@
                     <tr>
                         <td>{{ $dailyEntry->staff_name }}</td>
                         <td>{{ $dailyEntry->patient_name }}</td>
+                        <td>{{ $dailyEntry->house}}</td> 
                         <td>{{ $dailyEntry->assessment_date }}</td>
                         <td>{{ $dailyEntry->nhs_number }}</td>
                         <td>{{ $dailyEntry->user_name_first }}</td>
@@ -86,7 +89,8 @@
                         <td>{{ $dailyEntry->address_zip }}</td>
                         <td>{{ $dailyEntry->address_country }}</td>
                         <td>{{ $dailyEntry->phone}}</td>
-                        <td>{{ $dailyEntry->communication_language}}</td>     
+                        <td>{{ $dailyEntry->communication_language}}</td>  
+                           
                         <!-- Add more table cells for additional fields -->
                     </tr>
                     @endforeach

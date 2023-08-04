@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('address_country');
             $table->string('phone');
             $table->string('communication_language');
+            $table->string("house");
             $table->timestamps();
         });
     }
