@@ -17,15 +17,23 @@ class DailyEntryController extends Controller
         //
     }
 
+    //query
     public function allHouseRecords(){
 
         $username = Auth::user()->username;
         $house = Auth::user()->house;
         $dailyEntries = DB::select("
+        SELECT *
+        FROM daily_entries
+        WHERE house = :house
+        ORDER BY id DESC",
+        ['house' => $house]
+     );
+        /*$dailyEntries = DB::select("
         SELECT * 
         FROM daily_entries
         WHERE house = :house",
-        ['house' => $house]);
+        ['house' => $house]);*/
         return view('pages.viewHouseRecords')->with("username",$username)->with("house",$house)
         ->with("dailyEntries",$dailyEntries);
 

@@ -29,6 +29,13 @@ class HomeController extends Controller
         $username = Auth::user()->username;
         $house = Auth::user()->house;
         $dailyEntries = DB::select("
+        SELECT *
+        FROM daily_entries
+        WHERE staff_name = :staff_name AND house = :house
+        ORDER BY id",
+        ['staff_name' => $username, 'house' => $house]
+        );
+        /*$dailyEntries = DB::select("
         SELECT * 
         FROM daily_entries
         WHERE staff_name = :staff_name AND house = :house",
