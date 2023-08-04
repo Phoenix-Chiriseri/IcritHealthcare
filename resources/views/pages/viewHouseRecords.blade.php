@@ -103,7 +103,7 @@ function generate() {
                                 </div>
                             </div>
                             <div class="col-4 text-end">
-                                <a href = "{{ route('allRecords') }}" class = "btn btn-info"><i class = "fa fa-house"></i>View All House Records</a>
+                                <a href = "{{ route('allRecords') }}" class = "btn btn-info">View House Records</a>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ function generate() {
         </div>
 </div>
 <div class="container" style="margin-top:200px;">
-    <h1 class="text-center">Welcome {{$username}} these are your daily entry results</h1>
+    <h1 class="text-center">Daily Entry Results</h1>
     @if (empty($dailyEntries))
         <p>No daily entries found.</p>
     @else

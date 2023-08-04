@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DailyEntry;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class DailyEntryController extends Controller
 {
@@ -16,6 +17,19 @@ class DailyEntryController extends Controller
         //
     }
 
+    public function allHouseRecords(){
+
+        $username = Auth::user()->username;
+        $house = Auth::user()->house;
+        $dailyEntries = DB::select("
+        SELECT * 
+        FROM daily_entries
+        WHERE house = :house",
+        ['house' => $house]);
+        return view('pages.viewHouseRecords')->with("username",$username)->with("house",$house)
+        ->with("dailyEntries",$dailyEntries);
+
+    }
     /**
      * Show the form for creating a new resource.
      */

@@ -39,12 +39,6 @@
                                 </a>
                             </li>
                         </ul>
-                        <ul class="navbar-nav d-lg-block d-none">
-                            <li class="nav-item">
-                                <a href="/registerPatient"
-                                    class="btn btn-sm mb-0 me-1 btn-primary" target="_blank">Admin Login</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </nav>

@@ -26,18 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
-      
         $username = Auth::user()->username;
         $house = Auth::user()->house;
-
         $dailyEntries = DB::select("
         SELECT * 
         FROM daily_entries
         WHERE staff_name = :staff_name AND house = :house",
         ['staff_name' => $username, 'house' => $house]);
-
         /*$dailyEntries = DB::select("
         SELECT * 
         FROM daily_entries where staff_name= :staff_name and house=:house",['staff_name' => $username,'house',$house]);        
