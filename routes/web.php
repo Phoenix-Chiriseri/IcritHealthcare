@@ -27,8 +27,7 @@ use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\DailyEntryController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\Admin;  
-use App\Models\DailyEntries;
-use Illuminate\Support\Facades\DB;           
+use App\Models\DailyEntries;           
             
 Route::get('/registerPatient',[PatientController::class,'index']);
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -55,5 +54,6 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
+	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all");
 	
 });

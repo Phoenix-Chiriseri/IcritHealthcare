@@ -58,6 +58,6 @@ class User extends Authenticatable
 
     public function patients()
     {
-        return $this->hasMany(Patient::class);
+        return $this->hasMany(Patient::class, 'Staff_Id');
     }
 }

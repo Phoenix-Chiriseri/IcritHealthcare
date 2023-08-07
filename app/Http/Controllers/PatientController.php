@@ -24,7 +24,7 @@ class PatientController extends Controller
     public function create(Request $request)
     {
 
-        dd($request->all());
+        //dd($request->all());
         $patient = new Patient();
         $patient->patient_name = $request->input("patient_name");
         $patient->house = $request->input("house");

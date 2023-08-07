@@ -12,7 +12,7 @@ class Admin extends Controller
     public function index(){
 
         $patients = Patient::all();
-        $users = User::all();
+        $user = User::all();
         return view("pages.virtualReality")->with("patients",$patients);
     }
 }

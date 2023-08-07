@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use App\Models\Patient;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use App\Model\User;
 
 class UserProfileController extends Controller
 {
@@ -17,6 +18,30 @@ class UserProfileController extends Controller
         //$patients = DB::select(DB::raw("SELECT * FROM patients distinct order by id desc"));
         return view('pages.user-profile',compact('patients'))->with("user",$user);
         
+    }
+
+    public function allResults(){
+
+        $users = User::with('patients')->get();
+        
+        // Display the data
+        foreach ($users as $user) {
+            echo "User ID: " . $user->id . "<br>";
+            echo "Username: " . $user->username . "<br>";
+            echo "Email: " . $user->email . "<br>";
+            echo "House: " . $user->house . "<br>";
+        
+            if ($user->patients->isNotEmpty()) {
+                echo "Patients: <br>";
+                foreach ($user->patients as $patient) {
+                    echo "- Patient Name: " . $patient->patient_name . "<br>";
+                    echo "- Patient House: " . $patient->house . "<br>";
+                    echo "<br>";
+                }
+            } else {
+                echo "No associated patients<br><br>";
+            }
+        }        
     }
 
     public function update(Request $request)

@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
   use HasFactory;
-  public function myStaffMember(){
-  return $this->hasMany("App\Models\User",'id','Staff_Id');
-  }
+  protected $fillable = ['patient_name', 'house', 'Staff_Id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'Staff_Id');
+    }
 }
