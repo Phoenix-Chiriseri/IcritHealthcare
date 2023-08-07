@@ -22,26 +22,7 @@ class UserProfileController extends Controller
 
     public function allResults(){
 
-        $users = User::with('patients')->get();
-        
-        // Display the data
-        foreach ($users as $user) {
-            echo "User ID: " . $user->id . "<br>";
-            echo "Username: " . $user->username . "<br>";
-            echo "Email: " . $user->email . "<br>";
-            echo "House: " . $user->house . "<br>";
-        
-            if ($user->patients->isNotEmpty()) {
-                echo "Patients: <br>";
-                foreach ($user->patients as $patient) {
-                    echo "- Patient Name: " . $patient->patient_name . "<br>";
-                    echo "- Patient House: " . $patient->house . "<br>";
-                    echo "<br>";
-                }
-            } else {
-                echo "No associated patients<br><br>";
-            }
-        }        
+          
     }
 
     public function update(Request $request)

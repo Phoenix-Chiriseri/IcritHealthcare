@@ -47,6 +47,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/saveEntry', [DailyEntryController::class, 'store'])->name('save-entry');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
 	Route::get('/viewHouseRecords', [DailyEntryController::class, 'allHouseRecords'])->name("allRecords");
+	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all");
 	Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static'); 
 	Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static'); 
@@ -54,6 +55,6 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
-	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all");
+	
 	
 });
