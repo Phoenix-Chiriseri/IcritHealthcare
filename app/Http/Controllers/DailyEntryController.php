@@ -76,10 +76,9 @@ class DailyEntryController extends Controller
         ]);
         // Save the entry to the database
         $dailyEntry->save();
+        //redirect to the dashboard after successfully registering a user..
         return redirect("/dashboard");
-
     }
-
     /**
      * Display the specified resource.
      */

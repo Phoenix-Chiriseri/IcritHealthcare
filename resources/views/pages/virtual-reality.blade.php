@@ -34,6 +34,14 @@
                                     <input type="text" name="Staff_Id" class="form-control" placeholder="Staff Id" aria-label="Name" value="{{ old('username') }}" required>
                                     @error('username') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
                                 </div>
+                                <h5 class = "text-center">Select House</h5>
+                                <select name="house" class = "form-control">
+                                <option value="hearten">Hearten</option>
+                                <option value="lorraine">Lorraine</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                                </select>
+                                <br>
                                 <select name="user" id = "Staff_Id"  class = "form-control" required>
                                 <option value = "" select disabled>Select Staff Member</option>
                                 @foreach($users as $user)
