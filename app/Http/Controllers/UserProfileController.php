@@ -22,8 +22,78 @@ class UserProfileController extends Controller
 
     public function allResults(){
 
-          
+        //$users = User::with('patients')->get();
+        $house = Auth::user()->house;
+        $users = DB::table('users')
+            ->where('house', '=', $house)
+            ->toSql();
+            dd($users);
+        // Display the data
+        foreach ($users as $user) {
+            echo "User ID: " . $user->id . "<br>";
+            echo "Username: " . $user->username . "<br>";
+            echo "Email: " . $user->email . "<br>";
+            echo "House: " . $user->house . "<br>";
+        
+            if ($user->patients->isNotEmpty()) {
+                echo "Patients: <br>";
+                foreach ($user->patients as $patient) {
+                    echo "- Patient Name: " . $patient->patient_name . "<br>";
+                    echo "- Patient House: " . $patient->house . "<br>";
+                    echo "<br>";
+                }
+            } else {
+                echo "No associated patients<br><br>";
+            }
+        }        
     }
+
+    public function allResultsByLoggedInHouse(){
+
+
+         $loggedInUser = Auth::user();
+
+    // Check if the user is logged in
+    if ($loggedInUser) {
+        $house = $loggedInUser->house;
+
+        // Retrieve the daily entries for the logged-in user's house
+        $dailyEntries = DB::table('daily_entries')
+            ->join('patients', 'daily_entries.patient_id', '=', 'patients.Staff_Id')
+            ->where('patients.house', $house)
+            ->orderBy('daily_entries.id', 'DESC')
+            ->get();
+
+            dd($dailyEntries);
+
+        return view('daily_entries.index', ['dailyEntries' => $dailyEntries]);
+    } else {
+        // Redirect the user to the login page if not logged in
+        return redirect()->route('login');
+    }
+}
+
+
+
+        /*$users = User::with('patients')->get();     
+        // Display the data
+        foreach ($users as $user) {
+            echo "User ID: " . $user->id . "<br>";
+            echo "Username: " . $user->username . "<br>";
+            echo "Email: " . $user->email . "<br>";
+            echo "House: " . $user->house . "<br>";
+        
+            if ($user->patients->isNotEmpty()) {
+                echo "Patients: <br>";
+                foreach ($user->patients as $patient) {
+                    echo "- Patient Name: " . $patient->patient_name . "<br>";
+                    echo "- Patient House: " . $patient->house . "<br>";
+                    echo "<br>";
+                }
+            } else {
+                echo "No associated patients<br><br>";
+            }
+        } */      
 
     public function update(Request $request)
     {

@@ -5,8 +5,8 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('home') }}"
             target="_blank">
-            <img src="./img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">Icrit HealthCare</span>
+            <img src="./img/icritLogo.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold">BE Care Management System </span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -45,7 +45,7 @@
                     <span class="nav-link-text ms-1">Add Patient</span>
                 </a>
             </li>
-            <li class="nav-item mt-3">
+            <!--<li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pages</h6>
             </li>
             <li class="nav-item">
@@ -113,7 +113,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Sign Up</span>
                 </a>
-            </li>
+            </li>!-->
         </ul>
     </div>
 </aside>

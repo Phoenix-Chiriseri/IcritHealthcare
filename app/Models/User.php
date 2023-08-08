@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Patient::class, 'Staff_Id');
     }
+
+    public function dailyEntries()
+    {
+        return $this->hasMany(DailyEntry::class);
+    }
 }

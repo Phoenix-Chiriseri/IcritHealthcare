@@ -6,6 +6,7 @@ use App\Models\DailyEntry;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class DailyEntryController extends Controller
 {
@@ -22,25 +23,24 @@ class DailyEntryController extends Controller
 
         $username = Auth::user()->username;
         $house = Auth::user()->house;
-        $dailyEntries = DB::select("
-        SELECT *
-        FROM daily_entries
-        WHERE house = :house
-        ORDER BY id DESC",
-        ['house' => $house]
-     );
-        /*$dailyEntries = DB::select("
-        SELECT * 
-        FROM daily_entries
-        WHERE house = :house",
-        ['house' => $house]);*/
-        return view('pages.viewHouseRecords')->with("username",$username)->with("house",$house)
-        ->with("dailyEntries",$dailyEntries);
+        $loggedInUser = Auth::user();
+        // Check if the user is logged in
+        if ($loggedInUser) {
+            
+            $house = $loggedInUser->house;
+            // Retrieve the daily entries for the logged-in user's house
+            $dailyEntries = DB::table('daily_entries')
+                ->join('patients', 'daily_entries.id', '=', 'patients.Staff_Id')
+                ->where('patients.house', $house)
+                ->orderBy('daily_entries.id', 'DESC')
+                ->get();
+            //return view('daily_entries.index', ['dailyEntries' => $dailyEntries]);
+            return view('pages.viewHouseRecords')->with("dailyEntries",$dailyEntries)->with("house",$house);
+        }
+            //->with("dailyEntries",$dailyEntries);
+    }  
 
-    }
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         //

@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('patient_name');
             $table->string("house");
             $table->unsignedInteger("Staff_Id");
-            $table->foreign('Staff_Id')
-              ->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

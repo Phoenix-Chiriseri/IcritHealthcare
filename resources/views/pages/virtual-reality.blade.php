@@ -6,7 +6,7 @@
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="/img/team-1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                    <img src="img/icritLogo.png" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
@@ -38,8 +38,6 @@
                                 <select name="house" class = "form-control">
                                 <option value="hearten">Hearten</option>
                                 <option value="lorraine">Lorraine</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
                                 </select>
                                 <br>
                                 <select id = "Staff_Id"  name = "Staff_Id" class = "form-control" required>
@@ -56,12 +54,12 @@
             </div>
             <div class="col-md-4">
                 <div class="card card-profile">
-                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
+                    <img src="/img/51-1.jpg" alt="Image placeholder" class="card-img-top">
                     <div class="row justify-content-center">
                         <div class="col-4 col-lg-4 order-lg-2">
                             <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                                 <a href="javascript:;">
-                                    <img src="/img/team-2.jpg"
+                                    <img src="img/icritLogo.png"
                                         class="rounded-circle img-fluid border border-2 border-white">
                                 </a>
                             </div>
@@ -69,7 +67,7 @@
                     </div>
                     <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
                         <div class="d-flex justify-content-between">
-                            <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-none d-lg-block">Connect</a>
+                        <a href="{{ route('home') }}" class="btn btn-sm btn-info mb-0 d-none d-lg-block">Dashboard</a>
                             <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-block d-lg-none"><i
                                     class="ni ni-collection"></i></a>
                             <a href="javascript:;"
@@ -78,7 +76,7 @@
                                     class="ni ni-email-83"></i></a>
                         </div>
                     </div>
-                    <div class="card-body pt-0">
+                    <!--<div class="card-body pt-0">
                         <div class="row">
                             <div class="col">
                                 <div class="d-flex justify-content-center">
@@ -110,7 +108,7 @@
                             <div>
                                 <i class="ni education_hat mr-2"></i>University of Computer Science
                             </div>
-                        </div>
+                        </div>!-->
                     </div>
                 </div>
             </div>

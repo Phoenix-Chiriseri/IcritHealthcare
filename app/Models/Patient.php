@@ -14,4 +14,15 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class, 'Staff_Id');
     }
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function dailyEntries()
+    {
+        return $this->hasMany(DailyEntry::class);
+    }
+
 }

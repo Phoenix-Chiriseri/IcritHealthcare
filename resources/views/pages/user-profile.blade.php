@@ -6,7 +6,7 @@
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="/img/team-1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        <img src="/img/icritLogo.png" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
@@ -113,12 +113,12 @@
             </div>
             <div class="col-md-4">
                 <div class="card card-profile">
-                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
+                    <img src="/img/76-1.jpg" alt="Image placeholder" class="card-img-top">
                     <div class="row justify-content-center">
                         <div class="col-4 col-lg-4 order-lg-2">
                             <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                                 <a href="javascript:;">
-                                    <img src="/img/team-2.jpg"
+                                    <img src="/img/icritLogo.png"
                                         class="rounded-circle img-fluid border border-2 border-white">
                                 </a>
                             </div>
@@ -135,7 +135,7 @@
                                     class="ni ni-email-83"></i></a>
                         </div>
                     </div>
-                    <div class="card-body pt-0">
+                    <!--<div class="card-body pt-0">
                         <div class="row">
                             <div class="col">
                                 <div class="d-flex justify-content-center">
@@ -153,8 +153,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="text-center mt-4">
+                        </div>!-->
+                        <!--<div class="text-center mt-4">
                             <h5>
                                 Mark Davis<span class="font-weight-light">, 35</span>
                             </h5>
@@ -167,7 +167,7 @@
                             <div>
                                 <i class="ni education_hat mr-2"></i>University of Computer Science
                             </div>
-                        </div>
+                        </div>!-->
                     </div>
                 </div>
             </div>

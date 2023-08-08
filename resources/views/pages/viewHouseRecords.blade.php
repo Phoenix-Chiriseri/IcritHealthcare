@@ -61,7 +61,7 @@ function generate() {
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Welcome {{$username}}</h1>
+                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold"></h1>
                                     
                                 </div>
                             </div>
@@ -132,10 +132,7 @@ function generate() {
                         <th>Address Line 2</th>
                         <th>City</th>
                         <th>State</th>
-                        <th>Zip Code</th>
-                        <th>Country</th>
-                        <th>Phone Number</th>
-                        <th>Comunication Language</th>
+                
                         
                         <!-- Add more table headers for additional fields -->
                     </tr>
@@ -145,20 +142,17 @@ function generate() {
                     <tr>
                         <td>{{ $dailyEntry->staff_name }}</td>
                         <td>{{ $dailyEntry->patient_name }}</td>
-                        <td>{{ $dailyEntry->house}}</td> 
-                        <td>{{ $dailyEntry->assessment_date }}</td>
-                        <td>{{ $dailyEntry->nhs_number }}</td>
-                        <td>{{ $dailyEntry->user_name_first }}</td>
-                        <td>{{ $dailyEntry->user_name_last }}</td>
-                        <td>{{ $dailyEntry->address_street }}</td>
-                        <td>{{ $dailyEntry->address_line_2 }}</td>
-                        <td>{{ $dailyEntry->address_city }}</td>
-                        <td>{{ $dailyEntry->address_state }}</td>
-                        <td>{{ $dailyEntry->address_zip }}</td>
-                        <td>{{ $dailyEntry->address_country }}</td>
-                        <td>{{ $dailyEntry->phone}}</td>
-                        <td>{{ $dailyEntry->communication_language}}</td>  
-                           
+                        <td>{{ $dailyEntry->house}}</td>
+                        <td>{{ $dailyEntry->assessment_date}}</td> 
+                        <td>{{ $dailyEntry->nhs_number}}</td>
+                        <td>{{ $dailyEntry->user_name_first}}</td>
+                        <td>{{ $dailyEntry->user_name_last}}</td>
+                        <td>{{ $dailyEntry->address_street}}</td>
+                        <td>{{ $dailyEntry->address_line_2}}</td>
+                        <td>{{ $dailyEntry->address_city}}</td>
+                        <td>{{ $dailyEntry->address_state}}</td>
+                        <td>{{ $dailyEntry->address_line_2}}</td>
+
                         <!-- Add more table cells for additional fields -->
                     </tr>
                     @endforeach

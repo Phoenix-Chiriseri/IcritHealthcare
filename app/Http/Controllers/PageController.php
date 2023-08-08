@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Patient;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -24,8 +26,10 @@ class PageController extends Controller
 
     public function vr()
     {
+        $house = Auth::user()->house;
         $patients = Patient::all();
-        $users = User::all();
+        //$users = User::all();
+        $users = DB::select("SELECT * FROM users WHERE house = ?", [$house]);
         return view("pages.virtual-reality")->with("patients",$patients)->with("users",$users);
     }
 
@@ -36,31 +40,7 @@ class PageController extends Controller
 
     public function profile()
     {
-        $users = User::with('patients')->get();
-        dd($users);
-        // Display the data
-        foreach ($users as $user) {
-            echo "User ID: " . $user->id . "<br>";
-            echo "Username: " . $user->username . "<br>";
-            echo "Email: " . $user->email . "<br>";
-            echo "House: " . $user->house . "<br>"; 
-            dd($user->id);
-            dd($user->username);
-            dd($user->email);
-            dd($user->house);
-            
-            if ($user->patients->isNotEmpty()) {
-                echo "Patients: <br>";
-                foreach ($user->patients as $patient) {
-                    echo "- Patient Name: " . $patient->patient_name . "<br>";
-                    echo "- Patient House: " . $patient->house . "<br>";
-                    echo "<br>";
-                }
-            } else {
-                echo "No associated patients<br><br>";
-            }
-        }     
-        return view("pages.profile-static");
+        
     }
 
     public function signin()
