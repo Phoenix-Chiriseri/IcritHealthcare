@@ -61,8 +61,7 @@ function generate() {
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold"></h1>
-                                    
+                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Welcome {{$username}}</h1>       
                                 </div>
                             </div>
                             <div class="col-4 text-end">

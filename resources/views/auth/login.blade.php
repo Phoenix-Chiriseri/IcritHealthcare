@@ -57,7 +57,7 @@
                         <div
                             class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
                             <div class="position-relative  h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                            style="background-image: url('img/bhebhiHeavy.jpg'); background-size: cover;">
+                            style="background-image: url('img/model.jpeg'); background-size: cover;">
                             </div>
                         </div>
                     </div>

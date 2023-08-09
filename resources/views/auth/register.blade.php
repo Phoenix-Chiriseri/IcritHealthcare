@@ -63,8 +63,6 @@
                                 <select name="house" class = "form-control">
                                 <option value="hearten">Hearten</option>
                                 <option value="lorraine">Lorraine</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
                                 </select>
                                 <div class="text-center">
                                     <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>

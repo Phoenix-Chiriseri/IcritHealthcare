@@ -24,19 +24,29 @@ class DailyEntryController extends Controller
         $username = Auth::user()->username;
         $house = Auth::user()->house;
         $loggedInUser = Auth::user();
+
+        $dailyEntries = DB::select("
+        SELECT *
+        FROM daily_entries
+        WHERE  house = :house
+        ORDER BY id desc",
+        ['house' => $house]
+        );
+        return view('pages.viewHouseRecords')->with('dailyEntries',$dailyEntries)->with('house',$house)->with("username",$username);
         // Check if the user is logged in
-        if ($loggedInUser) {
+       /* if ($loggedInUser) {
             
             $house = $loggedInUser->house;
+            //dd($house);
             // Retrieve the daily entries for the logged-in user's house
             $dailyEntries = DB::table('daily_entries')
-                ->join('patients', 'daily_entries.id', '=', 'patients.Staff_Id')
+                ->join('patients', 'daily_entries.id', '=', 'patients.id')
                 ->where('patients.house', $house)
                 ->orderBy('daily_entries.id', 'DESC')
                 ->get();
             //return view('daily_entries.index', ['dailyEntries' => $dailyEntries]);
-            return view('pages.viewHouseRecords')->with("dailyEntries",$dailyEntries)->with("house",$house);
-        }
+            return view('pages.viewHouseRecords')->with("dailyEntries",$dailyEntries)->with("house",$house);*/
+    
             //->with("dailyEntries",$dailyEntries);
     }  
 
@@ -45,7 +55,6 @@ class DailyEntryController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      */
