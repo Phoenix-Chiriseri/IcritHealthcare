@@ -61,13 +61,14 @@ function generate() {
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
+                                    
                                     <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Welcome {{$username}}</h1>
                                     
                                 </div>
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-user bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                    <!--<i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>!-->
                                 </div>
                             </div>
                         </div>
@@ -76,18 +77,17 @@ function generate() {
             </div>
             <div class="col-xl-4 col-sm-6">
                 <div class="card">
-                    <div class="card-body p-3">
+                    <div class="card-body p-5">
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
                                     <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Your House is {{$house}}</h1>
-                                    <h5 class="font-weight-bolder">
-                                    </h5>
+                                    
                                 </div>
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-s bg-building gradient-warning shadow-warning text-center rounded-circle">
-                                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                <img src="./img/icritLogo.png" class="navbar-brand-img h-100" alt="main_logo" style="width:500px:height:500px;">    
                                 </div>
                             </div>
                         </div>
@@ -104,6 +104,7 @@ function generate() {
                             </div>
                             <div class="col-4 text-end">
                                 <a href = "{{ route('allRecords') }}" class = "btn btn-info"><i class = "fa fa-house"></i>View All House Records</a>
+                                
                             </div>
                         </div>
                     </div>

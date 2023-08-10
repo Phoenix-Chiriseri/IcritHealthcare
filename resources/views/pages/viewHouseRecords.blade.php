@@ -102,6 +102,7 @@ function generate() {
                                 </div>
                             </div>
                             <div class="col-4 text-end">
+                                <img src = "">
                                 <a href = "{{ route('allRecords') }}" class = "btn btn-info">View House Records</a>
                             </div>
                         </div>
