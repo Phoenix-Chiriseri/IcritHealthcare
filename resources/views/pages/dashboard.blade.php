@@ -159,7 +159,6 @@ function generate() {
             </div>
         </div>
     </div>
-@include('layouts.footers.auth.footer')
 </div>
 @endsection
 @push('js')

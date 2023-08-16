@@ -17,14 +17,26 @@ class DailyEntryController extends Controller
     public function allHouseRecords(){
 
 
-        $userId = Auth::user()->house;
+        $userId = Auth::user()->house;        
         $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
             ->leftJoin('users', 'patients.Staff_Id', '=', 'users.id')
             ->where('users.house', $userId)
-            ->select('users.username as user_name','users.house as house', 'patients.patient_name', 'daily_entries.date')
+            ->select(
+                'users.username as user_name',
+                'users.house as house',
+                'patients.patient_name',
+                'daily_entries.date',
+                'daily_entries.shift',
+                'daily_entries.personal_care',
+                'daily_entries.medication_admin',
+                'daily_entries.appointments',
+                'daily_entries.activities',
+                'daily_entries.incident'
+            )
             ->get();
+        
+        return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId);
             //dd($entries);
-        return view('pages.viewHouseRecords', compact('entries'));
     }  
 
     /**

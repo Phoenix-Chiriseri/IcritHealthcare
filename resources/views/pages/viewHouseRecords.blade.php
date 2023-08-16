@@ -115,25 +115,39 @@ function generate() {
     <h1 class="text-center">Daily Entry Results</h1>
         <div class="table-responsive">
         <input type="button" onclick="generate()" class = "btn btn-success btn-lg" value="Export to PDF"/>
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>User Name</th>
-                    <th>Patient Name</th>
+                    <th>User</th>
                     <th>House</th>
+                    <th>Patient Name</th>
+                    <th>Date</th>
+                    <th>Shift</th>
+                    <th>Personal Care</th>
+                    <th>Medication Admin</th>
+                    <th>Appointments</th>
+                    <th>Activities</th>
+                    <th>Incident</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($entries as $entry)
-                    <tr>
-                        <td>{{ $entry->user_name }}</td>
-                        <td>{{ $entry->patient_name }}</td>
-                        <td>{{ $entry->patient_patient_name }}</td>
-                        <td>{{ $entry->house }}</td>
-                    </tr>
+                @foreach($entries as $entry)
+                <tr>
+                    <td>{{ $entry->user_name }}</td>
+                    <td>{{ $entry->house }}</td>
+                    <td>{{ $entry->patient_name }}</td>
+                    <td>{{ $entry->date }}</td>
+                    <td>{{ $entry->shift }}</td>
+                    <td>{{ $entry->personal_care }}</td>
+                    <td>{{ $entry->medication_admin }}</td>
+                    <td>{{ $entry->appointments }}</td>
+                    <td>{{ $entry->activities }}</td>
+                    <td>{{ $entry->incident }}</td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
+    
         </div>
 </div>
 @include('layouts.footers.auth.footer')
