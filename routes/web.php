@@ -1,6 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\ResetPassword;
+use App\Http\Controllers\ChangePassword; 
+use App\Http\Controllers\DailyEntryController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ABCReportController;
+use App\Http\Controllers\Admin;  
+use App\Models\DailyEntries;   
 
 /*
 |--------------------------------------------------------------------------
@@ -16,19 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\UserProfileController;
-use App\Http\Controllers\ResetPassword;
-use App\Http\Controllers\ChangePassword; 
-use App\Http\Controllers\DailyEntryController;
-use App\Http\Controllers\PatientController;
-use App\Http\Controllers\Admin;  
-use App\Models\DailyEntries;           
-            
+       
 Route::get('/registerPatient',[PatientController::class,'index']);
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
@@ -58,4 +58,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry');
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
+	Route::get('getAbcEntry', [ABCReportController::class, 'index'])->name('getAbcReport');
 });
