@@ -6,68 +6,37 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\DailyEntries;
 use Illuminate\Support\Facades\DB;
+use App\Model\User;
 
 class HomeController extends Controller
 {
-        /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\View\View
-     */
+  
     public function index()
     {
+
+        $userId = Auth::id();
         $username = Auth::user()->username;
         $house = Auth::user()->house;
-        $dailyEntries = DB::select("
-        SELECT *
-        FROM daily_entries
-        WHERE staff_name = :staff_name AND house = :house
-        ORDER BY id",
-        ['staff_name' => $username, 'house' => $house]
-        );
-        /*$dailyEntries = DB::select("
-        SELECT * 
-        FROM daily_entries
-        WHERE staff_name = :staff_name AND house = :house",
-        ['staff_name' => $username, 'house' => $house]);
-        /*$dailyEntries = DB::select("
-        SELECT * 
-        FROM daily_entries where staff_name= :staff_name and house=:house",['staff_name' => $username,'house',$house]);        
-        /*$dailyEntries = DB::select("
-        SELECT * 
-        FROM daily_entries 
-        INNER JOIN patients 
-        WHERE staff_name = :staff_name ORDER BY daily_entries.id DESC
-        ", ['staff_name' => $username]);
-        /*$dailyEntries = DB::table('daily_entries')
-        ->where('staff_name', '=', $username)
-        ->orderBy('id', 'asc') // Replace 'asc' with 'desc' if you want descending order
-        ->get();*/
-
-        //$entries = Db::raw(Db::select('select * from daily_entries where staff_name='.$username));
-        //$entries = DB::select(DB::raw("SELECT * FROM daily_entries where staff_name=$username"));
-        //$dailyEntries = DB::table('daily_entries')
-        //->where('staff_name', '=', $username)
-        //->get();
-        //dd($entries);
-        //return the daily entries to the view
-        //$entries = DB::table('daily_entries')
-          //   ->select(DB::raw('*'))
-           //  ->where('staff_name', $username)
-             //->get();
-        //show only records that pertain to the logged in user.....
-        //dd($entries); 
-        return view('pages.dashboard')->with("username",$username)->with("house",$house)
-        ->with("dailyEntries",$dailyEntries);
-    }
+    
+        $query = "
+            SELECT users.username as user_name, users.house as house, patients.patient_name, daily_entries.date,
+            daily_entries.shift, daily_entries.personal_care, daily_entries.medication_admin,
+            daily_entries.appointments, daily_entries.activities, daily_entries.incident
+            FROM daily_entries
+            LEFT JOIN patients ON daily_entries.patient_id = patients.id
+            LEFT JOIN users ON patients.STaff_Id = users.id
+            WHERE EXISTS (
+                SELECT 1
+                FROM patients AS p
+                WHERE p.Staff_Id = :userId
+                AND p.id = daily_entries.patient_id
+            )
+        ";
+    
+        // Execute the raw SQL query with the user ID parameter
+        $entries = DB::select($query, ['userId' => $userId]);
+    
+        return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house);
+    
+  }
 }

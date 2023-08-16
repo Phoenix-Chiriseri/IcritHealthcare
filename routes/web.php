@@ -41,7 +41,8 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 	Route::group(['middleware' => 'auth'], function () {
-	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
+	Route::get('/addPatients',[PatientController::class,'index'])->name("patients");
+	Route::get('/getEntry', [DailyEntryController::class, 'createDailyEntry'])->name('getEntry');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/saveEntry', [DailyEntryController::class, 'store'])->name('save-entry');
@@ -55,6 +56,6 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
-	
-	
+	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry');
+	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
 });

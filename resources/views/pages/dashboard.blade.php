@@ -62,13 +62,13 @@ function generate() {
                             <div class="col-8">
                                 <div class="numbers">
                                     
-                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Welcome {{$username}}</h1>
+                                    Welcome {{$name}}
                                     
                                 </div>
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-user bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <!--<i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>!-->
+                                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,8 @@ function generate() {
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Your House is {{$house}}</h1>
+                                    
+                                    Your House is {{$house}}
                                     
                                 </div>
                             </div>
@@ -111,62 +112,53 @@ function generate() {
                 </div>
             </div>
         </div>
-</div>
-<div class="container" style="margin-top:200px;">
-    <h1 class="text-center">Welcome {{$username}} these are your daily entry results</h1>
-    @if (empty($dailyEntries))
-        <p>No daily entries found.</p>
-    @else
-        <div class="table-responsive">
-        <!--<input type="button" onclick="generate()" class = "btn btn-success btn-lg" value="Export to PDF"/>!-->
-            <table class="table table-hover" id = "simple_table">
-                <thead>
-                    <tr>
-                        <th>Staff Name</th>
-                        <th>Patient Name</th>
-                        <th>House</th>
-                        <th>Assessment Date</th>
-                        <th>Nhs Number</th>
-                        <th>Username</th>
-                        <th>Last Name</th>
-                        <th>Address Street</th>
-                        <th>Address Line 2</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zip Code</th>
-                        <th>Country</th>
-                        <th>Phone Number</th>
-                        <th>Comunication Language</th>
-                        
-                        <!-- Add more table headers for additional fields -->
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($dailyEntries as $dailyEntry)
-                    <tr>
-                        <td>{{ $dailyEntry->staff_name }}</td>
-                        <td>{{ $dailyEntry->patient_name }}</td>
-                        <td>{{ $dailyEntry->house}}</td> 
-                        <td>{{ $dailyEntry->assessment_date }}</td>
-                        <td>{{ $dailyEntry->nhs_number }}</td>
-                        <td>{{ $dailyEntry->user_name_first }}</td>
-                        <td>{{ $dailyEntry->user_name_last }}</td>
-                        <td>{{ $dailyEntry->address_street }}</td>
-                        <td>{{ $dailyEntry->address_line_2 }}</td>
-                        <td>{{ $dailyEntry->address_city }}</td>
-                        <td>{{ $dailyEntry->address_state }}</td>
-                        <td>{{ $dailyEntry->address_zip }}</td>
-                        <td>{{ $dailyEntry->address_country }}</td>
-                        <td>{{ $dailyEntry->phone}}</td>
-                        <td>{{ $dailyEntry->communication_language}}</td>                 
-                        <!-- Add more table cells for additional fields -->
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <div class="container">
+    <a class="navbar-brand" href="{{ url('/home') }}" class = "btn btn-info">Dashboard</a>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header">Daily Entries</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>House</th>
+                                        <th>Patient Name</th>
+                                        <th>Date</th>
+                                        <th>Shift</th>
+                                        <th>Personal Care</th>
+                                        <th>Medication Admin</th>
+                                        <th>Appointments</th>
+                                        <th>Activities</th>
+                                        <th>Incident</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($entries as $entry)
+                                        <tr>
+                                            <td>{{ $entry->user_name }}</td>
+                                            <td>{{ $entry->house }}</td>
+                                            <td>{{ $entry->patient_name }}</td>
+                                            <td>{{ $entry->date }}</td>
+                                            <td>{{ $entry->shift }}</td>
+                                            <td>{{ $entry->personal_care }}</td>
+                                            <td>{{ $entry->medication_admin }}</td>
+                                            <td>{{ $entry->appointments }}</td>
+                                            <td>{{ $entry->activities }}</td>
+                                            <td>{{ $entry->incident }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
         </div>
-    @endif
-</div>
+    </div>
 @include('layouts.footers.auth.footer')
 </div>
 @endsection

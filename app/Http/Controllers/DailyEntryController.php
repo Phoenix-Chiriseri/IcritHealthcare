@@ -13,110 +13,69 @@ class DailyEntryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
-
     //query
     public function allHouseRecords(){
 
-        $username = Auth::user()->username;
-        $house = Auth::user()->house;
-        $loggedInUser = Auth::user();
 
-        $dailyEntries = DB::select("
-        SELECT *
-        FROM daily_entries
-        WHERE  house = :house
-        ORDER BY id desc",
-        ['house' => $house]
-        );
-        return view('pages.viewHouseRecords')->with('dailyEntries',$dailyEntries)->with('house',$house)->with("username",$username);
-        // Check if the user is logged in
-       /* if ($loggedInUser) {
-            
-            $house = $loggedInUser->house;
-            //dd($house);
-            // Retrieve the daily entries for the logged-in user's house
-            $dailyEntries = DB::table('daily_entries')
-                ->join('patients', 'daily_entries.id', '=', 'patients.id')
-                ->where('patients.house', $house)
-                ->orderBy('daily_entries.id', 'DESC')
-                ->get();
-            //return view('daily_entries.index', ['dailyEntries' => $dailyEntries]);
-            return view('pages.viewHouseRecords')->with("dailyEntries",$dailyEntries)->with("house",$house);*/
-    
-            //->with("dailyEntries",$dailyEntries);
+        $userId = Auth::user()->house;
+        $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
+            ->leftJoin('users', 'patients.Staff_Id', '=', 'users.id')
+            ->where('users.house', $userId)
+            ->select('users.username as user_name','users.house as house', 'patients.patient_name', 'daily_entries.date')
+            ->get();
+            //dd($entries);
+        return view('pages.viewHouseRecords', compact('entries'));
     }  
 
-
-    public function create()
-    {
-        //
-    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //dd($request->input("patient_id"));
-        // Create a new DailyEntry instance and fill it with the validated data
-        $dailyEntry = new DailyEntry();
-        $staff_name = Auth::user()->username;
-        $house = Auth::user()->house;
-        $dailyEntry->fill([
-            'staff_name'=>$staff_name,
-            'patient_name'=>$request->input("patient_id"),
-            'assessment_date' => $request->input('assessment_date'),
-            'nhs_number' => $request->input('nhs_number'),
-            'user_name_first' => $request->input('user_name_first'),
-            'user_name_last' => $request->input('user_name_last'),
-            'address_street' => $request->input('address_street'),
-            'address_line_2' => $request->input('address_line_2'),
-            'address_city' => $request->input('address_city'),
-            'address_state' => $request->input('address_state'),
-            'address_zip' => $request->input('address_zip'),
-            'address_country' => $request->input('address_country'),
-            'phone' => $request->input('phone'),
-            'communication_language' => $request->input('communication_language'),
-            'house'=>$house
-            // Add more fields as needed
-        ]);
-        // Save the entry to the database
-        $dailyEntry->save();
-        //redirect to the dashboard after successfully registering a user..
-        return redirect("/dashboard");
+       // Validate the request data
+    $request->validate([
+        'date' => 'required|date',
+        'shift' => 'required', // Add validation for shift
+        'patient_id' => 'required|exists:patients,id',
+        'personal_care' => 'required', // Add validation for personal_care
+        'medication_admin' => 'required', // Add validation for medication_admin
+        'appointments' => 'required', // Add validation for appointments
+        'activities' => 'required', // Add validation for activities
+        'incident' => 'required', // Add validation for incident
+    ]);
+
+    // Create the daily entry and associate it with the user and patient
+    $dailyEntry = new DailyEntry([
+        'date' => $request->date,
+        'shift' => $request->shift, // Assign the shift value
+        'patient_id' => $request->patient_id,
+        'personal_care' => $request->personal_care, // Assign the personal_care value
+        'medication_admin' => $request->medication_admin, // Assign the medication_admin value
+        'appointments' => $request->appointments, // Assign the appointments value
+        'activities' => $request->activities, // Assign the activities value
+        'incident' => $request->incident, // Assign the incident value
+    ]);
+
+    $user = Auth::user();
+    $user->dailyEntries()->save($dailyEntry);
+
+    return redirect()->route('home')
+        ->with('success', 'Daily Entry added successfully.');
     }
     /**
      * Display the specified resource.
      */
-    public function show(DailyEntry $dailyEntry)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(DailyEntry $dailyEntry)
-    {
-        //
-    }
+     public function createDailyEntry(){
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, DailyEntry $dailyEntry)
-    {
         //
-    }
+        $houseId = Auth::user()->house;
+    // Get patients belonging to the same house as the authenticated user using a raw SQL query
+        $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$houseId]);
+    // You can convert the results to a collection if needed
+        $patients = collect($patients);
+        return view('pages.user-profile')->with("patients",$patients);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(DailyEntry $dailyEntry)
-    {
-        //
-    }
+     }
+
 }

@@ -13,21 +13,20 @@ return new class extends Migration
     {
         Schema::create('daily_entries', function (Blueprint $table) {
             $table->id();
-            $table->date('assessment_date');
-            $table->string('staff_name');
-            $table->string("patient_name");
-            $table->string('nhs_number');
-            $table->string('user_name_first');
-            $table->string('user_name_last');
-            $table->string('address_street');
-            $table->string('address_line_2')->nullable();
-            $table->string('address_city');
-            $table->string('address_state');
-            $table->string('address_zip');
-            $table->string('address_country');
-            $table->string('phone');
-            $table->string('communication_language');
-            $table->string("house");
+            $table->date('date');
+            $table->string('shift'); // Shift field
+            // Foreign keys
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('patient_id');   
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade'); 
+            // Additional fields
+            $table->string('personal_care'); // Personal Care field
+            $table->string('medication_admin'); // Medication Admin field
+            $table->string('appointments'); // Appointments field
+            $table->string('activities'); // Activities field
+            $table->string('incident'); // Incident field
+            
             $table->timestamps();
         });
     }

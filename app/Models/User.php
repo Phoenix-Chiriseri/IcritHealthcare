@@ -18,49 +18,38 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
-        'firstname',
-        'email',
-        'password',
-        'house',
-        'patient_id'
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * Always encrypt the password when it is updated.
-     *
-     * @param $value
-    * @return string
-    */
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value);
-    }
-
+            'username',
+            'email',
+            'password',
+            'house'
+        ];
+    
+        /**
+         * The attributes that should be hidden for serialization.
+         *
+         * @var array<int, string>
+         */
+        protected $hidden = [
+            'password',
+            'remember_token',
+        ];
+    
+        /**
+         * The attributes that should be cast.
+         *
+         * @var array<string, string>
+         */
+        protected $casts = [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    
+    
     public function patients()
     {
-        return $this->hasMany(Patient::class, 'Staff_Id');
+        return $this->hasMany(Patient::class);
     }
-
+    
     public function dailyEntries()
     {
         return $this->hasMany(DailyEntry::class);

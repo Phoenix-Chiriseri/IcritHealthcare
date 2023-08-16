@@ -10,21 +10,15 @@ class DailyEntry extends Model
     use HasFactory;
 
     protected $fillable = [
-        'staff_name',
-        'assessment_date',
-        'nhs_number',
-        'patient_name',
-        'user_name_first',
-        'user_name_last',
-        'address_street',
-        'address_line_2',
-        'address_city',
-        'address_state',
-        'address_zip',
-        'address_country',
-        'phone',
-        'communication_language',
-        'house'
+        'date',
+        'patient_id',
+        'date',
+        'shift',
+        'personal_care',
+        'medication_admin',
+        'appointments',
+        'activities',
+        'incident'
     ];
 
     public function user()

@@ -61,7 +61,7 @@ function generate() {
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Welcome {{$username}}</h1>       
+                                    
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -79,7 +79,7 @@ function generate() {
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <h1 class="text-sm mb-0 text-uppercase font-weight-bold">Your House is {{$house}}</h1>
+                                  
                                     <h5 class="font-weight-bolder">
                                     </h5>
                                 </div>
@@ -113,53 +113,28 @@ function generate() {
 </div>
 <div class="container" style="margin-top:200px;">
     <h1 class="text-center">Daily Entry Results</h1>
-    @if (empty($dailyEntries))
-        <p>No daily entries found.</p>
-    @else
         <div class="table-responsive">
         <input type="button" onclick="generate()" class = "btn btn-success btn-lg" value="Export to PDF"/>
-            <table class="table table-hover" id = "simple_table">
-                <thead>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Patient Name</th>
+                    <th>House</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($entries as $entry)
                     <tr>
-                        <th>Staff Name</th>
-                        <th>Patient Name</th>
-                        <th>House</th>
-                        <th>Assessment Date</th>
-                        <th>Nhs Number</th>
-                        <th>Username</th>
-                        <th>Last Name</th>
-                        <th>Address Street</th>
-                        <th>Address Line 2</th>
-                        <th>City</th>
-                        <th>State</th>
-                
-                        
-                        <!-- Add more table headers for additional fields -->
+                        <td>{{ $entry->user_name }}</td>
+                        <td>{{ $entry->patient_name }}</td>
+                        <td>{{ $entry->patient_patient_name }}</td>
+                        <td>{{ $entry->house }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach ($dailyEntries as $dailyEntry)
-                    <tr>
-                        <td>{{ $dailyEntry->staff_name }}</td>
-                        <td>{{ $dailyEntry->patient_name }}</td>
-                        <td>{{ $dailyEntry->house}}</td>
-                        <td>{{ $dailyEntry->assessment_date}}</td> 
-                        <td>{{ $dailyEntry->nhs_number}}</td>
-                        <td>{{ $dailyEntry->user_name_first}}</td>
-                        <td>{{ $dailyEntry->user_name_last}}</td>
-                        <td>{{ $dailyEntry->address_street}}</td>
-                        <td>{{ $dailyEntry->address_line_2}}</td>
-                        <td>{{ $dailyEntry->address_city}}</td>
-                        <td>{{ $dailyEntry->address_state}}</td>
-                        <td>{{ $dailyEntry->address_line_2}}</td>
-
-                        <!-- Add more table cells for additional fields -->
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                @endforeach
+            </tbody>
+        </table>
         </div>
-    @endif
 </div>
 @include('layouts.footers.auth.footer')
 </div>
