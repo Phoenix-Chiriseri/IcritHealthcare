@@ -2,57 +2,20 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
-<script type="text/javascript">  
-function generate() {  
-    var doc = new jsPDF('p', 'pt', 'letter');  
-    var htmlstring = '';  
-    var tempVarToCheckPageHeight = 0;  
-    var pageHeight = 0;  
-    orientation: "landscape";
-    unit: "in";
-    format: [4, 2];
-    pageHeight = doc.internal.pageSize.height;  
-    specialElementHandlers = {  
-        // element with id of "bypass" - jQuery style selector  
-        '#bypassme': function(element, renderer) {  
-            // true = "handled elsewhere, bypass text extraction"  
-            return true  
-        }  
-    };  
-    margins = {  
-        top: 150,  
-        bottom: 60,  
-        left: 40,  
-        right: 40,  
-        width: 600  
-    };  
-    var y = 20;  
-    doc.setLineWidth(2);  
-    doc.text(200, y = y + 30, "Daily Entry");  
-    doc.autoTable({  
-        html: '#simple_table',  
-        startY: 70,  
-        theme: 'grid',  
-        columnStyles: {  
-            0: {  
-                cellWidth: 250,  
-            },  
-            1: {  
-                cellWidth: 250,  
-            },  
-            2: {  
-                cellWidth: 250,  
-            }  
-        },  
-        styles: {  
-            minCellHeight: 80  
-        }  
-    })  
-    doc.save('Daily Entry Reports.pdf');  
-}  
-</script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+<script>
+   $(document).ready(function() {
+    $('#export-pdf').click(function() {
+        const doc = new jsPDF();
+        doc.text('Dashboard Report', 10, 10);
+        doc.autoTable({ html: '#dailyEntryTable' });
+        doc.save('dashboard_report.pdf');
+    });
+});
+    </script> 
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
@@ -114,8 +77,8 @@ function generate() {
 <div class="container" style="margin-top:200px;">
     <h1 class="text-center">Daily Entry Results</h1>
         <div class="table-responsive">
-        <input type="button" onclick="generate()" class = "btn btn-success btn-lg" value="Export to PDF"/>
-        <table class="table table-bordered">
+        <button id="export-pdf" class="btn btn-primary">Export to PDF</button>
+        <table class="table table-bordered" id = "dailyEntryTable">
             <thead>
                 <tr>
                     <th>User</th>
