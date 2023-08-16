@@ -117,9 +117,9 @@ function generate() {
     <div class="container">
     <a class="navbar-brand" href="{{ url('/home') }}" class = "btn btn-info">Dashboard</a>
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Daily Entries</div>
+                    <div class="card-header text-center">Daily Entries</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered">
