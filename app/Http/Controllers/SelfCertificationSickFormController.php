@@ -13,6 +13,8 @@ class SelfCertificationSickFormController extends Controller
     public function index()
     {
         //
+        return view('pages.getSelfCertificationSickForm');
+        
     }
 
     /**

@@ -13,6 +13,8 @@ class HospitalPassportController extends Controller
     public function index()
     {
         //
+    
+        return view('pages.getHospitalPassport');
     }
 
     /**

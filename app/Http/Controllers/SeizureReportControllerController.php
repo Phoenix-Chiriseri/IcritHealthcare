@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FallsCheklist;
+use App\Models\SeizureReportController;
 use Illuminate\Http\Request;
 
-class FallsCheklistController extends Controller
+class SeizureReportControllerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class FallsCheklistController extends Controller
     public function index()
     {
         //
-        return view('pages.getFallsCheckList');
+        return view('pages.getSeizureReport');
     }
 
     /**
@@ -35,7 +35,7 @@ class FallsCheklistController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(FallsCheklist $fallsCheklist)
+    public function show(SeizureReportController $seizureReportController)
     {
         //
     }
@@ -43,7 +43,7 @@ class FallsCheklistController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(FallsCheklist $fallsCheklist)
+    public function edit(SeizureReportController $seizureReportController)
     {
         //
     }
@@ -51,7 +51,7 @@ class FallsCheklistController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, FallsCheklist $fallsCheklist)
+    public function update(Request $request, SeizureReportController $seizureReportController)
     {
         //
     }
@@ -59,7 +59,7 @@ class FallsCheklistController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(FallsCheklist $fallsCheklist)
+    public function destroy(SeizureReportController $seizureReportController)
     {
         //
     }

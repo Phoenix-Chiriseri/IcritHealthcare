@@ -13,6 +13,7 @@ class OperationRiskAssessmentController extends Controller
     public function index()
     {
         //
+        return view('pages.getOperationsRiskAssessment');
     }
 
     /**

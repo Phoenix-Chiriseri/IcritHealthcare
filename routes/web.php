@@ -11,8 +11,18 @@ use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\DailyEntryController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ABCReportController;
+use App\Http\Controllers\BehaviouralMonitorChartController;
+use App\Http\Controllers\FallsCheklistController;
+use App\Http\Controllers\HospitalPassportController;
+use App\Http\Controllers\IncidentReportController;
+use App\Http\Controllers\OperationRiskAssessmentController;
+use App\Http\Controllers\PositiveBehaviourSupportPlanController;
+use App\Http\Controllers\SelfCertificationSickFormController;
+use App\Http\Controllers\MySupportPlanController;
+use App\Http\Controllers\SeizureReportController;
 use App\Http\Controllers\Admin;  
 use App\Models\DailyEntries;   
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +57,16 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/saveEntry', [DailyEntryController::class, 'store'])->name('save-entry');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
+	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart');
+	Route::get('getComplaintRecord', [BehaviouralMonitorChartController::class, 'index'])->name('getComplaintRecord');
+	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist');
+	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment');
+	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport');
+	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport');
+	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm');
+	Route::get('/getIncidentReport', [IncidentReportController::class, 'index'])->name('getIncidentReport');
+	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySupportPlan');
+	Route::get('/getHospitalPassport', [HospitalPassportController::class, 'index'])->name('getHospitalPassport');
 	Route::get('/viewHouseRecords', [DailyEntryController::class, 'allHouseRecords'])->name("allRecords");
 	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all");
 	Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static'); 
@@ -58,5 +78,6 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry');
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
-	Route::get('getAbcEntry', [ABCReportController::class, 'index'])->name('getAbcReport');
+	Route::get('/getAbcEntry', [ABCReportController::class, 'index'])->name('getAbcReport');
+	
 });

@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getBehaviouralMonitorChart">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -51,7 +51,7 @@
                 </a>
             </li>   
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getComplaintRecord">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -60,7 +60,7 @@
                 </a>
             </li>   
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getFallsChecklist">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -69,7 +69,7 @@
                 </a>
             </li>  
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getHospitalPassport">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -78,7 +78,7 @@
                 </a>
             </li>   
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getIncidentReport">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -87,7 +87,7 @@
                 </a>
             </li>  
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getMySupportPlan">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -96,7 +96,7 @@
                 </a>
             </li>  
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getOperationsRiskAssessment">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -105,7 +105,7 @@
                 </a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getPositiveBehaviourSupport">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -114,7 +114,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getSeizureReport">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
@@ -123,7 +123,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
+                <a class="nav-link" href="getSelfCertificationSickForm">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
