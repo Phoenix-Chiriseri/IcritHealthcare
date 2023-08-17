@@ -2,20 +2,33 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 <script>
-   $(document).ready(function() {
-    $('#export-pdf').click(function() {
-        const doc = new jsPDF();
-        doc.text('Dashboard Report', 10, 10);
-        doc.autoTable({ html: '#dailyEntryTable' });
-        doc.save('dashboard_report.pdf');
+    document.getElementById("export-pdf").addEventListener("click", function () {
+        const pdf = new jsPDF();
+        // Get the table element
+        const table = document.getElementById("dailyEntryTable");
+        // Convert the table to a canvas
+        const canvas = document.createElement("canvas");
+        const tableWidth = table.offsetWidth;
+        const tableHeight = table.offsetHeight;
+        canvas.width = tableWidth;
+        canvas.height = tableHeight;
+        const context = canvas.getContext("2d");
+        context.font = "10px Arial"; // Set font for better table rendering
+        context.fillStyle = "#000";
+        context.fillRect(0, 0, tableWidth, tableHeight);
+        context.fillStyle = "#fff";
+        context.fillText("Daily Entry Results", 10, 10);
+        // Export the table content to the PDF
+        pdf.addImage(canvas, "JPEG", 15, 15, tableWidth, tableHeight);
+        // Save the PDF
+        pdf.save("daily_entry_results.pdf");
     });
-});
-    </script> 
+</script>
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">

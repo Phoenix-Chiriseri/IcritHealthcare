@@ -29,50 +29,77 @@
             <div class="card">
                 <form method="POST" action="{{ route('save-entry') }}">
                     @csrf
-                    <div class="mb-3">
-                        <label class="form-label">First Name</label>
-                        <input type="text" class="form-control" name="date" required>
+                   
+        <div class="form-group row">
+            <label for="first_name" class="col-md-2 col-form-label">First Name</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Last Name</label>
-                <input type="text" class="form-control" name="date" required>
-    </div>
-            
-            <div class="mb-3">
-                <label class="form-label">Date:</label>
-                <input type="date" class="form-control" name="date" required>
+        </div>
+        <div class="form-group row">
+            <label for="last_name" class="col-md-2 col-form-label">Last Name</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Known Behaviours</label>
-                <input type="text" class="form-control" name="location" required>
+        </div>
+        <div class="form-group row">
+            <label for="date" class="col-md-2 col-form-label">Date</label>
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <input type="date" class="form-control" id="last_name" name="last_name" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Totals</label>
-                <input type="text" class="form-control" name="location" required>
+        </div>
+        <div class="form-group row">
+            <label for="date" class="col-md-2 col-form-label">Known Behaviours</label>
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <input type="date" class="form-control" id="last_name" name="last_name" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Time</label>
-                <input type="time" class="form-control" name="location" required>
+        </div>
+        <div class="form-group row">
+            <label for="date" class="col-md-2 col-form-label">Totals</label>
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
-            
-            <div class="mb-3">
-                <label class="form-label">Known Behaviour</label>
-                <input type="text" class="form-control" name="location" required>
+        </div>
+        <div class="form-group row">
+            <label for="date" class="col-md-2 col-form-label">Time</label>
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <input type="time" class="form-control" id="last_name" name="last_name" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Comments</label>
-                <input type="text" class="form-control" name="location" required>
+        </div>
+        <div class="form-group row">
+            <label for="date" class="col-md-2 col-form-label">Known Behaviour Reference</label>
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Injuries</label>
-                <input type="text" class="form-control" name="location" required>
+        </div>
+        <div class="form-group row">
+            <label for="date" class="col-md-2 col-form-label">Comments/ additional detail if needed</label>
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Initials</label>
-                <input type="text" class="form-control" name="location" required>
+        </div>
+        <label for="injuries" class="col-md-2 col-form-label">Injuries sustained by anyone?</label>
+        <select name="injuries" class = "form-control">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            </select>
+        <div class="form-group row">
+            <label for="date" class="col-md-2 col-form-label">Initials Of Person Completing Entry</label>
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
-            <!-- Add more sections for the remaining points in the template -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <!-- Known Behaviours Fieldset 1 -->
+        <!-- Known Behaviours Fieldset 2 -->
+        <button type="submit" class="btn btn-success">Submit</button>
                 </form>
                 </div>
                 </div>
