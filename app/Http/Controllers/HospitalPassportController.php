@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\HospitalPassport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+Use Auth;
 
 class HospitalPassportController extends Controller
 {
@@ -12,9 +14,15 @@ class HospitalPassportController extends Controller
      */
     public function index()
     {
-        //
+       //get the username based on the logged in user
+       $house = Auth::user()->house;
+       $query = "
+              select * from users where house = :house
+       ";
+        // Execute the raw SQL query with the user ID parameter
+        $users = DB::select($query, ['house' => $house]);
+        return view('pages.getHospitalPassport')->with('users',$users);;
     
-        return view('pages.getHospitalPassport');
     }
 
     /**

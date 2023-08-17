@@ -44,10 +44,12 @@
                     @csrf
                     <div class="form-group">
                         <label for="shift">Staff Name</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Jeff</option>
-                            <option value="Late">Toby</option>
-                        </select>
+                        <select id = "Staff_Id"  name = "Staff_Id" class = "form-control" required>
+                            <option value = "" select disabled>Select Staff Member</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->username}}</option>
+                            @endforeach
+                            </select>
                     </div>
                     <div class="form-group">
                         <label for="date">Assessment Date
