@@ -84,11 +84,17 @@
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
-        <label for="injuries" class="col-md-2 col-form-label">Injuries sustained by anyone?</label>
-        <select name="injuries" class = "form-control">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            </select>
+        <div class="form-group row">
+            <div class="col-md-10">
+                <!-- Day, Month, and Year selects go here -->
+                <label for="injuries" class="col-md-2 col-form-label">Injuries sustained by anyone?</label>
+                <select name="injuries" class = "form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    </select>
+            </div>
+        </div>
+        
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Initials Of Person Completing Entry</label>
             <div class="col-md-10">
