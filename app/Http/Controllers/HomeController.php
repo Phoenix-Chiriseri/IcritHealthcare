@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\DailyEntries;
 use Illuminate\Support\Facades\DB;
-use App\Model\User;
+use App\Models\User;
+use App\Models\DailyEntry;
 
 class HomeController extends Controller
 {
   
     public function index()
     {
-
         $userId = Auth::id();
         $username = Auth::user()->username;
         $house = Auth::user()->house;
@@ -35,7 +35,6 @@ class HomeController extends Controller
     
         // Execute the raw SQL query with the user ID parameter
         $entries = DB::select($query, ['userId' => $userId]);
-    
         return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house);
     
   }
