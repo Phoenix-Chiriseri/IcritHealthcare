@@ -12,7 +12,7 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                           Seziure Report
+                           Seizure Report
                         </h5>
                        
                     </div>
@@ -326,6 +326,9 @@
 <div class="form-group">
     <label for="date">Date</label>
     <input type="text" name="date" id="date" class="form-control" required>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
 </div>
                 </form>
                 </div>

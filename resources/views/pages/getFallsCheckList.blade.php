@@ -30,18 +30,36 @@
                 <form method="POST" action="{{ route('save-entry') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" name="date" id="date" class="form-control" required>
+                        <label for="date">Name of Person Supported
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="shift">Shift</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Early</option>
-                            <option value="Late">Late</option>
-                            <option value="LD">LD</option>
-                            <option value="Night">Night</option>
-                        </select>
+                        <label for="date">Date
+                        </label>
+                        <input type="date" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Incident Ref
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="date">Completed By
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Does this person we support have a health concern that requires immediate attention in the event of a fall?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="health_concern" value="Yes" id="health_concern_yes">
+                            <label class="form-check-label" for="health_concern_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="health_concern" value="No" id="health_concern_no">
+                            <label class="form-check-label" for="health_concern_no">No</label>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="personal_care">Personal Care</label>
@@ -50,42 +68,208 @@
                             <option value="No">No</option>
                         </select>
                     </div>
-
+                    <div class="mb-3">
+                        <label class="form-label">Are they breathing normally?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="breathing" value="Yes" id="breathing_yes">
+                            <label class="form-check-label" for="breathing_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="breathing" value="No" id="breathing_no">
+                            <label class="form-check-label" for="breathing_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Have they suffered a bang to the head?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="head_bang" value="Yes" id="head_bang_yes">
+                            <label class="form-check-label" for="head_bang_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="head_bang" value="No" id="head_bang_no">
+                            <label class="form-check-label" for="head_bang_no">No</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="head_bang" value="Minor" id="head_bang_minor">
+                            <label class="form-check-label" for="head_bang_minor">Minor</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Have they fallen more than 1 metre?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="fall_distance" value="Yes" id="fall_distance_yes">
+                            <label class="form-check-label" for="fall_distance_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="fall_distance" value="No" id="fall_distance_no">
+                            <label class="form-check-label" for="fall_distance_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Do you suspect that they have suffered a serious injury i.e. fracture or dislocation?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="serious_injury_suspected" value="Yes" id="serious_injury_yes">
+                            <label class="form-check-label" for="serious_injury_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="serious_injury_suspected" value="No" id="serious_injury_no">
+                            <label class="form-check-label" for="serious_injury_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Are they bleeding or do they have a skin tear?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bleeding_or_skin_tear" value="Yes" id="bleeding_or_skin_tear_yes">
+                            <label class="form-check-label" for="bleeding_or_skin_tear_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bleeding_or_skin_tear" value="No" id="bleeding_or_skin_tear_no">
+                            <label class="form-check-label" for="bleeding_or_skin_tear_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Are they experiencing any pain (different to what is usual to them)?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="unusual_pain" value="Yes" id="unusual_pain_yes">
+                            <label class="form-check-label" for="unusual_pain_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="unusual_pain" value="No" id="unusual_pain_no">
+                            <label class="form-check-label" for="unusual_pain_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Are they able to weight bear if you proceed with a manual manoeuver?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="weight_bear" value="Yes" id="weight_bear_yes">
+                            <label class="form-check-label" for="weight_bear_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="weight_bear" value="No" id="weight_bear_no">
+                            <label class="form-check-label" for="weight_bear_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Are you recommending the attendance of a GP or Ambulance?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="recommend_attendance" value="Yes" id="attendance_yes">
+                            <label class="form-check-label" for="attendance_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="recommend_attendance" value="No" id="attendance_no">
+                            <label class="form-check-label" for="attendance_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">If you are satisfied that it is safe and appropriate to proceed with moving and handling techniques, can the hoist be used?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="use_hoist" value="Yes" id="hoist_yes">
+                            <label class="form-check-label" for="hoist_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="use_hoist" value="No" id="hoist_no">
+                            <label class="form-check-label" for="hoist_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Hoist Not Used due to lack of space</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="hoist_not_used_space" value="Yes" id="hoist_space_yes">
+                            <label class="form-check-label" for="hoist_space_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="hoist_not_used_space" value="No" id="hoist_space_no">
+                            <label class="form-check-label" for="hoist_space_no">No</label>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label for="medication_admin">Medication Admin</label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                        <label for="date">Comments to lack of space
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Hoist Not Used due to personal dignity</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="hoist_not_used_dignity" value="Yes" id="hoist_dignity_yes">
+                            <label class="form-check-label" for="hoist_dignity_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="hoist_not_used_dignity" value="No" id="hoist_dignity_no">
+                            <label class="form-check-label" for="hoist_dignity_no">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Comments to personal dignity
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Comments to dangerous position
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Add Any Other Comments to the above
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">If moved, was a handling belt used?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="handling_belt_used" value="Yes" id="handling_belt_yes">
+                            <label class="form-check-label" for="handling_belt_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="handling_belt_used" value="No" id="handling_belt_no">
+                            <label class="form-check-label" for="handling_belt_no">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Comments to handling belt usage
+                        </label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Has the level of pain altered during the maneuver?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pain_altered" value="Yes" id="pain_altered_yes">
+                            <label class="form-check-label" for="pain_altered_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pain_altered" value="No" id="pain_altered_no">
+                            <label class="form-check-label" for="pain_altered_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">If the person we support is normally able to walk, are they now able to stand from a chair and walk several steps?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="able_to_walk" value="Yes" id="able_to_walk_yes">
+                            <label class="form-check-label" for="able_to_walk_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="able_to_walk" value="No" id="able_to_walk_no">
+                            <label class="form-check-label" for="able_to_walk_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Is there an obvious immediate cause to the fall?</label>
+                        <select class="form-select" name="immediate_cause">
+                            <option value="Defective premises">Defective premises</option>
+                            <option value="Poor layout of premises">Poor layout of premises</option>
+                            <option value="Poor housekeeping">Poor housekeeping</option>
+                            <option value="Medication/ Fatigue/ Alcohol">Medication/ Fatigue/ Alcohol</option>
+                            <option value="Health related">Health related</option>
+                            <option value="Behaviour Related">Behaviour Related</option>
+                            <option value="Lack of suitable supervision">Lack of suitable supervision</option>
+                            <option value="Lack of training/ knowledge/ skill">Lack of training/ knowledge/ skill</option>
+                            <option value="Other">Other (Please state)</option>
                         </select>
                     </div>
-
+                    <p>You may be asked to complete a witness statement.</p>                    
                     <div class="form-group">
-                        <label for="appointments">Appointments</label>
-                        <select name="appointments" id="appointments" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-
-                    <div class="form-group">
-                        <label for="activities">Activities</label>
-                        <select name="activities" id="activities" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="incident">Incident</label>
-                        <select name="incident" id="incident" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Daily Entry</button>
-                    </div>
+                    
                 </form>
                 </div>
                 </div>
