@@ -20,9 +20,9 @@ use App\Http\Controllers\PositiveBehaviourSupportPlanController;
 use App\Http\Controllers\SelfCertificationSickFormController;
 use App\Http\Controllers\MySupportPlanController;
 use App\Http\Controllers\SeizureReportController;
+use App\Http\Controllers\ComplaintRecordController;
 use App\Http\Controllers\Admin;  
 use App\Models\DailyEntries;   
-
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +34,9 @@ use App\Models\DailyEntries;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
-});
-       
+});       
 Route::get('/registerPatient',[PatientController::class,'index']);
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
@@ -54,11 +52,12 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/addPatients',[PatientController::class,'index'])->name("patients");
 	Route::get('/getEntry', [DailyEntryController::class, 'createDailyEntry'])->name('getEntry');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
+	Route::get('/getAbcReport', [ABCReportController::class, 'index'])->name('getAbcReport');
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/saveEntry', [DailyEntryController::class, 'store'])->name('save-entry');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
 	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart');
-	Route::get('getComplaintRecord', [BehaviouralMonitorChartController::class, 'index'])->name('getComplaintRecord');
+	Route::get('getComplaintRecord', [ComplaintRecordController::class, 'index'])->name('getComplaintRecord');
 	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist');
 	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment');
 	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport');
@@ -78,6 +77,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry');
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
-	Route::get('/getAbcEntry', [ABCReportController::class, 'index'])->name('getAbcReport');
 	
 });

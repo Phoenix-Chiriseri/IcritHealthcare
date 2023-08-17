@@ -12,7 +12,7 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                           Add A Daily Entry
+                           Behavioural Monitor Chart
                         </h5>
                        
                     </div>
@@ -29,63 +29,50 @@
             <div class="card">
                 <form method="POST" action="{{ route('save-entry') }}">
                     @csrf
-                    <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" name="date" id="date" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="shift">Shift</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Early</option>
-                            <option value="Late">Late</option>
-                            <option value="LD">LD</option>
-                            <option value="Night">Night</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="personal_care">Personal Care</label>
-                        <select name="personal_care" id="personal_care" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="medication_admin">Medication Admin</label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="appointments">Appointments</label>
-                        <select name="appointments" id="appointments" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="activities">Activities</label>
-                        <select name="activities" id="activities" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="incident">Incident</label>
-                        <select name="incident" id="incident" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Daily Entry</button>
-                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="date" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="date" required>
+    </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Date:</label>
+                <input type="date" class="form-control" name="date" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Known Behaviours</label>
+                <input type="text" class="form-control" name="location" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Totals</label>
+                <input type="text" class="form-control" name="location" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Time</label>
+                <input type="time" class="form-control" name="location" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Known Behaviour</label>
+                <input type="text" class="form-control" name="location" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Comments</label>
+                <input type="text" class="form-control" name="location" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Injuries</label>
+                <input type="text" class="form-control" name="location" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Initials</label>
+                <input type="text" class="form-control" name="location" required>
+            </div>
+            <!-- Add more sections for the remaining points in the template -->
+            <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 </div>
                 </div>
