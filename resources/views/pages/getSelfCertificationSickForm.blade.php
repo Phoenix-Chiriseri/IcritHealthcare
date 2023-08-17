@@ -30,61 +30,73 @@
                 <form method="POST" action="{{ route('save-entry') }}">
                     @csrf
                     <div class="form-group">
+                        <label for="date">Your Name</label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Job Title</label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Service/Department</label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Service/Department</label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Absence Date(s)</label>
+                        <input type="date" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">My Reason Of Absence Was</label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">I was absent due to an accident/incident at work</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="absent_due_to_accident" value="Yes" id="absent_yes">
+                            <label class="form-check-label" for="absent_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="absent_due_to_accident" value="No" id="absent_no">
+                            <label class="form-check-label" for="absent_no">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">I consulted a medical practitioner</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="consulted_medical_practitioner" value="Yes" id="consulted_yes">
+                            <label class="form-check-label" for="consulted_yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="consulted_medical_practitioner" value="No" id="consulted_no">
+                            <label class="form-check-label" for="consulted_no">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">The medical advice was as follows</label>
+                        <textarea type="text" name="date"  class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">I declare that to the best of my knowledge the above information is accurate. I understand that if I knowingly make a false declaration, this may result in disciplinary action being taken which could result in mv dismissal</label>
+                        <textarea type="text" name="date"  class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Declaration Name</label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Declaration Last Name</label>
+                        <input type="text" name="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
                         <label for="date">Date</label>
                         <input type="date" name="date" id="date" class="form-control" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="shift">Shift</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Early</option>
-                            <option value="Late">Late</option>
-                            <option value="LD">LD</option>
-                            <option value="Night">Night</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="personal_care">Personal Care</label>
-                        <select name="personal_care" id="personal_care" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="medication_admin">Medication Admin</label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="appointments">Appointments</label>
-                        <select name="appointments" id="appointments" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="activities">Activities</label>
-                        <select name="activities" id="activities" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="incident">Incident</label>
-                        <select name="incident" id="incident" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Daily Entry</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
                 </div>

@@ -12,6 +12,7 @@ class HospitalPassportController extends Controller
     /**
      * Display a listing of the resource.
      */
+    //get the staff members from the logged in house 
     public function index()
     {
        //get the username based on the logged in user
