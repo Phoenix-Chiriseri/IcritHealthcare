@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\PositiveBehaviourSupportPlan;
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Facades\DB;
 
 class PositiveBehaviourSupportPlanController extends Controller
 {
@@ -13,9 +15,14 @@ class PositiveBehaviourSupportPlanController extends Controller
     public function index()
     {
         //
-        return view('pages.getPositiveBehaviourSupport');
+        $house = Auth::user()->house;
+        $query = "
+               select * from users where house = :house
+        ";
+         // Execute the raw SQL query with the user ID parameter
+         $users = DB::select($query, ['house' => $house]);
+        return view('pages.getPositiveBehaviourSupport')->with("users",$users);
     }
-
     /**
      * Show the form for creating a new resource.
      */

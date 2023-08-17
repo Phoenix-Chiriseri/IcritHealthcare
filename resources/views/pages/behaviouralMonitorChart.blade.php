@@ -32,60 +32,60 @@
                    
         <div class="form-group row">
             <label for="first_name" class="col-md-2 col-form-label">First Name</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <input type="text" class="form-control" id="first_name" name="first_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="last_name" class="col-md-2 col-form-label">Last Name</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Date</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="date" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Known Behaviours</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="date" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Totals</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Time</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="time" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Known Behaviour Reference</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Comments/ additional detail if needed</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <label for="injuries" class="col-md-2 col-form-label">Injuries sustained by anyone?</label>
                 <select name="injuries" class = "form-control">
@@ -97,7 +97,7 @@
         
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Initials Of Person Completing Entry</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>

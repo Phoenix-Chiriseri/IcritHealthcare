@@ -31,54 +31,54 @@
                     @csrf
                     <div class="form-group row">
                         <label for="first_name" class="col-md-2 col-form-label">First Name</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <input type="text" class="form-control" id="first_name" name="first_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="last_name" class="col-md-2 col-form-label">Last Name</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Phone Number</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Address</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="date" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Email</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="email" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Street Address</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">City</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Country</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
@@ -87,7 +87,7 @@
                       
         <div class="form-group row">
             <label for="category" class="col-md-2 col-form-label">Status Of Relative</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <select name="category" id="category" class="form-control">
                     <option value="Parent/Relative">Parent/Relative</option>
                     <option value="Person we Support">Person We Support</option>
@@ -101,14 +101,14 @@
 
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Details Of Complainant</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="action" class="col-md-2 col-form-label">What description best fits the complaint/ concern</label>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <select name="action" id="action" class="form-control">
                     <option value="Staff Action">Staff Action</option>
                     <option value="Tenant/Resident's Action">Tenant/Resident's Action</option>
@@ -126,13 +126,13 @@
         </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">This complaint/ concern was recorded by</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <label for="injuries" class="col-md-2 col-form-label">Injuries sustained by anyone?</label>
                             <select name="injuries" class = "form-control">
@@ -144,19 +144,18 @@
                     
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Date</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="date" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Position</label>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <!-- Day, Month, and Year selects go here -->
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
-            
                     <!-- Known Behaviours Fieldset 1 -->
                     <!-- Known Behaviours Fieldset 2 -->
                     <button type="submit" class="btn btn-success">Submit</button>

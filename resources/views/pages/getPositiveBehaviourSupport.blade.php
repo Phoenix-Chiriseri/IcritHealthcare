@@ -30,61 +30,265 @@
                 <form method="POST" action="{{ route('save-entry') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" name="date" id="date" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="shift">Shift</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Early</option>
-                            <option value="Late">Late</option>
-                            <option value="LD">LD</option>
-                            <option value="Night">Night</option>
-                        </select>
+                        <label for="shift">Staff Name</label>
+                        <select id = "Staff_Id"  name = "Staff_Id" class = "form-control" required>
+                            <option value = "" select disabled>Select Staff Member</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->username}}</option>
+                            @endforeach
+                            </select>
                     </div>
                     <div class="form-group">
-                        <label for="personal_care">Personal Care</label>
-                        <select name="personal_care" id="personal_care" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="personal_care">Todays Date</label>
+                        <input type="date" class="form-control" id="last_name" name="last_name" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="medication_admin">Medication Admin</label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="personal_care">Review Date</label>
+                        <input type="date" class="form-control" id="last_name" name="last_name" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="appointments">Appointments</label>
-                        <select name="appointments" id="appointments" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="personal_care">Home/Location</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="activities">Activities</label>
-                        <select name="activities" id="activities" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="personal_care">Street Address</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="incident">Incident</label>
-                        <select name="incident" id="incident" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="personal_care">City</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
                     </div>
-
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Daily Entry</button>
+                        <label for="personal_care">County</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">Completed By</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">What I do when I am happy or angry (BEHAVIORS)</label>
+                        <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">What Makes me unhappy or angry? (TRIGGERS)</label>
+                        <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">Actions NEVER to take when supporting me</label>
+                        <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">Behaviour- How I look when I am Calm relaxed</label>
+                        <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">Support Strategies The things staff can do to keep me in the green</label>
+                        <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">Behaviour- How I look when I am becoming anxious or aroused</label>
+                        <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_care">Support Strategies The things staff can say or do to manage the situation and prevent unnecessary distress, injury and destruction.</label>
+                        <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                    </div>
+                    <h6 for="date" class="text-center">Recovery Period
+                        Please ensure this section is maintained up to date and is accurately reflected across the support & Risk Management Plan</h6>
+                        <div class="form-group">
+                            <label for="personal_care">Support Strategies The things staff can say or do to manage the situation and prevent unnecessary distress, injury and destruction.</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Behaviour- How I look and behave when I am in crisis</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Name of Medicine:</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Form(I.e. tablet/ liquid):</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Strength:</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Route of Administration</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Dose & intervals to be administered:</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Maximum dose in 24 hours:</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">I consulted a medical practitioner</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="consulted_medical_practitioner" value="Yes" id="consulted_yes">
+                                <label class="form-check-label" for="consulted_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="consulted_medical_practitioner" value="No" id="consulted_no">
+                                <label class="form-check-label" for="consulted_no">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Special Instructions</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">*Reasons for Administration and When Should the Medication be Given(Required)s</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">Name Of Medicine</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Form(I.e. tablet/ liquid):</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Strength:</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                               Route of Administration</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                            Dose & intervals to be administered:</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Maximum dose in 24 hours:</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Is Medication:</label>
+                            <select class="form-select" name="medication">
+                                <option value="Prescribed">Prescribed</option>
+                                <option value="Over The Counter">Over The Counter</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Reasons for Administration and When Should the Medication be Given(Required)</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Describe in as much detail as possible the condition being treated i.e. symptoms, indicators, behaviour/s, triggers, type of pain/s where? When ? Etc.</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                History of Previous Interventions and / or practice</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                List any documentation and evidence that informs this positive Behaviour Support Plan
+                            </label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                How will future occurrences be recorded & managed into this positive Behaviour Support plan
+                            </label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Views of Family / associates that have been considered as part of this assessment
+                            </label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Views of the Person we support
+                            </label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                Views of the Person we support
+                            </label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Taking the attached information into consideration, have all the controls identified been agreed by all parties involved in consultation?</label>
+                            <select class="form-select" name="controls_agreed">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                If No, please identify actions to be taken to support this agreement
+                            </label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="personal_care">
+                                If No, please identify actions to be taken to support this agreement
+                            </label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Has Deprivation of Liberty Application been made?</label>
+                            <select class="form-select" name="deprivation_of_liberty">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">If Yes, Date Made:</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">If No, Date Made:</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <h5 class = "text-center">This Positive Behaviour Support Plan has been agreed and acknowledged by</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Position/ Role</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Role</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Role</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Staff Email</label>
+                            <textarea type="text" rows="5" class="form-control" id="last_name" name="last_name" required></textarea>
+                        </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
                 </div>
