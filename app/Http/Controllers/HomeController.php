@@ -32,7 +32,6 @@ class HomeController extends Controller
                 AND p.id = daily_entries.patient_id
             )
         ";
-    
         // Execute the raw SQL query with the user ID parameter
         $entries = DB::select($query, ['userId' => $userId]);
         return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house);
