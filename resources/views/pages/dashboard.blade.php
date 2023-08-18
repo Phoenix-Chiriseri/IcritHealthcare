@@ -83,7 +83,7 @@ function generate() {
                                 <div class="numbers">
                                     
                                     Your House is {{$house}}
-                                    
+                                  
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -101,6 +101,7 @@ function generate() {
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
+                                    Number Of Patients in house {{ $numberOfPatients[0]->count }}
                                 </div>
                             </div>
                             <div class="col-4 text-end">

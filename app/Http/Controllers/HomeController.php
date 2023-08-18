@@ -14,10 +14,12 @@ class HomeController extends Controller
   
     public function index()
     {
+
+       
         $userId = Auth::id();
         $username = Auth::user()->username;
         $house = Auth::user()->house;
-    
+        $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);        
         $query = "
             SELECT users.username as user_name, users.house as house, patients.patient_name, daily_entries.date,
             daily_entries.shift, daily_entries.personal_care, daily_entries.medication_admin,
@@ -34,7 +36,7 @@ class HomeController extends Controller
         ";
         // Execute the raw SQL query with the user ID parameter
         $entries = DB::select($query, ['userId' => $userId]);
-        return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house);
+        return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse);
     
   }
 }
