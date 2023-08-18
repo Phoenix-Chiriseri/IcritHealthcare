@@ -105,8 +105,7 @@ function generate() {
                                 </div>
                             </div>
                             <div class="col-4 text-end">
-                                <a href = "{{ route('allRecords') }}" class = "btn btn-info"><i class = "fa fa-house"></i>View All House Records</a>
-                                
+                                <a href = "{{ route('allRecords') }}" class = "btn btn-info"><i class = "fa fa-house"></i>View All House Records</a>  
                             </div>
                         </div>
                     </div>

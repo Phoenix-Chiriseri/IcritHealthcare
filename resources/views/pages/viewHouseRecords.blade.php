@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    
+                                    Number Of Patients in house {{ $numberOfPatients[0]->count }}
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -79,6 +79,7 @@
                             </div>
                             <div class="col-4 text-end">
                                 <img src = "">
+                               
                                 <a href = "{{ route('allRecords') }}" class = "btn btn-info">View House Records</a>
                             </div>
                         </div>
@@ -88,6 +89,7 @@
         </div>
 </div>
 <div class="container" style="margin-top:200px;">
+    
     <h1 class="text-center">Daily Entry Results</h1>
         <div class="table-responsive">
         <button id="export-pdf" class="btn btn-primary">Export to PDF</button>
