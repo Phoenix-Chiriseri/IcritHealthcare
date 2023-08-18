@@ -52,13 +52,23 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/addPatients',[PatientController::class,'index'])->name("patients");
 	Route::get('/getEntry', [DailyEntryController::class, 'createDailyEntry'])->name('getEntry');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
+	//route for abc report
 	Route::get('/getAbcReport', [ABCReportController::class, 'index'])->name('getAbcReport');
+	Route::post('/saveAbcReport', [ABCReportController::class, 'store'])->name('save-abcReport');
+	//
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/saveEntry', [DailyEntryController::class, 'store'])->name('save-entry');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
+	//behavioural monitor chart routes
 	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart');
+	Route::post('/saveBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bChart');
+	//complaint report routes
 	Route::get('getComplaintRecord', [ComplaintRecordController::class, 'index'])->name('getComplaintRecord');
+	Route::post('/saveComplaintRecord', [BehaviouralMonitorChartController::class, 'store'])->name('save-ComplaintRecord');
+	//falls checklist routes
 	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist');
+	Route::post('/saveFallsChecklist', [FallsCheklistController::class, 'store'])->name('save-fallsCheckList');
+	//
 	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment');
 	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport');
 	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport');

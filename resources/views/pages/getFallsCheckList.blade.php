@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="{{ route('save-entry') }}">
+                <form method="POST" action="{{ route('save-fallsCheckList') }}">
                     @csrf
                     <div class="form-group">
                         <label for="date">Name of Person Supported

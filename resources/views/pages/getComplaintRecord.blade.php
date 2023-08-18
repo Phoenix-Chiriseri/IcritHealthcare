@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="{{ route('save-entry') }}">
+                <form method="POST" action="{{ route('save-ComplaintRecord') }}">
                     @csrf
                     <div class="form-group row">
                         <label for="first_name" class="col-md-2 col-form-label">First Name</label>

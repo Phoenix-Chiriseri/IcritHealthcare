@@ -16,15 +16,6 @@ class DailyEntryController extends Controller
     //query
     public function allHouseRecords(){
 
-        /*
-         <td>{{ $entry->shift }}</td>
-                    <td>{{ $entry->personal_care }}</td>
-                    <td>{{ $entry->medication_admin }}</td>
-                    <td>{{ $entry->appointments }}</td>
-                    <td>{{ $entry->activities }}</td>
-                    <td>{{ $entry->incident }}</td>
-        */
-
         //working code using a left join
         $userId = Auth::user()->house;
         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$userId]);        
