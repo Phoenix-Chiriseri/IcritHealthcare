@@ -16,13 +16,22 @@ class DailyEntryController extends Controller
     //query
     public function allHouseRecords(){
 
+        /*
+         <td>{{ $entry->shift }}</td>
+                    <td>{{ $entry->personal_care }}</td>
+                    <td>{{ $entry->medication_admin }}</td>
+                    <td>{{ $entry->appointments }}</td>
+                    <td>{{ $entry->activities }}</td>
+                    <td>{{ $entry->incident }}</td>
+        */
+
         //working code using a left join
         $userId = Auth::user()->house;
         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$userId]);        
         $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
             ->leftJoin('users', 'daily_entries.user_id', '=', 'users.id')
             ->where('users.house', $userId)
-            ->select('users.username as user_name','users.house as house', 'patients.patient_name', 'daily_entries.date','daily_entries.personal_care','daily_entries.shift','daily_entries.medication_admin')
+            ->select('users.username as user_name','users.house as house', 'patients.patient_name', 'daily_entries.date','daily_entries.personal_care','daily_entries.shift','daily_entries.medication_admin','daily_entries.activities','daily_entries.incident','daily_entries.appointments')
             ->get();
      return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
             //dd($entries);
