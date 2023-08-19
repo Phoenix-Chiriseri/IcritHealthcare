@@ -19,6 +19,7 @@ class DailyEntryController extends Controller
         //working code using a left join
         $userId = Auth::user()->house;
         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$userId]);        
+        //get the daily entries from the database and return them to the view records view
         $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
             ->leftJoin('users', 'daily_entries.user_id', '=', 'users.id')
             ->where('users.house', $userId)
@@ -75,7 +76,6 @@ class DailyEntryController extends Controller
     // You can convert the results to a collection if needed
         $patients = collect($patients);
         return view('pages.user-profile')->with("patients",$patients);
-
      }
 
 }

@@ -2,33 +2,27 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
+"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 <script>
-    document.getElementById("export-pdf").addEventListener("click", function () {
-        const pdf = new jsPDF();
-        // Get the table element
-        const table = document.getElementById("dailyEntryTable");
-        // Convert the table to a canvas
-        const canvas = document.createElement("canvas");
-        const tableWidth = table.offsetWidth;
-        const tableHeight = table.offsetHeight;
-        canvas.width = tableWidth;
-        canvas.height = tableHeight;
-        const context = canvas.getContext("2d");
-        context.font = "10px Arial"; // Set font for better table rendering
-        context.fillStyle = "#000";
-        context.fillRect(0, 0, tableWidth, tableHeight);
-        context.fillStyle = "#fff";
-        context.fillText("Daily Entry Results", 10, 10);
-        // Export the table content to the PDF
-        pdf.addImage(canvas, "JPEG", 15, 15, tableWidth, tableHeight);
-        // Save the PDF
-        pdf.save("daily_entry_results.pdf");
-    });
-</script>
+     document.getElementById('export-pdf').addEventListener('click', function () {
+            var doc = new jsPDF('p', 'pt', 'letter');
+            var options = {
+                pagesplit: true,
+                margin: {
+                    top: 60,
+                    left: 40,
+                    right: 40,
+                    bottom: 40
+                }
+            };
+            doc.fromHTML(document.getElementById('dailyEntryTable'), options);
+            doc.save('daily_entry_results.pdf');
+        });
+    </script>
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
@@ -37,7 +31,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    Number Of Patients in house {{ $numberOfPatients[0]->count }}
+                                   Welcome {{$name}}
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -55,7 +49,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                  
+                                    Number Of Patients in house {{ $numberOfPatients[0]->count }}
                                     <h5 class="font-weight-bolder">
                                     </h5>
                                 </div>
@@ -77,9 +71,7 @@
                                 <div class="numbers">
                                 </div>
                             </div>
-                            <div class="col-4 text-end">
-                                <img src = "">
-                               
+                            <div class="col-4 text-end"> 
                                 <a href = "{{ route('allRecords') }}" class = "btn btn-info">View House Records</a>
                             </div>
                         </div>
@@ -89,11 +81,10 @@
         </div>
 </div>
 <div class="container" style="margin-top:200px;">
-    
     <h1 class="text-center">Daily Entry Results</h1>
         <div class="table-responsive">
-        <button id="export-pdf" class="btn btn-primary">Export to PDF</button>
-        <table class="table table-bordered" id = "dailyEntryTable">
+        <button id="exportBtn" class="btn btn-primary">Export to PDF</button>
+        <table class="table table-bordered"  id = "dailyEntryTable">
             <thead>
                 <tr>
                     <th>User</th>

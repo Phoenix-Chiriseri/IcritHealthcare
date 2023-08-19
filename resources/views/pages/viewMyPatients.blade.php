@@ -79,8 +79,8 @@ function generate() {
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                Number Of Patients in house {{ $numberOfPatients[0]->count }}
-                                <a href = "viewMyPatients" class = "btn btn-danger">View My Patients</a>
+                                
+                                <a href = "viewMyPatients">View My Patients</a>
                                 <h5 class="font-weight-bolder">
                                 </h5>
                             </div>
@@ -103,7 +103,7 @@ function generate() {
                             </div>
                         </div>
                         <div class="col-4 text-end"> 
-                            <a href = "{{ route('allRecords') }}" class = "btn btn-primary">View House Records</a>
+                            <a href = "{{ route('allRecords') }}" class = "btn btn-info">View House Records</a>
                         </div>
                     </div>
                 </div>
@@ -117,37 +117,19 @@ function generate() {
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center">Daily Entries</div>
+                    <div class="card-header text-center">My Patients</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th>User Name</th>
-                                        <th>House</th>
-                                        <th>Patient Name</th>
-                                        <th>Date</th>
-                                        <th>Shift</th>
-                                        <th>Personal Care</th>
-                                        <th>Medication Admin</th>
-                                        <th>Appointments</th>
-                                        <th>Activities</th>
-                                        <th>Incident</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($entries as $entry)
+                                    @foreach($userAndPatients as $uAp)
                                         <tr>
-                                            <td>{{ $entry->user_name }}</td>
-                                            <td>{{ $entry->house }}</td>
-                                            <td>{{ $entry->patient_name }}</td>
-                                            <td>{{ $entry->date }}</td>
-                                            <td>{{ $entry->shift }}</td>
-                                            <td>{{ $entry->personal_care }}</td>
-                                            <td>{{ $entry->medication_admin }}</td>
-                                            <td>{{ $entry->appointments }}</td>
-                                            <td>{{ $entry->activities }}</td>
-                                            <td>{{ $entry->incident }}</td>
+                                            <td>{{ $uAp->patient_name }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

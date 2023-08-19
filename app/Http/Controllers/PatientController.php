@@ -26,6 +26,18 @@ class PatientController extends Controller
         return view('pages.addPatients')->with('users',$users);
 
      }
+
+     public function viewMyPatients(){
+        
+        //view only the patients that are assigned to the authenticated user
+        $username = Auth::user()->username;
+        $userAndPatients = Patient::leftJoin('users', 'patients.Staff_Id', '=', 'users.id')
+             ->where('users.username', $username)
+            ->select('patients.patient_name as patient_name','users.username as username') 
+            ->get();
+        return view('pages.viewMyPatients')->with("name",$username)->with('userAndPatients',$userAndPatients);
+
+     }
     /**
      * Store a newly created resource in storage.
      */
