@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminAuth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +16,7 @@ class LoginController extends Controller
      */
     public function show()
     {
-        return view('auth.login');
+        return view('admin.auth.login');
     }
 
     public function login(Request $request)
@@ -37,36 +37,14 @@ class LoginController extends Controller
         ]);
     }
 
-
-    public function adminLogin(Request $request)
-    {
-        $input = $request->all();
-   
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-   
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
-            if (auth()->user()->is_admin == 1) {
-                return redirect()->route('admin.home');
-            }else{
-                return redirect()->route('home');
-            }
-        }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
-        }
-    }
-
     public function logout(Request $request)
     {
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        
 
-        return redirect('/login');
+        return redirect('/admin.login');
     }
 }

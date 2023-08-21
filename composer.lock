@@ -4,8 +4,70 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae9474fd2dedf816a78ebed6769658c9",
+    "content-hash": "60a71d454aeceb2d0a7ca6627562728b",
     "packages": [
+        {
+            "name": "bitfumes/laravel-multiauth",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bitfumes/laravel-multiauth.git",
+                "reference": "b2ebcbe091512aabe1c53d93203185accad99b30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bitfumes/laravel-multiauth/zipball/b2ebcbe091512aabe1c53d93203185accad99b30",
+                "reference": "b2ebcbe091512aabe1c53d93203185accad99b30",
+                "shasum": ""
+            },
+            "require-dev": {
+                "fzaninotto/faker": "^1.9@dev",
+                "illuminate/support": "^5.8|^6.0",
+                "mockery/mockery": "^1.0@dev",
+                "orchestra/database": "^4.0",
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bitfumes\\Multiauth\\MultiauthServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bitfumes\\Multiauth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "sarthaksavvy",
+                    "email": "sarthak@bitfumes.com"
+                }
+            ],
+            "description": "Laravel Multiauth package",
+            "keywords": [
+                "Laravel multiauth",
+                "Multi Auth",
+                "admin auth",
+                "bitfumes",
+                "laravel acl",
+                "laravel permissions",
+                "laravel roles permissions",
+                "multiauth"
+            ],
+            "support": {
+                "issues": "https://github.com/bitfumes/laravel-multiauth/issues",
+                "source": "https://github.com/bitfumes/laravel-multiauth/tree/3.0.0"
+            },
+            "time": "2019-12-25T17:00:33+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",

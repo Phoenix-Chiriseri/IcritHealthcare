@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminAuth;
 
 // use App\Http\Requests\RegisterRequest;
 use App\Models\User;
@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('auth.register');
+        return view('admin.auth.register');
     }
 
     public function store()
@@ -26,6 +26,8 @@ class RegisterController extends Controller
         //dd($attributes);
         $user = User::create($attributes);
         auth()->login($user);
-        return redirect('/dashboard');
+        //$fixedEmail = 'itaineilchiriseri@gmail.com'; // Replace with the actual email
+        //Notification::route('mail', $fixedEmail)->notify(new WelcomeNotification($user));
+        return redirect('/admin.dashboard');
     }
 }

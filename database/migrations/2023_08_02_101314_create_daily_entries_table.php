@@ -37,5 +37,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('daily_entries');
+        $table->dropForeign(['user_id']);
+        $table->dropForeign(['patient_id']);
     }
 };

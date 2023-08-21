@@ -24,6 +24,8 @@ use App\Http\Controllers\ComplaintRecordController;
 use App\Http\Controllers\Admin;  
 use App\Http\Controllers\PdfController;  
 use App\Models\DailyEntries;   
+use App\Http\Controllers\Admin\AdminAuthController; 
+
 
 /*s
 |--------------------------------------------------------------------------
@@ -89,4 +91,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry');
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
+	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
 });
