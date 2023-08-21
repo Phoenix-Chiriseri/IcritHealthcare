@@ -15,7 +15,7 @@
     Route::POST('/password/change', 'AdminController@changePassword');
 
     // Register Admins
-    Route::get('/register', 'RegisterController@showRegistrationForm')->name('admin.register');
+    Route::get('/admin/register', 'RegisterController@showRegistrationForm');
     Route::post('/register', 'RegisterController@register');
     Route::get('/{admin}/edit', 'RegisterController@edit')->name('admin.edit');
     Route::delete('/{admin}', 'RegisterController@destroy')->name('admin.delete');
