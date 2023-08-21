@@ -4,6 +4,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">  
 function generate() {  
     var doc = new jsPDF('p', 'pt', 'letter');  
@@ -52,6 +53,39 @@ function generate() {
     })  
     doc.save('Daily Entry Reports.pdf');  
 }  
+</script>
+<script>
+  <script>
+    $(document).ready(function () {
+        $('.export-pdf-btn').click(function (e) {
+            e.preventDefault();
+            
+            var entryId = $(this).data('entry-id');
+            
+            // Make an AJAX request to fetch data
+            $.ajax({
+                url: '/generate-pdf/' + entryId,
+                method: 'GET',
+                success: function (data) {
+                    generatePDF(data);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+        
+        function generatePDF(data) {
+            var pdf = new jsPDF();
+            
+            pdf.text(10, 10, 'User: ' + data.user_name);
+            pdf.text(10, 20, 'House: ' + data.house);
+            // Add more fields as needed
+            
+            pdf.save('entry_' + data.entryId + '.pdf');
+        }
+    });
+</script>
 </script>   
 <div class="container-fluid py-4">
     <div class="row">
@@ -120,7 +154,7 @@ function generate() {
                     <div class="card-header text-center">Daily Entries</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered" id = "DOMContentLoaded">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>User Name</th>
@@ -133,6 +167,7 @@ function generate() {
                                         <th>Appointments</th>
                                         <th>Activities</th>
                                         <th>Incident</th>
+                                        <th>Print Record</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -148,6 +183,9 @@ function generate() {
                                             <td>{{ $entry->appointments }}</td>
                                             <td>{{ $entry->activities }}</td>
                                             <td>{{ $entry->incident }}</td>
+                                            <td>
+                                                <a href="{{ route('generate.pdf', ['entryId' => $entry->id]) }}" class="btn btn-primary">View Details</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

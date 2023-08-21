@@ -22,7 +22,7 @@ class HospitalPassportController extends Controller
        ";
         // Execute the raw SQL query with the user ID parameter
         $users = DB::select($query, ['house' => $house]);
-        return view('pages.getHospitalPassport')->with('users',$users);;
+        return view('pages.getHospitalPassport')->with('users',$users);
     
     }
 

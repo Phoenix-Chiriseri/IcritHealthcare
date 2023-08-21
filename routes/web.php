@@ -22,9 +22,10 @@ use App\Http\Controllers\MySupportPlanController;
 use App\Http\Controllers\SeizureReportController;
 use App\Http\Controllers\ComplaintRecordController;
 use App\Http\Controllers\Admin;  
+use App\Http\Controllers\PdfController;  
 use App\Models\DailyEntries;   
 
-/*
+/*s
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -69,7 +70,6 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	//falls checklist routes
 	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist');
 	Route::post('/saveFallsChecklist', [FallsCheklistController::class, 'store'])->name('save-fallsCheckList');
-	//
 	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment');
 	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport');
 	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport');
@@ -88,6 +88,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry');
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
-		
-	
+	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
 });

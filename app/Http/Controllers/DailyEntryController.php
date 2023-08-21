@@ -25,7 +25,7 @@ class DailyEntryController extends Controller
             ->where('users.house', $userId)
             ->select('users.username as user_name','users.house as house', 'patients.patient_name', 'daily_entries.date','daily_entries.personal_care','daily_entries.shift','daily_entries.medication_admin','daily_entries.activities','daily_entries.incident','daily_entries.appointments')
             ->get();
-     return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
+        return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
             //dd($entries);
     }  
     /**

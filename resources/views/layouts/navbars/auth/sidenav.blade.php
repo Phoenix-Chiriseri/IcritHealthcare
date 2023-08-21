@@ -24,15 +24,6 @@
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Select An Option</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="getEntry">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Daily Entry</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="getAbcReport">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -58,7 +49,15 @@
                     </div>
                     <span class="nav-link-text ms-1">Complaint Record (Part A)</span>
                 </a>
-            </li>   
+            </li>    <li class="nav-item">
+                <a class="nav-link" href="getEntry">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Daily Entry</span>
+                </a>
+            </li> 
             <li class="nav-item">
                 <a class="nav-link" href="getFallsChecklist">
                     <div
