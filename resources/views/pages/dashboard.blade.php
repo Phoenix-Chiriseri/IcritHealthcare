@@ -184,7 +184,7 @@ function generate() {
                                             <td>{{ $entry->appointments }}</td>
                                             <td>{{ $entry->activities }}</td>
                                             <td>{{ $entry->incident }}</td>
-                                            <td><a href="{{ route('view-record', ['id' => $entry->entryId]) }}">View Record</a></td>                   
+                                            <td><a href="{{ route('view-record', ['id' => $entry->entryId]) }}"class = "btn btn-info">View Record</a></td>                   
                                         </tr>
                                     @endforeach
                                 </tbody>
