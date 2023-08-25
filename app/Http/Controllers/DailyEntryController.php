@@ -40,6 +40,21 @@ class DailyEntryController extends Controller
         return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
             //dd($entries);
     }  
+
+
+    public function viewRecordById($id)
+    {
+    $entry = DailyEntry::join('users', 'daily_entries.user_id', '=', 'users.id')
+    ->join('patients', 'daily_entries.patient_id', '=', 'patients.id')
+    ->select(
+        'daily_entries.*', // Select all fields from the daily_entries table
+        'users.username as user_name',
+        'patients.patient_name'
+    )
+    ->where('daily_entries.id', $id)
+    ->first();
+    return view('pages.singleDailyEntry', ['entry' => $entry]);  
+    }
     /**
      * Store a newly created resource in storage.
      */

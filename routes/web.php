@@ -93,4 +93,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
+	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record');
 });

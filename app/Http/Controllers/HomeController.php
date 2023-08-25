@@ -20,7 +20,7 @@ class HomeController extends Controller
         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);        
         $query = "
         SELECT users.id AS user_id, users.username AS user_name, users.house AS house,
-        patients.patient_name, daily_entries.date, daily_entries.shift,
+        patients.patient_name, daily_entries.id as entryId, daily_entries.date, daily_entries.shift,
         daily_entries.personal_care, daily_entries.medication_admin,
         daily_entries.appointments, daily_entries.activities, daily_entries.incident
         FROM daily_entries

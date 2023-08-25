@@ -2,9 +2,9 @@
 @section('content')
 @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>    
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <script type="text/javascript">  
 function generate() {  
     var doc = new jsPDF('p', 'pt', 'letter');  
@@ -86,7 +86,7 @@ function generate() {
         }
     });
 </script>
-</script>   
+</script> 
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
@@ -95,7 +95,7 @@ function generate() {
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                               Welcome {{$name}}
+                               
                             </div>
                         </div>
                         <div class="col-4 text-end">
@@ -111,14 +111,7 @@ function generate() {
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
-                        <div class="col-8">
-                            <div class="numbers">
-                                Number Of Patients in house {{ $numberOfPatients[0]->count }}
-                                <a href = "viewMyPatients" class = "btn btn-danger">View My Patients</a>
-                                <h5 class="font-weight-bolder">
-                                </h5>
-                            </div>
-                        </div>
+            
                         <div class="col-4 text-end">
                             <div class="icon icon-s bg-building gradient-warning shadow-warning text-center rounded-circle">
                                 <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
@@ -133,12 +126,9 @@ function generate() {
                     <div class="card-body p-3">
                         <div class="row">
                             <div class="col-8">
-                                <div class="numbers">
-                                    <img src="./img/icritLogo.png" alt="main_logo" style="height:100px;">
-                                </div>
                             </div>
                             <div class="col-4 text-end"> 
-                                <a href="{{ route('allRecords') }}" class="btn btn-primary">View House Records</a>
+                                <a href="{{ route('dashboard') }}" class="btn btn-primary">Dashboard</a>
                             </div>
                         </div>
                     </div>
@@ -148,45 +138,74 @@ function generate() {
 </div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <div class="container">
-    <a class="navbar-brand" href="{{ url('/home') }}" class = "btn btn-info">Dashboard</a>
+<button onclick="generatePDF()" class = "btn btn-info"><i class = "fa fa-print"></i>Generate PDF</button>
+<hr>
+<script>
+    function generatePDF() {
+        var doc = new jsPDF();
+        // HTML content to be converted
+        var htmlContent = document.getElementById('pdf-content').innerHTML; 
+        doc.text('Single Entry Report', 10, 10); // Title
+        doc.fromHTML(htmlContent, 10, 20, {
+            width: 190
+        });
+        // Save the PDF
+        doc.save('SingleEntryReport.pdf');
+    }
+    </script>  
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header text-center">Daily Entries</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id = "DOMContentLoaded">
-                                <thead class="thead-dark">
+                            <table class="table table-bordered table-striped" id = "pdf-content">
+                                <tbody>
+                                    <tr>
+                                        <th>Date</th>
+                                        <td>{{ $entry->date }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shift</th>
+                                        <td>{{ $entry->shift }}</td>
+                                    </tr>
                                     <tr>
                                         <th>User Name</th>
-                                        <th>House</th>
-                                        <th>Patient Name</th>
-                                        <th>Date</th>
-                                        <th>Shift</th>
-                                        <th>Personal Care</th>
-                                        <th>Medication Admin</th>
-                                        <th>Appointments</th>
-                                        <th>Activities</th>
-                                        <th>Incident</th>
-                                        <th>Print Record</td>
+                                        <td>{{ $entry->user_name}}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($entries as $entry)
-                                        <tr>
-                                            <td>{{ $entry->user_name }}</td>
-                                            <td>{{ $entry->house }}</td>
-                                            <td>{{ $entry->patient_name }}</td>
-                                            <td>{{ $entry->date }}</td>
-                                            <td>{{ $entry->shift }}</td>
-                                            <td>{{ $entry->personal_care }}</td>
-                                            <td>{{ $entry->medication_admin }}</td>
-                                            <td>{{ $entry->appointments }}</td>
-                                            <td>{{ $entry->activities }}</td>
-                                            <td>{{ $entry->incident }}</td>
-                                            <td><a href="{{ route('view-record', ['id' => $entry->entryId]) }}">View Record</a></td>                   
-                                        </tr>
-                                    @endforeach
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <td>{{ $entry->patient_name }}</td>
+                                    </tr>
+                                    <!-- Add rows for other fields -->
+                                    <tr>
+                                        <th>Personal Care</th>
+                                        <td>{{ $entry->personal_care }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Medication Admin</th>
+                                        <td>{{ $entry->medication_admin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Appointments</th>
+                                        <td>{{ $entry->appointments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Activities</th>
+                                        <td>{{ $entry->activities }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Incident</th>
+                                        <td>{{ $entry->incident }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Created At</th>
+                                        <td>{{ $entry->created_at }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Updated At</th>
+                                        <td>{{ $entry->updated_at }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
