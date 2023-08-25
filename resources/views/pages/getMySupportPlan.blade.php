@@ -27,13 +27,12 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="{{ route('save-entry') }}">
+                <form method="POST" action="{{ route('postMySupportPlan') }}">
                     @csrf
                     <div class="form-group">
                         <label for="date">Date</label>
                         <input type="date" name="date" id="date" class="form-control" required>
                     </div>
-
                     <div class="form-group">
                         <label for="shift">Shift</label>
                         <select name="shift" id="shift" class="form-control" required>
@@ -84,7 +83,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Daily Entry</button>
+                        <button type="submit" class="btn btn-primary">Add Support Plan</button>
                     </div>
                 </form>
                 </div>

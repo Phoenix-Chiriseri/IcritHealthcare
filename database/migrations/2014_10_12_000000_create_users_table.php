@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password')->nullable();
             $table->string('house');
+            $table->boolean('is_admin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -31,7 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // /Schema::dropIfExists('users');
-        
+        Schema::dropIfExists('users');
     }
 };

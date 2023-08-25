@@ -77,7 +77,8 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport');
 	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm');
 	Route::get('/getIncidentReport', [IncidentReportController::class, 'index'])->name('getIncidentReport');
-	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySupportPlan');
+	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySuportPlan');
+	Route::post('/postMySupportPlan', [MySupportPlanController::class, 'store'])->name('postMySupportPlan');
 	Route::get('/getHospitalPassport', [HospitalPassportController::class, 'index'])->name('getHospitalPassport');
 	Route::get('/viewHouseRecords', [DailyEntryController::class, 'allHouseRecords'])->name("allRecords");
 	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all");
@@ -92,4 +93,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
+	Route::get('/home', 'HomeController@index')->name('home');
 });

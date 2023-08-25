@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('my_support_plans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('patient_id');   
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

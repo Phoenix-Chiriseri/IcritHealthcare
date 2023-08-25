@@ -21,10 +21,22 @@ class DailyEntryController extends Controller
         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$userId]);        
         //get the daily entries from the database and return them to the view records view
         $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
-            ->leftJoin('users', 'daily_entries.user_id', '=', 'users.id')
-            ->where('users.house', $userId)
-            ->select('users.username as user_name','users.house as house', 'patients.patient_name', 'daily_entries.date','daily_entries.personal_care','daily_entries.shift','daily_entries.medication_admin','daily_entries.activities','daily_entries.incident','daily_entries.appointments')
-            ->get();
+        ->leftJoin('users', 'daily_entries.user_id', '=', 'users.id')
+        ->where('users.house', $userId)
+        ->select(
+            'users.username as user_name',
+            'users.house as house',
+            'patients.patient_name',
+            'daily_entries.date',
+            'daily_entries.personal_care',
+            'daily_entries.shift',
+            'daily_entries.medication_admin',
+            'daily_entries.activities',
+            'daily_entries.incident',
+            'daily_entries.appointments'
+        )
+        ->orderBy('daily_entries.id', 'desc')
+        ->get();   
         return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
             //dd($entries);
     }  
@@ -60,8 +72,10 @@ class DailyEntryController extends Controller
     $user = Auth::user();
     $user->dailyEntries()->save($dailyEntry);
 
-    return redirect()->route('home')
-        ->with('success', 'Daily Entry added successfully.');
+    return back()->with('success', 'Daily Entry added successfully.');
+
+    //return redirect()->route('/home')
+      //  ->with('success', 'Daily Entry added successfully.');
     }
     /**
      * Display the specified resource.

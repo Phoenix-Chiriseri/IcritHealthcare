@@ -29,9 +29,9 @@ class MySupportPlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        dd($request->all());
     }
-
     /**
      * Display the specified resource.
      */

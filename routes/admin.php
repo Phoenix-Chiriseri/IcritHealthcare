@@ -4,7 +4,8 @@
     // Login and Logout
     Route::GET('/', 'LoginController@showLoginForm')->name('admin.login');
     Route::POST('/', 'LoginController@login');
-    Route::POST('/logout', 'LoginController@logout')->name('admin.logout');
+    Route::POST('/logoutAdmin', 'Admin@logout')->name('admin.logout');
+    Route::GET('/addPatients', 'Admin@addPatients');
 
     // Password Resets
     Route::POST('/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
