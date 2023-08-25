@@ -1,6 +1,3 @@
-@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
-@section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>    
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -87,58 +84,10 @@ function generate() {
     });
 </script>
 </script> 
-<div class="container-fluid py-4">
-    <div class="row">
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
-            <div class="card">
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="numbers">
-                               
-                            </div>
-                        </div>
-                        <div class="col-4 text-end">
-                            <div class="icon icon-user bg-gradient-primary shadow-primary text-center rounded-circle">
-                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-sm-6">
-            <div class="card">
-                <div class="card-body p-3">
-                    <div class="row">
-            
-                        <div class="col-4 text-end">
-                            <div class="icon icon-s bg-building gradient-warning shadow-warning text-center rounded-circle">
-                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="col-xl-4 col-sm-6">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                            </div>
-                            <div class="col-4 text-end"> 
-                                <a href="{{ route('dashboard') }}" class="btn btn-primary">Dashboard</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
-</div>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <div class="container">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<div class="container" style="margin-top:100px;">
 <button onclick="generatePDF()" class = "btn btn-info"><i class = "fa fa-print"></i>Generate PDF</button>
+<a href= "/dashboard"  class = "btn btn-info"><i class = "fa fa-print"></i>Dashboard</a>
 <hr>
 <script>
     function generatePDF() {
@@ -214,14 +163,11 @@ function generate() {
         </div>
     </div>
 </div>
-@endsection
 @push('js')
     <script src="./assets/js/plugins/chartjs.min.js"></script>
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
-
         var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
-
         gradientStroke1.addColorStop(1, 'rgba(251, 99, 64, 0.2)');
         gradientStroke1.addColorStop(0.2, 'rgba(251, 99, 64, 0.0)');
         gradientStroke1.addColorStop(0, 'rgba(251, 99, 64, 0)');
