@@ -28,7 +28,6 @@ class PatientController extends Controller
      }
 
      public function viewMyPatients(){
-        
         //view only the patients that are assigned to the authenticated user
         $username = Auth::user()->username;
         $userAndPatients = Patient::leftJoin('users', 'patients.Staff_Id', '=', 'users.id')
