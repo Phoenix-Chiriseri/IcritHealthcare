@@ -50,7 +50,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');
 	Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
-	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
+	Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 	Route::group(['middleware' => 'auth'], function () {
 	Route::get('/addPatients',[PatientController::class,'index'])->name("patients");
 	Route::get('/getEntry', [DailyEntryController::class, 'createDailyEntry'])->name('getEntry');
@@ -93,5 +93,4 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf');
-	Route::get('/home', 'HomeController@index')->name('home');
 });

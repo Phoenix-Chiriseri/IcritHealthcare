@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('appointments'); // Appointments field
             $table->string('activities'); // Activities field
             $table->string('incident'); // Incident field
-            
             $table->timestamps();
         });
     }

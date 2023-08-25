@@ -184,7 +184,7 @@ function generate() {
                                             <td>{{ $entry->activities }}</td>
                                             <td>{{ $entry->incident }}</td>
                                             <td>
-                                                <a href="{{ route('generate.pdf', ['entryId' => $entry->id]) }}" class="btn btn-primary">View Details</a>
+
                                             </td>
                                         </tr>
                                     @endforeach
