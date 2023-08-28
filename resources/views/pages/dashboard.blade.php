@@ -96,6 +96,8 @@ function generate() {
                         <div class="col-8">
                             <div class="numbers">
                                Welcome {{$name}}
+                               <hr>
+                               Current Date {{$currentDate}}
                             </div>
                         </div>
                         <div class="col-4 text-end">

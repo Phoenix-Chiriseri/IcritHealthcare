@@ -8,12 +8,14 @@ use App\Models\DailyEntries;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\DailyEntry;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
   
     public function index()
     {
+        $currentDate = Carbon::now('Europe/London')->format('d-m-Y H:i:s');
         $userId = Auth::id();
         $username = Auth::user()->username;
         $house = Auth::user()->house;
@@ -34,7 +36,6 @@ class HomeController extends Controller
         )
         ";
         $entries = DB::select($query, ['userId' => $userId]);
-        return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse);
-    
+        return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);    
   }
 }
