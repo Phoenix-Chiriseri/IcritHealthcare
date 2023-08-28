@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\PdfController;  
 use App\Models\DailyEntries;   
 use App\Http\Controllers\Admin\AdminAuthController; 
+use App\Http\Controllers\Admin\StatisticsController; 
 
 
 /*s
@@ -94,4 +95,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');;
 	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record');
+	Route::get('/getStatistics', [StatisticsController::class, 'index'])->name('getStatistics')->middleware('auth');
 });
