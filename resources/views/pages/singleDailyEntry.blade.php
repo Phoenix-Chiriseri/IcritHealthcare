@@ -106,9 +106,9 @@ function generate() {
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header text-center">Daily Entries</div>
-                    <div class="card-body">
+                    <div class="card-body" id = "pdf-content">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped" id = "pdf-content">
+                            <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
                                         <th>Date</th>
