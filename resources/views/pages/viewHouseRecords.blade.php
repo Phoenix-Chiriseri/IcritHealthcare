@@ -8,6 +8,11 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 <script>
+    <style>
+    .pagination .page-link {
+        border-radius: 0; /* Remove the default border-radius */
+    }
+</style>
      document.getElementById('export-pdf').addEventListener('click', function () {
             var doc = new jsPDF('p', 'pt', 'letter');
             var options = {
@@ -83,7 +88,6 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
 <div class="container" style="margin-top:200px;">
     <h1 class="text-center">Daily Entry Results</h1>
         <div class="table-responsive">
-        <button id="exportBtn" class="btn btn-primary">Export to PDF</button>
         <table class="table table-bordered"  id = "dailyEntryTable">
             <thead>
                 <tr>
@@ -114,9 +118,34 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
                     <td>{{ $entry->incident }}</td>
                 </tr>
                 @endforeach
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        {{-- Previous Page Link --}}
+                        @if ($entries->onFirstPage())
+                            <li class="page-item disabled">
+                                <span class="page-link" style="padding:30px;">Previous</span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $entries->previousPageUrl() }}" rel="prev">Previous</a>
+                            </li>
+                        @endif
+                        
+                        {{-- Next Page Link --}}
+                        @if ($entries->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" style="padding:30px;" href="{{ $entries->nextPageUrl() }}" rel="next">Next</a>
+                            </li>
+                        @else
+                            <li class="page-item disabled">
+                                <span class="page-link">Next</span>
+                            </li>
+                        @endif
+                    </ul>
+                </nav>
             </tbody>
         </table>
-    
+      
         </div>
 </div>
 @include('layouts.footers.auth.footer')

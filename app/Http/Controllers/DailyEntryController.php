@@ -36,7 +36,7 @@ class DailyEntryController extends Controller
             'daily_entries.appointments'
         )
         ->orderBy('daily_entries.id', 'desc')
-        ->get();   
+        ->paginate(5);  
         return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
             //dd($entries);
     }  
@@ -44,6 +44,7 @@ class DailyEntryController extends Controller
 
     public function viewRecordById($id)
     {
+    
     $entry = DailyEntry::join('users', 'daily_entries.user_id', '=', 'users.id')
     ->join('patients', 'daily_entries.patient_id', '=', 'patients.id')
     ->select(
@@ -54,6 +55,7 @@ class DailyEntryController extends Controller
     ->where('daily_entries.id', $id)
     ->first();
     return view('pages.singleDailyEntry', ['entry' => $entry]);  
+    
     }
     /**
      * Store a newly created resource in storage.
@@ -98,13 +100,11 @@ class DailyEntryController extends Controller
 
      public function createDailyEntry(){
 
-        //
         $houseId = Auth::user()->house;
-    // Get patients belonging to the same house as the authenticated user using a raw SQL query
+        //Get patients belonging to the same house as the authenticated user using a raw SQL query
         $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$houseId]);
-    // You can convert the results to a collection if needed
+        //You can convert the results to a collection if needed
         $patients = collect($patients);
         return view('pages.user-profile')->with("patients",$patients);
      }
-
 }
