@@ -5,23 +5,43 @@
             aria-hidden="true" id="iconSidenav"></i>
             <img src="{{ asset('img/beLogo.png') }}" alt="main_logo" style="height: 100px;">
     </div>
-        <style>
-        /* Add custom CSS for fixed sidebar */
-        #sidenav-collapse-main {
+      <!-- Include Bootstrap CSS and other necessary stylesheets -->
+      <style>
+        /* Add custom CSS for fixed sidebar and scrolling */
+        /* Add custom CSS for fixed sidebar and scrolling */
+        body {
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+            margin: 0; /* Reset default margin */
+            padding: 0; /* Reset default padding */
+            display: flex; /* Use flex display */
+        }
+
+        #sidebar {
             position: fixed;
-            height: 100%;
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(0);
+            width: 250px;
+            height: 100vh; /* Set height to match screen height */
+            overflow-y: auto; /* Enable vertical scrolling within sidebar */
             z-index: 1030;
+            background-color: #fff; /* Set background color */
+            border-right: 1px solid #ccc; /* Add a border for separation */
+            margin: 0; /* Reset margin */
+            padding: 0; /* Reset padding */
+        }
+
+        #sidebar ul {
+            margin: 0; /* Reset margin for ul */
+            padding: 0; /* Reset padding for ul */
         }
 
         #content {
-            margin-left: 250px; /* Adjust as needed */
+            flex: 1; /* Allow content to expand */
+            margin-left: 250px; /* Set margin to accommodate sidebar */
+            padding: 20px; /* Add padding for content area */
             transition: margin-left 0.3s ease-in-out;
         }
     </style>
     <!--<hr class="horizontal dark mt-0">!-->
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main" style="margin-top:4px;">
+    <div class="" id="sidenav-collapse-main" style="margin-top:4px;">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="dashboard">
