@@ -95,10 +95,11 @@ function generate() {
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                               Welcome {{$name}}
+                               Welcome {{$name}} 
                                <hr>
                                Current Date {{$currentDate}}
                             </div>
+                          
                         </div>
                         <div class="col-4 text-end">
                             <div class="icon icon-user text-center rounded-circle">
@@ -116,7 +117,8 @@ function generate() {
                         <div class="col-8">
                             <div class="numbers">
                                 Number Of Patients in house {{ $numberOfPatients[0]->count }}
-                                <a href = "viewMyPatients" class = "btn btn-danger">View My Patients</a>
+                                <a href = "viewMyProfile" class = "btn btn-info">View Your Profile</a>
+                                <a href = "viewMyPatients" class = "btn btn-danger">View Your Patients</a>
                                 <h5 class="font-weight-bolder">
                                 </h5>
                             </div>

@@ -18,4 +18,8 @@ class UserProfileController extends Controller
        // return view('pages.user-profile',compact('patients'))->with("user",$user);
         
     }
+    public function myProfile(){
+        $user = Auth::user();
+        return view('pages.myProfile')->with("user",$user);
+    }
 }
