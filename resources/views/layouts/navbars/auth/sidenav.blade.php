@@ -131,7 +131,7 @@
                     <span class="nav-link-text ms-1">Self Certification Sick Form</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" href="getStatistics">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -139,7 +139,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Statistics</span>
                 </a>
-            </li>
+            </li>!-->
             <!--<li class="nav-item">
                 <a class="nav-link " href="/addPatients">
                     <div
