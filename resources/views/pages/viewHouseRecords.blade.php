@@ -101,6 +101,7 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
                     <th>Appointments</th>
                     <th>Activities</th>
                     <th>Incident</th>
+                    <th>View Record</th>
                 </tr>
             </thead>
             <tbody>
@@ -116,6 +117,7 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
                     <td>{{ $entry->appointments }}</td>
                     <td>{{ $entry->activities }}</td>
                     <td>{{ $entry->incident }}</td>
+                    <td><a href="{{ route('view-record', ['id' => $entry->id]) }}"class = "btn btn-info">View Record</a></td>      
                 </tr>
                 @endforeach
                 <nav aria-label="Page navigation">

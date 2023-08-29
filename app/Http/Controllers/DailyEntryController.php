@@ -30,6 +30,7 @@ class DailyEntryController extends Controller
             'daily_entries.date',
             'daily_entries.personal_care',
             'daily_entries.shift',
+            'daily_entries.id',
             'daily_entries.medication_admin',
             'daily_entries.activities',
             'daily_entries.incident',
