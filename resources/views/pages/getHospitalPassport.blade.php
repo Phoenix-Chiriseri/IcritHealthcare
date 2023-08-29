@@ -41,7 +41,7 @@
             <div class="col-md-12">
             <div class="card">
                 <form method="POST" action="{{ route('save-entry') }}">
-                    @csrf
+                    @csrf    
                     <div class="form-group">
                         <label for="date">Assessment Date
                         </label>
@@ -53,19 +53,21 @@
                         <input type="email" name="date" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label for="patient_id">Patient</label>
+                        <select name="patient_id" id="patient_id" class="form-control" required>
+                            @foreach ($patients as $patient)
+                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="personal_care">Personal Care</label>
                         <select name="personal_care" id="personal_care" class="form-control" required>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="shift">Service User Name</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Jeff</option>
-                            <option value="Late">Toby</option>
-                        </select>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="date">NHS number:
                         </label>

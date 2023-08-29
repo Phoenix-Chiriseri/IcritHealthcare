@@ -15,14 +15,17 @@ class HospitalPassportController extends Controller
     //get the staff members from the logged in house 
     public function index()
     {
+
        //get the username based on the logged in user
+       $username = Auth::user()->user_name;
+       //get the house of the logged in user 
        $house = Auth::user()->house;
        $query = "
-              select * from users where house = :house
+              select * from patients where house = :house
        ";
         // Execute the raw SQL query with the user ID parameter
-        $users = DB::select($query, ['house' => $house]);
-        return view('pages.getHospitalPassport')->with('users',$users);
+        $patients = DB::select($query, ['house' => $house]);
+        return view('pages.getHospitalPassport')->with('patients',$patients);
     
     }
 
