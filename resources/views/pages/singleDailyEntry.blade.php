@@ -94,7 +94,7 @@ function generate() {
         var doc = new jsPDF();
         // HTML content to be converted
         var htmlContent = document.getElementById('pdf-content').innerHTML; 
-        doc.text('Single Entry Report', 10, 10); // Title
+        doc.text('Single Daily Entry Report', 10, 10); // Title
         doc.fromHTML(htmlContent, 10, 20, {
             width: 190
         });
