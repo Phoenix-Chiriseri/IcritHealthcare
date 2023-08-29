@@ -13,14 +13,13 @@ use Carbon\Carbon;
 class HomeController extends Controller
 {
   
-    public function index()
-    {
-        $currentDate = Carbon::now('Europe/London')->format('d-m-Y');
+public function index()
+{
+$currentDate = Carbon::now('Europe/London')->format('d-m-Y');
 $userId = Auth::id();
 $username = Auth::user()->username;
 $house = Auth::user()->house;
 $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);
-
 $query = "
     SELECT users.id AS user_id, users.username AS user_name, users.house AS house,
     patients.patient_name, daily_entries.id as entryId, daily_entries.date, daily_entries.shift,
@@ -42,5 +41,4 @@ $entries = DB::select($query, ['userId' => $userId]);
 return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);    
 
 }
-
 }

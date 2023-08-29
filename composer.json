@@ -9,7 +9,7 @@
         "bitfumes/laravel-multiauth": "^3.0",
         "consoletvs/charts": "^6.6",
         "dompdf/dompdf": "^2.0",
-        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/guzzle": "^7.7",
         "laravel-frontend-presets/argon": "^2.0",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
