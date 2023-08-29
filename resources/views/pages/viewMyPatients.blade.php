@@ -65,8 +65,8 @@ function generate() {
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-user bg-gradient-primary shadow-primary text-center rounded-circle">
-                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-user shadow-primary text-center rounded-circle">
+                                <i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@ function generate() {
                         </div>
                         <div class="col-4 text-end">
                             <div class="icon icon-s bg-building gradient-warning shadow-warning text-center rounded-circle">
-                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                <i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
