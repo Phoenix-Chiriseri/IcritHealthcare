@@ -7,10 +7,6 @@
     </div>
         <style>
         /* Add custom CSS for fixed sidebar */
-        body {
-            overflow-x: hidden; /* Hide horizontal scrollbar */
-        }
-
         #sidenav-collapse-main {
             position: fixed;
             height: 100%;
@@ -150,7 +146,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="getSelfCertificationSickForm">
+                <a class="nav-link" href="getStatistics">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
