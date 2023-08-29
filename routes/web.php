@@ -63,7 +63,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/saveEntry', [DailyEntryController::class, 'store'])->name('save-entry');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
-	Route::get('/viewMyPatients', [PatientController::class, 'viewMyPatients'])->name('viewMyPatients');
+	Route::get('/viewMyPatients', [PatientController::class, 'viewMyPatients'])->name('viewMyPatients')->middleware("auth");
 	//behavioural monitor chart routes
 	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart')->middleware('auth');
 	Route::post('/saveBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bChart');

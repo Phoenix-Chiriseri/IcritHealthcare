@@ -80,7 +80,7 @@ function generate() {
                         <div class="col-8">
                             <div class="numbers">
                                 
-                                <a href = "viewMyPatients">View My Patients</a>
+                                <a href = "viewMyPatients" class = "btn btn-info">View My Patients</a>
                                 <h5 class="font-weight-bolder">
                                 </h5>
                             </div>
