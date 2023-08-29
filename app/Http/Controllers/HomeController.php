@@ -15,7 +15,7 @@ class HomeController extends Controller
   
     public function index()
     {
-        $currentDate = Carbon::now('Europe/London')->format('d-m-Y H:i:s');
+        $currentDate = Carbon::now('Europe/London')->format('d-m-Y');
         $userId = Auth::id();
         $username = Auth::user()->username;
         $house = Auth::user()->house;
