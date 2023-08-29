@@ -25,7 +25,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\PdfController;  
 use App\Models\DailyEntries;   
 use App\Http\Controllers\Admin\AdminAuthController; 
-use App\Http\Controllers\Admin\StatisticsController; 
+use App\Http\Controllers\StatisticsController; 
 
 
 /*s
@@ -67,6 +67,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	//behavioural monitor chart routes
 	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart')->middleware('auth');
 	Route::post('/saveBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bChart');
+	Route::get('/getStatistics', [StatisticsController::class, 'index'])->name('getStatistics')->middleware('auth');
 	//complaint report routes
 	Route::get('getComplaintRecord', [ComplaintRecordController::class, 'index'])->name('getComplaintRecord')->middleware('auth');
 	Route::post('/saveComplaintRecord', [BehaviouralMonitorChartController::class, 'store'])->name('save-ComplaintRecord');
@@ -95,5 +96,5 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');;
 	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record');
-	Route::get('/getStatistics', [StatisticsController::class, 'index'])->name('getStatistics')->middleware('auth');
+
 });

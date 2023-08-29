@@ -38,7 +38,6 @@ class DailyEntryController extends Controller
         ->orderBy('daily_entries.id', 'desc')
         ->paginate(5);  
         return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
-            //dd($entries);
     }  
 
 

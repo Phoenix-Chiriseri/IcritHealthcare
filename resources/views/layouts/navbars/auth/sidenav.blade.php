@@ -5,8 +5,27 @@
             aria-hidden="true" id="iconSidenav"></i>
             <img src="{{ asset('img/beLogo.png') }}" alt="main_logo" style="height: 100px;">
     </div>
+        <style>
+        /* Add custom CSS for fixed sidebar */
+        body {
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        #sidenav-collapse-main {
+            position: fixed;
+            height: 100%;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(0);
+            z-index: 1030;
+        }
+
+        #content {
+            margin-left: 250px; /* Adjust as needed */
+            transition: margin-left 0.3s ease-in-out;
+        }
+    </style>
     <!--<hr class="horizontal dark mt-0">!-->
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main" style="margin-top:20px;">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main" style="margin-top:4px;">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="dashboard">
@@ -109,7 +128,7 @@
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Positive Behaviour Support Plan</span>
+                    <span class="nav-link-text ms-1">Behaviour Support Plan</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -128,6 +147,15 @@
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Self Certification Sick Form</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="getSelfCertificationSickForm">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Statistics</span>
                 </a>
             </li>
             <!--<li class="nav-item">
