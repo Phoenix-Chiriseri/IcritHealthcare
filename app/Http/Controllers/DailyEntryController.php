@@ -88,7 +88,6 @@ class DailyEntryController extends Controller
 
     $user = Auth::user();
     $user->dailyEntries()->save($dailyEntry);
-
     return back()->with('success', 'Daily Entry added successfully.');
 
     //return redirect()->route('/home')
