@@ -168,7 +168,7 @@ function generate() {
                                         <th>Mobility Dexterity</th>
                                         <th>Routines And Personal Care</th>
                                         <!-- Add more table headers for the other fields -->
-                                        <th>Created At</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
