@@ -67,7 +67,7 @@ class MySupportPlanController extends Controller
         return back()->with('success', 'Support Plan Added Successfully.');
     }
 
-    public function allSUpportPlans(){
+    public function allSupportPlans(){
 
         $usersHouse = Auth::user()->house; 
         $supportPlans = MySupportPlan::leftJoin('patients', 'my_support_plans.patient_id', '=', 'patients.id')
