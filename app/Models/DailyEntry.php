@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DailyEntry extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
         'date',
         'patient_id',
@@ -30,5 +30,4 @@ class DailyEntry extends Model
     {
         return $this->belongsTo(Patient::class);
     }
-
 }

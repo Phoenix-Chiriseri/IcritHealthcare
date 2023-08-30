@@ -12,7 +12,6 @@ class MySupportPlan extends Model
     protected $fillable = [
         'date',
         'patient_id',
-        'user_id',
         'comm_skills',
         'friend_fam',
         'mobility_dexterity',
