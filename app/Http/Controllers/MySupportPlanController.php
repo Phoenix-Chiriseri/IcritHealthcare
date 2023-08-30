@@ -71,22 +71,31 @@ class MySupportPlanController extends Controller
 
         $usersHouse = Auth::user()->house; 
         $supportPlans = MySupportPlan::leftJoin('patients', 'my_support_plans.patient_id', '=', 'patients.id')
-        ->leftJoin('users', 'my_support_plans.user_id', '=', 'users.id')
-        ->where('users.house', $usersHouse)
-        ->select(
-            'users.username as user_name',
-            'users.house as house',
-            'my_support_plans.shift',
-            'my_support_plans.personal_care',
-            'my_support_plans.medication_admin',
-            'my_support_plans.appointments',
-            'my_support_plans.activities',
-            'my_support_plans.incident',
-            'my_support_plans.created_at',
-        )
-        ->orderBy('my_support_plans.id', 'desc')
-        ->paginate(5);  
-        return view('pages.allSupportPlans', compact('supportPlans'))->with("name", Auth::user()->username)->with("house", $usersHouse);
+            ->leftJoin('users', 'my_support_plans.user_id', '=', 'users.id')
+            ->where('users.house', $usersHouse)
+            ->select(
+                'users.username as user_name',
+                'users.house as house',
+                'patients.patient_name as patient_name',
+                'my_support_plans.comm_skills', // Fillable field
+                'my_support_plans.friend_fam', // Fillable field
+                'my_support_plans.mobility_dexterity', // Fillable field
+                'my_support_plans.routines_personal_care', // Fillable field
+                'my_support_plans.needs', // Fillable field
+                'my_support_plans.emotions', // Fillable field
+                'my_support_plans.daily_living_skills', // Fillable field
+                'my_support_plans.general_health_needs', // Fillable field
+                'my_support_plans.medication_support', // Fillable field
+                'my_support_plans.recreation_and_relation', // Fillable field
+                'my_support_plans.eating_drinking_nutrition', // Fillable field
+                'my_support_plans.psychological_support', // Fillable field
+                'my_support_plans.finance', // Fillable field
+                'my_support_plans.staff_email', // Fillable field
+                'my_support_plans.created_at',
+            )
+            ->orderBy('my_support_plans.id', 'desc')
+            ->paginate(5); 
+            return view('pages.allSupportPlans', compact('supportPlans'))->with("name", Auth::user()->username)->with("house", $usersHouse);
    
 
     }

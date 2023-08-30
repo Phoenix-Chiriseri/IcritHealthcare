@@ -162,13 +162,10 @@ function generate() {
                                 <thead>
                                     <tr>
                                         <th>Created By</th>
-                                        <th>House</th>
-                                        <th>Shift</th>
-                                        <th>Personal Care</th>
-                                        <th>Medication Admin</th>
-                                        <th>Appointments</th>
-                                        <th>Activities</th>
-                                        <th>Incident</th>
+                                        <th>Patient Name</th>
+                                        <th>Communication Skills</th>
+                                        <th>Fiends Or Family</th>
+                                        <!-- Add more table headers for the other fields -->
                                         <th>Created At</th>
                                     </tr>
                                 </thead>
@@ -176,18 +173,16 @@ function generate() {
                                     @foreach ($supportPlans as $supportPlan)
                                         <tr>
                                             <td>{{ $supportPlan->user_name }}</td>
-                                            <td>{{ $supportPlan->house }}</td>
-                                            <td>{{ $supportPlan->shift }}</td>
-                                            <td>{{ $supportPlan->personal_care }}</td>
-                                            <td>{{ $supportPlan->medication_admin }}</td>
-                                            <td>{{ $supportPlan->appointments }}</td>
-                                            <td>{{ $supportPlan->activities }}</td>
-                                            <td>{{ $supportPlan->incident }}</td>
+                                            <td>{{ $supportPlan->patient_name }}</td>
+                                            <td>{{ $supportPlan->comm_skills }}</td>
+                                            <!-- Add more table cells for the other fields -->
                                             <td>{{ $supportPlan->created_at }}</td>
+                                            <td>{{ $supportPlan->friends_or_fam }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                    
                             {{ $supportPlans->links() }} <!-- Display pagination links -->
                     </div>
                 </div>
