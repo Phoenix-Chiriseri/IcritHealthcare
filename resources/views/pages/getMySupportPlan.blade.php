@@ -34,6 +34,14 @@
                         <input type="date" name="date" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label for="patient_id">Patient</label>
+                        <select name="patient_id" id="patient_id" class="form-control" required>
+                            @foreach ($patients as $patient)
+                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="shift">Shift</label>
                         <select name="shift" id="shift" class="form-control" required>
                             <option value="Early">Early</option>

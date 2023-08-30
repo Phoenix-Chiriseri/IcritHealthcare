@@ -55,8 +55,7 @@ function generate() {
   <script>
     $(document).ready(function () {
         $('.export-pdf-btn').click(function (e) {
-            e.preventDefault();
-            
+            e.preventDefault();        
             var entryId = $(this).data('entry-id');
             
             // Make an AJAX request to fetch data

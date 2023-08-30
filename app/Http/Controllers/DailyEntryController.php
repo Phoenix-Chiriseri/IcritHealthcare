@@ -105,6 +105,6 @@ class DailyEntryController extends Controller
         $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$houseId]);
         //You can convert the results to a collection if needed
         $patients = collect($patients);
-        return view('pages.user-profile')->with("patients",$patients);
+        return view('pages.dailyEntry')->with("patients",$patients);
      }
 }

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\MySupportPlan;
 use Illuminate\Http\Request;
+use App\Models\Patient;
+use Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class MySupportPlanController extends Controller
 {
@@ -12,8 +16,13 @@ class MySupportPlanController extends Controller
      */
     public function index()
     {
-        //
-        return view('pages.getMySupportPlan');
+        //retrieve the patients to the dashboard
+        $house = Auth::user()->house;
+        $query = "
+                select * from patients where house = :house
+         ";
+        $patients = DB::select($query, ['house' => $house]);
+        return view('pages.getMySupportPlan')->with("patients",$patients);
     }
 
     /**
