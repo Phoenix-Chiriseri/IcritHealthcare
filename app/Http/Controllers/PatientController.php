@@ -34,7 +34,6 @@ class PatientController extends Controller
              ->where('users.username', $username)
             ->select('patients.patient_name as patient_name','users.username as username') 
             ->get();
-            dd($userAndPatients);
         return view('pages.viewMyPatients')->with("name",$username)->with('userAndPatients',$userAndPatients);
 
      }

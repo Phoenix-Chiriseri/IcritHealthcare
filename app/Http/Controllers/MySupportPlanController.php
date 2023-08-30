@@ -39,25 +39,25 @@ class MySupportPlanController extends Controller
     public function store(Request $request)
     {
        
-        $request->validate([
-            'date' => 'required|date',
-            'shift' => 'required',
-            'patient_id' => 'required|exists:patients,id',
-            'comm_skills' => 'required',
-            'friend_fam' => 'required',
-            'mobility_dexterity' => 'required',
-            'routines_personal_care' => 'required',
-            'needs' => 'required',
-            'emotions' => 'required',
-            'daily_living_skills' => 'required',
-            'general_health_needs' => 'required',
-            'medication_support' => 'required',
-            'recreation_and_relation' => 'required',
-            'eating_drinking_nutrition' => 'required',
-            'psychological_support' => 'required',
-            'finance' => 'required',
-            'staff_email' => 'required|email',
-        ]);
+       $validatedData = $request->validate([
+        'date' => 'required|date',
+        'shift' => 'required',
+        'patient_id' => 'required|exists:patients,id',
+        'comm_skills' => 'required',
+        'friend_fam' => 'required',
+        'mobility_dexterity' => 'required',
+        'routines_personal_care' => 'required',
+        'needs' => 'required',
+        'emotions' => 'required',
+        'daily_living_skills' => 'required',
+        'general_health_needs' => 'required',
+        'medication_support' => 'required',
+        'recreation_and_relation' => 'required',
+        'eating_drinking_nutrition' => 'required',
+        'psychological_support' => 'required',
+        'finance' => 'required',
+        'staff_email' => 'required|email',
+       ]); 
         
         // Create the support plan entry and associate it with the patient
         $supportPlan = new MySupportPlan([
@@ -80,6 +80,8 @@ class MySupportPlanController extends Controller
             'staff_email' => $request->staff_email,
         ]);
     
+        $supportPlan = new MySupportPlan($validatedData);
+        //Associate the support plan with the authenticated user
         $user = Auth::user();
         $user->supportPlans()->save($supportPlan);
         return back()->with('success', 'Support Plan Added Successfully.');  
