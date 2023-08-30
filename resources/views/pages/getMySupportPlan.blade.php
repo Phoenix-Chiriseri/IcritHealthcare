@@ -1,4 +1,6 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
@@ -23,6 +25,17 @@
     <div id="alert">
         @include('components.alert')
     </div>
+    @if(Session::has('success'))
+    <script type="text/javascript">
+    function massge() {
+    Swal.fire(
+    'Success',
+    'Support Plan Added'
+        );
+        }
+        window.onload = massge;
+        </script>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">

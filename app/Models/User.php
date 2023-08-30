@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Patient;
+use App\Models\MySupportPlan;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,10 @@ class User extends Authenticatable
     public function dailyEntries()
     {
         return $this->hasMany(DailyEntry::class);
+    }
+
+    public function supportPlans()
+    {
+        return $this->hasMany(MySupportPlan::class);
     }
 }

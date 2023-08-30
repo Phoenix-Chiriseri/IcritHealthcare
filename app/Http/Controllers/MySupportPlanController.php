@@ -39,7 +39,32 @@ class MySupportPlanController extends Controller
     public function store(Request $request)
     {
        
-        dd($request->all());
+        $request->validate([
+            'date' => 'required|date',
+            'shift' => 'required',
+            'patient_id' => 'required|exists:patients,id',
+            'personal_care' => 'required',
+            'medication_admin' => 'required',
+            'appointments' => 'required',
+            'activities' => 'required',
+            'incident' => 'required',
+        ]);
+    
+        // Create the support plan entry and associate it with the patient
+        $supportPlan = new MySupportPlan([
+            'date' => $request->date,
+            'shift' => $request->shift,
+            'patient_id' => $request->patient_id,
+            'personal_care' => $request->personal_care,
+            'medication_admin' => $request->medication_admin,
+            'appointments' => $request->appointments,
+            'activities' => $request->activities,
+            'incident' => $request->incident,
+        ]);
+    
+        $user = Auth::user();
+        $user->supportPlans()->save($supportPlan);
+        return back()->with('success', 'Support Plan Added Successfully');      
     }
     /**
      * Display the specified resource.
