@@ -164,9 +164,18 @@ function generate() {
                                         <th>Created By</th>
                                         <th>Patient Name</th>
                                         <th>Communication Skills</th>
-                                        <th>Fiends Or Family</th>
+                                        <th>Friendships and Personal Relationships</th>
                                         <th>Mobility Dexterity</th>
                                         <th>Routines And Personal Care</th>
+                                        <th>Needs</th>
+                                        <th>Emotions</th>
+                                        <th>Daily Driving Skills</th>
+                                        <th>General Health Skills</th>
+                                        <th>Medication Support</th>
+                                        <th>Recreation And Relations</th>
+                                        <th>Psychological Support</th>
+                                        <th>Finance</th>
+                                        <th>Staff Email</th>
                                         <!-- Add more table headers for the other fields -->
                                         
                                     </tr>
@@ -181,7 +190,16 @@ function generate() {
                                             <td>{{ $supportPlan->friend_fam }}</td>
                                             <td>{{ $supportPlan->mobility_dexterity }}</td>
                                             <td>{{ $supportPlan->routines_personal_care }}</td>
-                                        
+                                            <td>{{ $supportPlan->needs }}</td>
+                                            <td>{{ $supportPlan->emotions }}</td>
+                                            <td>{{ $supportPlan->daily_living_skills }}</td>
+                                            <td>{{ $supportPlan->general_health_needs }}</td>
+                                            <td>{{ $supportPlan->medication_support }}</td>
+                                            <td>{{ $supportPlan->recreation_and_relation}}</td>
+                                            <td>{{ $supportPlan->eating_drinking_nutrition}}</td>
+                                            <td>{{ $supportPlan->psychological_support}}</td>
+                                            <td>{{ $supportPlan->finance}}</td>
+                                            <td>{{ $supportPlan->staff_email}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
