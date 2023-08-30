@@ -165,6 +165,8 @@ function generate() {
                                         <th>Patient Name</th>
                                         <th>Communication Skills</th>
                                         <th>Fiends Or Family</th>
+                                        <th>Mobility Dexterity</th>
+                                        <th>Routines And Personal Care</th>
                                         <!-- Add more table headers for the other fields -->
                                         <th>Created At</th>
                                     </tr>
@@ -176,8 +178,10 @@ function generate() {
                                             <td>{{ $supportPlan->patient_name }}</td>
                                             <td>{{ $supportPlan->comm_skills }}</td>
                                             <!-- Add more table cells for the other fields -->
-                                            <td>{{ $supportPlan->created_at }}</td>
-                                            <td>{{ $supportPlan->friends_or_fam }}</td>
+                                            <td>{{ $supportPlan->friend_fam }}</td>
+                                            <td>{{ $supportPlan->mobility_dexterity }}</td>
+                                            <td>{{ $supportPlan->routines_personal_care }}</td>
+                                        
                                         </tr>
                                     @endforeach
                                 </tbody>
