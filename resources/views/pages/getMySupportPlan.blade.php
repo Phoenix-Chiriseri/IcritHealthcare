@@ -55,54 +55,61 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="shift">Shift</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Early</option>
-                            <option value="Late">Late</option>
-                            <option value="LD">LD</option>
-                            <option value="Night">Night</option>
-                        </select>
+                        <label for="date">Communication Skills</label>
+                        <textarea type="text" rows="5" name="comm_skills" id="date" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="personal_care">Personal Care</label>
-                        <select name="personal_care" id="personal_care" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="date">Friendships and Personal Relationships, in my friendship groups, family and with the people that supports me. To include sexuality and sexual relationships</label>
+                        <textarea type="text" rows="5" name="friend_fam" id="date" class="form-control" required></textarea>
                     </div>
-
                     <div class="form-group">
-                        <label for="medication_admin">Medication Admin</label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="date">Mobility and dexterity</label>
+                        <textarea type="text" rows="5" name="friend_fam" id="date" class="form-control" required></textarea>
                     </div>
-
                     <div class="form-group">
-                        <label for="appointments">Appointments</label>
-                        <select name="appointments" id="appointments" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="date">Routines and Personal care (morning, afternoon, evening, and night)</label>
+                        <textarea type="text" rows="5" name="routines_personal_care" id="date" class="form-control" required></textarea>
                     </div>
-
                     <div class="form-group">
-                        <label for="activities">Activities</label>
-                        <select name="activities" id="activities" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="date">Needs around using the toilet and maintaining my personal hygiene</label>
+                        <textarea type="text" rows="5" name="needs" id="date" class="form-control" required></textarea>
                     </div>
-
                     <div class="form-group">
-                        <label for="incident">Incident</label>
-                        <select name="incident" id="incident" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label for="date">Emotions (what may upset me or me anxious.)</label>
+                        <textarea type="text" rows="5" name="emotions" id="date" class="form-control" required></textarea>
                     </div>
-
+                    <div class="form-group">
+                        <label for="date">Accessing the Community and daily living skills</label>
+                        <textarea type="text" rows="5" name="daily_living_skills" id="date" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">My General Health Needs – you may need to include additional support plans for any specifically identified needs.</label>
+                        <textarea type="text" rows="5" name="general_health_needs" id="date" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">My Medication Support</label>
+                        <textarea type="text" rows="5" name="medication_support" id="date" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Recreation and relationt</label>
+                        <textarea type="text" rows="5" name="recreation_and_relation" id="date" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Eating, Drinking and Nutrition</label>
+                        <textarea type="text" rows="5" name="eating_drinking_nutrition" id="date" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Psychological Support and Mental Health Needs</label>
+                        <textarea type="text" rows="5" name="physcological_support" id="date" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Finance (also ensure you put a financial passport in place for me)</label>
+                        <textarea type="text" rows="5" name="finance" id="date" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Staff Email</label>
+                        <textarea type="text" rows="5" name="staff_email" id="date" class="form-control" required></textarea>
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Add Support Plan</button>
                     </div>
