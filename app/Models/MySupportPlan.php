@@ -12,12 +12,21 @@ class MySupportPlan extends Model
     protected $fillable = [
         'date',
         'patient_id',
-        'shift',
-        'personal_care',
-        'medication_admin',
-        'appointments',
-        'activities',
-        'incident',
+        'user_id',
+        'comm_skills',
+        'friend_fam',
+        'mobility_dexterity',
+        'routines_personal_care',
+        'needs',
+        'emotions',
+        'daily_living_skills',
+        'general_health_needs',
+        'medication_support',
+        'recreation_and_relation',
+        'eating_drinking_nutrition',
+        'psychological_support',
+        'finance',
+        'staff_email',
     ];
 
     public function user()
