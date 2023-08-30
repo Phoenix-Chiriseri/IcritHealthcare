@@ -66,6 +66,30 @@ class MySupportPlanController extends Controller
         $user->supportPlans()->save($supportPlan);
         return back()->with('success', 'Support Plan Added Successfully');      
     }
+
+    public function allSUpportPlans(){
+
+        $usersHouse = Auth::user()->house; 
+        $supportPlans = MySupportPlan::leftJoin('patients', 'my_support_plans.patient_id', '=', 'patients.id')
+        ->leftJoin('users', 'my_support_plans.user_id', '=', 'users.id')
+        ->where('users.house', $usersHouse)
+        ->select(
+            'users.username as user_name',
+            'users.house as house',
+            'my_support_plans.shift',
+            'my_support_plans.personal_care',
+            'my_support_plans.medication_admin',
+            'my_support_plans.appointments',
+            'my_support_plans.activities',
+            'my_support_plans.incident',
+            'my_support_plans.created_at',
+        )
+        ->orderBy('my_support_plans.id', 'desc')
+        ->paginate(5);  
+        return view('pages.allSupportPlans', compact('supportPlans'))->with("name", Auth::user()->username)->with("house", $usersHouse);
+   
+
+    }
     /**
      * Display the specified resource.
      */

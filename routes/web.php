@@ -81,6 +81,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/viewMyProfile', [UserProfileController::class, 'myProfile'])->name('viewMyProfile')->middleware('auth');
 	Route::get('/getIncidentReport', [IncidentReportController::class, 'index'])->name('getIncidentReport')->middleware('auth');;
 	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySuportPlan')->middleware('auth');
+	Route::get('/allSupportPlans', [MySupportPlanController::class, 'allSupportPlans'])->name('allSupportPlans')->middleware('auth');
 	Route::post('/postMySupportPlan', [MySupportPlanController::class, 'store'])->name('postMySupportPlan');
 	Route::get('/getHospitalPassport', [HospitalPassportController::class, 'index'])->name('getHospitalPassport')->middleware('auth');;
 	Route::get('/viewHouseRecords', [DailyEntryController::class, 'allHouseRecords'])->name("allRecords");
