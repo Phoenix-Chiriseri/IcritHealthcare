@@ -38,53 +38,33 @@ class MySupportPlanController extends Controller
      */
     public function store(Request $request)
     {
-       
-       $validatedData = $request->validate([
-        'date' => 'required|date',
-        'shift' => 'required',
-        'patient_id' => 'required|exists:patients,id',
-        'comm_skills' => 'required',
-        'friend_fam' => 'required',
-        'mobility_dexterity' => 'required',
-        'routines_personal_care' => 'required',
-        'needs' => 'required',
-        'emotions' => 'required',
-        'daily_living_skills' => 'required',
-        'general_health_needs' => 'required',
-        'medication_support' => 'required',
-        'recreation_and_relation' => 'required',
-        'eating_drinking_nutrition' => 'required',
-        'psychological_support' => 'required',
-        'finance' => 'required',
-        'staff_email' => 'required|email',
-       ]); 
+
+        $validatedData = $request->validate([
+            'date' => 'required|date',
+            'shift' => 'required',
+            'patient_id' => 'required|exists:patients,id',
+            'comm_skills' => 'required',
+            'friend_fam' => 'required',
+            'mobility_dexterity' => 'required',
+            'routines_personal_care' => 'required',
+            'needs' => 'required',
+            'emotions' => 'required',
+            'daily_living_skills' => 'required',
+            'general_health_needs' => 'required',
+            'medication_support' => 'required',
+            'recreation_and_relation' => 'required',
+            'eating_drinking_nutrition' => 'required',
+            'psychological_support' => 'required',
+            'finance' => 'required',
+            'staff_email' => 'required|email',
+        ]); 
         
-        // Create the support plan entry and associate it with the patient
-        $supportPlan = new MySupportPlan([
-            'date' => $request->date,
-            'shift' => $request->shift,
-            'patient_id' => $request->patient_id,
-            'comm_skills' => $request->comm_skills,
-            'friend_fam' => $request->friend_fam,
-            'mobility_dexterity' => $request->mobility_dexterity,
-            'routines_personal_care' => $request->routines_personal_care,
-            'needs' => $request->needs,
-            'emotions' => $request->emotions,
-            'daily_living_skills' => $request->daily_living_skills,
-            'general_health_needs' => $request->general_health_needs,
-            'medication_support' => $request->medication_support,
-            'recreation_and_relation' => $request->recreation_and_relation,
-            'eating_drinking_nutrition' => $request->eating_drinking_nutrition,
-            'psychological_support' => $request->psychological_support,
-            'finance' => $request->finance,
-            'staff_email' => $request->staff_email,
-        ]);
-    
-        $supportPlan = new MySupportPlan($validatedData);
-        //Associate the support plan with the authenticated user
+        // Create the support plan entry with validated data
+        $supportPlan = new MySupportPlan($validatedData);    
+        // Associate the support plan with the authenticated user
         $user = Auth::user();
         $user->supportPlans()->save($supportPlan);
-        return back()->with('success', 'Support Plan Added Successfully.');  
+        return back()->with('success', 'Support Plan Added Successfully.');
     }
 
     public function allSUpportPlans(){
