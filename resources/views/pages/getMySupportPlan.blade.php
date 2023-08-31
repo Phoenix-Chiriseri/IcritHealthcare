@@ -16,7 +16,7 @@
                         <h5 class="mb-1">
                            Support Plan
                         </h5>
-                       
+
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date">Mobility and dexterity</label>
-                        <textarea type="text" rows="5" name="friend_fam" id="date" class="form-control" required></textarea>
+                        <textarea type="text" rows="5" name="mobility_dexterity" id="date" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="date">Routines and Personal care (morning, afternoon, evening, and night)</label>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date">Staff Email</label>
-                        <textarea type="text" rows="5" name="staff_email" id="date" class="form-control" required></textarea>
+                        <input type="text"  name="staff_email" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Add Support Plan</button>

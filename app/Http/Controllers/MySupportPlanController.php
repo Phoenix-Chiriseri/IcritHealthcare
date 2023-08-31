@@ -38,7 +38,7 @@ class MySupportPlanController extends Controller
      */
     public function store(Request $request)
     {
-
+        //valudate the data before submission
         $validatedData = $request->validate([
             'date' => 'required|date',
             'shift' => 'required',
@@ -57,19 +57,21 @@ class MySupportPlanController extends Controller
             'psychological_support' => 'required',
             'finance' => 'required',
             'staff_email' => 'required|email',
-        ]); 
-        
+        ]);
+
         // Create the support plan entry with validated data
-        $supportPlan = new MySupportPlan($validatedData);    
+        $supportPlan = new MySupportPlan($validatedData);
+
         // Associate the support plan with the authenticated user
-        $user = Auth::user();
+        // This part assumes you have a relationship set up between the User and MySupportPlan models
+        $user = auth()->user();
         $user->supportPlans()->save($supportPlan);
         return back()->with('success', 'Support Plan Added Successfully.');
     }
 
     public function allSupportPlans(){
 
-        $usersHouse = Auth::user()->house; 
+        $usersHouse = Auth::user()->house;
         $supportPlans = MySupportPlan::leftJoin('patients', 'my_support_plans.patient_id', '=', 'patients.id')
             ->leftJoin('users', 'my_support_plans.user_id', '=', 'users.id')
             ->where('users.house', $usersHouse)
@@ -94,9 +96,9 @@ class MySupportPlanController extends Controller
                 'my_support_plans.created_at',
             )
             ->orderBy('my_support_plans.id', 'desc')
-            ->paginate(5); 
+            ->paginate(5);
             return view('pages.allSupportPlans', compact('supportPlans'))->with("name", Auth::user()->username)->with("house", $usersHouse);
-   
+
 
     }
     /**
