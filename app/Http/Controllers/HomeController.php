@@ -12,7 +12,7 @@ use Carbon\Carbon;
 
 class HomeController extends Controller
 {
-  
+
 public function index()
 {
     $currentDate = Carbon::now('Europe/London')->format('d-m-Y');
@@ -36,8 +36,9 @@ public function index()
         )
         ORDER BY daily_entries.date DESC
     ";
-$entries = DB::select($query, ['userId' => $userId]);
-return view('pages.dashboard', compact('entries'))->with("name", $username)->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);    
+        $entries = DB::select($query, ['userId' => $userId]);
+        return view('pages.dashboard', compact('entries'))->with("name", $username)
+            ->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);
 
-}
+  }
 }

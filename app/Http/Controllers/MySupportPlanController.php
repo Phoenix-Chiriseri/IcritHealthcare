@@ -61,7 +61,6 @@ class MySupportPlanController extends Controller
 
         // Create the support plan entry with validated data
         $supportPlan = new MySupportPlan($validatedData);
-
         // Associate the support plan with the authenticated user
         // This part assumes you have a relationship set up between the User and MySupportPlan models
         $user = auth()->user();
