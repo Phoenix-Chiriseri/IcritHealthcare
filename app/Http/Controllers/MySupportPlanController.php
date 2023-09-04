@@ -55,7 +55,7 @@ class MySupportPlanController extends Controller
             'finance' => 'required|integer',
             'staff_email' => 'required|email',
         ];
-
+        
         $supportPlan = new MySupportPlan();
         $supportPlan->date = request()->input('date');
         $supportPlan->patient_id = request()->input('patient_id');
@@ -73,7 +73,6 @@ class MySupportPlanController extends Controller
         $supportPlan->psychological_support = request()->input('pSupport');
         $supportPlan->finance = request()->input('finance');
         $supportPlan->staff_email = request()->input('staff_email');
-
         $user = auth()->user();
         $user->supportPlans()->save($supportPlan);
         return back()->with('success', 'Support Plan Added Successfully.');

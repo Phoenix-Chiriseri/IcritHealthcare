@@ -186,7 +186,6 @@ function generate() {
                                             <td>{{ $supportPlan->user_name }}</td>
                                             <td>{{ $supportPlan->patient_name }}</td>
                                             <td>{{ $supportPlan->comm_skills }}</td>
-                                            <!-- Add more table cells for the other fields -->
                                             <td>{{ $supportPlan->friend_fam }}</td>
                                             <td>{{ $supportPlan->mobility_dexterity }}</td>
                                             <td>{{ $supportPlan->routines_personal_care }}</td>

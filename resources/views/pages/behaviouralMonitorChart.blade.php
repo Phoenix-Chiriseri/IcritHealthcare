@@ -23,24 +23,31 @@
     <div id="alert">
         @include('components.alert')
     </div>
+    @if(Session::has('success'))
+    <script type="text/javascript">
+    function massge() {
+    Swal.fire(
+    'Success',
+    'Behaviour Monitor Chart Saved'
+        );
+        }
+        window.onload = massge;
+    </script>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">
             <div class="card">
                 <form method="POST" action="{{ route('save-bChart') }}">
                     @csrf      
-        <div class="form-group row">
-            <label for="first_name" class="col-md-2 col-form-label">First Name</label>
-            <div class="col-md-12">
-                <input type="text" class="form-control" id="first_name" name="first_name" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="last_name" class="col-md-2 col-form-label">Last Name</label>
-            <div class="col-md-12">
-                <input type="text" class="form-control" name="last_name" required>
-            </div>
-        </div>
+            <div class="form-group">
+                        <label for="patient_id">Patient Name</label>
+                        <select name="patient_id" id="patient_id" class="form-control" required>
+                            @foreach ($patients as $patient)
+                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Date</label>
             <div class="col-md-12">
@@ -71,7 +78,7 @@
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Known Behaviour Reference</label>
             <div class="col-md-12">
-                <input type="text" class="form-control" name="knownBeahiourReference" required>
+                <input type="text" class="form-control" name="knownBehaviourReference" required>
             </div>
         </div>
         <div class="form-group row">
