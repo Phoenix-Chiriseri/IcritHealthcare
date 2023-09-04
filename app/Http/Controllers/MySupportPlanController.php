@@ -9,6 +9,8 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\MySupportPlans;
+use Validator;
+
 
 class MySupportPlanController extends Controller
 {
@@ -34,6 +36,26 @@ class MySupportPlanController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validationRules = [
+            'date' => 'required|date',
+            'patient_id' => 'required|integer|min:1', // Adjust min value as needed
+            'comm_skills' => 'required|integer',
+            'friend_fam' => 'required|integer',
+            'mobility_dexterity' => 'required|integer',
+            'routines_personal_care' => 'required|integer',
+            'needs' => 'required|integer',
+            'emotions' => 'required|integer',
+            'daily_living_skills' => 'required|integer',
+            'general_health_needs' => 'required|integer',
+            'medication_support' => 'required|integer',
+            'recreation_and_relation' => 'required|integer',
+            'eating_drinking_nutrition' => 'required|integer',
+            'psychological_support' => 'required|integer',
+            'finance' => 'required|integer',
+            'staff_email' => 'required|email',
+        ];
+
         $supportPlan = new MySupportPlan();
         $supportPlan->date = request()->input('date');
         $supportPlan->patient_id = request()->input('patient_id');
@@ -54,8 +76,7 @@ class MySupportPlanController extends Controller
 
         $user = auth()->user();
         $user->supportPlans()->save($supportPlan);
-        echo "saved";
-        //return back()->with('success', 'Support Plan Added Successfully.');
+        return back()->with('success', 'Support Plan Added Successfully.');
     }
 
     public function allSupportPlans(){
