@@ -21,11 +21,13 @@ class DailyEntry extends Model
         'incident'
     ];
 
+    //each and every daily entry belongs to a user
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    //every daily entry belongs to a patient
     public function patient()
     {
         return $this->belongsTo(Patient::class);

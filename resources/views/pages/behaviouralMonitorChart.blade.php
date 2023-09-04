@@ -28,8 +28,7 @@
             <div class="col-md-12">
             <div class="card">
                 <form method="POST" action="{{ route('save-bChart') }}">
-                    @csrf
-                   
+                    @csrf      
         <div class="form-group row">
             <label for="first_name" class="col-md-2 col-form-label">First Name</label>
             <div class="col-md-12">
@@ -39,49 +38,47 @@
         <div class="form-group row">
             <label for="last_name" class="col-md-2 col-form-label">Last Name</label>
             <div class="col-md-12">
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                <input type="text" class="form-control" name="last_name" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Date</label>
             <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
-                <input type="date" class="form-control" id="last_name" name="last_name" required>
+                <input type="date" class="form-control" name="date" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Known Behaviours</label>
             <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
-                <input type="date" class="form-control" id="last_name" name="last_name" required>
+                <input type="text" class="form-control" name="knownBehaviours" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Totals</label>
             <div class="col-md-12">
-                <!-- Day, Month, and Year selects go here -->
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                <input type="text" class="form-control" name="totals" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Time</label>
             <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
-                <input type="time" class="form-control" id="last_name" name="last_name" required>
+                <input type="time" class="form-control" name="time" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Known Behaviour Reference</label>
             <div class="col-md-12">
-                <!-- Day, Month, and Year selects go here -->
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                <input type="text" class="form-control" name="knownBeahiourReference" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="date" class="col-md-2 col-form-label">Comments/ additional detail if needed</label>
             <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                <input type="text" class="form-control" name="comments" required>
             </div>
         </div>
         <div class="form-group row">
@@ -99,12 +96,9 @@
             <label for="date" class="col-md-2 col-form-label">Initials Of Person Completing Entry</label>
             <div class="col-md-12">
                 <!-- Day, Month, and Year selects go here -->
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                <input type="text" class="form-control" id="last_name" name="initials" required>
             </div>
         </div>
-
-        <!-- Known Behaviours Fieldset 1 -->
-        <!-- Known Behaviours Fieldset 2 -->
         <button type="submit" class="btn btn-success">Submit</button>
                 </form>
                 </div>

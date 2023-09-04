@@ -10,19 +10,16 @@ use App\Models\User;
 
 class DailyEntryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    //query
-    public function allHouseRecords(){
+    public function allHouseRecords(){    
 
-        //working code using a left join
-        $userId = Auth::user()->house;
-        $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$userId]);        
-        //get the daily entries from the database and return them to the view records view
+        //get the authenticated users house
+        $house = Auth::user()->house;
+        //select the number of patients database that are based on the users house eg hearten
+        $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);           
+        //each and every daily entry is going to display a staff name, patient details and daily entry records. the three tables are daily entry, users and patients. the left join joins the three tables and displays the data in the dashboard....
         $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
         ->leftJoin('users', 'daily_entries.user_id', '=', 'users.id')
-        ->where('users.house', $userId)
+        ->where('users.house', $house)
         ->select(
             'users.username as user_name',
             'users.house as house',
@@ -38,13 +35,11 @@ class DailyEntryController extends Controller
         )
         ->orderBy('daily_entries.id', 'desc')
         ->paginate(5);  
-        return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $userId)->with("numberOfPatients",$numberOfPatientsInHouse);
+        return view('pages.viewHouseRecords', compact('entries'))->with("name", Auth::user()->username)->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse);
     }  
-
-
+    //view each and every daily entry by the users i.d and retrieve the data to the front end
     public function viewRecordById($id)
     {
-    
     $entry = DailyEntry::join('users', 'daily_entries.user_id', '=', 'users.id')
     ->join('patients', 'daily_entries.patient_id', '=', 'patients.id')
     ->select(
@@ -55,7 +50,6 @@ class DailyEntryController extends Controller
     ->where('daily_entries.id', $id)
     ->first();
     return view('pages.singleDailyEntry', ['entry' => $entry]);  
-    
     }
     /**
      * Store a newly created resource in storage.
@@ -86,24 +80,24 @@ class DailyEntryController extends Controller
         'incident' => $request->incident, // Assign the incident value
     ]);
 
+    //get the authenticated user from the database
     $user = Auth::user();
+    //the user is associated with the daily entry. save a daily entry that is associated to the user
     $user->dailyEntries()->save($dailyEntry);
+    //return back to the screen and use sweet alert to show that the data has been saved
     return back()->with('success', 'Daily Entry added successfully.');
-
-    //return redirect()->route('/home')
-      //  ->with('success', 'Daily Entry added successfully.');
     }
     /**
      * Display the specified resource.
-     */
-
+    */
      public function createDailyEntry(){
-
-        $houseId = Auth::user()->house;
-        //Get patients belonging to the same house as the authenticated user using a raw SQL query
-        $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$houseId]);
-        //You can convert the results to a collection if needed
+        //get the house of the authenticated user
+        $house = Auth::user()->house;
+        //select all the patients from the table where the house is equal to the hous of the authenticated user
+        $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$house]);
+        //collect all the patients from the database
         $patients = collect($patients);
+        //return all the patients to the daily entry view where the house is equal to the authenticated users house
         return view('pages.dailyEntry')->with("patients",$patients);
      }
 }

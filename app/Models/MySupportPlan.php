@@ -9,6 +9,8 @@ class MySupportPlan extends Model
 {
     use HasFactory;
 
+    protected $table = 'my_support_plans';
+    
     protected $fillable = [
         'date',
         'patient_id',
@@ -37,4 +39,5 @@ class MySupportPlan extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
 }

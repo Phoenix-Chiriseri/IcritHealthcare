@@ -37,12 +37,9 @@ use App\Http\Controllers\StatisticsController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
-Route::get('/', function () {
-    return view('welcome');
-});       
-Route::get('/registerPatient',[PatientController::class,'index']);
-Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
+*/   
+	Route::get('/registerPatient',[PatientController::class,'index'])->middleware("auth");
+	Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
 	Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
@@ -53,8 +50,8 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 	Route::group(['middleware' => 'auth'], function () {
-	Route::get('/addPatients',[PatientController::class,'index'])->name("patients");
-	Route::get('/getEntry', [DailyEntryController::class, 'createDailyEntry'])->name('getEntry');
+	Route::get('/addPatients',[PatientController::class,'index'])->name("patients")->middleware("auth");
+	Route::get('/getEntry', [DailyEntryController::class, 'createDailyEntry'])->name('getEntry')->middleware("auth");
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	//route for abc report
 	Route::get('/getAbcReport', [ABCReportController::class, 'index'])->name('getAbcReport')->middleware('auth');
@@ -66,26 +63,26 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/viewMyPatients', [PatientController::class, 'viewMyPatients'])->name('viewMyPatients')->middleware("auth");
 	//behavioural monitor chart routes
 	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart')->middleware('auth');
-	Route::post('/saveBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bChart');
+	Route::post('/save-bChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bChart');
 	Route::get('/getStatistics', [StatisticsController::class, 'index'])->name('getStatistics')->middleware('auth');
 	//complaint report routes
 	Route::get('getComplaintRecord', [ComplaintRecordController::class, 'index'])->name('getComplaintRecord')->middleware('auth');
 	Route::post('/saveComplaintRecord', [BehaviouralMonitorChartController::class, 'store'])->name('save-ComplaintRecord');
 	//falls checklist routes
 	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist')->middleware('auth');;
-	Route::post('/saveFallsChecklist', [FallsCheklistController::class, 'store'])->name('save-fallsCheckList');
-	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment')->middleware('auth');;
-	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport')->middleware('auth');;
+	Route::post('/saveFallsChecklist', [FallsCheklistController::class, 'store'])->name('save-fallsCheckList')->middleware("auth");
+	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment')->middleware('auth');
+	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport')->middleware('auth');
 	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport')->middleware('auth');
-	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm')->middleware('auth');;
+	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm')->middleware('auth');
 	Route::get('/viewMyProfile', [UserProfileController::class, 'myProfile'])->name('viewMyProfile')->middleware('auth');
-	Route::get('/getIncidentReport', [IncidentReportController::class, 'index'])->name('getIncidentReport')->middleware('auth');;
+	Route::get('/getIncidentReport', [IncidentReportController::class, 'index'])->name('getIncidentReport')->middleware('auth');
 	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySuportPlan')->middleware('auth');
 	Route::get('/allSupportPlans', [MySupportPlanController::class, 'allSupportPlans'])->name('allSupportPlans')->middleware('auth');
-	Route::post('/postMySupportPlan', [MySupportPlanController::class, 'store'])->name('postMySupportPlan');
+	Route::post('/postMySupportPlan', [MySupportPlanController::class, 'store'])->name('postMySupportPlan')->middleware("auth");
 	Route::get('/getHospitalPassport', [HospitalPassportController::class, 'index'])->name('getHospitalPassport')->middleware('auth');;
-	Route::get('/viewHouseRecords', [DailyEntryController::class, 'allHouseRecords'])->name("allRecords");
-	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all");
+	Route::get('/viewHouseRecords', [DailyEntryController::class, 'allHouseRecords'])->name("allRecords")->middleware("auth");
+	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all")->middleware("auth");
 	Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static'); 
 	Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static'); 
@@ -93,10 +90,10 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
-	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry');
-	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient');	
+	Route::post('/postEntry', [DailyEntryController::class, 'store'])->name('storeEntry')->middleware("auth");
+	Route::post('/savePatient', [PatientController::class, 'store'])->name('savePatient')->middleware("auth");	
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
-	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');;
-	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record');
+	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
+	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record')->middleware("auth");
 
 });

@@ -29,7 +29,22 @@ class BehaviouralMonitorChartController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request->all());
        
+        $validatedData = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'date' => 'required|date',
+            'knownBehaviours' => 'required|string|max:255',
+            'totals' => 'required|string|max:255',
+            'time' => 'required|date_format:H:i',
+            'knownBehaviourReference' => 'required|string|max:255',
+            'comments' => 'required|string|max:255',
+            'injuries' => 'required|in:yes,no',
+            'initials' => 'required|string|max:255',
+        ]);
+    
     }
 
     /**

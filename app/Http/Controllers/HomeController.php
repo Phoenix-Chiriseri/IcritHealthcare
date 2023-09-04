@@ -15,10 +15,15 @@ class HomeController extends Controller
 
 public function index()
 {
+    //get the current dateand use carbon to fetch the current date with the locale that is United Kingdom
     $currentDate = Carbon::now('Europe/London')->format('d-m-Y');
+    //get the user id of the authenticated user
     $userId = Auth::id();
+    //get the username of the authenticated house
     $username = Auth::user()->username;
+    //get the house of the authenticated user
     $house = Auth::user()->house;
+    //get the number of patients in the house where the house is the house of the authenticatd user
     $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);
     $query = "
         SELECT users.id AS user_id, users.username AS user_name, users.house AS house,
@@ -39,6 +44,5 @@ public function index()
         $entries = DB::select($query, ['userId' => $userId]);
         return view('pages.dashboard', compact('entries'))->with("name", $username)
             ->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);
-
   }
 }

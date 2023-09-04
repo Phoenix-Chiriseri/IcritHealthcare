@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Patient;
 use App\Models\MySupportPlan;
+use App\Models\BehaviouralCharts;
 
 class User extends Authenticatable
 {
@@ -56,8 +57,19 @@ class User extends Authenticatable
         return $this->hasMany(DailyEntry::class);
     }
 
-    public function supportPlans()
+    public function patient()
     {
+        return $this->belongsTo(Patient::class);
+    }
+    // A support plan also belongs to a user (the creator)
+   
+    public function supportPlans(){
+
         return $this->hasMany(MySupportPlan::class);
+    }
+
+    public function behaviouralCharts()
+    {
+        return $this->hasMany(BehaviouralCharts::class);
     }
 }

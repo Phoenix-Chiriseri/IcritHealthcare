@@ -6,6 +6,8 @@ namespace App\Http\Controllers\AdminAuth;
 use App\Models\User;
 use Illuminate\Notifications\Notifiable;
 use App\Notitications\WelcomeNotification;
+use App\Mail\RegistrationConfirmation;
+use App\Mail\NewUserCreatedNotification;
 
 class RegisterController extends Controller
 {
@@ -13,7 +15,6 @@ class RegisterController extends Controller
     {
         return view('admin.auth.register');
     }
-
     public function store()
     {
         $attributes = request()->validate([
@@ -22,12 +23,16 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255',
             'house' => 'required|min:5|max:255'
         ]);
-
         //dd($attributes);
         $user = User::create($attributes);
-        auth()->login($user);
+        // Send the email using the Mailable
+        Mail::to($user->email)->send(new RegistrationConfirmation());
+        Notification::send($user, new WelcomeEmail());
+        // Send the email notification to the admin
+        Notification::route('mail', 'itaineilchiriseri@gmail.com')->notify(new NewUserCreatedNotification($user));
+        //auth()->login($user);
         //$fixedEmail = 'itaineilchiriseri@gmail.com'; // Replace with the actual email
         //Notification::route('mail', $fixedEmail)->notify(new WelcomeNotification($user));
-        return redirect('/admin.dashboard');
+        return redirect('/register');
     }
 }

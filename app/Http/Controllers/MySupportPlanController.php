@@ -8,6 +8,7 @@ use App\Models\Patient;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\MySupportPlans;
 
 class MySupportPlanController extends Controller
 {
@@ -28,44 +29,33 @@ class MySupportPlanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //valudate the data before submission
-        $validatedData = $request->validate([
-            'date' => 'required|date',
-            'shift' => 'required',
-            'patient_id' => 'required|exists:patients,id',
-            'comm_skills' => 'required',
-            'friend_fam' => 'required',
-            'mobility_dexterity' => 'required',
-            'routines_personal_care' => 'required',
-            'needs' => 'required',
-            'emotions' => 'required',
-            'daily_living_skills' => 'required',
-            'general_health_needs' => 'required',
-            'medication_support' => 'required',
-            'recreation_and_relation' => 'required',
-            'eating_drinking_nutrition' => 'required',
-            'psychological_support' => 'required',
-            'finance' => 'required',
-            'staff_email' => 'required|email',
-        ]);
+        $supportPlan = new MySupportPlan();
+        $supportPlan->date = request()->input('date');
+        $supportPlan->patient_id = request()->input('patient_id');
+        $supportPlan->comm_skills = request()->input('comm_skills');
+        $supportPlan->friend_fam = request()->input('friend_fam');
+        $supportPlan->mobility_dexterity = request()->input('mobility_dexterity');
+        $supportPlan->routines_personal_care = request()->input('routines_personal_care');
+        $supportPlan->needs = request()->input('needs');
+        $supportPlan->emotions = request()->input('emotions');
+        $supportPlan->daily_living_skills = request()->input('daily_living_skills');
+        $supportPlan->general_health_needs = request()->input('general_health_needs');
+        $supportPlan->medication_support = request()->input('medication_support');
+        $supportPlan->recreation_and_relation = request()->input('recreation_and_relation');
+        $supportPlan->eating_drinking_nutrition = request()->input('eating_drinking_nutrition');
+        $supportPlan->psychological_support = request()->input('pSupport');
+        $supportPlan->finance = request()->input('finance');
+        $supportPlan->staff_email = request()->input('staff_email');
 
-        // Create the support plan entry with validated data
-        $supportPlan = new MySupportPlan($validatedData);
-        // Associate the support plan with the authenticated user
-        // This part assumes you have a relationship set up between the User and MySupportPlan models
         $user = auth()->user();
         $user->supportPlans()->save($supportPlan);
-        return back()->with('success', 'Support Plan Added Successfully.');
+        echo "saved";
+        //return back()->with('success', 'Support Plan Added Successfully.');
     }
 
     public function allSupportPlans(){

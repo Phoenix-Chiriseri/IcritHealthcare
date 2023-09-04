@@ -24,8 +24,7 @@ class Patient extends Model
   }
 
   public function supportPlans()
-  {
+    {
         return $this->hasMany(MySupportPlan::class);
-  }
-
+    }
 }
