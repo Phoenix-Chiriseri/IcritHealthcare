@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Patient;
 use App\Models\MySupportPlan;
 use App\Models\BehaviouralMonitorChart;
+use App\Models\ComplaintRecord;
 
 class User extends Authenticatable
 {
@@ -71,6 +72,10 @@ class User extends Authenticatable
     public function behaviouralCharts()
     {
         return $this->hasMany(BehaviouralMonitorChart::class);
+    }
+    public function complaintsRecords()
+    {
+        return $this->hasMany(complaintRecord::class);
     }
 
 }

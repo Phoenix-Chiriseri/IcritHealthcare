@@ -68,7 +68,8 @@ use App\Http\Controllers\StatisticsController;
 	Route::get('/getStatistics', [StatisticsController::class, 'index'])->name('getStatistics')->middleware('auth');
 	//complaint report routes
 	Route::get('getComplaintRecord', [ComplaintRecordController::class, 'index'])->name('getComplaintRecord')->middleware('auth');
-	Route::post('/saveComplaintRecord', [BehaviouralMonitorChartController::class, 'store'])->name('save-ComplaintRecord');
+	Route::get('allComplaintRecords', [ComplaintRecordController::class, 'allComplaintRecords'])->name('allComplaintRecords')->middleware('auth');
+	Route::post('/saveComplaintRecord', [ComplaintRecordController::class, 'store'])->name('save-ComplaintRecord')->middleware("auth");
 	//falls checklist routes
 	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist')->middleware('auth');;
 	Route::post('/saveFallsChecklist', [FallsCheklistController::class, 'store'])->name('save-fallsCheckList')->middleware("auth");
