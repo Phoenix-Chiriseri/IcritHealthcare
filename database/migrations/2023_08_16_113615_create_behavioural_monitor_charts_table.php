@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('behavioural_monitor_charts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('user_id'); // Assuming you associate it with a user
+            $table->date('date');
+            $table->string('known_behaviours');
+            $table->string('totals');
+            $table->time('time');
+            $table->string('known_behaviour_reference');
+            $table->string('comments');
+            $table->enum('injuries', ['yes', 'no']);
+            $table->string('initials');   
+            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

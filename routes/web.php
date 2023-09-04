@@ -63,6 +63,7 @@ use App\Http\Controllers\StatisticsController;
 	Route::get('/viewMyPatients', [PatientController::class, 'viewMyPatients'])->name('viewMyPatients')->middleware("auth");
 	//behavioural monitor chart routes
 	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart')->middleware('auth');
+	Route::get('allBehaviourSupportPlans', [BehaviouralMonitorChartController::class, 'allBehaviouralSupportPlans'])->name('allBehaviourSupportPlans')->middleware('auth');
 	Route::post('/save-bChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bChart');
 	Route::get('/getStatistics', [StatisticsController::class, 'index'])->name('getStatistics')->middleware('auth');
 	//complaint report routes

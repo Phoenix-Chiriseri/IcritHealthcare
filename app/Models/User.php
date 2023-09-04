@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Patient;
 use App\Models\MySupportPlan;
-use App\Models\BehaviouralCharts;
+use App\Models\BehaviouralMonitorChart;
 
 class User extends Authenticatable
 {
@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function behaviouralCharts()
     {
-        return $this->hasMany(BehaviouralCharts::class);
+        return $this->hasMany(BehaviouralMonitorChart::class);
     }
 
 }

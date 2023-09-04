@@ -26,33 +26,51 @@ class BehaviouralMonitorChartController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function allBehaviouralSupportPlans(){
+
+
+    $usersHouse = Auth::user()->house;
+    $supportPlans = BehaviouralMonitorChart::leftJoin('patients', 'behavioural_monitor_charts.patient_id', '=', 'patients.id')
+    ->leftJoin('users', 'behavioural_monitor_charts.user_id', '=', 'users.id')
+    ->where('users.house', $usersHouse)
+    ->select(
+        'users.username as user_name',
+        'users.house as house',
+        'patients.patient_name as patient_name',
+        'behavioural_monitor_charts.date',
+        'behavioural_monitor_charts.known_behaviours',
+        'behavioural_monitor_charts.totals',
+        'behavioural_monitor_charts.time',
+        'behavioural_monitor_charts.known_behaviour_reference',
+        'behavioural_monitor_charts.comments',
+        'behavioural_monitor_charts.injuries',
+        'behavioural_monitor_charts.initials',
+        'behavioural_monitor_charts.created_at'
+    )
+    ->orderBy('behavioural_monitor_charts.id', 'desc')
+    ->paginate(5);
+    return view('pages.allBehaviourSupportPlans')->with("supportPlans",$supportPlans);
+    
+    }
+    
     public function store(Request $request)
     {
-       
-        dd($request->all());
-        
+    
         $validatedData = $request->validate([
             'patient_id' => 'required|integer', // Add more validation rules as needed
             'date' => 'required|date',
             'knownBehaviours' => 'required|string',
             'totals' => 'required|string',
-            'time' => 'required|time',
+            'time' => 'required|date_format:H:i',
             'knownBehaviourReference' => 'required|string',
             'comments' => 'required|string',
             'injuries' => 'required|in:yes,no', // Allow only 'yes' or 'no'
             'initials' => 'required|string',
-        ]);
+         ]);
 
           //Create a new BehaviorChart instance and fill it with validated data
-          $behaviorChart = new BehaviorChart();
+          $behaviorChart = new BehaviouralMonitorChart();
           $behaviorChart->patient_id = $validatedData['patient_id'];
           $behaviorChart->date = $validatedData['date'];
           $behaviorChart->known_behaviours = $validatedData['knownBehaviours'];
@@ -63,8 +81,9 @@ class BehaviouralMonitorChartController extends Controller
           $behaviorChart->injuries = $validatedData['injuries'];
           $behaviorChart->initials = $validatedData['initials'];
 
+          //save the behavioural monitor chart
           $user = auth()->user();
-          $user->behaviouralCharts()->save($behaviourChart);
+          $user->behaviouralCharts()->save($behaviorChart);
           return back()->with('success', 'Behaviour Monitor Chart Saved');
     }
 
