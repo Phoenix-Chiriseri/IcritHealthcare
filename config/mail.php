@@ -32,6 +32,9 @@ return [
     |            "postmark", "log", "array", "failover"
     |
     */
+    'stream' => [
+        'timeout' => 60, // Increase the timeout value (in seconds)
+    ],
 
     'mailers' => [
         'smtp' => [

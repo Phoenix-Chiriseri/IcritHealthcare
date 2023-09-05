@@ -23,16 +23,13 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255',
             'house' => 'required|min:5|max:255'
         ]);
-        //dd($attributes);
         $user = User::create($attributes);
-        // Send the email using the Mailable
-        Mail::to($user->email)->send(new RegistrationConfirmation());
-        Notification::send($user, new WelcomeEmail());
         // Send the email notification to the admin
-        Notification::route('mail', 'itaineilchiriseri@gmail.com')->notify(new NewUserCreatedNotification($user));
-        //auth()->login($user);
-        //$fixedEmail = 'itaineilchiriseri@gmail.com'; // Replace with the actual email
-        //Notification::route('mail', $fixedEmail)->notify(new WelcomeNotification($user));
-        return redirect('/register');
+        Notification::route('mail', 'itaineilchiriseri@gmail.com')->notify(new NewWelcomeNotification($user));
+        // Log the user in (if needed)
+        // auth()->login($user);
+        
+        // Redirect to a registration success page or another appropriate route
+        return redirect('/register-success');
     }
 }
