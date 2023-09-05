@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('last_name');
             $table->string('ref_number');
             $table->string('location');
             $table->date('date');

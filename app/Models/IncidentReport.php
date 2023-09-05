@@ -11,7 +11,6 @@ class IncidentReport extends Model
 
     protected $fillable = [
         'patient_id',
-        'last_name',
         'ref_number',
         'location',
         'date',
