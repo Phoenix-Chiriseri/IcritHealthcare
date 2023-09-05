@@ -78,4 +78,8 @@ class User extends Authenticatable
         return $this->hasMany(complaintRecord::class);
     }
 
+    public function incidentReports()
+    {
+        return $this->hasMany(IncidentReport::class);
+    }
 }

@@ -17,10 +17,10 @@ class PositiveBehaviourSupportPlanController extends Controller
         //
         $house = Auth::user()->house;
         $query = "
-               select * from users where house = :house
+               select * from patients where house = :house
         ";
          // Execute the raw SQL query with the user ID parameter
-         $users = DB::select($query, ['house' => $house]);
+        $users = DB::select($query, ['house' => $house]);
         return view('pages.getPositiveBehaviourSupport')->with("users",$users);
     }
     /**

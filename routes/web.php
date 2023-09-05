@@ -79,6 +79,7 @@ use App\Http\Controllers\StatisticsController;
 	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm')->middleware('auth');
 	Route::get('/viewMyProfile', [UserProfileController::class, 'myProfile'])->name('viewMyProfile')->middleware('auth');
 	Route::get('/getIncidentReport', [IncidentReportController::class, 'index'])->name('getIncidentReport')->middleware('auth');
+	Route::post('/postIncidentReport', [IncidentReportController::class, 'store'])->name('postIncidentReport')->middleware('auth');
 	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySuportPlan')->middleware('auth');
 	Route::get('/allSupportPlans', [MySupportPlanController::class, 'allSupportPlans'])->name('allSupportPlans')->middleware('auth');
 	Route::post('/postMySupportPlan', [MySupportPlanController::class, 'store'])->name('postMySupportPlan')->middleware("auth");
@@ -97,5 +98,4 @@ use App\Http\Controllers\StatisticsController;
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record')->middleware("auth");
-
 });
