@@ -26,9 +26,38 @@ class IncidentReportController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function allIncidentReports()
     {
-        //
+        // //get the authenticated users house
+        $house = Auth::user()->house;
+        //select the number of patients database that are based on the users house eg hearten
+        $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);           
+        //each and every daily entry is going to display a staff name, patient details and daily entry records. the three tables are daily entry, users and patients. the left join joins the three tables and displays the data in the dashboard....
+        $entries = IncidentReport::leftJoin('patients', 'incident_reports.patient_id', '=', 'patients.id')
+        ->leftJoin('users', 'incident_reports.user_id', '=', 'users.id')
+        ->where('users.house', $house)
+        ->select(
+            'users.username as user_name',
+            'patients.patient_name',
+            'incident_reports.ref_number',
+            'incident_reports.location',
+            'incident_reports.date',
+            'incident_reports.time',
+            'incident_reports.person_affected',
+            'incident_reports.initials',
+            'incident_reports.description',
+            'incident_reports.identified_causes',
+            'incident_reports.completed_forms',
+            'incident_reports.name_of_person',
+            'incident_reports.date_completed',
+            'incident_reports.manager_on_call',
+
+        )
+        
+        ->orderBy('incident_reports.id', 'desc')
+        ->paginate(5); 
+        return view("pages.allIncidentReports")->with("entries",$entries);
+
     }
 
     /**
@@ -37,7 +66,7 @@ class IncidentReportController extends Controller
     public function store(Request $request)
     {
         //
-        /*$validatedData = $request->validate([
+        $validatedData = $request->validate([
             'patient_id' => 'required',
             'last_name' => 'required',
             'ref_number' => 'required',
@@ -53,7 +82,8 @@ class IncidentReportController extends Controller
             'date_completed' => 'required|date',
             'manager_on_call' => 'required',
         ]);
-       */
+        
+
         $incidentReport = new IncidentReport([
             'patient_id' => $request->patient_id,
             'last_name' => $request->last_name,
