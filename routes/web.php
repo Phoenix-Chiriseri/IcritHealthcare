@@ -77,6 +77,8 @@ use App\Http\Controllers\StatisticsController;
 	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport')->middleware('auth');
 	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport')->middleware('auth');
 	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm')->middleware('auth');
+	Route::get('/viewSelfCertificationReports', [SelfCertificationSickFormController::class, 'allSelfCertificationReports'])->name('allSelfCeritificationReports')->middleware('auth');
+	Route::post('/postSelfCertificationForm', [SelfCertificationSickFormController::class, 'store'])->name('postSelfCertificationForm')->middleware('auth');
 	Route::get('/viewMyProfile', [UserProfileController::class, 'myProfile'])->name('viewMyProfile')->middleware('auth');
 	Route::get('/getIncidentReport', [IncidentReportController::class, 'index'])->name('getIncidentReport')->middleware('auth');
 	Route::get('/getAllIncidentReports', [IncidentReportController::class, 'allIncidentReports'])->name('getAllIncidentReports')->middleware('auth');

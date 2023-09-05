@@ -82,4 +82,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(IncidentReport::class);
     }
+
+    public function selfCertifications()
+    {
+        return $this->hasMany(SelfCertificationSickForm::class);
+    }
 }
