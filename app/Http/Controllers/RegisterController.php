@@ -6,7 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
-use App\Notifications\WelcomeNotification;
+use App\Mail\UserRegistrationMail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -24,11 +25,9 @@ class RegisterController extends Controller
             'house' => 'required|min:5|max:255'
         ]);
 
-        //dd($attributes);
         $user = User::create($attributes);
         // Send the welcome notification to the admin
-        $adminEmail = 'itai.c@b-e.digital'; // Replace with the admin's email address
-        $user->notify(new WelcomeNotification($user));
-        return redirect('/register-success');
+        //Mail::to('itaineilchiriseri@gmail.com')->send(new UserRegistrationMail($user));
+        return redirect('/dashboard');
     }
 }

@@ -41,8 +41,8 @@
                         <div class="form-group">
                             <label for="user_id">Associated User</label>
                             <select name="Staff_Id" id="user_id" class="form-control" required>
-                                @foreach ($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->username }}</option>
+                                @foreach ($patients as patient)
+                                    <option value="{{ $patient->id }}">{{ $patient->username }}</option>
                                 @endforeach
                             </select>
                         </div>

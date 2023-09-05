@@ -79,8 +79,8 @@
                         <textarea name="identified_causes" id="identified_causes" class="form-control" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="completed_forms">Please identify any other forms that were completed with this Incident Report</label>
-                        <select name="date_completed" id="date_completed" class="form-select" required>
+                        <label for="date_completed">Please identify any other forms that were completed with this Incident Report</label>
+                        <select name="completed_forms" id="date_completed" class="form-select" required>
                             <option value="Body Map">Body Map</option>
                             <option value="Witness Statement">Witness Statement</option>
                             <option value="Falls Checklist">Falls Checklist</option>

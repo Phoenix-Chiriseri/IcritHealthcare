@@ -17,13 +17,12 @@ class PatientController extends Controller
       // Get daily entries associated with the logged-in user
       // Define the raw SQL query
       $query = "
-              select * from users where house = :house
+              select * from users
       ";
   
-      // Execute the raw SQL query with the user ID parameter
-      $users = DB::select($query, ['house' => $house]);
-        
-        return view('pages.addPatients')->with('users',$users);
+       // Execute the raw SQL query with the user ID parameter
+       $patients = DB::select($query); 
+       return view('pages.addPatients')->with('users',$patients);
 
      }
 

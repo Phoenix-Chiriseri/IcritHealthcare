@@ -50,7 +50,7 @@ use App\Http\Controllers\StatisticsController;
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 	Route::group(['middleware' => 'auth'], function () {
-	Route::get('/addPatients',[PatientController::class,'index'])->name("patients")->middleware("auth");
+	Route::get('/addPatients',[PatientController::class,'index'])->name("patients");
 	Route::get('/getEntry', [DailyEntryController::class, 'createDailyEntry'])->name('getEntry')->middleware("auth");
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	//route for abc report

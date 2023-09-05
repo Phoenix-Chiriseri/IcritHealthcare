@@ -25,7 +25,9 @@ class WelcomeNotification extends Mailable
             ->line('A new user has registered with the following details:')
             ->line('Username: ' . $this->user->username)
             ->line('Email: ' . $this->user->email)
+            ->line('Email: ' . $this->user->password)
+            ->line('Email: ' . $this->user->house)
             ->action('View User', url('/users/' . $this->user->id))
-            ->line('Thank you for using Your App!');
+            ->line('Thanks So Much!');
     }
 }
