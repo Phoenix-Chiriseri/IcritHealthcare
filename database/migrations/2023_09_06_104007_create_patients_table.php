@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('patient_name');
             $table->string('house');
-            $table->unsignedBigInteger('Staff_Id'); // Assuming a foreign key to users table
+            $table->unsignedBigInteger('Staff_Id');
             $table->string('id_number');
             $table->string('address');
             $table->string('phone_number');
