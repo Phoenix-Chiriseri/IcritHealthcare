@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\MedicationIncident;
 use Illuminate\Http\Request;
+use Auth;
+use DB;
 
 class MedicationIncidentController extends Controller
 {
@@ -13,6 +15,12 @@ class MedicationIncidentController extends Controller
     public function index()
     {
         //
+        $house = Auth::user()->house;
+        //select all the patients from the table where the house is equal to the hous of the authenticated user
+        $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$house]);
+        //collect all the patients from the database
+        $patients = collect($patients);
+        return view('pages.getMedicationIncident')->with("patients",$patients);
     }
 
     /**
