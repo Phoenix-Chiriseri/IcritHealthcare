@@ -1,4 +1,6 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
@@ -13,13 +15,26 @@
                     <div class="h-100">
                         <h5 class="mb-1">
                             Add Patient
-                        </h5>
-                       
+                        </h5>          
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="alert">
+        @include('components.alert')
+    </div>
+    @if(Session::has('success'))
+                <script type="text/javascript">
+                function massge() {
+                Swal.fire(
+                'Success',
+                'Patient Added Successfully'
+                    );
+                    }
+                    window.onload = massge;
+                    </script>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">
@@ -40,9 +55,9 @@
                         {{-- Dropdown to select the associated user --}}
                         <div class="form-group">
                             <label for="user_id">Associated User</label>
-                            <select name="Staff_Id" id="user_id" class="form-control" required>
-                                @foreach ($patients as patient)
-                                    <option value="{{ $patient->id }}">{{ $patient->username }}</option>
+                            <select name="user_id" id="user_id" class="form-control" required>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->username }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -54,7 +69,6 @@
                     </form>
                 </div>
             </div>
-            
         </div>
         @include('layouts.footers.auth.footer')
     </div>

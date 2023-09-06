@@ -19,8 +19,8 @@ class PatientController extends Controller
               select * from users
       ";
        // Execute the raw SQL query with the user ID parameter
-       $patients = DB::select($query); 
-       return view('pages.addPatients')->with('users',$patients);
+       $users = DB::select($query); 
+       return view('pages.addPatients')->with('users',$users);
 
      }
 

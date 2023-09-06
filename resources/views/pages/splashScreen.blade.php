@@ -43,10 +43,18 @@
     </style>
 </head>
 <body>
+    <style>
+    .custom-jumbotron {
+        background-color: #007BFF; /* Background color */
+        color: #fff; /* Text color */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow */
+    }
+    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <div class="custom-jumbotron">
+                <div class="custom-jumbotron text-center">
                     <h1>Welcome To B-E Care Management System</h1>
                 </div>
             </div>
