@@ -75,4 +75,4 @@ class PatientController extends Controller
         $staffMember->patients()->save($patient);
         return back()->with('success', 'Patient added successfully.');
         }
-}
+    }

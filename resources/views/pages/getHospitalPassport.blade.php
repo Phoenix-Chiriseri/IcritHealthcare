@@ -40,20 +40,20 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="{{ route('save-entry') }}">
+                <form method="POST" action="{{ route('postHospitalPassport') }}">
                     @csrf    
                     <div class="form-group">
                         <label for="date">Assessment Date
                         </label>
-                        <input type="date" name="date" id="date" class="form-control" required>
+                        <input type="date" name="assessment_date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">Staff Email
                         </label>
-                        <input type="email" name="date" id="date" class="form-control" required>
+                        <input type="email" name="staff_email" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="patient_id">Patient</label>
+                        <label for="patient_id">Patient Name</label>
                         <select name="patient_id" id="patient_id" class="form-control" required>
                             @foreach ($patients as $patient)
                                 <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
@@ -61,162 +61,157 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="date">Likes To Be Known As
+                        </label>
+                        <input type="text" name="likes_to_be_known"  class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">NHS number:
+                        </label>
+                        <input type="text" name="nhs_number" class="form-control" required>
+                    </div>
+                    <div class="form-group">
                         <label for="personal_care">Personal Care</label>
                         <select name="personal_care" id="personal_care" class="form-control" required>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="date">NHS number:
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Likes To Be Known As
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
-                    </div>
+                    </div>      
                     <div class="form-group">
                         <label for="date">Date Of Birth
                         </label>
-                        <input type="date" name="date" id="date" class="form-control" required>
+                        <input type="date" name="dob"  class="form-control" required>
                     </div>
+                   
                     <div class="form-group">
                         <label for="date">Address
                         </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <input type="text" name="address"class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">City
                         </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <input type="text" name="city" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">County
                         </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="county"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="country">Phone</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="phone_number" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="country">How I communicate/What language I speak:</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">How I communicate/What language I speak:</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="how_i_communicate" class="form-control" required>
                     </div>
                     <h4 class = "text-center">Family contact person, carer or other support</h4>
                     <div class="form-group">
                         <label for="country">Name And LastName</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="family_or_contact_person"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="country">Address</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">City</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="address"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="country">Country</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="country"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="country">Phone</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="phone_number" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="country">Email</label>
-                        <input type="text" name="country" id="country" class="form-control" required>
+                        <input type="text" name="email"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="country">My Support Care Needs</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea  name="my_support_care_needs" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">My Carer Speaks</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="my_carer_speaks" class="form-control" rows="5" required></textarea>
                     </div>
                     <h4 class = "text-center">Things you must know about me</h4>
                     <div class="form-group">
                         <label for="country">Religion</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="things_to_know"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="country">Religious/Spritual Needs</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <label for="country">Religious/Spiritual Needs</label>
+                        <textarea name="religious_needs"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">Ethnicity</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="ethnicity" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">GP Name:</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="gp_name"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">GP Address:</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="gp_address" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">Street Address</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="street_address" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">City</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="city"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">Country</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="country"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">Other Services</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="other_services" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">Social Worker</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="social_worker"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="country">Allergies:</label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="allergies" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="shift">Staff Name</label>
-                        <select name="shift" id="shift" class="form-control" required>
-                            <option value="Early">Jeff</option>
-                            <option value="Late">Toby</option>
-                        </select>
+                        <label for="country">Medical Interventions how to take my blood, give injections, BP etc:</label>
+                        <textarea name="medical_interventions"  class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">
+                            My medical history and treatment plan:</label>
+                        <textarea name="medical_history"  class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">
+                            What To Do If Im Anxious</label>
+                        <textarea name="if_im_anxios"  class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Current medication:</label>
+                        <textarea name="current_medication"  class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Risk of choking, Dysphagia (eating, drinking and swallowing):</label>
+                        <textarea name="risk_of_chocking"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">Medical Interventions how to take my blood, give injections, BP etc:</label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
+                        <select name="medication_admin" class="form-control" required>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">Cardiovascular or respiratory issues</label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="medication_admin">Risk of choking, Dysphagia (eating, drinking and swallowing):
-                        </label>
-                        <select name="medication_admin" id="medication_admin" class="form-control" required>
+                        <select name="cardio_vascular"  class="form-control" required>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
@@ -224,110 +219,104 @@
                     <div class="form-group">
                         <label for="medication_admin">Current medication
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="current_medication"  class="form-control" rows="5" required></textarea>
                     </div>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">My medical history and treatment plan:
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="my_medical_histort"  class="form-control" rows="5" required></textarea>
                     </div>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">What to do if I am anxious:
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="if_im_anxious" class="form-control" rows="5" required></textarea>
                     </div>
-                    </div>
-                    
-                    <h4 class = "text-center">Things that are important to me:</h4>
-                    <div class="form-group">
-                        <label for="medication_admin">What to do if I am anxious:
-                        </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">How I take medication: (whole tablets, crushed tablets, injections, syrup)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="medication_admin" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="medication_admin">How you know I am in pain:
+                        <label for="medication_admin">
+                            How you know I am in pain:
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="if_im_in_pain"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Moving around: (Posture in bed, walking aids)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="moving_around" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
-                            Personal care: (Dressing, washing, etc.)
+                           Personal care: (Dressing, washing, etc.)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="personal_care"  class="form-control" rows="5" required></textarea>
                     </div>
                     <h4 class = "text-center">Things that are important to me:</h4>
                     <div class="form-group">
                         <label for="medication_admin">
                             Seeing/Hearing: (Problems with sight or hearing)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="problems_with_sight" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             How I eat: (Food cut up, pureed, risk of choking, help with eating)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="how_i_eat" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             How I drink: (Drink small amounts, thickened fluids)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="how_i_drink" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             How I keep safe: (Bed rails, support with challenging behaviour)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="how_i_keep_safe" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             How I use the toilet: (Continence aids, help to get to toilet)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="how_i_use_the_toilet" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Sleeping: (Sleep pattern/routine)
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="sleeping" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Likes: for example - what makes me happy, things I like
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="medication_admin" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Things I like:
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="things_i_like" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Things I dislike:
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="things_i_dislike" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Additional Information:
                         </label>
-                        <textarea name="country" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="additional_info" id="country" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>

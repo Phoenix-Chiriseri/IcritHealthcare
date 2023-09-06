@@ -19,7 +19,7 @@ class Patient extends Model
         'email',
         // Add more fields as needed.
     ];
-    
+
  public function user()
  {
     return $this->belongsTo(User::class);
@@ -33,5 +33,10 @@ class Patient extends Model
   public function supportPlans()
     {
         return $this->hasMany(MySupportPlan::class);
+    }
+
+    public function hospitalPassport()
+    {
+        return $this->hasOne(HospitalPassport::class);
     }
 }
