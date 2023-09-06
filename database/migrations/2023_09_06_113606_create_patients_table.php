@@ -20,9 +20,10 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->string('email')->unique();
+            $table->rememberToken();
             $table->timestamps();
             // Define a foreign key constraint
-            $table->foreign('Staff_Id')->references('id')->on('users');
+            $table->foreign('Staff_Id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

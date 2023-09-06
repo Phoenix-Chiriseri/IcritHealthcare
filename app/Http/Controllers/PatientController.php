@@ -43,9 +43,7 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        // Save the patient into the database
-         // Validate the incoming request data
-         $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'patient_name' => 'required|string|max:255',
             'house' => 'required|string|max:255',
             'Staff_Id' => 'required|exists:users,id',
@@ -54,25 +52,27 @@ class PatientController extends Controller
             'phone_number' => 'required|string|max:255',
             'email' => 'required|string|email|unique:patients,email|max:255',
         ]);
-
+    
         if ($validator->fails()) {
             return redirect()->route('patient.create')
                 ->withErrors($validator)
                 ->withInput();
         }
+    
         // Create a new patient record
         $patient = new Patient([
             'patient_name' => $request->input('patient_name'),
             'house' => $request->input('house'),
-            'Staff_Id' => $request->input('Staff_Id'),
             'id_number' => $request->input('id_number'),
             'address' => $request->input('address'),
             'phone_number' => $request->input('phone_number'),
             'email' => $request->input('email'),
         ]);
-
-        $user = User::findOrFail($request->Staff_Id);
-        $user->patients()->save($patient);
+    
+        // Get the staff member (user) who is saving the patient
+        $staffMember = User::findOrFail($request->input('Staff_Id'));
+        // Associate the patient with the staff member
+        $staffMember->patients()->save($patient);
         return back()->with('success', 'Patient added successfully.');
-    }
+        }
 }
