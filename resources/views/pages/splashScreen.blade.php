@@ -82,7 +82,7 @@
         setTimeout(function () {
             document.querySelector(".splash-container").style.display = "none";
             window.location.href = "{{ route('login') }}";
-        }, 11000); // 11,000 milliseconds = 11 seconds
+        }, 5000); // 11,000 milliseconds = 11 seconds
     </script>
     
     <!-- Jumbotron with a label -->

@@ -39,23 +39,25 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //save the patient into the database
         $request->validate([
             'name' => 'required|string|max:255',
             'house' => 'required|string|max:255',
-            'Staff_Id' => 'required|exists:users,id', // Validate that the user_id exists in the users table
+            'Staff_Id' => 'required|exists:users,id',
         ]);
+    
 
-        // Create the patient and associate it with the user
+        
         $patient = new Patient([
             'patient_name' => $request->name,
             'house' => $request->house,
         ]);
 
-        $user = User::findOrFail($request->user_id);
+        $user = User::findOrFail($request->Staff_Id);
         $user->patients()->save($patient);
 
         return redirect()->route('home')
             ->with('success', 'Patient added successfully.');
+    
     }
 }

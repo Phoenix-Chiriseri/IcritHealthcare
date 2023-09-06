@@ -28,12 +28,12 @@
                 <script type="text/javascript">
                 function massge() {
                 Swal.fire(
-                'Success',
+                'success',
                 'Patient Added Successfully'
                     );
                     }
                     window.onload = massge;
-                    </script>
+                 </script>
     @endif
     <div class="container-fluid py-4">
         <div class="row">
@@ -43,23 +43,41 @@
                     <form method="POST" action="{{ route('savePatient') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
+                            <label for="patient_name">Name</label>
+                            <input type="text" name="patient_name" id="patient_name" class="form-control" required>
                         </div>
-                        <h5 class = "text-center">Select A House</h5>
+                        <h5 class="text-center">Select A House</h5>
                         <br>
-                        <select name="house" class = "form-control">
-                            <option value="hearten">Hearten</option>
-                            <option value="lorraine">Lorraine</option>
+                        <div class="form-group">
+                            <select name="house" class="form-control">
+                                <option value="hearten">hearten</option>
+                                <option value="lorraine">lorraine</option>
                             </select>
+                        </div>
                         {{-- Dropdown to select the associated user --}}
                         <div class="form-group">
-                            <label for="user_id">Associated User</label>
+                            <label for="user_id">Staff Member</label>
                             <select name="user_id" id="user_id" class="form-control" required>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->username }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_number">Id Number</label>
+                            <input type="text" name="id_number" id="id_number" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" name="address" id="address" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="text" name="phone_number" id="phone_number" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" class="form-control" required>
                         </div>
                         <br>
                         <div class="form-group">
