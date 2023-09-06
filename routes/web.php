@@ -26,7 +26,7 @@ use App\Http\Controllers\PdfController;
 use App\Models\DailyEntries;   
 use App\Http\Controllers\Admin\AdminAuthController; 
 use App\Http\Controllers\StatisticsController; 
-
+use App\Http\Controllers\MedicationIncidentController; 
 
 /*s
 |--------------------------------------------------------------------------
@@ -84,6 +84,7 @@ use App\Http\Controllers\StatisticsController;
 	Route::get('/getAllIncidentReports', [IncidentReportController::class, 'allIncidentReports'])->name('getAllIncidentReports')->middleware('auth');
 	Route::post('/postIncidentReport', [IncidentReportController::class, 'store'])->name('postIncidentReport')->middleware('auth');
 	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySuportPlan')->middleware('auth');
+	Route::get('/getMedicationIncident', [MedicationIncidentController::class, 'index'])->name('getMedicationIncident')->middleware('auth');
 	Route::get('/allSupportPlans', [MySupportPlanController::class, 'allSupportPlans'])->name('allSupportPlans')->middleware('auth');
 	Route::post('/postMySupportPlan', [MySupportPlanController::class, 'store'])->name('postMySupportPlan')->middleware("auth");
 	Route::get('/getHospitalPassport', [HospitalPassportController::class, 'index'])->name('getHospitalPassport')->middleware('auth');;

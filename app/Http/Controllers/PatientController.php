@@ -11,15 +11,13 @@ use Illuminate\Support\Facades\DB;
 class PatientController extends Controller
 {
 
-     public function index(){
-        
+     public function index(){   
       $house = Auth::user()->house;
       // Get daily entries associated with the logged-in user
       // Define the raw SQL query
       $query = "
               select * from users
       ";
-  
        // Execute the raw SQL query with the user ID parameter
        $patients = DB::select($query); 
        return view('pages.addPatients')->with('users',$patients);
@@ -60,5 +58,4 @@ class PatientController extends Controller
         return redirect()->route('home')
             ->with('success', 'Patient added successfully.');
     }
-
 }
