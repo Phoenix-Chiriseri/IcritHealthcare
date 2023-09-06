@@ -13,6 +13,14 @@ use Carbon\Carbon;
 class HomeController extends Controller
 {
 
+
+public function showHome(){
+
+    return view('pages.splashScreen');
+
+ }
+
+
 public function index()
 {
     //get the current dateand use carbon to fetch the current date with the locale that is United Kingdom

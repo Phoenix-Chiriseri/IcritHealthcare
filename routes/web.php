@@ -38,9 +38,10 @@ use App\Http\Controllers\MedicationIncidentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */   
-	Route::get('/',function(){
+	/*Route::get('/',function(){
 		return view("pages.splashScreen");
-	});
+	});*/
+	Route::get('/', [HomeController::class, 'showHome']);
 	Route::get('/registerPatient',[PatientController::class,'index'])->middleware("auth");
 	//Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
