@@ -21,8 +21,8 @@ class HospitalPassportController extends Controller
        //get the house of the logged in user 
        $house = Auth::user()->house;
        $query = "
-              select * from patients where house = :house
-       ";
+              select * from patients where house = :house";
+       
         // Execute the raw SQL query with the user ID parameter
         $patients = DB::select($query, ['house' => $house]);
         return view('pages.getHospitalPassport')->with('patients',$patients);
@@ -33,7 +33,7 @@ class HospitalPassportController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
