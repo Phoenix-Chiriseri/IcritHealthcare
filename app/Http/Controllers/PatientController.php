@@ -6,6 +6,7 @@ use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
@@ -43,7 +44,8 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         // Save the patient into the database
-        /*$request->validate([
+         // Validate the incoming request data
+         $validator = Validator::make($request->all(), [
             'patient_name' => 'required|string|max:255',
             'house' => 'required|string|max:255',
             'Staff_Id' => 'required|exists:users,id',
@@ -51,8 +53,14 @@ class PatientController extends Controller
             'address' => 'required|string|max:255',
             'phone_number' => 'required|string|max:255',
             'email' => 'required|string|email|unique:patients,email|max:255',
-        ]);*/
+        ]);
 
+        if ($validator->fails()) {
+            return redirect()->route('patient.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        // Create a new patient record
         $patient = new Patient([
             'patient_name' => $request->input('patient_name'),
             'house' => $request->input('house'),
@@ -62,11 +70,9 @@ class PatientController extends Controller
             'phone_number' => $request->input('phone_number'),
             'email' => $request->input('email'),
         ]);
-    
-        
+
         $user = User::findOrFail($request->Staff_Id);
         $user->patients()->save($patient);
-
         return back()->with('success', 'Patient added successfully.');
     }
 }

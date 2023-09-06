@@ -56,8 +56,8 @@
                         </div>
                         {{-- Dropdown to select the associated user --}}
                         <div class="form-group">
-                            <label for="user_id">Staff Member</label>
-                            <select name="Staff_Id" id="Staff_Id" class="form-control" required>
+                            <label for="Staff_Id">Staff Member</label>
+                            <select name="Staff_Id" class="form-control" required>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->username }}</option>
                                 @endforeach
