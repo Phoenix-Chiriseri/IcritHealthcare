@@ -11,6 +11,7 @@ use App\Models\Patient;
 use App\Models\MySupportPlan;
 use App\Models\BehaviouralMonitorChart;
 use App\Models\ComplaintRecord;
+use App\Models\HospitalPassport;
 
 class User extends Authenticatable
 {
@@ -86,5 +87,10 @@ class User extends Authenticatable
     public function selfCertifications()
     {
         return $this->hasMany(SelfCertificationSickForm::class);
+    }
+
+    public function passports()
+    {
+        return $this->hasMany(HospitalPassport::class);
     }
 }

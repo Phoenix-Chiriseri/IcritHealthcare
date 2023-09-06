@@ -40,10 +40,7 @@ class HospitalPassportController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-
-        dd($request->all());
-        //
+    { 
         $validatedData = $request->validate([
             'assessment_date' => 'required|date',
             'staff_email' => 'required|email',
@@ -61,7 +58,7 @@ class HospitalPassportController extends Controller
             'email' => 'required|email',
             'my_support_care_needs' => 'required|string',
             'my_carer_speaks' => 'required|string',
-            'thins_to_know' => 'required|string',
+            'things_to_know' => 'required|string',
             'religious_needs' => 'required|string',
             'ethnicity' => 'required|string',
             'gp_name' => 'required|string',
@@ -91,20 +88,15 @@ class HospitalPassportController extends Controller
             'things_i_dislike' => 'required|string',
             'additional_info' => 'required|string',
         ]);
-        // Create a new instance of your model and save the data
-        $entry = new YourModel(); // Replace 'YourModel' with the actual model name you are using
-
-        // Map the validated data to your model's attributes
-        $entry->fill($validatedData);
-
-        // Save the entry
-        $entry->save();
-
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Form data has been successfully submitted.');
- 
+        
+        $hospitalPassport = new HospitalPassport();
+        //get the authenticated user from the database
+        $user = Auth::user();
+        //the user is associated with the daily entry. save a daily entry that is associated to the user
+        $user->passports()->save($dailyEntry);
+        //return back to the screen and use sweet alert to show that the data has been saved
+        return back()->with('success', 'Daily Entry added successfully.');
     }
-
     /**
      * Display the specified resource.
      */
