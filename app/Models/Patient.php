@@ -24,6 +24,11 @@ class Patient extends Model
     return $this->belongsTo(User::class);
  }
 
+ public function patient()
+{
+        return $this->belongsTo(Patient::class);
+ }
+
  public function dailyEntries()
  {
         return $this->hasMany(DailyEntry::class);
@@ -37,5 +42,10 @@ class Patient extends Model
     public function hospitalPassport()
     {
         return $this->hasOne(HospitalPassport::class);
+    }
+
+    public function abcReports()
+    {
+        return $this->hasMany(abcReport::class);
     }
 }

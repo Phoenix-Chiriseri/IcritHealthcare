@@ -158,32 +158,36 @@ function generate() {
                     <div class="card-header text-center" style="size: 22px;">Abc Reports</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table>
                                 <thead>
                                     <tr>
                                         <th>User</th>
-                                        <th>Patient Name</th>
-                                        <th>Reference Number</th>
-                                        <th>Location</th>
+                                        <th>Patient</th>
                                         <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Person Affected</th>
-                                        <th>Initials</th>
-                                        <th>Description</th>
-                                        <th>Identified Causes</th>
-                                        <th>Completed Forms</th>
-                                        <th>Name of Person</th>
-                                        <th>Date Completed</th>
-                                        <th>Manager on Call</th>
+                                        <th>Shift</th>
+                                        <th>Personal Care</th>
+                                        <th>Medication Admin</th>
+                                        <th>Appointments</th>
+                                        <th>Activities</th>
+                                        <th>Incident</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
-                                    <tr>
-                                      
-                                    </tr>
+                                    @foreach ($entries as $entry)
+                                        <tr>
+                                            <td>{{ $entry->user_name }}</td>
+                                            <td>{{ $entry->patient_name }}</td>
+                                            <td>{{ $entry->date }}</td>
+                                            <td>{{ $entry->shift }}</td>
+                                            <td>{{ $entry->personal_care }}</td>
+                                            <td>{{ $entry->medication_admin }}</td>
+                                            <td>{{ $entry->appointments }}</td>
+                                            <td>{{ $entry->activities }}</td>
+                                            <td>{{ $entry->incident }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
-                            </table>
+                            </table>                            
                         </div>        
                     </div>
                 </div>

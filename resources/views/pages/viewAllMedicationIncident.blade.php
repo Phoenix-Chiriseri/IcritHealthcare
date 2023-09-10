@@ -163,25 +163,41 @@ function generate() {
                                     <tr>
                                         <th>User</th>
                                         <th>Patient Name</th>
-                                        <th>Reference Number</th>
-                                        <th>Location</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Person Affected</th>
-                                        <th>Initials</th>
-                                        <th>Description</th>
-                                        <th>Identified Causes</th>
-                                        <th>Completed Forms</th>
-                                        <th>Name of Person</th>
-                                        <th>Date Completed</th>
-                                        <th>Manager on Call</th>
+                                        <th>Phone Number</th>
+                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Street Address</th>
+                                        <th>City</th>
+                                        <th>Country</th>
+                                        <th>Relative Status</th>
+                                        <th>Details Of Complaint</th>
+                                        <th>Complaint Description</th>
+                                        <th>Recorded By</th>
+                                        <th>Injuries</th>
+                                        <th>Complaint Date</th>
+                                        <th>Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
-                                    <tr>
-                                      
-                                    </tr>
+                                    @foreach ($medicationIncidents as $medicationIncident)
+                                        <tr>
+                                            <td>{{ $medicationIncident->user_name }}</td>
+                                            <td>{{ $medicationIncident->patient_name }}</td>
+                                            <td>{{ $medicationIncident->phone_number }}</td>
+                                            <td>{{ $medicationIncident->address }}</td>
+                                            <td>{{ $medicationIncident->email }}</td>
+                                            <td>{{ $medicationIncident->street_address }}</td>
+                                            <td>{{ $medicationIncident->city }}</td>
+                                            <td>{{ $medicationIncident->country }}</td>
+                                            <td>{{ $medicationIncident->relativeStatus }}</td>
+                                            <td>{{ $medicationIncident->detailsOfComplaint }}</td>
+                                            <td>{{ $medicationIncident->complaintDescription }}</td>
+                                            <td>{{ $medicationIncident->recordedBy }}</td>
+                                            <td>{{ $medicationIncident->injuries }}</td>
+                                            <td>{{ $medicationIncident->complaintDate }}</td>
+                                            <td>{{ $medicationIncident->position }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>        

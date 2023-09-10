@@ -23,9 +23,19 @@ class MedicationIncidentController extends Controller
         return view('pages.getMedicationIncident')->with("patients",$patients);
     }
 
-    public function viewAllMedicatonIncident(){
+    public function viewAllMedicationIncident(){
 
-        return view("pages.viewAllMedicationIncidents");
+        $medicationIncidents = MedicationIncident::select(
+            'medication_incidents.*',  // Select all columns from the medication_incidents table
+            'patients.patient_name',   // Select the patient_name column from the patients table
+            'users.username AS user_name'  // Select the name column from the users table and alias it as user_name
+        )
+            ->join('patients', 'medication_incidents.patient_id', '=', 'patients.id') // Join with 
+            ->join('users', 'medication_incidents.user_id', '=', 'users.id') // Join with users table
+            ->get();
+        return view("pages.viewAllMedicationIncident")->with("medicationIncidents",$medicationIncidents);
+
+
     }
 
     /**
@@ -42,6 +52,32 @@ class MedicationIncidentController extends Controller
     public function store(Request $request)
     {
         //
+
+        $validatedData = $request->validate([
+            'patient_id' => 'required|integer',
+            'phone_number' => 'required|string',
+            'address' => 'required|string',
+            'email' => 'required|email',
+            'street_address' => 'required|string',
+            'city' => 'required|string',
+            'country' => 'required|string',
+            'relativeStatus' => 'required|string',
+            'detailsOfComplaint' => 'required|string',
+            'complaintDescription' => 'required|string',
+            'recordedBy' => 'required|string',
+            'injuries' => 'required|string|in:yes,no',
+            'complaintDate' => 'required|date',
+            'position' => 'required|string',
+        ]);
+
+        $user = Auth::user();
+        $medicationIncident = new MedicationIncident($validatedData);
+        //Save the operation risk assessment
+        $user->medicationIncidentReports()->save($medicationIncident);
+        // Create a new MedicationIncident instance and fill it with validated data
+        // Save the MedicationIncident to the database
+        // Optionally, you can redirect to a success page or return a response
+        return back()->with('success', 'Medication Incident Report Saved');
     }
 
     /**

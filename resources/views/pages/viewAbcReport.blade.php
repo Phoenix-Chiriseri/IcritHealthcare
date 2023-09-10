@@ -37,76 +37,76 @@
                             @endforeach
                         </select>
                     </div>
-            <div class="mb-3">
-                        <label class="form-label">Initials of person causing harm/ intimidation/ damage:</label>
+                    <div class="mb-3">
+                        <label class="form-label">Initials of person causing harm/intimidation/damage:</label>
                         <input type="text" class="form-control" name="initialsOfPerson" required>
-            </div>
-            
-            <div class="mb-3">
-                <label class="form-label">Date:</label>
-                <input type="date" class="form-control" name="date" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Start Time</label>
-                <input type="time" class="form-control" name="start_time" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">End Time</label>
-                <input type="time" class="form-control" name="emd_time" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Influencing factors or known trigger for behaviours? (Consider up to 48hrs prior)</label>
-                <input type="text" class="form-control" name="influencing_factors" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Whats was happening immediately before the incident? (Include who was there and what was happening)</label>
-                <input type="text" class="form-control" name="what_happened_before_incident" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Behaviours exhibited/what happened?</label><br>
-                <input type="checkbox" name="behaviors[]" value="Physical">
-                <label class="form-check-label">Physical</label><br>
-                <input type="checkbox" name="behaviors[]" value="Verbal">
-                <label class="form-check-label">Verbal</label><br>
-                <input type="checkbox" name="behaviors[]" value="Damage">
-                <label class="form-check-label">Damage</label><br>
-                <input type="checkbox" name="behaviors[]" value="Other">
-                <label class="form-check-label">Other</label><br>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Immediate actions taken.</label>
-                <input type="text" class="form-control" name="actions_taken" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">On reflection, is there anything that could have been done differently or ideas to prevent future adverse incidents?</label>
-                <input type="text" class="form-control" name="done_differently" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Were PROACT SCIPr interventions used?</label><br>
-                <input type="checkbox" name="behaviors[]" value="Physical">
-                <label class="form-check-label">Yes</label><br>
-                <input type="checkbox" name="behaviors[]" value="Verbal">
-                <label class="form-check-label">No</label><br>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Was medication administered in accodance with individual protocols?</label><br>
-                <input type="checkbox" name="behaviors[]" value="Physical">
-                <label class="form-check-label">Yes</label><br>
-                <input type="checkbox" name="behaviors[]" value="Verbal">
-                <label class="form-check-label">No</label><br>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Was there physical contact/ injury or intimidation on anyone else (no matter how minor)?</label><br>
-                <input type="checkbox" name="behaviors[]" value="Physical">
-                <label class="form-check-label">Yes</label><br>
-                <input type="checkbox" name="behaviors[]" value="Verbal">
-                <label class="form-check-label">No</label><br>
-            </div>
-            <!-- Add more sections for the remaining points in the template -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Date:</label>
+                        <input type="date" class="form-control" name="date" required>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label">Start Time</label>
+                        <input type="time" class="form-control" name="start_time" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">End Time</label>
+                        <input type="time" class="form-control" name="end_time" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Influencing factors or known trigger for behaviors? (Consider up to 48hrs prior)</label>
+                        <input type="text" class="form-control" name="influencing_factors" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">What was happening immediately before the incident? (Include who was there and what was happening)</label>
+                        <input type="text" class="form-control" name="what_happened_before_incident" required>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label">Behaviors exhibited/what happened?</label><br>
+                        <input type="checkbox" name="behaviors[]" value="Physical">
+                        <label class="form-check-label">Physical</label><br>
+                        <input type="checkbox" name="behaviors[]" value="Verbal">
+                        <label class="form-check-label">Verbal</label><br>
+                        <input type="checkbox" name="behaviors[]" value="Damage">
+                        <label class="form-check-label">Damage</label><br>
+                        <input type="checkbox" name="behaviors[]" value="Other">
+                        <label class="form-check-label">Other</label><br>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Immediate actions taken.</label>
+                        <input type="text" class="form-control" name="actions_taken" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">On reflection, is there anything that could have been done differently or ideas to prevent future adverse incidents?</label>
+                        <input type="text" class="form-control" name="done_differently" required>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label">Were PROACT SCIPr interventions used?</label><br>
+                        <input type="radio" name="proact_scip_interventions" value="Yes">
+                        <label class="form-check-label">Yes</label><br>
+                        <input type="radio" name="proact_scip_interventions" value="No">
+                        <label class="form-check-label">No</label><br>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Was medication administered in accordance with individual protocols?</label><br>
+                        <input type="radio" name="medication_administered" value="Yes">
+                        <label class="form-check-label">Yes</label><br>
+                        <input type="radio" name="medication_administered" value="No">
+                        <label class="form-check-label">No</label><br>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Was there physical contact/injury or intimidation on anyone else (no matter how minor)?</label><br>
+                        <input type="radio" name="physical_contact_injury_intimidation" value="Yes">
+                        <label class="form-check-label">Yes</label><br>
+                        <input type="radio" name="physical_contact_injury_intimidation" value="No">
+                        <label class="form-check-label">No</label><br>
+                    </div>
+                    <!-- Add more sections for the remaining points in the template -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 </div>
                 </div>

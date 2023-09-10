@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('user_id');
             $table->date('date');
-            $table->date('date');
             $table->string('shift');
             $table->string('personal_care');
             $table->string('medication_admin');

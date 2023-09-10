@@ -12,6 +12,7 @@ use App\Models\MySupportPlan;
 use App\Models\BehaviouralMonitorChart;
 use App\Models\ComplaintRecord;
 use App\Models\HospitalPassport;
+use App\Models\operationRiskAssessments;
 
 class User extends Authenticatable
 {
@@ -93,8 +94,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(HospitalPassport::class);
     }
+
+    public function operationRiskAssessments()
+{
+    return $this->hasMany(OperationRiskAssessment::class);
+}
     public function medicationIncidentReports()
 {
     return $this->hasMany(MedicationIncident::class);
+}
+
+public function abcReports()
+{
+    return $this->hasMany(abcReport::class, 'user_id');
 }
 }
