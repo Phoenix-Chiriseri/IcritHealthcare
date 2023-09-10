@@ -158,33 +158,55 @@ function generate() {
                     <div class="card-header text-center" style="size: 22px;">Witness Statement</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
-                                        <th>Patient Name</th>
-                                        <th>Reference Number</th>
-                                        <th>Location</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Person Affected</th>
-                                        <th>Initials</th>
-                                        <th>Description</th>
-                                        <th>Identified Causes</th>
-                                        <th>Completed Forms</th>
-                                        <th>Name of Person</th>
-                                        <th>Date Completed</th>
-                                        <th>Manager on Call</th>
+                                        <th>Username</th>
+                                        <th>Ref Number</th>
+                                        <th>Injured Person</th>
+                                        <th>Date of Accident</th>
+                                        <th>Time of Accident</th>
+                                        <th>Witness DOB</th>
+                                        <th>Witness Home Address</th>
+                                        <th>Street Address</th>
+                                        <th>City</th>
+                                        <th>County</th>
+                                        <th>Telephone Number</th>
+                                        <th>FitzRoy Employee</th>
+                                        <th>Occupation</th>
+                                        <th>What Happened</th>
+                                        <th>Position</th>
+                                        <th>Description of Accident</th>
+                                        <th>Where Were You Positioned</th>
+                                        <th>Any Other Information</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
-                                    <tr>
-                                      
-                                    </tr>
+                                    @foreach ($statements as $statement)
+                                        <tr>
+                                            <td>{{ $statement->username }}</td>
+                                            <td>{{ $statement->ref_number }}</td>
+                                            <td>{{ $statement->injured_person }}</td>
+                                            <td>{{ $statement->date_of_accident }}</td>
+                                            <td>{{ $statement->time_of_accident }}</td>
+                                            <td>{{ $statement->witness_dob }}</td>
+                                            <td>{{ $statement->witness_homeaddress }}</td>
+                                            <td>{{ $statement->street_address }}</td>
+                                            <td>{{ $statement->city }}</td>
+                                            <td>{{ $statement->county }}</td>
+                                            <td>{{ $statement->tel_number }}</td>
+                                            <td>{{ $statement->fitzRoyEmployee }}</td>
+                                            <td>{{ $statement->occupation }}</td>
+                                            <td>{{ $statement->what_happened }}</td>
+                                            <td>{{ $statement->position }}</td>
+                                            <td>{{ $statement->description_accident }}</td>
+                                            <td>{{ $statement->where_were_you_positioned }}</td>
+                                            <td>{{ $statement->any_other_information }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-                        </div>        
+                        </div>
                     </div>
                 </div>
             </div>

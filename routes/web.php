@@ -85,6 +85,7 @@ use App\Http\Controllers\WitnessStatementController;
 	Route::post('/postIncidentReport', [IncidentReportController::class, 'store'])->name('postIncidentReport')->middleware('auth');
 	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySuportPlan')->middleware('auth');
 	Route::get('/getWitnessStatement', [WitnessStatementController::class, 'showWitnessStatement'])->name('getWitnessStatement')->middleware('auth');
+	Route::post('/saveWitnessStatement', [WitnessStatementController::class, 'store'])->name('saveWitnessStatement')->middleware('auth');
 	Route::get('/viewAllWitnessStatements', [WitnessStatementController::class, 'viewAllWitnessStatements'])->name('viewAllWitnessStatements')->middleware('auth');
 	Route::get('/getMedicationIncident', [MedicationIncidentController::class, 'index'])->name('getMedicationIncident')->middleware('auth');
 	Route::get('/viewAllMedicationIncident', [MedicationIncidentController::class, 'viewAllMedicationIncident'])->name('viewAllMedicationIncident')->middleware('auth');
