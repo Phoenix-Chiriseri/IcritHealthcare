@@ -53,4 +53,9 @@ class Patient extends Model
     {
         return $this->hasOne(PositiveBehaviourSupport::class);
     }
+
+    public function seizureReports()
+    {
+        return $this->hasMany(SeizureReport::class);
+    }
 }

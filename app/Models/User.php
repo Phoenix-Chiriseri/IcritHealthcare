@@ -109,8 +109,13 @@ class User extends Authenticatable
     return $this->hasMany(MedicationIncident::class);
 }
 
+public function seizureReports()
+{
+    return $this->hasMany(SeizureReport::class);
+}
+
 public function abcReports()
 {
-    return $this->hasMany(abcReport::class, 'user_id');
+    return $this->hasMany(AbcReport::class, 'user_id');
 }
 }
