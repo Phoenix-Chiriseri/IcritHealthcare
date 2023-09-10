@@ -33,8 +33,12 @@
                         <input type="text" name="date" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="date">Name Of Person We Support</label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="patient_id">Patient Name</label>
+                        <select name="patient_id" id="patient_id" class="form-control" required>
+                            @foreach ($patients as $patient)
+                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="date">Location</label>

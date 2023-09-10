@@ -50,6 +50,11 @@ class User extends Authenticatable
         ];
     
     
+        public function positiveBehaviourSupports()
+        {
+            return $this->hasMany(PositiveBehaviourSupportPlan::class);
+        }
+
     public function patients()
     {
         return $this->hasMany(Patient::class);

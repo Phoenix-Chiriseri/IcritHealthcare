@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+hello world@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 @section('content')
 @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -155,55 +155,48 @@ function generate() {
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center" style="size: 22px;">Support Plan</div>
+                    <div class="card-header text-center" style="size: 22px;">Behavioural Support Plans</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Created By</th>
+                                        <th>User Name</th>
+                                        <th>House</th>
                                         <th>Patient Name</th>
-                                        <th>Communication Skills</th>
-                                        <th>Friendships and Personal Relationships</th>
-                                        <th>Mobility Dexterity</th>
-                                        <th>Routines And Personal Care</th>
-                                        <th>Needs</th>
-                                        <th>Emotions</th>
-                                        <th>Daily Driving Skills</th>
-                                        <th>General Health Skills</th>
-                                        <th>Medication Support</th>
-                                        <th>Recreation And Relations</th>
-                                        <th>Psychological Support</th>
-                                        <th>Finance</th>
-                                        <th>Staff Email</th>
-                                        <!-- Add more table headers for the other fields -->
-                                        
+                                        <th>Date</th>
+                                        <th>Known Behaviours</th>
+                                        <th>Totals</th>
+                                        <th>Time</th>
+                                        <th>Known Behaviour Reference</th>
+                                        <th>Comments</th>
+                                        <th>Injuries</th>
+                                        <th>Initials</th>
+                                        <th>Created At</th>
                                     </tr>
-                                </thead>
+                                </thead>mmm
                                 <tbody>
                                     @foreach ($supportPlans as $supportPlan)
                                         <tr>
                                             <td>{{ $supportPlan->user_name }}</td>
+                                            <td>{{ $supportPlan->house }}</td>
                                             <td>{{ $supportPlan->patient_name }}</td>
-                                            <td>{{ $supportPlan->comm_skills }}</td>
-                                            <td>{{ $supportPlan->friend_fam }}</td>
-                                            <td>{{ $supportPlan->mobility_dexterity }}</td>
-                                            <td>{{ $supportPlan->routines_personal_care }}</td>
-                                            <td>{{ $supportPlan->needs }}</td>
-                                            <td>{{ $supportPlan->emotions }}</td>
-                                            <td>{{ $supportPlan->daily_living_skills }}</td>
-                                            <td>{{ $supportPlan->general_health_needs }}</td>
-                                            <td>{{ $supportPlan->medication_support }}</td>
-                                            <td>{{ $supportPlan->recreation_and_relation}}</td>
-                                            <td>{{ $supportPlan->eating_drinking_nutrition}}</td>
-                                            <td>{{ $supportPlan->psychological_support}}</td>
-                                            <td>{{ $supportPlan->finance}}</td>
+                                            <td>{{ $supportPlan->date }}</td>
+                                            <td>{{ $supportPlan->known_behaviours }}</td>
+                                            <td>{{ $supportPlan->totals }}</td>
+                                            <td>{{ $supportPlan->time }}</td>
+                                            <td>{{ $supportPlan->known_behaviour_reference }}</td>
+                                            <td>{{ $supportPlan->comments }}</td>
+                                            <td>{{ $supportPlan->injuries }}</td>
+                                            <td>{{ $supportPlan->initials }}</td>
+                                            <td>{{ $supportPlan->created_at }}</td>
                                             <td>{{ $supportPlan->staff_email}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $supportPlans->links() }} <!-- Display pagination links -->
+                        </div>        
+                        {{ $supportPlans->links() }} <!-- Display pagination links -->
                     </div>
                 </div>
             </div>

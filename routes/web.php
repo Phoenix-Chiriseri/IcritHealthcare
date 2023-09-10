@@ -29,19 +29,6 @@ use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\MedicationIncidentController; 
 use App\Http\Controllers\WitnessStatementController; 
 
-/*s
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/   
-	/*Route::get('/',function(){
-		return view("pages.splashScreen");
-	});*/
 	Route::get('/', [HomeController::class, 'showHome']);
 	Route::get('/registerPatient',[PatientController::class,'index'])->middleware("auth");
 	//Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -84,6 +71,8 @@ use App\Http\Controllers\WitnessStatementController;
 	Route::post('/postOperationRiskAssessment', [OperationRiskAssessmentController::Class, 'store'])->name('postOperationRiskAssessment')->middleware('auth');
 	Route::get('/viewAllOperationRiskAssessment', [OperationRiskAssessmentController::Class, 'allOperationRiskAssessments'])->name('viewAllOperationRiskAssessment')->middleware('auth');
 	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport')->middleware('auth');
+	Route::post('/savePositiveBPlan', [PositiveBehaviourSupportPlanController::class, 'store'])->name('savePositiveBPlan')->middleware('auth');
+	Route::get('/viewAllPositiveBehaviourPlans', [PositiveBehaviourSupportPlanController::class, 'viewAllPositivePlans'])->name('viewAllPositiveBehaviourPlans')->middleware('auth');
 	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport')->middleware('auth');
 	Route::get('/viewAllSeizureReports', [SeizureReportController::class, 'viewAllSeizureReports'])->name('viewAllSeizureReports')->middleware('auth');
 	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm')->middleware('auth');

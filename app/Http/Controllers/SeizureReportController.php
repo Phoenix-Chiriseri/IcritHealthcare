@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\SeizureReport;
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Facades\DB;
 
 class SeizureReportController extends Controller
 {
@@ -13,7 +15,13 @@ class SeizureReportController extends Controller
     public function index()
     {
         //
-        return view('pages.getSeizureReport');
+        $house = Auth::user()->house;
+        $query = "
+               select * from patients where house = :house
+        ";
+         // Execute the raw SQL query with the user ID parameter
+        $patients = DB::select($query, ['house' => $house]);
+        return view('pages.getSeizureReport')->with("patients",$patients);
     }
 
     /**

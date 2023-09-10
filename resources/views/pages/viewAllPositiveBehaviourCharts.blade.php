@@ -155,55 +155,56 @@ function generate() {
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center" style="size: 22px;">Support Plan</div>
+                    <div class="card-header text-center" style="size: 22px;">Positive Behaviour Support Plans</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Created By</th>
+                                        <th>User Name</th>
+                                        <th>House</th>
                                         <th>Patient Name</th>
-                                        <th>Communication Skills</th>
-                                        <th>Friendships and Personal Relationships</th>
-                                        <th>Mobility Dexterity</th>
-                                        <th>Routines And Personal Care</th>
-                                        <th>Needs</th>
-                                        <th>Emotions</th>
-                                        <th>Daily Driving Skills</th>
-                                        <th>General Health Skills</th>
-                                        <th>Medication Support</th>
-                                        <th>Recreation And Relations</th>
-                                        <th>Psychological Support</th>
-                                        <th>Finance</th>
-                                        <th>Staff Email</th>
-                                        <!-- Add more table headers for the other fields -->
-                                        
+                                        <th>Date</th>
+                                        <th>Review Date</th>
+                                        <th>Home Location</th>
+                                        <th>Street Address</th>
+                                        <th>City</th>
+                                        <th>Completed By</th>
+                                        <th>What I do when I am happy or angry (BEHAVIORS)</th>
+                                        <th>Triggers</th>
+                                        <th>Actions to Support Me</th>
+                                        <th>How I look when I am Calm relaxed</th>
+                                        <th>The things staff can do to keep me in the green</th>
+                                        <th>How I look when I am becoming anxious or aroused</th>
+                                        <th>The things staff can say or do to manage the situation</th>
+                                        <th>The things staff can say or do to manage the situation</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($supportPlans as $supportPlan)
                                         <tr>
                                             <td>{{ $supportPlan->user_name }}</td>
+                                            <td>{{ $supportPlan->house }}</td>
                                             <td>{{ $supportPlan->patient_name }}</td>
-                                            <td>{{ $supportPlan->comm_skills }}</td>
-                                            <td>{{ $supportPlan->friend_fam }}</td>
-                                            <td>{{ $supportPlan->mobility_dexterity }}</td>
-                                            <td>{{ $supportPlan->routines_personal_care }}</td>
-                                            <td>{{ $supportPlan->needs }}</td>
-                                            <td>{{ $supportPlan->emotions }}</td>
-                                            <td>{{ $supportPlan->daily_living_skills }}</td>
-                                            <td>{{ $supportPlan->general_health_needs }}</td>
-                                            <td>{{ $supportPlan->medication_support }}</td>
-                                            <td>{{ $supportPlan->recreation_and_relation}}</td>
-                                            <td>{{ $supportPlan->eating_drinking_nutrition}}</td>
-                                            <td>{{ $supportPlan->psychological_support}}</td>
-                                            <td>{{ $supportPlan->finance}}</td>
+                                            <td>{{ $supportPlan->todays_date }}</td>
+                                            <td>{{ $supportPlan->review_date }}</td>
+                                            <td>{{ $supportPlan->home_location }}</td>
+                                            <td>{{ $supportPlan->street_address }}</td>
+                                            <td>{{ $supportPlan->city }}</td>
+                                            <td>{{ $supportPlan->county }}</td>
+                                            <td>{{ $supportPlan->completed_by }}</td>
+                                            <td>{{ $supportPlan->behaviours_when_happy_angry }}</td>
+                                            <td>{{ $supportPlan->triggers }}</td>
+                                            <td>{{ $supportPlan->actions }}</td>
+                                            <td>{{ $supportPlan->behaviour_calm }}</td>
+                                            <td>{{ $supportPlan->support_strategies}}</td>
+                                            <td>{{ $supportPlan->recovery_period}}</td>
                                             <td>{{ $supportPlan->staff_email}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $supportPlans->links() }} <!-- Display pagination links -->
+                        </div>        
                     </div>
                 </div>
             </div>

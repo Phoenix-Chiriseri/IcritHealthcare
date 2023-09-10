@@ -48,4 +48,9 @@ class Patient extends Model
     {
         return $this->hasMany(abcReport::class);
     }
+
+    public function positiveBehaviourSupport()
+    {
+        return $this->hasOne(PositiveBehaviourSupport::class);
+    }
 }
