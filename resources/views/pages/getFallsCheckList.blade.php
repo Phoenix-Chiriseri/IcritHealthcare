@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="">
+                <form method="POST"  action="{{ route('saveFallsChecklist') }}">
                     @csrf
                     <div class="form-group">
                         <label for="patient_id">Patient Name</label>
@@ -104,7 +104,7 @@
                             <label class="form-check-label" for="fall_distance_no">No</label>
                         </div>
                     </div>
-                    <!--hhah!-->
+                    <!-- Additional questions -->
                     <div class="mb-3">
                         <label class="form-label">Do you suspect that they have suffered a serious injury i.e. fracture or dislocation?</label>
                         <div class="form-check">
@@ -139,7 +139,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Are they able to weight bear if you proceed with a manual manoeuver?</label>
+                        <label class="form-label">Are they able to weight bear if you proceed with a manual maneuver?</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="weight_bear" value="Yes" id="weight_bear_yes">
                             <label class="form-check-label" for="weight_bear_yes">Yes</label>
@@ -183,9 +183,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="date">Comments to lack of space
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="comments_space">Comments to lack of space</label>
+                        <input type="text" name="comments_space" id="comments_space" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Hoist Not Used due to personal dignity</label>
@@ -199,19 +198,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="date">Comments to personal dignity
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="comments_dignity">Comments to personal dignity</label>
+                        <input type="text" name="comments_dignity" id="comments_dignity" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="date">Comments to dangerous position
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="comments_position">Comments to dangerous position</label>
+                        <input type="text" name="comments_position" id="comments_position" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="date">Add Any Other Comments to the above
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="comments_other">Add Any Other Comments to the above</label>
+                        <input type="text" name="comments_other" id="comments_other" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">If moved, was a handling belt used?</label>
@@ -225,9 +221,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="date">Comments to handling belt usage
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="comments_belt">Comments to handling belt usage</label>
+                        <input type="text" name="comments_belt" id="comments_belt" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Has the level of pain altered during the maneuver?</label>
@@ -269,7 +264,6 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    
                 </form>
                 </div>
                 </div>

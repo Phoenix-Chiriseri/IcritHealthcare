@@ -158,32 +158,73 @@ function generate() {
                     <div class="card-header text-center" style="size: 22px;">Falls Checklists</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
+                                        <th>User Name</th>
+                                        <th>House</th>
                                         <th>Patient Name</th>
-                                        <th>Reference Number</th>
-                                        <th>Location</th>
                                         <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Person Affected</th>
-                                        <th>Initials</th>
-                                        <th>Description</th>
-                                        <th>Identified Causes</th>
-                                        <th>Completed Forms</th>
-                                        <th>Name of Person</th>
-                                        <th>Date Completed</th>
-                                        <th>Manager on Call</th>
+                                        <th>Incident Ref</th>
+                                        <th>Completed By</th>
+                                        <th>Health Concern</th>
+                                        <th>Personal Care</th>
+                                        <th>Breathing</th>
+                                        <th>Head Injury</th>
+                                        <th>Fall Distance</th>
+                                        <th>Serious Injury Suspected</th>
+                                        <th>Bleeding or Skin Tear</th>
+                                        <th>Unusual Pain</th>
+                                        <th>Weight Bear</th>
+                                        <th>Recommend Attendance</th>
+                                        <th>Use Hoist</th>
+                                        <th>Hoist Not Used Space</th>
+                                        <th>Comments Space</th>
+                                        <th>Hoist Not Used Dignity</th>
+                                        <th>Comments Dignity</th>
+                                        <th>Comments Position</th>
+                                        <th>Comments Other</th>
+                                        <th>Handling Belt Used</th>
+                                        <th>Pain Altered</th>
+                                        <th>Able to Walk</th>
+                                        <th>Immediate Cause</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
-                                    <tr>
-                                      
-                                    </tr>
+                                    @foreach ($checkLists as $checkList)
+                                        <tr>
+                                            <td>{{ $checkList->user_name }}</td>
+                                            <td>{{ $checkList->house }}</td>
+                                            <td>{{ $checkList->patient_name }}</td>
+                                            <td>{{ $checkList->date }}</td>
+                                            <td>{{ $checkList->incident_ref }}</td>
+                                            <td>{{ $checkList->completed_by }}</td>
+                                            <td>{{ $checkList->health_concern }}</td>
+                                            <td>{{ $checkList->personal_care }}</td>
+                                            <td>{{ $checkList->breathing }}</td>
+                                            <td>{{ $checkList->head_injury }}</td>
+                                            <td>{{ $checkList->fall_distance }}</td>
+                                            <td>{{ $checkList->serious_injury_suspected }}</td>
+                                            <td>{{ $checkList->bleeding_or_skin_tear }}</td>
+                                            <td>{{ $checkList->unusual_pain }}</td>
+                                            <td>{{ $checkList->weight_bear }}</td>
+                                            <td>{{ $checkList->recommend_attendance }}</td>
+                                            <td>{{ $checkList->use_hoist }}</td>
+                                            <td>{{ $checkList->hoist_not_used_space }}</td>
+                                            <td>{{ $checkList->comments_space }}</td>
+                                            <td>{{ $checkList->hoist_not_used_dignity }}</td>
+                                            <td>{{ $checkList->comments_dignity }}</td>
+                                            <td>{{ $checkList->comments_position }}</td>
+                                            <td>{{ $checkList->comments_other }}</td>
+                                            <td>{{ $checkList->handling_belt_used }}</td>
+                                            <td>{{ $checkList->pain_altered }}</td>
+                                            <td>{{ $checkList->able_to_walk }}</td>
+                                            <td>{{ $checkList->immediate_cause }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            {{ $checkLists->links() }}
                         </div>        
                     </div>
                 </div>

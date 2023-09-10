@@ -92,7 +92,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
                     <a class="dropdown-item" href="getFallsChecklist">Add Falls Checklist</a>
-                    <a class="dropdown-item" href="ViewAllFallsChecklists">View All Falls Checklists</a>
+                    <a class="dropdown-item" href="allFallsChecklists">View All Falls Checklists</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

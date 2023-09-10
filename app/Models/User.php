@@ -114,6 +114,11 @@ public function seizureReports()
     return $this->hasMany(SeizureReport::class);
 }
 
+public function fallsChecklists()
+{
+    return $this->hasMany(FallsCheklist::class);
+}
+
 public function abcReports()
 {
     return $this->hasMany(AbcReport::class, 'user_id');

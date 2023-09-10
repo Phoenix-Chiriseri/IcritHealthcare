@@ -116,7 +116,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date">Were there any identified causes to this incident?</label>
-                        <input type="text" name="any_causes_to_incident" id="date" class="form-control" required>
+                        <input type="text" name="any_causes_to_incident" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="other_forms" class="form-label">Please identify any other forms that were completed with this Incident Report.</label>
@@ -325,11 +325,11 @@
 </div>
 <div class="form-group">
     <label for="reported_by">Reported By</label>
-    <input type="text" name="reported_by" id="reported_by" class="form-control" required>
+    <input type="text" name="reported_by"  class="form-control" required>
 </div>
 <div class="form-group">
     <label for="report_date">Date</label>
-    <input type="text" name="report_date" id="report_date" class="form-control" required>
+    <input type="text" name="report_date"  class="form-control" required>
 </div>
 <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>

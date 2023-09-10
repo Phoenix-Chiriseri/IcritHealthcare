@@ -41,7 +41,7 @@ class SeizureReportController extends Controller
     {
         //
          // Validate the form data
-         $validatedData = $request->validate([
+            $validatedData = $request->validate([
             'ref_number' => 'required|string',
             'patient_id' => 'required|integer',
             'location' => 'required|string',
@@ -93,7 +93,6 @@ class SeizureReportController extends Controller
             'reported_by' => 'required|string',
             'report_date' => 'required|string',
         ]);
-
         // Create a new SeizureReport model instance and populate it with the form data
         $seizureReport = new SeizureReport();
         $seizureReport->ref_number = $request->input('ref_number');
@@ -121,9 +120,9 @@ class SeizureReportController extends Controller
         $seizureReport->movement = $request->input('movement');
 
         $user = Auth::user();
-        $seizureReport = new SeizureReport($validatedData);
         //Save the operation risk assessment
-        $user->seizureReports()->save($seizureReport);
+        // Create a new SeizureReport instance with validated data
+        $user->seizureReports()->create($validatedData);
         // Create a new MedicationIncident instance and fill it with validated data
         // Save the MedicationIncident to the database
         // Optionally, you can redirect to a success page or return a response

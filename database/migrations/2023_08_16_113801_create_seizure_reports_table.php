@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('seizure_reports', function (Blueprint $table) {
             $table->id();
             $table->string('ref_number');
-            $table->integer('patient_id');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('location');
             $table->date('date_of_incident');
             $table->time('time_of_incident');
