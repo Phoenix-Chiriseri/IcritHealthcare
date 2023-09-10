@@ -14,11 +14,9 @@ class PatientController extends Controller
     public function index()
     {   
         $house = Auth::user()->house;
-
         // Get daily entries associated with the logged-in user
         // Define the raw SQL query
         $query = "SELECT * FROM users";
-
         // Execute the raw SQL query with the user ID parameter
         $users = DB::select($query); 
 
@@ -29,12 +27,10 @@ class PatientController extends Controller
     {
         // View only the patients that are assigned to the authenticated user
         $username = Auth::user()->username;
-
         $userAndPatients = Patient::leftJoin('users', 'patients.Staff_Id', '=', 'users.id')
             ->where('users.username', $username)
             ->select('patients.patient_name as patient_name', 'users.username as username') 
             ->get();
-
         return view('pages.viewMyPatients')->with("name", $username)->with('userAndPatients', $userAndPatients);
     }
 
@@ -43,7 +39,8 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+
+        /*$validator = Validator::make($request->all(), [
             'patient_name' => 'required|string|max:255',
             'house' => 'required|string|max:255',
             'Staff_Id' => 'required|exists:users,id',
@@ -52,13 +49,12 @@ class PatientController extends Controller
             'phone_number' => 'required|string|max:255',
             'email' => 'required|string|email|unique:patients,email|max:255',
         ]);
-    
-        if ($validator->fails()) {
+        */
+        /*if ($validator->fails()) {
             return redirect()->route('patient.create')
                 ->withErrors($validator)
                 ->withInput();
-        }
-    
+        }*/
         // Create a new patient record
         $patient = new Patient([
             'patient_name' => $request->input('patient_name'),
@@ -70,9 +66,9 @@ class PatientController extends Controller
         ]);
     
         // Get the staff member (user) who is saving the patient
-        $staffMember = User::findOrFail($request->input('Staff_Id'));
+        $user = User::findOrFail($request->input('Staff_Id'));
         // Associate the patient with the staff member
-        $staffMember->patients()->save($patient);
+        $user->patients()->save($patient);
         return back()->with('success', 'Patient added successfully.');
         }
     }

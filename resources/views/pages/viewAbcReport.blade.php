@@ -29,10 +29,17 @@
             <div class="card">
                 <form method="POST" action="{{ route('save-abcReport') }}">
                     @csrf
-                
+                    <div class="form-group">
+                        <label for="patient_id">Patient</label>
+                        <select name="patient_id" id="patient_id" class="form-control" required>
+                            @foreach ($patients as $patient)
+                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
             <div class="mb-3">
                         <label class="form-label">Initials of person causing harm/ intimidation/ damage:</label>
-                        <input type="text" class="form-control" name="date" required>
+                        <input type="text" class="form-control" name="initialsOfPerson" required>
             </div>
             
             <div class="mb-3">
@@ -42,19 +49,19 @@
 
             <div class="mb-3">
                 <label class="form-label">Start Time</label>
-                <input type="time" class="form-control" name="location" required>
+                <input type="time" class="form-control" name="start_time" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">End Time</label>
-                <input type="time" class="form-control" name="location" required>
+                <input type="time" class="form-control" name="emd_time" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Influencing factors or known trigger for behaviours? (Consider up to 48hrs prior)</label>
-                <input type="text" class="form-control" name="location" required>
+                <input type="text" class="form-control" name="influencing_factors" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Whats was happening immediately before the incident? (Include who was there and what was happening)</label>
-                <input type="text" class="form-control" name="location" required>
+                <input type="text" class="form-control" name="what_happened_before_incident" required>
             </div>
 
             <div class="mb-3">
@@ -69,16 +76,12 @@
                 <label class="form-check-label">Other</label><br>
             </div>
             <div class="mb-3">
-                <label class="form-label">Whats was happening immediately before the incident? (Include who was there and what was happening)</label>
-                <input type="text" class="form-control" name="location" required>
-            </div>
-            <div class="mb-3">
                 <label class="form-label">Immediate actions taken.</label>
-                <input type="text" class="form-control" name="location" required>
+                <input type="text" class="form-control" name="actions_taken" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">On reflection, is there anything that could have been done differently or ideas to prevent future adverse incidents?</label>
-                <input type="text" class="form-control" name="location" required>
+                <input type="text" class="form-control" name="done_differently" required>
             </div>
 
             <div class="mb-3">

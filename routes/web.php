@@ -27,6 +27,7 @@ use App\Models\DailyEntries;
 use App\Http\Controllers\Admin\AdminAuthController; 
 use App\Http\Controllers\StatisticsController; 
 use App\Http\Controllers\MedicationIncidentController; 
+use App\Http\Controllers\WitnessStatementController; 
 
 /*s
 |--------------------------------------------------------------------------
@@ -59,6 +60,7 @@ use App\Http\Controllers\MedicationIncidentController;
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	//route for abc report
 	Route::get('/getAbcReport', [ABCReportController::class, 'index'])->name('getAbcReport')->middleware('auth');
+	Route::get('/viewAllAbcReports', [ABCReportController::class, 'allAbcReports'])->name('viewAllAbcReports')->middleware('auth');
 	Route::post('/saveAbcReport', [ABCReportController::class, 'store'])->name('save-abcReport');
 	//
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
@@ -76,10 +78,13 @@ use App\Http\Controllers\MedicationIncidentController;
 	Route::post('/saveComplaintRecord', [ComplaintRecordController::class, 'store'])->name('save-ComplaintRecord')->middleware("auth");
 	//falls checklist routes
 	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist')->middleware('auth');;
-	Route::post('/saveFallsChecklist', [FallsCheklistController::class, 'store'])->name('save-fallsCheckList')->middleware("auth");
+	Route::post('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist')->middleware('auth');;
+	Route::post('/viewAllFallsChecklists', [FallsCheklistController::class, 'allFallsChecklists'])->name('viewAllFallsChecklists')->middleware("auth");
 	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment')->middleware('auth');
+	Route::get('/viewAllOperationRiskAssessment', [OperationRiskAssessmentController::Class, 'allOperationRiskAssessments'])->name('viewAllOperationRiskAssessment')->middleware('auth');
 	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport')->middleware('auth');
 	Route::get('/getSeizureReport', [SeizureReportController::class, 'index'])->name('getSeizureReport')->middleware('auth');
+	Route::get('/viewAllSeizureReports', [SeizureReportController::class, 'viewAllSeizureReports'])->name('viewAllSeizureReports')->middleware('auth');
 	Route::get('/getSelfCertificationSickForm', [SelfCertificationSickFormController::class, 'index'])->name('getSelfCertificationSickForm')->middleware('auth');
 	Route::get('/viewSelfCertificationReports', [SelfCertificationSickFormController::class, 'allSelfCertificationReports'])->name('allSelfCeritificationReports')->middleware('auth');
 	Route::post('/postSelfCertificationForm', [SelfCertificationSickFormController::class, 'store'])->name('postSelfCertificationForm')->middleware('auth');
@@ -88,10 +93,15 @@ use App\Http\Controllers\MedicationIncidentController;
 	Route::get('/getAllIncidentReports', [IncidentReportController::class, 'allIncidentReports'])->name('getAllIncidentReports')->middleware('auth');
 	Route::post('/postIncidentReport', [IncidentReportController::class, 'store'])->name('postIncidentReport')->middleware('auth');
 	Route::get('/getMySupportPlan', [MySupportPlanController::class, 'index'])->name('getMySuportPlan')->middleware('auth');
+	Route::get('/getWitnessStatement', [WitnessStatementController::class, 'showWitnessStatement'])->name('getWitnessStatement')->middleware('auth');
+	Route::get('/viewAllWitnessStatements', [WitnessStatementController::class, 'viewAllWitnessStatements'])->name('viewAllWitnessStatements')->middleware('auth');
 	Route::get('/getMedicationIncident', [MedicationIncidentController::class, 'index'])->name('getMedicationIncident')->middleware('auth');
+	Route::get('/viewAllMedicatonIncident', [MedicationIncidentController::class, 'viewAllMedicationIncident'])->name('viewAllMedicationIncident')->middleware('auth');
+	Route::post('/saveMedicationIncident', [MedicationIncidentController::class, 'store'])->name('saveMedicationIncident')->middleware('auth');
 	Route::get('/allSupportPlans', [MySupportPlanController::class, 'allSupportPlans'])->name('allSupportPlans')->middleware('auth');
 	Route::post('/postMySupportPlan', [MySupportPlanController::class, 'store'])->name('postMySupportPlan')->middleware("auth");
 	Route::get('/getHospitalPassport', [HospitalPassportController::class, 'index'])->name('getHospitalPassport')->middleware('auth');
+	Route::get('/viewAllHospitalPassports', [HospitalPassportController::class, 'viewAllHospitalPassports'])->name('viewAllHospitalPassports')->middleware('auth');
 	Route::post('/postHospitalPassport', [HospitalPassportController::class, 'store'])->name('postHospitalPassport')->middleware('auth');
 	Route::get('/viewHouseRecords', [DailyEntryController::class, 'allHouseRecords'])->name("allRecords")->middleware("auth");
 	Route::get('/allResults', [UserProfileController::class, 'allResults'])->name("all")->middleware("auth");

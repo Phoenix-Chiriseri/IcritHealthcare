@@ -30,6 +30,14 @@
                 <form method="POST" action="{{ route('save-entry') }}">
                     @csrf
                     <div class="form-group">
+                        <label for="patient_id">Patient Name</label>
+                        <select name="patient_id" id="patient_id" class="form-control" required>
+                            @foreach ($patients as $patient)
+                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="date">Date</label>
                         <input type="date" name="date" id="date" class="form-control" required>
                     </div>
@@ -84,7 +92,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Daily Entry</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
                 </div>

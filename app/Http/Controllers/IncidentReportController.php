@@ -23,6 +23,11 @@ class IncidentReportController extends Controller
         return view('pages.getIncidentReport')->with("patients",$patients);
     }
 
+    public function viewAllHospitalPassports(){
+
+
+        return view('pages.viewAllHospitalPassports');
+    }
     /**
      * Show the form for creating a new resource.
      */

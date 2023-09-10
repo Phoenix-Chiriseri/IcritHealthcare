@@ -17,7 +17,6 @@ class Patient extends Model
         'address',
         'phone_number',
         'email',
-        // Add more fields as needed.
     ];
 
  public function user()

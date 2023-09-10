@@ -23,6 +23,11 @@ class MedicationIncidentController extends Controller
         return view('pages.getMedicationIncident')->with("patients",$patients);
     }
 
+    public function viewAllMedicatonIncident(){
+
+        return view("pages.viewAllMedicationIncidents");
+    }
+
     /**
      * Show the form for creating a new resource.
      */

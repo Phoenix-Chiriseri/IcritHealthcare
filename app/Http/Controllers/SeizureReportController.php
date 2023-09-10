@@ -19,9 +19,11 @@ class SeizureReportController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function viewAllSeizureReports()
     {
         //
+
+        return view('pages.viewAllSeizureReports');
     }
 
     /**

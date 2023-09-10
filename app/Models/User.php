@@ -93,4 +93,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(HospitalPassport::class);
     }
+    public function medicationIncidentReports()
+{
+    return $this->hasMany(MedicationIncident::class);
+}
 }

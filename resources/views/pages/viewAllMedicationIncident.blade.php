@@ -95,10 +95,9 @@ function generate() {
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                               Welcome {{$name}} 
+                               
                                <hr>
-                               <p>Current Date: {{ $currentDate }}</p>
-                            </div>
+                              </div>
                           
                         </div>
                         <div class="col-4 text-end">
@@ -116,7 +115,7 @@ function generate() {
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                Number Of Patients in house {{ $numberOfPatients[0]->count }}
+                              
                                 <a href = "viewMyProfile" class = "btn btn-info">View Your Profile</a>
                                 <a href = "viewMyPatients" class = "btn btn-danger">View Your Patients</a>
                                 <h5 class="font-weight-bolder">
@@ -152,48 +151,41 @@ function generate() {
 </div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/phpYC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <div class="container">
-    <a class="navbar-brand" class = "btn btn-info"></a>
+    <a class="navbar-brand" class = "btn btn-info">Dashboard</a>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center" style="size: 22px;">Daily Entries</div>
+                    <div class="card-header text-center" style="size: 22px;">Medication Incident Report</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id = "DOMContentLoaded">
-                                <thead class="thead-dark">
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <th>User Name</th>
-                                        <th>House</th>
+                                        <th>User</th>
                                         <th>Patient Name</th>
+                                        <th>Reference Number</th>
+                                        <th>Location</th>
                                         <th>Date</th>
-                                        <th>Shift</th>
-                                        <th>Personal Care</th>
-                                        <th>Medication Admin</th>
-                                        <th>Appointments</th>
-                                        <th>Activities</th>
-                                        <th>Incident</th>
-                                        <th>Print Record</td>
+                                        <th>Time</th>
+                                        <th>Person Affected</th>
+                                        <th>Initials</th>
+                                        <th>Description</th>
+                                        <th>Identified Causes</th>
+                                        <th>Completed Forms</th>
+                                        <th>Name of Person</th>
+                                        <th>Date Completed</th>
+                                        <th>Manager on Call</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($entries as $entry)
-                                        <tr>
-                                            <td>{{ $entry->user_name }}</td>
-                                            <td>{{ $entry->house }}</td>
-                                            <td>{{ $entry->patient_name }}</td>
-                                            <td>{{ $entry->date }}</td>
-                                            <td>{{ $entry->shift }}</td>
-                                            <td>{{ $entry->personal_care }}</td>
-                                            <td>{{ $entry->medication_admin }}</td>
-                                            <td>{{ $entry->appointments }}</td>
-                                            <td>{{ $entry->activities }}</td>
-                                            <td>{{ $entry->incident }}</td>
-                                            <td><a href="{{ route('view-record', ['id' => $entry->entryId]) }}"class = "btn btn-info">View Record</a></td>                   
-                                        </tr>
-                                    @endforeach
+                        
+                                    <tr>
+                                      
+                                    </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div>        
+                    </div>
                 </div>
             </div>
         </div>

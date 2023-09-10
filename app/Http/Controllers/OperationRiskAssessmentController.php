@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\OperationRiskAssessment;
 use Illuminate\Http\Request;
+use Auth;
+use DB;
 
 class OperationRiskAssessmentController extends Controller
 {
@@ -13,9 +15,19 @@ class OperationRiskAssessmentController extends Controller
     public function index()
     {
         //
-        return view('pages.getOperationsRiskAssessment');
+          //
+          $house = Auth::user()->house;
+          $query = "
+                  select * from patients where house = :house
+           ";
+          $patients = DB::select($query, ['house' => $house]);
+          return view('pages.getOperationsRiskAssessment')->with("patients",$patients);
     }
 
+    public function allOperationRiskAssessments(){
+
+        return view('pages.allOperationRiskAssessments');
+    }
     /**
      * Show the form for creating a new resource.
      */

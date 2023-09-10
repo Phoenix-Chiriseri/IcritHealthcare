@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('operation_risk_assessments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('user_id');
+            $table->date('date');
+            $table->date('date');
+            $table->string('shift');
+            $table->string('personal_care');
+            $table->string('medication_admin');
+            $table->string('appointments');
+            $table->string('activities');
+            $table->string('incident');
             $table->timestamps();
+            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

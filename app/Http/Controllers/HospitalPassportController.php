@@ -28,6 +28,11 @@ class HospitalPassportController extends Controller
         return view('pages.getHospitalPassport')->with('patients',$patients);
     }
 
+    public function viewAllHospitalPassports(){
+
+        return view("pages.viewAllHospitalPassports");
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -274,49 +274,49 @@
                         <label for="medication_admin">
                             How I drink: (Drink small amounts, thickened fluids)
                         </label>
-                        <textarea name="how_i_drink" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="how_i_drink"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             How I keep safe: (Bed rails, support with challenging behaviour)
                         </label>
-                        <textarea name="how_i_keep_safe" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="how_i_keep_safe"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             How I use the toilet: (Continence aids, help to get to toilet)
                         </label>
-                        <textarea name="how_i_use_the_toilet" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="how_i_use_the_toilet" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Sleeping: (Sleep pattern/routine)
                         </label>
-                        <textarea name="sleeping" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="sleeping"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Likes: for example - what makes me happy, things I like
                         </label>
-                        <textarea name="medication_admin" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="medication_admin"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Things I like:
                         </label>
-                        <textarea name="things_i_like" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="things_i_like" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Things I dislike:
                         </label>
-                        <textarea name="things_i_dislike" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="things_i_dislike" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="medication_admin">
                             Additional Information:
                         </label>
-                        <textarea name="additional_info" id="country" class="form-control" rows="5" required></textarea>
+                        <textarea name="additional_info"  class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>

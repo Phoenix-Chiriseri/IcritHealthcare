@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ABCReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+Use Auth;
 
 class ABCReportController extends Controller
 {
@@ -12,7 +14,18 @@ class ABCReportController extends Controller
      */
     public function index()
     {
-        return view('pages.viewAbcReport');
+        
+        $house = Auth::user()->house;
+        $query = "
+                select * from patients where house = :house
+         ";
+        $patients = DB::select($query, ['house' => $house]);
+        return view('pages.viewAbcReport')->with("patients",$patients);
+    }
+
+    public function allAbcReports(){
+
+        return view("pages.viewAllAbcReports");
     }
 
     /**

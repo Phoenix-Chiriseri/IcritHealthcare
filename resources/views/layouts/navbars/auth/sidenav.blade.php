@@ -33,15 +33,93 @@
                     <span class="nav-link-text ms-1">Add Patients</span>
                 </a>
             </li> 
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Abc Report</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                    <a class="dropdown-item" href="getAbcReport">Add Abc Report</a>
+                    <a class="dropdown-item" href="viewAllAbcReports">View All Abc Reports</a>
+                </div>
+            </li>
             <li class="nav-item">
-                <a class="nav-link" href="getAbcReport">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">ABC Report</span>
+                    <span class="nav-link-text ms-1">Behavioural Monitor Chart</span>
+                    <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                        <a class="dropdown-item" href="getBehaviouralMonitorChart">Add Record</a>
+                        <a class="dropdown-item" href="allBehaviourSupportPlans">View All Records</a>
+                    </div>
                 </a>
+            </li>  
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Complaint Record (Part A)</span>
+                    <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                        <a class="dropdown-item" href="getComplaintRecord">Add Complaint Record</a>
+                        <a class="dropdown-item" href="allComplaintRecords">View All Complaint Records</a>
+                    </div>
+                </a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Daily Entry</span>
+                    <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                        <a class="dropdown-item" href="getEntry">Add Daily Entry</a>
+                    </div>
+                </a>
+            </li> 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Falls Checklist</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                    <a class="dropdown-item" href="getFallsChecklist">Add Falls Checklist</a>
+                    <a class="dropdown-item" href="ViewAllFallsChecklists">View All Falls Checklists</a>
+                </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Hospital Passport</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                    <a class="dropdown-item" href="getHospitalPassport">Add Hospital Passport</a>
+                    <a class="dropdown-item" href="viewAllHospitalPassports">View All Hospital Passports</a>
+                </div>
+            </li>  
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Incident Report</span>
+                    <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                        <a class="dropdown-item" href="getIncidentReport">Add Incident Report</a>
+                        <a class="dropdown-item" href="getAllIncidentReports">View All Incindent Reports</a>
+                    </div>
+                </a>
+            </li> 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
@@ -54,96 +132,76 @@
                     <a class="dropdown-item" href="allSupportPlans">View Support Plan</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Medication Incident</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                    <a class="dropdown-item" href="getMedicationIncident">Add Medication Incident</a>
+                    <a class="dropdown-item" href="viewAllMedicationIncident">View Medication Incident Reports</a>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Behavioural Monitor Chart</span>
+                    <span class="nav-link-text ms-1">Operation Risk Assessment</span>
                     <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
-                        <a class="dropdown-item" href="getBehaviouralMonitorChart">Add Support Plan</a>
-                        <a class="dropdown-item" href="allBehaviourSupportPlans">View Support Plan</a>
+                        <a class="dropdown-item" href="getOperationsRiskAssessment">Add OS Risk Assessment</a>
+                        <a class="dropdown-item" href="viewAllOperationRiskAssessment">View All Assessments</a>
                     </div>
-                </a>
-            </li>  
-            <li class="nav-item">
-                <a class="nav-link" href="getComplaintRecord">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Complaint Record (Part A)</span>
-                </a>
-            </li>    <li class="nav-item">
-                <a class="nav-link" href="getEntry">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Daily Entry</span>
-                </a>
-            </li> 
-            <li class="nav-item">
-                <a class="nav-link" href="getFallsChecklist">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Falls Checklist</span>
-                </a>
-            </li>  
-            <li class="nav-item">
-                <a class="nav-link" href="getHospitalPassport">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Hospital Passport</span>
-                </a>
-            </li>   
-            <li class="nav-item">
-                <a class="nav-link" href="getIncidentReport">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Incident Report</span>
-                </a>
-            </li> 
-            <li class="nav-item">
-                <a class="nav-link" href="getOperationsRiskAssessment">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Operation Risk Assessment </span>
-                </a>
-            </li> 
-            <li class="nav-item">
-                <a class="nav-link" href="getSeizureReport">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Seizure Report</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="getMedicationIncident">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Medication Incident</span>
+                    <span class="nav-link-text ms-1">Seizure  Report</span>
+                    <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                        <a class="dropdown-item" href="getSeizureReport">Add Seizure Report</a>
+                        <a class="dropdown-item" href="viewAllSeizureReports">View All Reports</a>
+                    </div>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Self Certification Form</span>
+                    <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                        <a class="dropdown-item" href="getSelfCertificationSickForm">Add Self Certification Form</a>
+                        <a class="dropdown-item" href="viewSelfCertificationReports">View All Forms</a>
+                    </div>
+                </a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Witness Statement</span>
+                    <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
+                        <a class="dropdown-item" href="getWitnessStatement">Add Witness Statement</a>
+                        <a class="dropdown-item" href="viewAllWitnessStatements">View All Witness Statements</a>
+                    </div>
+                </a>
+            </li>  
             <!--<li class="nav-item">
                 <a class="nav-link" href="getStatistics">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
+                    </div>medic
                     <span class="nav-link-text ms-1">Statistics</span>
                 </a>
             </li>!-->

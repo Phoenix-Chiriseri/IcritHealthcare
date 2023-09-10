@@ -38,56 +38,48 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="{{ route('saveMedicationIncident') }}">
+                <form method="POST" action="{{ route('save-ComplaintRecord') }}">
                     @csrf
-                        <div class="form-group">
-                            <label for="patient_id">Patient Name</label>
-                            <select name="patient_id" id="patient_id" class="form-control" required>
-                                @foreach ($patients as $patient)
-                                    <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group row">
                             <label for="phone_number" class="col-md-2 col-form-label">Phone Number</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control"  name="phone_number" required>
+                                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="address" class="col-md-2 col-form-label">Address</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control"  name="address" required>
+                                <input type="text" class="form-control" id="address" name="address" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-md-2 col-form-label">Email</label>
                             <div class="col-md-12">
-                                <input type="email" class="form-control" name="email" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="street_address" class="col-md-2 col-form-label">Street Address</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="street_address" required>
+                                <input type="text" class="form-control" id="street_address" name="street_address" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="city" class="col-md-2 col-form-label">City</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control"  name="city" required>
+                                <input type="text" class="form-control" id="city" name="city" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="country" class="col-md-2 col-form-label">Country</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control"  name="country" required>
+                                <input type="text" class="form-control" id="country" name="country" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="relativeStatus" class="col-md-2 col-form-label">Status Of Relative</label>
                             <div class="col-md-12">
-                                <select name="relativeStatus" class="form-control">
+                                <select name="relativeStatus" id="relativeStatus" class="form-control">
                                     <option value="Parent/Relative">Parent/Relative</option>
                                     <option value="Person we Support">Person We Support</option>
                                     <option value="Social Worker">Social Worker</option>
@@ -100,13 +92,13 @@
                         <div class="form-group row">
                             <label for="detailsOfComplaint" class="col-md-2 col-form-label">Details Of Complainant</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="detailsOfComplaint" required>
+                                <input type="text" class="form-control" id="detailsOfComplaint" name="detailsOfComplaint" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="complaintDescription" class="col-md-2 col-form-label">What description best fits the complaint/concern</label>
                             <div class="col-md-12">
-                                <select name="complaintDescription" class="form-control">
+                                <select name="complaintDescription" id="complaintDescription" class="form-control">
                                     <option value="Staff Action">Staff Action</option>
                                     <option value="Tenant/Resident's Action">Tenant/Resident's Action</option>
                                     <option value="Both">Both</option>
@@ -124,7 +116,7 @@
                         <div class="form-group row">
                             <label for="recordedBy" class="col-md-2 col-form-label">This complaint/concern was recorded by</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control"  name="recordedBy" required>
+                                <input type="text" class="form-control" id="recordedBy" name="recordedBy" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -139,13 +131,13 @@
                         <div class="form-group row">
                             <label for="complaintDate" class="col-md-2 col-form-label">Date</label>
                             <div class="col-md-12">
-                                <input type="date" class="form-control" name="complaintDate" required>
+                                <input type="date" class="form-control" id="complaintDate" name="complaintDate" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="position" class="col-md-2 col-form-label">Position</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control"  name="position" required>
+                                <input type="text" class="form-control" id="position" name="position" required>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger">Submit</button>

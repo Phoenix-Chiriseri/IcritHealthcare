@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->rememberToken();
             $table->timestamps();
-            // Define a foreign key constraint
             $table->foreign('Staff_Id')->references('id')->on('users')->onDelete('cascade');
         });
     }

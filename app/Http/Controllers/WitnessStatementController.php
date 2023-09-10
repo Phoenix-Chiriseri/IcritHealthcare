@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FallsCheklist;
+use App\Models\WitnessStatement;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-Use Auth;
 
-class FallsCheklistController extends Controller
+class WitnessStatementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,17 +13,16 @@ class FallsCheklistController extends Controller
     public function index()
     {
         //
-        $house = Auth::user()->house;
-        $query = "
-                select * from patients where house = :house
-         ";
-        $patients = DB::select($query, ['house' => $house]);
-        return view('pages.getFallsCheckList')->with("patients",$patients);
     }
 
-    public function viewAllFallsChecklists(){
+    public function showWitnessStatement(){
 
-        return view('pages.viewAllFallsChecklists');
+        return view("pages.witnessStatement");
+    }
+
+    public function viewAllWitnessStatements(){
+
+        return view("pages.viewAllWitnessStatements");
     }
 
     /**
@@ -42,13 +39,12 @@ class FallsCheklistController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(FallsCheklist $fallsCheklist)
+    public function show(WitnessStatement $witnessStatement)
     {
         //
     }
@@ -56,7 +52,7 @@ class FallsCheklistController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(FallsCheklist $fallsCheklist)
+    public function edit(WitnessStatement $witnessStatement)
     {
         //
     }
@@ -64,7 +60,7 @@ class FallsCheklistController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, FallsCheklist $fallsCheklist)
+    public function update(Request $request, WitnessStatement $witnessStatement)
     {
         //
     }
@@ -72,7 +68,7 @@ class FallsCheklistController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(FallsCheklist $fallsCheklist)
+    public function destroy(WitnessStatement $witnessStatement)
     {
         //
     }

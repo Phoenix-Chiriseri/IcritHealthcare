@@ -27,49 +27,48 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="{{ route('save-fallsCheckList') }}">
+                <form method="POST" action="">
                     @csrf
                     <div class="form-group">
-                        <label for="date">Name of Person Supported
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="patient_id">Patient Name</label>
+                        <select name="patient_id" id="patient_id" class="form-control" required>
+                            @foreach ($patients as $patient)
+                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="date">Date
-                        </label>
+                        <label for="date">Date</label>
                         <input type="date" name="date" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="date">Incident Ref
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                        <label for="incident_ref">Incident Ref</label>
+                        <input type="text" name="incident_ref" id="incident_ref" class="form-control" required>
                     </div>
-                     <div class="form-group">
-                        <label for="date">Completed By
-                        </label>
-                        <input type="text" name="date" id="date" class="form-control" required>
+                    <div class="form-group">
+                        <label for="completed_by">Completed By</label>
+                        <input type="text" name="completed_by" id="completed_by" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Does this person we support have a health concern that requires immediate attention in the event of a fall?</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="health_concern" value="Yes" id="health_concern_yes">
-                            <label class="form-check-label" for="health_concern_yes">Yes</label>
+                            <label class="form-check-label" for="health_concern_yes">Yes, Immediate Attention Required</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="health_concern" value="No" id="health_concern_no">
-                            <label class="form-check-label" for="health_concern_no">No</label>
+                            <label class="form-check-label" for="health_concern_no">No, No Immediate Health Concern</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="personal_care">Personal Care</label>
+                        <label for="personal_care">Personal Care Required</label>
                         <select name="personal_care" id="personal_care" class="form-control" required>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Are they breathing normally?</label>
+                        <label class="form-label">Is the person breathing normally?</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="breathing" value="Yes" id="breathing_yes">
                             <label class="form-check-label" for="breathing_yes">Yes</label>
@@ -80,22 +79,22 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Have they suffered a bang to the head?</label>
+                        <label class="form-label">Have they suffered a head injury?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="head_bang" value="Yes" id="head_bang_yes">
-                            <label class="form-check-label" for="head_bang_yes">Yes</label>
+                            <input class="form-check-input" type="radio" name="head_injury" value="Yes" id="head_injury_yes">
+                            <label class="form-check-label" for="head_injury_yes">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="head_bang" value="No" id="head_bang_no">
-                            <label class="form-check-label" for="head_bang_no">No</label>
+                            <input class="form-check-input" type="radio" name="head_injury" value="No" id="head_injury_no">
+                            <label class="form-check-label" for="head_injury_no">No</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="head_bang" value="Minor" id="head_bang_minor">
-                            <label class="form-check-label" for="head_bang_minor">Minor</label>
+                            <input class="form-check-input" type="radio" name="head_injury" value="Minor" id="head_injury_minor">
+                            <label class="form-check-label" for="head_injury_minor">Minor Head Injury</label>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Have they fallen more than 1 metre?</label>
+                        <label class="form-label">Has the person fallen from a height greater than 1 metre?</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="fall_distance" value="Yes" id="fall_distance_yes">
                             <label class="form-check-label" for="fall_distance_yes">Yes</label>
@@ -105,6 +104,7 @@
                             <label class="form-check-label" for="fall_distance_no">No</label>
                         </div>
                     </div>
+                    <!--hhah!-->
                     <div class="mb-3">
                         <label class="form-label">Do you suspect that they have suffered a serious injury i.e. fracture or dislocation?</label>
                         <div class="form-check">
