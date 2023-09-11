@@ -30,7 +30,60 @@ class HospitalPassportController extends Controller
 
     public function viewAllHospitalPassports(){
 
-        return view("pages.viewAllHospitalPassports");
+        $usersHouse = Auth::user()->house;
+        $hospitalPassports = HospitalPassport::leftJoin('patients', 'hospital_passports.patient_id', '=', 'patients.id')
+            ->leftJoin('users', 'hospital_passports.user_id', '=', 'users.id')
+            ->where('users.house', $usersHouse)
+            ->select(
+                'users.username as user_name',
+                'users.house as house',
+                'patients.patient_name as patient_name',
+                'hospital_passports.dob', // Fillable field
+                'hospital_passports.likes_to_be_known', // Fillable field
+                'hospital_passports.nhs_number',
+                'hospital_passports.dob',
+                'hospital_passports.address',
+                'hospital_passports.city',
+                'hospital_passports.county',
+                'hospital_passports.country',
+                'hospital_passports.phone_number',
+                'hospital_passports.email',
+                'hospital_passports.my_support_care_needs',
+                'hospital_passports.my_carer_speaks',
+                'hospital_passports.things_to_know',
+                'hospital_passports.religious_needs',
+                'hospital_passports.ethnicity',
+                'hospital_passports.gp_name',
+                'hospital_passports.gp_address',
+                'hospital_passports.gp_city',
+                'hospital_passports.gp_county',
+                'hospital_passports.gp_other_services',
+                'hospital_passports.gp_social_worker',
+                'hospital_passports.gp_allergies',
+                'hospital_passports.gp_medical_interventions',
+                'hospital_passports.gp_cardio_vascular',
+                'hospital_passports.gp_risk_of_chocking',
+                'hospital_passports.gp_current_medication',
+                'hospital_passports.gp_mymedicalhistory',
+                'hospital_passports.gp_anxious',
+                'hospital_passports.how_to_comm',
+                'hospital_passports.how_i_medicate',
+                'hospital_passports.how_you_know_pain',
+                'hospital_passports.moving_around',
+                'hospital_passports.person_care',
+                'hospital_passports.seeing_hearing',
+                'hospital_passports.how_i_eat',
+                'hospital_passports.how_i_keep_safe',
+                'hospital_passports.how_i_toilet',
+                'hospital_passports.sleeping_pattern',
+                'hospital_passports.likes',
+                'hospital_passports.dislike',
+                'hospital_passports.additional_info',
+                // Fillable field
+            )
+            ->orderBy('hospital_passports.id', 'desc')
+            ->paginate(5);
+        return view("pages.viewAllHospitalPassports")->with("hospitalPassports",$hospitalPassports);
     }
 
     /**

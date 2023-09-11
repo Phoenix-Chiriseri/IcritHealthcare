@@ -155,7 +155,7 @@ function generate() {
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center" style="size: 22px;">Falls Checklists</div>
+                    <div class="card-header text-center" style="size: 22px;">Hospital Passports</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -163,25 +163,95 @@ function generate() {
                                     <tr>
                                         <th>User</th>
                                         <th>Patient Name</th>
-                                        <th>Reference Number</th>
-                                        <th>Location</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Person Affected</th>
-                                        <th>Initials</th>
-                                        <th>Description</th>
-                                        <th>Identified Causes</th>
-                                        <th>Completed Forms</th>
-                                        <th>Name of Person</th>
-                                        <th>Date Completed</th>
-                                        <th>Manager on Call</th>
+                                        <th>DOB</th>
+                                        <th>Likes to Be Known As</th>
+                                        <th>NHS Number</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>County</th>
+                                        <th>Country</th>
+                                        <th>Phone Number</th>
+                                        <th>Email</th>
+                                        <th>My Support Care Needs</th>
+                                        <th>My Carer Speaks</th>
+                                        <th>Things to Know</th>
+                                        <th>Religious Needs</th>
+                                        <th>Ethnicity</th>
+                                        <th>GP Name</th>
+                                        <th>GP Address</th>
+                                        <th>GP City</th>
+                                        <th>GP County</th>
+                                        <th>GP Other Services</th>
+                                        <th>GP Social Worker</th>
+                                        <th>GP Allergies</th>
+                                        <th>GP Medical Interventions</th>
+                                        <th>GP Cardiovascular</th>
+                                        <th>GP Risk of Choking</th>
+                                        <th>GP Current Medication</th>
+                                        <th>GP Medical History</th>
+                                        <th>GP Anxious</th>
+                                        <th>How to Communicate</th>
+                                        <th>How I Medicate</th>
+                                        <th>How You Know I'm in Pain</th>
+                                        <th>Moving Around</th>
+                                        <th>Personal Care</th>
+                                        <th>Seeing/Hearing</th>
+                                        <th>How I Eat</th>
+                                        <th>How I Keep Safe</th>
+                                        <th>How I Use the Toilet</th>
+                                        <th>Sleeping Pattern</th>
+                                        <th>Things I Like</th>
+                                        <th>Things I Dislike</th>
+                                        <th>Additional Information</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
-                                    <tr>
-                                      
-                                    </tr>
+                                    @foreach ($hospitalPassports as $hospitalPassport)
+                                        <tr>
+                                            <td>{{ $hospitalPassport->user_name }}</td>
+                                            <td>{{ $hospitalPassport->patient_name }}</td>
+                                            <td>{{ $hospitalPassport->dob }}</td>
+                                            <td>{{ $hospitalPassport->likes_to_be_known }}</td>
+                                            <td>{{ $hospitalPassport->nhs_number }}</td>
+                                            <td>{{ $hospitalPassport->address }}</td>
+                                            <td>{{ $hospitalPassport->city }}</td>
+                                            <td>{{ $hospitalPassport->county }}</td>
+                                            <td>{{ $hospitalPassport->country }}</td>
+                                            <td>{{ $hospitalPassport->phone_number }}</td>
+                                            <td>{{ $hospitalPassport->email }}</td>
+                                            <td>{{ $hospitalPassport->my_support_care_needs }}</td>
+                                            <td>{{ $hospitalPassport->my_carer_speaks }}</td>
+                                            <td>{{ $hospitalPassport->things_to_know }}</td>
+                                            <td>{{ $hospitalPassport->religious_needs }}</td>
+                                            <td>{{ $hospitalPassport->ethnicity }}</td>
+                                            <td>{{ $hospitalPassport->gp_name }}</td>
+                                            <td>{{ $hospitalPassport->gp_address }}</td>
+                                            <td>{{ $hospitalPassport->gp_city }}</td>
+                                            <td>{{ $hospitalPassport->gp_county }}</td>
+                                            <td>{{ $hospitalPassport->gp_other_services }}</td>
+                                            <td>{{ $hospitalPassport->gp_social_worker }}</td>
+                                            <td>{{ $hospitalPassport->gp_allergies }}</td>
+                                            <td>{{ $hospitalPassport->gp_medical_interventions }}</td>
+                                            <td>{{ $hospitalPassport->gp_cardio_vascular }}</td>
+                                            <td>{{ $hospitalPassport->gp_risk_of_chocking }}</td>
+                                            <td>{{ $hospitalPassport->gp_current_medication }}</td>
+                                            <td>{{ $hospitalPassport->gp_mymedicalhistory }}</td>
+                                            <td>{{ $hospitalPassport->gp_anxious }}</td>
+                                            <td>{{ $hospitalPassport->how_to_comm }}</td>
+                                            <td>{{ $hospitalPassport->how_i_medicate }}</td>
+                                            <td>{{ $hospitalPassport->how_you_know_pain }}</td>
+                                            <td>{{ $hospitalPassport->moving_around }}</td>
+                                            <td>{{ $hospitalPassport->person_care }}</td>
+                                            <td>{{ $hospitalPassport->seeing_hearing }}</td>
+                                            <td>{{ $hospitalPassport->how_i_eat }}</td>
+                                            <td>{{ $hospitalPassport->how_i_keep_safe }}</td>
+                                            <td>{{ $hospitalPassport->how_i_toilet }}</td>
+                                            <td>{{ $hospitalPassport->sleeping_pattern }}</td>
+                                            <td>{{ $hospitalPassport->likes }}</td>
+                                            <td>{{ $hospitalPassport->dislike }}</td>
+                                            <td>{{ $hospitalPassport->additional_info }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>        
