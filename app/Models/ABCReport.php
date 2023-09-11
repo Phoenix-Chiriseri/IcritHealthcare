@@ -10,21 +10,20 @@ class ABCReport extends Model
     use HasFactory;
 
     protected $fillable = [
-        'patient_id',
         'initialsOfPerson',
-        'date',
         'start_time',
         'end_time',
         'influencing_factors',
         'what_happened_before_incident',
-        'behaviors', 
-        'actions_taken',
+        'behaviors', // Note: Behaviors will be stored as JSON, so no need for separate checkboxes
+        'what_happened_after_incident',
+        'immediateActions',
         'done_differently',
         'proact_scip_interventions',
         'medication_administered',
         'physical_contact_injury_intimidation',
     ];
-
+    
     public function patient()
     {
         return $this->belongsTo(Patient::class, 'patient_id');

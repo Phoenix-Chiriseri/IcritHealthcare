@@ -126,6 +126,6 @@ public function witnessStatements()
 
 public function abcReports()
 {
-    return $this->hasMany(AbcReport::class, 'user_id');
+    return $this->hasMany(AbcReport::class);
 }
 }

@@ -29,24 +29,11 @@
             <div class="card">
                 <form method="POST" action="{{ route('save-abcReport') }}">
                     @csrf
-                    <div class="form-group">
-                        <label for="patient_id">Patient</label>
-                        <select name="patient_id" id="patient_id" class="form-control" required>
-                            @foreach ($patients as $patient)
-                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <div class="mb-3">
                         <label class="form-label">Initials of person causing harm/intimidation/damage:</label>
                         <input type="text" class="form-control" name="initialsOfPerson" required>
                     </div>
                     
-                    <div class="mb-3">
-                        <label class="form-label">Date:</label>
-                        <input type="date" class="form-control" name="date" required>
-                    </div>
-                
                     <div class="mb-3">
                         <label class="form-label">Start Time</label>
                         <input type="time" class="form-control" name="start_time" required>
@@ -76,14 +63,17 @@
                         <label class="form-check-label">Other</label><br>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Immediate actions taken.</label>
-                        <input type="text" class="form-control" name="actions_taken" required>
+                        <label class="form-label">What happened immdediately after the incident?</label>
+                        <input type="text" class="form-control" name="what_happened_after_incident" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Immediate Actions</label>
+                        <input type="text" class="form-control" name="what_happened_after_incident" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">On reflection, is there anything that could have been done differently or ideas to prevent future adverse incidents?</label>
                         <input type="text" class="form-control" name="done_differently" required>
                     </div>
-                
                     <div class="mb-3">
                         <label class="form-label">Were PROACT SCIPr interventions used?</label><br>
                         <input type="radio" name="proact_scip_interventions" value="Yes">

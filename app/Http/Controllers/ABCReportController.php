@@ -42,33 +42,32 @@ class ABCReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $validatedData = $request->validate([
-            'patient_id' => 'required|exists:patients,id',
-            'initials_of_person' => 'required|string|max:255',
-            'date' => 'required|date',
+            'initialsOfPerson' => 'required|string',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i',
-            'influencing_factors' => 'required|string|max:255',
-            'what_happened_before_incident' => 'required|string|max:255',
-            'behaviors' => 'required|array', // Assuming you want at least one behavior selected
-            'behaviors.*' => 'in:Physical,Verbal,Damage,Other',
-            'actions_taken' => 'required|string|max:255',
-            'done_differently' => 'required|string|max:255',
-            'proact_scip_interventions' => 'required|in:Yes,No',
-            'medication_administered' => 'required|in:Yes,No',
-            'physical_contact_injury_intimidation' => 'required|in:Yes,No',
+            'influencing_factors' => 'required|string',
+            'what_happened_before_incident' => 'required|string',
+            'behaviors' => 'nullable|array',
+            'what_happened_after_incident' => 'required|string',
+            'immediateActions' => 'required|string',
+            'done_differently' => 'required|string',
+            'proact_scip_interventions' => 'required|string|in:Yes,No',
+            'medication_administered' => 'required|string|in:Yes,No',
+            'physical_contact_injury_intimidation' => 'required|string|in:Yes,No',
+            // Add more validation rules for other fields as needed
         ]);
+        
+        try {
+            $abcReport = new ABCReport($validatedData);
+            $user = Auth::user();
+            $user->abcReports()->save($abcReport);
+        } catch (\Exception $e) {
+            var_dump($e->getMessage()); // Output the exception message for debugging
+        }
+        // Return back to the screen and use sweet alert to show that the data has been saved
+        return back()->with('success', 'Report Saved');
 
-        // Create a new ABC report
-        $abcReport = new ABCReport($validatedData);
-        // Associate the patient and the user with the ABC report
-        $abcReport->patient()->associate(Patient::find($validatedData['patient_id']));
-        $abcReport->user()->associate(auth()->user()); // Assumes you are using Laravel's built-in authentication
-        // Save the ABC report to the database
-        $abcReport->save();
-        // Redirect to a success page or show a success message
-        echo "saved";
     }
     /**
      * Display the specified resource.
