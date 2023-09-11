@@ -46,20 +46,19 @@ class HospitalPassportController extends Controller
      */
     public function store(Request $request)
     { 
-        $validatedData = $request->validate([
+         // Define the validation rules for all form fields
+         $validatedData = $request->validate([
             'assessment_date' => 'required|date',
             'staff_email' => 'required|email',
-            'patient_id' => 'required|exists:patients,id',
+            'patient_id' => 'required|exists:patients,id', // Make sure the patient_id exists in the patients table
             'likes_to_be_known' => 'required|string',
             'nhs_number' => 'required|string',
-            'personal_care' => 'required|in:Yes,No',
             'dob' => 'required|date',
             'address' => 'required|string',
             'city' => 'required|string',
             'county' => 'required|string',
+            'country' => 'required|string',
             'phone_number' => 'required|string',
-            'how_i_communicate' => 'required|string',
-            'family_or_contact_person' => 'required|string',
             'email' => 'required|email',
             'my_support_care_needs' => 'required|string',
             'my_carer_speaks' => 'required|string',
@@ -68,39 +67,42 @@ class HospitalPassportController extends Controller
             'ethnicity' => 'required|string',
             'gp_name' => 'required|string',
             'gp_address' => 'required|string',
-            'street_address' => 'required|string',
-            'city' => 'required|string',
-            'country' => 'required|string',
-            'other_services' => 'required|string',
-            'social_worker' => 'required|string',
-            'allergies' => 'required|string',
-            'medical_interventions' => 'required|string',
-            'my_medical_histort' => 'required|string',
-            'if_im_anxious' => 'required|string',
-            'medication_admin' => 'required|string',
-            'cardio_vascular' => 'required|in:Yes,No',
-            'current_medication' => 'required|string',
-            'if_im_in_pain' => 'required|string',
+            'gp_city' => 'required|string',
+            'gp_county' => 'required|string',
+            'gp_other_services' => 'required|string',
+            'gp_social_worker' => 'required|string',
+            'gp_allergies' => 'required|string',
+            'gp_medical_interventions' => 'required|string',
+            'gp_cardio_vascular' => 'required|string',
+            'gp_risk_of_chocking' => 'required|string',
+            'gp_current_medication' => 'required|string',
+            'gp_mymedicalhistory' => 'required|string',
+            'gp_anxious' => 'required|string',
+            'how_to_comm' => 'required|string',
+            'how_i_medicate' => 'required|string',
+            'how_you_know_pain' => 'required|string',
             'moving_around' => 'required|string',
-            'personal_care' => 'required|string',
-            'problems_with_sight' => 'required|string',
+            'person_care' => 'required|string',
+            'seeing_hearing' => 'required|string',
             'how_i_eat' => 'required|string',
-            'how_i_drink' => 'required|string',
             'how_i_keep_safe' => 'required|string',
-            'how_i_use_the_toilet' => 'required|string',
-            'sleeping' => 'required|string',
-            'things_i_like' => 'required|string',
-            'things_i_dislike' => 'required|string',
+            'how_i_toilet' => 'required|string',
+            'sleeping_pattern' => 'required|string',
+            'likes' => 'required|string',
+            'dislike' => 'required|string',
             'additional_info' => 'required|string',
         ]);
-        
-        $hospitalPassport = new HospitalPassport();
-        //get the authenticated user from the database
-        $user = Auth::user();
-        //the user is associated with the daily entry. save a daily entry that is associated to the user
-        $user->passports()->save($dailyEntry);
-        //return back to the screen and use sweet alert to show that the data has been saved
-        return back()->with('success', 'Daily Entry added successfully.');
+
+         // Create a new Incident model instance and fill it with the form data
+         $user = Auth::user();
+         //Save the operation risk assessment
+         // Create a new SeizureReport instance with validated data
+         $user->hospitalPassports()->create($validatedData);
+         // Create a new MedicationIncident instance and fill it with validated data
+         // Save the MedicationIncident to the database
+         // Optionally, you can redirect to a success page or return a response
+         return back()->with('success', 'Hospital Passport Added');
+        //return back to the screen and use sweet alert to show that the data has been save
     }
     /**
      * Display the specified resource.

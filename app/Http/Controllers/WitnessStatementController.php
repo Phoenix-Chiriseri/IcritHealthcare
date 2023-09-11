@@ -101,15 +101,12 @@ $complaintRecord->tel_number = $request->input('tel_number');
 $complaintRecord->fitzRoyEmployee = $request->input('fitzRoyEmployee');
 $complaintRecord->occupation = $request->input('occupation');
 $complaintRecord->what_happened = $request->input('what_happened');
-
 // Convert the $position array to a JSON string
 $position = $request->input('position', []);
 $complaintRecord->position = json_encode($position);
-
 $complaintRecord->description_accident = $request->input('description_accident');
 $complaintRecord->where_were_you_positioned = $request->input('where_were_you_positioned');
 $complaintRecord->any_other_information = $request->input('any_other_information');
-
 $user = Auth::user(); 
 $user->witnessStatements()->save($complaintRecord);
 return back()->with('success', 'Witness Statement Saved');

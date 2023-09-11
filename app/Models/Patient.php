@@ -39,9 +39,9 @@ class Patient extends Model
         return $this->hasMany(MySupportPlan::class);
     }
 
-    public function hospitalPassport()
+    public function hospitalPassports()
     {
-        return $this->hasOne(HospitalPassport::class);
+        return $this->hasMany(HospitalPassport::class);
     }
 
     public function abcReports()

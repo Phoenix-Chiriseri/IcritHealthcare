@@ -95,7 +95,7 @@ class User extends Authenticatable
         return $this->hasMany(SelfCertificationSickForm::class);
     }
 
-    public function passports()
+    public function hospitalPassports()
     {
         return $this->hasMany(HospitalPassport::class);
     }
