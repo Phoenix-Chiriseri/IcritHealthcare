@@ -55,46 +55,46 @@
                     <div class="mb-3">
                         <label for="completed_forms" class="form-label">Please identify any other forms that were completed with this Incident Report</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="change_of_mood[]" value="Change of Mood" id="form_check_change_of_mood">
+                            <input class="form-check-input" type="checkbox" name="other_forms_1[]" value="Change of Mood" id="form_check_change_of_mood">
                             <label class="form-check-label" for="form_check_change_of_mood">Change of Mood</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="restlessness[]" value="Restlessness" id="form_check_restlessness">
+                            <input class="form-check-input" type="checkbox" name="other_forms_1[]" value="Restlessness" id="form_check_restlessness">
                             <label class="form-check-label" for="form_check_restlessness">Restlessness</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="sensations[]" value="Sensations" id="form_check_sensations">
+                            <input class="form-check-input" type="checkbox" name="other_forms_1[]" value="Sensations" id="form_check_sensations">
                             <label class="form-check-label" for="form_check_sensations">Sensations</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="sound[]" value="Sound" id="form_check_sound">
+                            <input class="form-check-input" type="checkbox" name="other_forms_1[]" value="Sound" id="form_check_sound">
                             <label class="form-check-label" for="form_check_sound">Sound</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="other[]" value="Other" id="form_check_other">
+                            <input class="form-check-input" type="checkbox" name="other_forms_1[]" value="Other" id="form_check_other">
                             <label class="form-check-label" for="form_check_other">Other</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="completed_forms" class="form-label">Please identify any other forms that were completed with this Incident Report</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="standing[]" value="Standing" id="form_check_standing">
+                            <input class="form-check-input" type="checkbox" name="other_forms_2[]" value="Standing" id="form_check_standing">
                             <label class="form-check-label" for="form_check_standing">Standing</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="sitting[]" value="Sitting" id="form_check_sitting">
+                            <input class="form-check-input" type="checkbox" name="other_forms_2[]" value="Sitting" id="form_check_sitting">
                             <label class="form-check-label" for="form_check_sitting">Sitting</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="in_bed[]" value="In bed" id="form_check_in_bed">
+                            <input class="form-check-input" type="checkbox" name="other_forms_2[]" value="In bed" id="form_check_in_bed">
                             <label class="form-check-label" for="form_check_in_bed">In bed</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="unobserved_seizure[]" value="Unobserved Seizure" id="form_check_unobserved_seizure">
+                            <input class="form-check-input" type="checkbox" name="other_forms_2[]" value="Unobserved Seizure" id="form_check_unobserved_seizure">
                             <label class="form-check-label" for="form_check_unobserved_seizure">Unobserved Seizure</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="other[]" value="Other" id="form_check_other">
+                            <input class="form-check-input" type="checkbox" name="other_forms_2" value="Other" id="form_check_other">
                             <label class="form-check-label" for="form_check_other">Other</label>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                             <label class="form-check-label" for="colour_change_yes">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="no_colour_change" id="colour_change_no" value="No">
+                            <input class="form-check-input" type="radio" name="colour_change" id="colour_change_no" value="No">
                             <label class="form-check-label" for="colour_change_no">No</label>
                         </div>
                     </div>
@@ -168,10 +168,10 @@
                             <label class="form-check-label" for="movement_yes">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="no_movement" id="movement_no" value="No">
+                            <input class="form-check-input" type="radio" name="movement" id="movement_no" value="No">
                             <label class="form-check-label" for="movement_no">No</label>
                         </div>
-                    </div>    
+                    </div>  
                     <div class="mb-3">
                         <label class="form-label">Was there difficulty breathing?</label>
                         <div class="form-check">
@@ -179,75 +179,75 @@
                             <label class="form-check-label" for="breathing_difficulty_yes">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="no_breathing_difficulty" id="breathing_difficulty_no" value="No">
+                            <input class="form-check-input" type="radio" name="breathing_difficulty" id="breathing_difficulty_no" value="No">
                             <label class="form-check-label" for="breathing_difficulty_no">No</label>
                         </div>
-                    </div>
+                    </div>    
                     <!-- Parts of the body involved -->
 <div class="mb-3">
     <label class="form-label">Parts of the body involved</label>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="left_body_parts[]" value="Left" id="body_part_left">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Left" id="body_part_left">
         <label class="form-check-label" for="body_part_left">Left</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="right_body_parts[]" value="Right" id="body_part_right">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Right" id="body_part_right">
         <label class="form-check-label" for="body_part_right">Right</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="both_body_parts[]" value="Both sides" id="body_part_both">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Both sides" id="body_part_both">
         <label class="form-check-label" for="body_part_both">Both sides</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="arms_body_parts[]" value="Arms" id="body_part_arms">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Arms" id="body_part_arms">
         <label class="form-check-label" for="body_part_arms">Arms</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="legs_body_parts[]" value="Legs" id="body_part_legs">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Legs" id="body_part_legs">
         <label class="form-check-label" for="body_part_legs">Legs</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="picking_body_parts[]" value="Picking/fumbling of clothes" id="body_part_clothes">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Picking/fumbling of clothes" id="body_part_clothes">
         <label class="form-check-label" for="body_part_clothes">Picking/fumbling of clothes</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="eyelid_body_parts[]" value="Eyelid flutters/blinking" id="body_part_eyelid">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Eyelid flutters/blinking" id="body_part_eyelid">
         <label class="form-check-label" for="body_part_eyelid">Eyelid flutters/blinking</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="spasmodic_body_parts[]" value="Spasmodic jerking of arms" id="body_part_jerking_arms">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Spasmodic jerking of arms" id="body_part_jerking_arms">
         <label class="form-check-label" for="body_part_jerking_arms">Spasmodic jerking of arms</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="facial_body_parts[]" value="Facial movements" id="body_part_facial">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Facial movements" id="body_part_facial">
         <label class="form-check-label" for="body_part_facial">Facial movements</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="eyes_body_parts[]" value="Eyes turning" id="body_part_eyes_turning">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Eyes turning" id="body_part_eyes_turning">
         <label class="form-check-label" for="body_part_eyes_turning">Eyes turning</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="stiffening_arms_body_parts[]" value="Stiffening of arms" id="body_part_stiffening_arms">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Stiffening of arms" id="body_part_stiffening_arms">
         <label class="form-check-label" for="body_part_stiffening_arms">Stiffening of arms</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="stiffening_legs_body_parts[]" value="Stiffening of legs" id="body_part_stiffening_legs">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Stiffening of legs" id="body_part_stiffening_legs">
         <label class="form-check-label" for="body_part_stiffening_legs">Stiffening of legs</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="spasmodic_legs_body_parts[]" value="Spasmodic jerking of legs" id="body_part_jerking_legs">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Spasmodic jerking of legs" id="body_part_jerking_legs">
         <label class="form-check-label" for="body_part_jerking_legs">Spasmodic jerking of legs</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="blank_stare_body_parts[]" value="Blank stare/absence" id="body_part_blank_stare">
+        <input class="form-check-input" type="checkbox" name="_parts[]" value="Blank stare/absence" id="body_part_blank_stare">
         <label class="form-check-label" for="body_part_blank_stare">Blank stare/absence</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="tremors_body_parts[]" value="Tremors" id="body_part_tremors">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Tremors" id="body_part_tremors">
         <label class="form-check-label" for="body_part_tremors">Tremors</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="other_body_parts[]" value="Other" id="body_part_other">
+        <input class="form-check-input" type="checkbox" name="parts[]" value="Other" id="body_part_other">
         <label class="form-check-label" for="body_part_other">Other</label>
     </div>
 </div>              
@@ -256,7 +256,7 @@
     <input type="text" name="how_long_seizure" id="date" class="form-control" required>
 </div>
 <div class="mb-3">
-    <label class="form-label">Was there incontinence?</label>
+    <label class="form-label">Was there incontinence</label>
     <div class="form-check">
         <input class="form-check-input" type="radio" name="yes_incontinence" value="Yes" id="incontinence_yes">
         <label class="form-check-label" for="incontinence_yes">Yes</label>
@@ -325,11 +325,11 @@
 </div>
 <div class="form-group">
     <label for="reported_by">Reported By</label>
-    <input type="text" name="reported_by"  class="form-control" required>
+    <input type="text" name="reported_by" id="reported_by" class="form-control" required>
 </div>
 <div class="form-group">
     <label for="report_date">Date</label>
-    <input type="text" name="report_date"  class="form-control" required>
+    <input type="date" name="report_date" id="report_date" class="form-control" required>
 </div>
 <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>

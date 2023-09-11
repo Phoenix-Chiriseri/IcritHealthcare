@@ -10,21 +10,21 @@ class ComplaintRecord extends Model
     use HasFactory;
 
     protected $fillable = [
-        'patient_id',
+        'person_name',
         'phone_number',
         'address',
         'email',
-        'street_address',
         'city',
-        'country',
-        'relative_status',
+        'county',
+        'street_address',
+        'relativeStatus',
         'detailsOfComplaint',
         'complaintDescription',
         'recordedBy',
-        'injuries',
         'complaintDate',
         'position',
     ];
+
 
     public function user()
     {
