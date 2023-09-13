@@ -55,14 +55,11 @@ class IncidentReportController extends Controller
             'incident_reports.name_of_person',
             'incident_reports.date_completed',
             'incident_reports.manager_on_call',
-
         )
         ->orderBy('incident_reports.id', 'desc')
         ->paginate(5); 
         return view("pages.allIncidentReports")->with("entries",$entries);
-
     }
-
     /**
      * Store a newly created resource in storage.
      */
