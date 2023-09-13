@@ -51,7 +51,6 @@ class BehaviouralMonitorChartController extends Controller
     ->orderBy('behavioural_monitor_charts.id', 'desc')
     ->paginate(5);
     return view('pages.allBehaviourSupportPlans')->with("supportPlans",$supportPlans);
-    
     }
     
     public function store(Request $request)

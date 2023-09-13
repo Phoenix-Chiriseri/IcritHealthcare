@@ -77,16 +77,10 @@ class SeizureReportController extends Controller
             'report_date' => 'required|date',
         ]);
         // Create a new SeizureReport model instance and populate it with the form data
-
-        
-        
-        
-
         $user = Auth::user();
         $seizureReport->user()->associate($user);
         //Save the SeizureReport to the database
         $seizureReport->save();
-        echo "saved";
         // Create a new MedicationIncident instance and fill it with validated data
         // Save the MedicationIncident to the database
         // Optionally, you can redirect to a success page or return a response
