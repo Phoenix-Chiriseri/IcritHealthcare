@@ -38,10 +38,6 @@
                         <input type="date" name="assessment_date" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="date">Accessors Email</label>
-                        <input type="date" name="assessment_date" id="date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
                         <label for="patient_id">Patient Name</label>
                         <select name="patient_id" id="patient_id" class="form-control" required>
                             @foreach ($patients as $patient)
@@ -51,31 +47,27 @@
                     </div>
                     <div class="form-group">
                         <label for="text">What could cause Harm?</label>
-                        <input type="date" name="what_causes_harm" id="date" class="form-control" required>
+                        <input type="text" name="what_causes_harm" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Where is the Hazard?</label>
-                        <input type="date" name="where_is_the_hazard" id="date" class="form-control" required>
+                        <input type="text" name="where_is_the_hazard" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Who might be Harmed?</label>
-                        <input type="date" name="who_might_be_harmed" id="date" class="form-control" required>
+                        <input type="text" name="who_might_be_harmed" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">How will they be harmed</label>
-                        <input type="date" name="how_will_they_be_harmed" id="date" class="form-control" required>
+                        <input type="text" name="how_will_they_be_harmed" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">How often are they exposed to this Hazard?</label>
-                        <input type="date" name="how_often_are_exposed_hazard" id="date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="text">How often are they exposed to this Hazard?</label>
-                        <input type="date" name="how_often_are_exposed_hazard" id="date" class="form-control" required>
+                        <input type="text" name="how_often_are_exposed_hazard" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">For how long each time are they exposed to this hazard</label>
-                        <input type="date" name="how_long_exposed_hazard" id="date" class="form-control" required>
+                        <input type="text" name="how_long_exposed_hazard" id="date" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Would disallowing this activity impact negatively on service user’s chosen lifestyle?</label>
@@ -90,7 +82,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Comment</label>
-                        <input type="date" name="comment" id="date" class="form-control" required>
+                        <input type="text" name="comment" id="date" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">What is the likelihood that somebody would be harmed</label>
@@ -130,7 +122,7 @@
                     </div>
                     <h4 class = "text-center">Control Measures Required</h4>
                     <div class="form-group">
-                        <label for="date">List the control measures required to reduce the risk</label>
+                        <label for="text">List the control measures required to reduce the risk</label>
                         <input type="text" name="list_of_control_measures" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
@@ -193,7 +185,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Additional Control Measures</label>
-                        <input type="date" name="additional_control_measures" id="date" class="form-control" required>
+                        <input type="text" name="additional_control_measures" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Completion Date</label>
@@ -201,7 +193,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Risk Assessment Drawn By</label>
-                        <input type="date" name="risk_assessment_drawn_by" id="date" class="form-control" required>
+                        <input type="text" name="risk_assessment_drawn_by" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date</label>
@@ -246,7 +238,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Comment</label>
-                        <input type="date" name="comment" id="date" class="form-control" required>
+                        <input type="text" name="comment" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date Of Review</label>
@@ -254,23 +246,23 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Changes Required</label>
-                        <input type="date" name="changes_required" id="date" class="form-control" required>
+                        <input type="text" name="changes_required" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Managers Name</label>
-                        <input type="date" name="managers_name" id="date" class="form-control" required>
+                        <input type="text" name="managers_name" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Risk Assessment – Activity Assessed:</label>
-                        <input type="date" name="risk_assessment_Activity_accessed" id="date" class="form-control" required>
+                        <input type="text" name="risk_assessment_Activity_accessed" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date Of Assessment</label>
-                        <input type="date" name="date_of_assessment" id="date" class="form-control" required>
+                        <input type="text" name="date_of_assessment" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">All staff to sign here "By Typing their Name", to indicate that they have read, understood and will comply with this assessment.</label>
-                        <input type="date" name="signage_name" id="date" class="form-control" required>
+                        <input type="text" name="signage_name" id="date" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date</label>
