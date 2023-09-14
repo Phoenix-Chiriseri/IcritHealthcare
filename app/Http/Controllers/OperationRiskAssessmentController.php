@@ -75,9 +75,7 @@ class OperationRiskAssessmentController extends Controller
         ->paginate(5); 
         return view("pages.allOperationRiskAssessments")->with("data",$data);
     }
-    /**
-     * Show the form for creating a new resource.
-     */
+  
     public function create()
     {
         //
