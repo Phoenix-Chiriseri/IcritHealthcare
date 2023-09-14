@@ -11,8 +11,7 @@ class OperationRiskAssessment extends Model
 
     protected $fillable = [
         'assessment_date',
-        'accessors_email_1', // You have two fields with the same name 'accessors_email', so I added '_1' and '_2'
-        'accessors_email_2', // Added '_2' for the second 'accessors_email' field
+        'assessors_email',
         'patient_id',
         'what_causes_harm',
         'where_is_the_hazard',
@@ -29,7 +28,7 @@ class OperationRiskAssessment extends Model
         'identity_training_required_risk',
         'identity_training_was_specified',
         'identity_equipment_reduced_risk',
-        'date_equipment_provided', // Renamed to 'date_equipment_provided'
+        'date_equipment_provided',
         'likelihood_radio_harm',
         'how_serious_harm_radio',
         'additional_control_measures',
@@ -50,6 +49,7 @@ class OperationRiskAssessment extends Model
         'signage_date',
     ];
 
+    
     public function user()
     {
         return $this->belongsTo(User::class);

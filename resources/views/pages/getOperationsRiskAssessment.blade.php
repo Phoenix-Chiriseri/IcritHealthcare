@@ -31,11 +31,11 @@
                     @csrf
                     <div class="form-group">
                         <label for="date">Assessment Date</label>
-                        <input type="date" name="assessment_date" id="date" class="form-control" required>
+                        <input type="date" name="assessment_date"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">Accessors Email</label>
-                        <input type="date" name="assessment_date" id="date" class="form-control" required>
+                        <input type="text" name="accessors_email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="patient_id">Patient Name</label>
@@ -47,27 +47,27 @@
                     </div>
                     <div class="form-group">
                         <label for="text">What could cause Harm?</label>
-                        <input type="text" name="what_causes_harm" id="date" class="form-control" required>
+                        <input type="text" name="what_causes_harm"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Where is the Hazard?</label>
-                        <input type="text" name="where_is_the_hazard" id="date" class="form-control" required>
+                        <input type="text" name="where_is_the_hazard" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Who might be Harmed?</label>
-                        <input type="text" name="who_might_be_harmed" id="date" class="form-control" required>
+                        <input type="text" name="who_might_be_harmed"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">How will they be harmed</label>
-                        <input type="text" name="how_will_they_be_harmed" id="date" class="form-control" required>
+                        <input type="text" name="how_will_they_be_harmed" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">How often are they exposed to this Hazard?</label>
-                        <input type="text" name="how_often_are_exposed_hazard" id="date" class="form-control" required>
+                        <input type="text" name="how_often_are_exposed_hazard" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">For how long each time are they exposed to this hazard</label>
-                        <input type="text" name="how_long_exposed_hazard" id="date" class="form-control" required>
+                        <input type="text" name="how_long_exposed_hazard"  class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Would disallowing this activity impact negatively on service user’s chosen lifestyle?</label>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Comment</label>
-                        <input type="text" name="comment" id="date" class="form-control" required>
+                        <input type="text" name="comment"  class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">What is the likelihood that somebody would be harmed</label>
@@ -123,31 +123,31 @@
                     <h4 class = "text-center">Control Measures Required</h4>
                     <div class="form-group">
                         <label for="text">List the control measures required to reduce the risk</label>
-                        <input type="text" name="list_of_control_measures" id="date" class="form-control" required>
+                        <input type="text" name="list_of_control_measures" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">Date when the control measures we implemented</label>
-                        <input type="date" name="date_when_control_measures_implemented" id="date" class="form-control" required>
+                        <input type="date" name="date_when_control_measures_implemented"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">Identify Training required to reduce risk</label>
-                        <input type="text" name="identity_training_required_risk id="date" class="form-control" required>
+                        <input type="text" name="identity_training_required_risk" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">Date when training was specified.</label>
-                        <input type="date" name="identity_training_was_specified  class="form-control" required>
+                        <input type="date" name="identity_training_was_specified"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">Identify equipment that must be used to reduce risk
                             Date this equipment was provided 
                             </label>
-                        <input type="date" name="identity_equipment_reduced_risk  class="form-control" required>
+                        <input type="text" name="identity_equipment_reduced_risk"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="date">
                             Date this equipment was provided 
                             </label>
-                        <input type="date" name="identity_equipment_reduced_risk  class="form-control" required>
+                        <input type="date" name="identity_equipment_reduced_risk" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Click on the following Risk Assessment Matrix to generate the calculated risk score after control measures are put in place.</label>
@@ -185,19 +185,19 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Additional Control Measures</label>
-                        <input type="text" name="additional_control_measures" id="date" class="form-control" required>
+                        <input type="text" name="additional_control_measures"class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Completion Date</label>
-                        <input type="date" name="completion_control_measures" id="date" class="form-control" required>
+                        <input type="date" name="completion_control_measures" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Risk Assessment Drawn By</label>
-                        <input type="text" name="risk_assessment_drawn_by" id="date" class="form-control" required>
+                        <input type="text" name="risk_assessment_drawn_by" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date</label>
-                        <input type="date" name="risk_assessment_date" id="date" class="form-control" required>
+                        <input type="date" name="risk_assessment_date" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Has assessment taken account of mental capacity act?</label>
@@ -212,7 +212,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Please comment on any known behaviors / communication preferences that justify the above decision (please provide specific details)</label>
-                        <input type="date" name="please_comment_any_behaviours" id="date" class="form-control" required>
+                        <input type="text" name="please_comment_any_behaviours" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Is there possible Deprivation of Liberty issue</label>
@@ -238,35 +238,35 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Comment</label>
-                        <input type="text" name="comment" id="date" class="form-control" required>
+                        <input type="text" name="comment"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date Of Review</label>
-                        <input type="date" name="date_of_review" id="date" class="form-control" required>
+                        <input type="date" name="date_of_review" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Changes Required</label>
-                        <input type="text" name="changes_required" id="date" class="form-control" required>
+                        <input type="text" name="changes_required"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Managers Name</label>
-                        <input type="text" name="managers_name" id="date" class="form-control" required>
+                        <input type="text" name="managers_name"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Risk Assessment – Activity Assessed:</label>
-                        <input type="text" name="risk_assessment_Activity_accessed" id="date" class="form-control" required>
+                        <input type="text" name="risk_assessment_Activity_accessed" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date Of Assessment</label>
-                        <input type="text" name="date_of_assessment" id="date" class="form-control" required>
+                        <input type="date" name="date_of_assessment" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">All staff to sign here "By Typing their Name", to indicate that they have read, understood and will comply with this assessment.</label>
-                        <input type="text" name="signage_name" id="date" class="form-control" required>
+                        <input type="text" name="signage_name"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Date</label>
-                        <input type="date" name="signage_date" id="date" class="form-control" required>
+                        <input type="date" name="signage_date"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
