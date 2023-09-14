@@ -27,7 +27,7 @@ class RegisterController extends Controller
 
         $user = User::create($attributes);
         //Send the welcome notification to the admin
-        Mail::to('itaneilchiriseri@gmail.com')->send(new UserRegistrationMail($user));
+        // Mail::to('itaneilchiriseri@gmail.com')->send(new UserRegistrationMail($user));
         return redirect('/dashboard');
     }
 }

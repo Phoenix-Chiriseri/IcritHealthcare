@@ -57,6 +57,8 @@ class ABCReportController extends Controller
             'physical_contact_injury_intimidation' => 'required|string|in:Yes,No',
             // Add more validation rules for other fields as needed
         ]);
+
+        dd($validatedData);
         
         try {
             $abcReport = new ABCReport($validatedData);
