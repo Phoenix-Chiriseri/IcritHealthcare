@@ -63,12 +63,12 @@
                         <label class="form-check-label">Other</label><br>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">What happened immdediately after the incident?</label>
+                        <label class="form-label">What happened immediately after the incident?</label>
                         <input type="text" class="form-control" name="what_happened_after_incident" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Immediate Actions</label>
-                        <input type="text" class="form-control" name="what_happened_after_incident" required>
+                        <input type="text" class="form-control" name="immediate_actions" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">On reflection, is there anything that could have been done differently or ideas to prevent future adverse incidents?</label>

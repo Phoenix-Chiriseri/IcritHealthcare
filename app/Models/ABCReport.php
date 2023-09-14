@@ -15,15 +15,16 @@ class ABCReport extends Model
         'end_time',
         'influencing_factors',
         'what_happened_before_incident',
-        'behaviors', // Note: Behaviors will be stored as JSON, so no need for separate checkboxes
+        'behaviors', // Assuming this field will be stored as JSON or serialized array
         'what_happened_after_incident',
-        'immediateActions',
+        'immediate_actions',
         'done_differently',
         'proact_scip_interventions',
         'medication_administered',
         'physical_contact_injury_intimidation',
+        // Add more fields as needed
     ];
-    
+
     public function patient()
     {
         return $this->belongsTo(Patient::class, 'patient_id');
