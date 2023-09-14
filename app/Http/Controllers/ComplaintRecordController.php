@@ -29,7 +29,7 @@ class ComplaintRecordController extends Controller
        
         //dd($request->all());
 
-        /*$validatedData = $request->validate([
+       /* $validatedData = $request->validate([
             'patient_id' => 'required|integer',
             'phone_number' => 'required|string',
             'address' => 'required|string',

@@ -4,6 +4,8 @@
     <!-- Include country-select-js CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/country-select-js@2.0.0/css/countrySelect.min.css">
 <!-- Include jQuery (required for country-select-js) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include country-select-js JS -->
 <script src="https://cdn.jsdelivr.net/npm/country-select-js@2.0.0/js/countrySelect.min.js"></script>
@@ -36,6 +38,17 @@
     <div id="alert">
         @include('components.alert')
     </div>
+     @if(Session::has('success'))
+    <script type="text/javascript">
+    function massge() {
+    Swal.fire(
+    'success',
+    'Hospital Passport Added'
+        );
+        }
+        window.onload = massge;
+        </script>
+@endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">
@@ -188,7 +201,7 @@
                     <!--next page!-->
                     <h4 class = "text-center">Things that are important to me:</h4>
                     <div class="form-group">
-                        <label for="country">How to communicate with me:/label>
+                        <label for="country">How to communicate with me</label>
                         <textarea name="how_to_comm" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
