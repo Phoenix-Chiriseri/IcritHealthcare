@@ -26,7 +26,32 @@ class ABCReportController extends Controller
 
     public function allAbcReports(){
 
-        return view("pages.viewAllAbcReports");
+         //get the authenticated users house
+         $house = Auth::user()->house;
+         //select the number of patients database that are based on the users house eg hearten
+         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);           
+         //each and every daily entry is going to display a staff name, patient details and daily entry records. the three tables are daily entry, users and patients. the left join joins the three tables and displays the data in the dashboard....
+         $abcReports = AbcReport::leftJoin('users', 'a_b_c_reports.user_id', '=', 'users.id')
+         ->where('users.house', $house)
+         ->select(
+             'users.username as user_name',
+             'users.house as house',
+             'a_b_c_reports.initialsOfPerson',
+             'a_b_c_reports.start_time',
+             'a_b_c_reports.end_time',
+             'a_b_c_reports.influencing_factors',
+             'a_b_c_reports.what_happened_before_incident',
+             'a_b_c_reports.behaviors',
+             'a_b_c_reports.what_happened_after_incident',
+             'a_b_c_reports.immediate_actions',
+             'a_b_c_reports.done_differently',
+             'a_b_c_reports.proact_scip_interventions',
+             'a_b_c_reports.medication_administered',
+             'a_b_c_reports.physical_contact_injury_intimidation',
+         )
+         ->orderBy('a_b_c_reports.id', 'desc')
+         ->paginate(5);  
+        return view("pages.viewAllAbcReports")->with("abcReports",$abcReports);
     }
 
     /**
