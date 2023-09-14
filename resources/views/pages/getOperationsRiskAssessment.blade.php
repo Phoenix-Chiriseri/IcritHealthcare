@@ -276,7 +276,6 @@
                         <label for="text">Date</label>
                         <input type="date" name="signage_date" id="date" class="form-control" required>
                     </div>
-                    <div class
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->date('assessment_date');
             $table->string('accessors_email_1'); // Adjusted field name
             $table->string('accessors_email_2'); // Adjusted field name
-            $table->unsignedBigInteger('patient_id');
             $table->text('what_causes_harm');
             $table->text('where_is_the_hazard');
             $table->text('who_might_be_harmed');
@@ -45,7 +44,6 @@ return new class extends Migration
             $table->text('please_comment_any_behaviours');
             $table->string('positive_liberty_issue');
             $table->string('outcome_best_interest_radio');
-            $table->text('comment');
             $table->date('date_of_review');
             $table->text('changes_required');
             $table->text('managers_name');
