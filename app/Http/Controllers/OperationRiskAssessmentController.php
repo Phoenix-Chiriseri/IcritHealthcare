@@ -36,7 +36,21 @@ class OperationRiskAssessmentController extends Controller
         ->select(
             'users.username as user_name',
             'patients.patient_name',
-            'operation_risk_assessments.*',
+            'operation_risk_assessment_date',
+            'operation_risk_assessment.assessors_email',
+            'operation_risk_assessment.what_causes_harm',
+            'operation_risk_assessment.where_is_the_hazard',
+            'operation_risk_assessment.who_might_be_harmed',
+            'operation_risk_assessment.how_will_they_be_harmed',
+            'operation_risk_assessment.how_often_are_exposed_hazard',
+            'operation_risk_assessment.how_long_exposed_hazard',
+            'operation_risk_assessment.disallowing_activity',
+            'operation_risk_assessment.comment',
+            'operation_risk_assessment.likelihood_harm',
+            'operation_risk_assessment.list_of_control_measures',
+            'operation_risk_assessment.date_when_control_measures_implemented',
+            'operation_risk_assessment.identity_training_required_risk',
+            'operation_risk_assessment.identity_training_was_specified',
         )
         ->orderBy('operation_risk_assessments.id', 'desc')
         ->paginate(5); 
@@ -97,7 +111,7 @@ class OperationRiskAssessmentController extends Controller
         */
         $riskAssessment = new OperationRiskAssessment();
         $riskAssessment->assessment_date = $request->input('assessment_date');
-        $riskAssessment->accessors_email = $request->input('accessors_email');
+        $riskAssessment->assessors_email = $request->input('accessors_email');
         $riskAssessment->patient_id = $request->input('patient_id');
         $riskAssessment->what_causes_harm = $request->input('what_causes_harm');
         $riskAssessment->where_is_the_hazard = $request->input('where_is_the_hazard');
@@ -108,7 +122,7 @@ class OperationRiskAssessmentController extends Controller
         $riskAssessment->disallowing_activity = $request->input('disallowing_activity');
         $riskAssessment->comment = $request->input('comment');
         $riskAssessment->likelihood_harm = $request->input('likelihood_harm');
-        $riskAssessment->how_serious_harm = $request->input('how_serious_harm');
+        $riskAssessment->how_serious_harm_radio = $request->input('how_serious_harm_radio');
         $riskAssessment->list_of_control_measures = $request->input('list_of_control_measures');
         $riskAssessment->date_when_control_measures_implemented = $request->input('date_when_control_measures_implemented');
         $riskAssessment->identity_training_required_risk = $request->input('identity_training_required_risk');
@@ -116,7 +130,6 @@ class OperationRiskAssessmentController extends Controller
         $riskAssessment->identity_equipment_reduced_risk = $request->input('identity_equipment_reduced_risk');
         $riskAssessment->date_equipment_provided = $request->input('date_equipment_provided');
         $riskAssessment->likelihood_radio_harm = $request->input('likelihood_radio_harm');
-        $riskAssessment->how_serious_harm_radio = $request->input('how_serious_harm_radio');
         $riskAssessment->additional_control_measures = $request->input('additional_control_measures');
         $riskAssessment->completion_control_measures = $request->input('completion_control_measures');
         $riskAssessment->risk_assessment_drawn_by = $request->input('risk_assessment_drawn_by');
@@ -133,7 +146,6 @@ class OperationRiskAssessmentController extends Controller
         $riskAssessment->date_of_assessment = $request->input('date_of_assessment');
         $riskAssessment->signage_name = $request->input('signage_name');
         $riskAssessment->signage_date = $request->input('signage_date');
-
         // Find the authenticated user (assuming you are working with authenticated users)
         $user = auth()->user();
         // Create a new OperationRiskAssessment instance and associate it with the user
@@ -142,6 +154,7 @@ class OperationRiskAssessmentController extends Controller
         $user->operationRiskAssessments()->save($riskAssessment);
         // Optionally, you can add a success message or redirect to another page
         return back()->with('success', 'Operation Risk Assessment Saved');
+    
     }
     /**
      * Display the specified resource.

@@ -87,37 +87,33 @@
                     <div class="mb-3">
                         <label class="form-label">What is the likelihood that somebody would be harmed</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="likelihood_harm" value="Yes" id="consulted_yes">
+                            <input class="form-check-input" type="radio" name="likelihood_harm" value="Unlikely" id="consulted_yes">
                             <label class="form-check-label" for="consulted_yes">Unlikely
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="likelihood_harm" value="No" id="consulted_no">
-                            <label class="form-check-label" for="consulted_no">No</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="likelihood_harm" value="No" id="consulted_no">
+                            <input class="form-check-input" type="radio" name="likelihood_harm" value="Very Likely" id="consulted_no">
                             <label class="form-check-label" for="consulted_no">Very Likely</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">How serious could be the Harm</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm" value="Yes" id="consulted_yes">
+                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="No Injury">
                             <label class="form-check-label" for="consulted_yes">No Injury
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm" value="No" id="consulted_no">
-                            <label class="form-check-label" for="consulted_no">Minor Injury</label>
+                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="Minor Injury">
+                            <label class="form-check-label">Minor Injury</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm" value="No" id="consulted_no">
-                            <label class="form-check-label" for="consulted_no">Major Injury</label>
+                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="Major Injury">
+                            <label class="form-check-label">Major Injury</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm" value="No" id="consulted_no">
-                            <label class="form-check-label" for="consulted_no">Death</label>
+                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="Death">
+                            <label class="form-check-label">Death</label>
                         </div>
                     </div>
                     <h4 class = "text-center">Control Measures Required</h4>
@@ -147,40 +143,21 @@
                         <label for="date">
                             Date this equipment was provided 
                             </label>
-                        <input type="date" name="identity_equipment_reduced_risk" class="form-control" required>
+                        <input type="date" name="date_equipment_provided" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Click on the following Risk Assessment Matrix to generate the calculated risk score after control measures are put in place.</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="likelihood_radio_harm" value="Yes" id="consulted_yes">
+                            <input class="form-check-input" type="radio" name="likelihood_radio_harm" value="Unlikely" id="consulted_yes">
                             <label class="form-check-label" for="consulted_yes">Unlikely</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="likelihood_radio_harm" value="No" id="consulted_no">
+                            <input class="form-check-input" type="radio" name="likelihood_radio_harm" value="Likely" id="consulted_no">
                             <label class="form-check-label" for="consulted_no">Likely</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="likelihood_radio_harm" value="No" id="consulted_no">
+                            <input class="form-check-input" type="radio" name="likelihood_radio_harm" value="Very Likely" id="consulted_no">
                             <label class="form-check-label" for="consulted_no">Very Likely</label>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">How serious could be the Harm</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="Yes" id="consulted_yes">
-                            <label class="form-check-label" for="consulted_yes">No Injury</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="No" id="consulted_no">
-                            <label class="form-check-label" for="consulted_no">Minor Injury</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="No" id="consulted_no">
-                            <label class="form-check-label" for="consulted_no">Major Injury</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="how_serious_harm_radio" value="No" id="consulted_no">
-                            <label class="form-check-label" for="consulted_no">Death</label>
                         </div>
                     </div>
                     <div class="form-group">

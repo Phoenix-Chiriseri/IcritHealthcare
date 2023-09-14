@@ -22,7 +22,7 @@ class OperationRiskAssessment extends Model
         'disallowing_activity',
         'comment',
         'likelihood_harm',
-        'how_serious_harm',
+        'how_serious_harm_radio',
         'list_of_control_measures',
         'date_when_control_measures_implemented',
         'identity_training_required_risk',
@@ -30,7 +30,6 @@ class OperationRiskAssessment extends Model
         'identity_equipment_reduced_risk',
         'date_equipment_provided',
         'likelihood_radio_harm',
-        'how_serious_harm_radio',
         'additional_control_measures',
         'completion_control_measures',
         'risk_assessment_drawn_by',
@@ -48,8 +47,6 @@ class OperationRiskAssessment extends Model
         'signage_name',
         'signage_date',
     ];
-
-    
     public function user()
     {
         return $this->belongsTo(User::class);

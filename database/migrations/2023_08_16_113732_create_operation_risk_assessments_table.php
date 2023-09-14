@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('operation_risk_assessments', function (Blueprint $table) {
+            
             $table->id();
             $table->date('assessment_date');
             $table->unsignedBigInteger("user_id");
@@ -26,7 +27,6 @@ return new class extends Migration
             $table->enum('disallowing_activity', ['Yes', 'No']);
             $table->text('comment');
             $table->enum('likelihood_harm', ['Unlikely', 'No', 'Very Likely']);
-            $table->enum('how_serious_harm', ['No Injury', 'Minor Injury', 'Major Injury', 'Death']);
             $table->text('list_of_control_measures');
             $table->date('date_when_control_measures_implemented');
             $table->string('identity_training_required_risk');
@@ -53,6 +53,8 @@ return new class extends Migration
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+
+            
         });
     }
     /**
