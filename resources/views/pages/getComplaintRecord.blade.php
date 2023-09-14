@@ -1,4 +1,6 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
@@ -27,7 +29,7 @@
                 <script type="text/javascript">
                 function massge() {
                 Swal.fire(
-                'Success',
+                'success',
                 'Complaint Recorded Successfully'
                     );
                     }
@@ -40,16 +42,18 @@
             <div class="card">
                 <form method="POST" action="{{ route('save-ComplaintRecord') }}">
                     @csrf
-                        <div class="form-group row">
-                            <label for="phone_number" class="col-md-2 col-form-label">Name Of Person</label>
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="phone_number" name="person_name" required>
-                            </div>
+                        <div class="form-group">
+                            <label for="patient_id">Patient Name</label>
+                            <select name="patient_id" id="patient_id" class="form-control" required>
+                                @foreach ($patients as $patient)
+                                    <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group row">
                             <label for="address" class="col-md-2 col-form-label">Phone Number</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" id="address" name="address" required>
+                                <input type="text" class="form-control" id="address" name="phone_number" required>
                             </div>
                         </div>
                         <div class="form-group row">

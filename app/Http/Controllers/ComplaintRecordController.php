@@ -26,7 +26,10 @@ class ComplaintRecordController extends Controller
     {
 
 
-        $validatedData = $request->validate([
+       
+        //dd($request->all());
+
+        /*$validatedData = $request->validate([
             'patient_id' => 'required|integer',
             'phone_number' => 'required|string',
             'address' => 'required|string',
@@ -41,7 +44,7 @@ class ComplaintRecordController extends Controller
             'injuries' => 'required|in:yes,no',
             'complaintDate' => 'required|date',
             'position' => 'required|string',
-        ]);
+        ]);*/
 
         $complaintRecord = new ComplaintRecord();
         $complaintRecord->phone_number = $request->input('phone_number');

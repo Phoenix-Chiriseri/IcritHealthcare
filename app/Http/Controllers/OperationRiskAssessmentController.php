@@ -75,7 +75,7 @@ class OperationRiskAssessmentController extends Controller
         ->paginate(5); 
         return view("pages.allOperationRiskAssessments")->with("data",$data);
     }
-  
+
     public function create()
     {
         //
