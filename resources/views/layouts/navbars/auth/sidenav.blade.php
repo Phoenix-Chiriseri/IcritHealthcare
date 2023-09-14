@@ -153,7 +153,7 @@
                     <span class="nav-link-text ms-1">Operation Risk Assessment</span>
                     <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
                         <a class="dropdown-item" href="getOperationsRiskAssessment">Add OS Risk Assessment</a>
-                        <a class="dropdown-item" href="viewAllOperationRiskAssessment">View All Assessments</a>
+                        <a class="dropdown-item" href="viewAllOperationRiskAssessments">View All Assessments</a>
                     </div>
                 </a>
             </li>

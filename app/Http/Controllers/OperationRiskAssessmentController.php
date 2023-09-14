@@ -30,31 +30,50 @@ class OperationRiskAssessmentController extends Controller
         //select the number of patients database that are based on the users house eg hearten
         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);           
         //each and every daily entry is going to display a staff name, patient details and daily entry records. the three tables are daily entry, users and patients. the left join joins the three tables and displays the data in the dashboard....
-        $entries = OperationRiskAssessment::leftJoin('patients', 'operation_risk_assessments.patient_id', '=', 'patients.id')
+        $data = OperationRiskAssessment::leftJoin('patients', 'operation_risk_assessments.patient_id', '=', 'patients.id')
         ->leftJoin('users', 'operation_risk_assessments.user_id', '=', 'users.id')
         ->where('users.house', $house)
         ->select(
             'users.username as user_name',
             'patients.patient_name',
-            'operation_risk_assessment_date',
-            'operation_risk_assessment.assessors_email',
-            'operation_risk_assessment.what_causes_harm',
-            'operation_risk_assessment.where_is_the_hazard',
-            'operation_risk_assessment.who_might_be_harmed',
-            'operation_risk_assessment.how_will_they_be_harmed',
-            'operation_risk_assessment.how_often_are_exposed_hazard',
-            'operation_risk_assessment.how_long_exposed_hazard',
-            'operation_risk_assessment.disallowing_activity',
-            'operation_risk_assessment.comment',
-            'operation_risk_assessment.likelihood_harm',
-            'operation_risk_assessment.list_of_control_measures',
-            'operation_risk_assessment.date_when_control_measures_implemented',
-            'operation_risk_assessment.identity_training_required_risk',
-            'operation_risk_assessment.identity_training_was_specified',
-        )
+            'operation_risk_assessments.assessors_email',
+            'operation_risk_assessments.assessment_date',
+            'operation_risk_assessments.what_causes_harm',
+            'operation_risk_assessments.where_is_the_hazard',
+            'operation_risk_assessments.who_might_be_harmed',
+            'operation_risk_assessments.how_will_they_be_harmed',
+            'operation_risk_assessments.how_often_are_exposed_hazard',
+            'operation_risk_assessments.how_long_exposed_hazard',
+            'operation_risk_assessments.disallowing_activity',
+            'operation_risk_assessments.comment',
+            'operation_risk_assessments.likelihood_harm',
+            'operation_risk_assessments.list_of_control_measures',
+            'operation_risk_assessments.date_when_control_measures_implemented',
+            'operation_risk_assessments.identity_training_required_risk',
+            'operation_risk_assessments.identity_training_was_specified',
+            'operation_risk_assessments.identity_equipment_reduced_risk',
+            'operation_risk_assessments.date_equipment_provided',
+            'operation_risk_assessments.likelihood_radio_harm',
+            'operation_risk_assessments.how_serious_harm_radio',
+            'operation_risk_assessments.additional_control_measures',
+            'operation_risk_assessments.risk_assessment_drawn_by',
+            'operation_risk_assessments.risk_assessment_date',
+            'operation_risk_assessments.risk_assessment_date',
+            'operation_risk_assessments.assessment_taken_mental',
+            'operation_risk_assessments.please_comment_any_behaviours',
+            'operation_risk_assessments.positive_liberty_issue',
+            'operation_risk_assessments.outcome_best_interest_radio',
+            'operation_risk_assessments.date_of_review',
+            'operation_risk_assessments.changes_required',
+            'operation_risk_assessments.managers_name',
+            'operation_risk_assessments.risk_assessment_Activity_accessed',
+            'operation_risk_assessments.date_of_assessment',
+            'operation_risk_assessments.signage_name',
+            'operation_risk_assessments.signage_date',
+            )
         ->orderBy('operation_risk_assessments.id', 'desc')
         ->paginate(5); 
-        return view("pages.allOperationRiskAssessments")->with("entries",$entries);
+        return view("pages.allOperationRiskAssessments")->with("data",$data);
     }
     /**
      * Show the form for creating a new resource.

@@ -69,7 +69,7 @@ use App\Http\Controllers\WitnessStatementController;
 	Route::get('/getFallsChecklist', [FallsCheklistController::class, 'index'])->name('getFallsChecklist')->middleware('auth');
 	Route::get('/getOperationsRiskAssessment', [OperationRiskAssessmentController::Class, 'index'])->name('getOperationsRiskAssessment')->middleware('auth');
 	Route::post('/postOperationRiskAssessment', [OperationRiskAssessmentController::Class, 'store'])->name('postOperationRiskAssessment')->middleware('auth');
-	Route::get('/viewAllOperationRiskAssessment', [OperationRiskAssessmentController::Class, 'allOperationRiskAssessments'])->name('viewAllOperationRiskAssessment')->middleware('auth');
+	Route::get('/viewAllOperationRiskAssessments', [OperationRiskAssessmentController::Class, 'allOperationRiskAssessments'])->name('viewAllOperationRiskAssessments')->middleware('auth');
 	Route::get('/getPositiveBehaviourSupport', [PositiveBehaviourSupportPlanController::class, 'index'])->name('getPositiveBehaviourSupport')->middleware('auth');
 	Route::post('/savePositiveBPlan', [PositiveBehaviourSupportPlanController::class, 'store'])->name('savePositiveBPlan')->middleware('auth');
 	Route::get('/viewAllPositiveBehaviourPlans', [PositiveBehaviourSupportPlanController::class, 'viewAllPositivePlans'])->name('viewAllPositiveBehaviourPlans')->middleware('auth');
