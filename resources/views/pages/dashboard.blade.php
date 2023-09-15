@@ -18,7 +18,7 @@ function generate() {
     specialElementHandlers = {  
         // element with id of "bypass" - jQuery style selector  
         '#bypassme': function(element, renderer) {  
-            // true = "handled elsewhere, bypass text extraction"  
+            // true = "handled elsewhere, bypass text extraction" 
             return true  
         }  
     };  
@@ -89,7 +89,7 @@ function generate() {
 </script>   
 <div class="container-fluid py-4">
     <div class="row">
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
@@ -110,14 +110,14 @@ function generate() {
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-sm-6">
+        <div class="col-xl-6 col-sm-6">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
                                 Number Of Patients in house {{ $numberOfPatients[0]->count }}
-                                <a href = "viewMyProfile" class = "btn btn-info">View Your Profile</a>
+                                <!--<a href = "viewMyProfile" class = "btn btn-info">View Your Profile</a>!-->
                                 <a href = "viewMyPatients" class = "btn btn-danger">View Your Patients</a>
                                 <h5 class="font-weight-bolder">
                                 </h5>
@@ -132,7 +132,7 @@ function generate() {
                 </div>
             </div>
             </div>
-            <div class="col-xl-4 col-sm-6">
+            <!--<div class="col-xl-4 col-sm-6">
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
@@ -142,12 +142,12 @@ function generate() {
                                 </div>
                             </div>
                             <div class="col-4 text-end"> 
-                                <a href="{{ route('allRecords') }}" class="btn btn-primary">View House Records</a>
+                                <a href="{{ route('allRecords') }}" class="btn btn-primary">View House Records Fam</a>
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
+        </div>!-->
     </div>
 </div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/phpYC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
