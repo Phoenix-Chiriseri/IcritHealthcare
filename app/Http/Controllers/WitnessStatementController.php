@@ -112,9 +112,6 @@ $user->witnessStatements()->save($complaintRecord);
 return back()->with('success', 'Witness Statement Saved');
 
 }
-    /**
-     * Display the specified resource.
-     */
     public function show(WitnessStatement $witnessStatement)
     {
         //

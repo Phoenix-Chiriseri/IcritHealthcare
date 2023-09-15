@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seizure_report_controllers', function (Blueprint $table) {
+        Schema::create('seizure_reports_table', function (Blueprint $table) {
             $table->id();
             $table->string('ref_number');
+            $table->string('location');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('patient_id');
-            $table->string('location');
             $table->date('date_of_incident');
             $table->time('time_of_incident');
             $table->json('other_forms_1')->nullable();
@@ -26,25 +26,25 @@ return new class extends Migration
             $table->text('incident_description');
             $table->text('any_causes_to_incident');
             $table->json('any_other_forms')->nullable();
-            $table->string('did_stiffen');
-            $table->string('loss_of_consciousness');
-            $table->string('colour_change');
+            $table->string('stiffen');
+            $table->string('conciousness');
+            $table->string('color');
             $table->string('movement');
-            $table->string('breathing_difficulty');
-            $table->json('parts')->nullable();
+            $table->string('breathing');
+            $table->json('parts');
             $table->string('how_long_seizure');
-            $table->string('yes_incontinence');
+            $table->string('incontinence');
             $table->json('condition_after_seizure')->nullable();
             $table->string('recovery_date');
             $table->string('person_injury');
-            $table->text('treatment');
+            $table->string('treatment');
             $table->json('triggers')->nullable();
             $table->string('reported_by');
             $table->date('report_date');
-            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 

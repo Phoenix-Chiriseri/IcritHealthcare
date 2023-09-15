@@ -174,7 +174,7 @@ function generate() {
                                         <th>Initials</th>
                                         <th>Created At</th>
                                     </tr>
-                                </thead>mmm
+                                </thead>
                                 <tbody>
                                     @foreach ($supportPlans as $supportPlan)
                                         <tr>

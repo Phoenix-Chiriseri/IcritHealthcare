@@ -1,4 +1,6 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
@@ -19,9 +21,20 @@
                 </div>
             </div>
         </div>
-    </div><div id="alert">
-        @include('components.alert')
     </div>
+    @include('components.alert')
+</div>
+@if(Session::has('success'))
+            <script type="text/javascript">
+            function massge() {
+            Swal.fire(
+            'Success',
+            'Saved'
+                );
+                }
+                window.onload = massge;
+                </script>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">
@@ -131,58 +144,60 @@
                     <div class="mb-3">
                         <label class="form-label">Did they stiffen?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="did_stiffen" id="did_stiffen_yes" value="Yes">
-                            <label class="form-check-label" for="did_stiffen_yes">Yes</label>
+                            <input class="form-check-input" type="radio" name="stiffen" value="Yes">
+                            <label class="form-check-label">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="did_not_stiffen" id="did_stiffen_no" value="No">
-                            <label class="form-check-label" for="did_stiffen_no">No</label>
+                            <input class="form-check-input" type="radio" name="stiffen" value="No">
+                            <label class="form-check-label">No</label>
                         </div>
                     </div>
+                    
                     <div class="mb-3">
                         <label class="form-label">Was there loss of consciousness?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="loss_of_consciousness" id="loss_of_consciousness_yes" value="Yes">
-                            <label class="form-check-label" for="loss_of_consciousness_yes">Yes</label>
+                            <input class="form-check-input" type="radio" name="conciousness" value="Yes">
+                            <label class="form-check-label">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="no_loss_of_consciousness" id="loss_of_consciousness_no" value="No">
-                            <label class="form-check-label" for="loss_of_consciousness_no">No</label>
+                            <input class="form-check-input" type="radio" name="conciousness" value="No">
+                            <label class="form-check-label">No</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Did their colour change?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="colour_change" id="colour_change_yes" value="Yes">
-                            <label class="form-check-label" for="colour_change_yes">Yes</label>
+                            <input class="form-check-input" type="radio" name="color" value="Yes">
+                            <label class="form-check-label">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="colour_change" id="colour_change_no" value="No">
-                            <label class="form-check-label" for="colour_change_no">No</label>
+                            <input class="form-check-input" type="radio" name="color" value="No">
+                            <label class="form-check-label">No</label>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Was there movement?</label>
+                        <label class="form-label">Was there movement</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="movement" id="movement_yes" value="Yes">
-                            <label class="form-check-label" for="movement_yes">Yes</label>
+                            <input class="form-check-input" type="radio" name="movement" value="Yes">
+                            <label class="form-check-label">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="movement" id="movement_no" value="No">
-                            <label class="form-check-label" for="movement_no">No</label>
+                            <input class="form-check-input" type="radio" name="movement" value="No">
+                            <label class="form-check-label">No</label>
                         </div>
-                    </div>  
+                    </div>
                     <div class="mb-3">
                         <label class="form-label">Was there difficulty breathing?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="breathing_difficulty" id="breathing_difficulty_yes" value="Yes">
-                            <label class="form-check-label" for="breathing_difficulty_yes">Yes</label>
+                            <input class="form-check-input" type="radio" name="breathing" value="Yes">
+                            <label class="form-check-label">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="breathing_difficulty" id="breathing_difficulty_no" value="No">
-                            <label class="form-check-label" for="breathing_difficulty_no">No</label>
+                            <input class="form-check-input" type="radio" name="breathing" value="No">
+                            <label class="form-check-label">No</label>
                         </div>
-                    </div>    
+                    </div>
+          
                     <!-- Parts of the body involved -->
 <div class="mb-3">
     <label class="form-label">Parts of the body involved</label>
@@ -258,12 +273,12 @@
 <div class="mb-3">
     <label class="form-label">Was there incontinence</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="yes_incontinence" value="Yes" id="incontinence_yes">
-        <label class="form-check-label" for="incontinence_yes">Yes</label>
+        <input class="form-check-input" type="radio" name="incontinence" value="Yes">
+        <label class="form-check-label">Yes</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="no_incontinence" value="No" id="incontinence_no">
-        <label class="form-check-label" for="incontinence_no">No</label>
+        <input class="form-check-input" type="radio" name="incontinence" value="No">
+        <label class="form-check-label">No</label>
     </div>
 </div>
 <div class="mb-3">

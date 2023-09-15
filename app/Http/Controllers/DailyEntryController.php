@@ -11,7 +11,6 @@ use App\Models\User;
 class DailyEntryController extends Controller
 {
     public function allHouseRecords(){    
-
         //get the authenticated users house
         $house = Auth::user()->house;
         //select the number of patients database that are based on the users house eg hearten

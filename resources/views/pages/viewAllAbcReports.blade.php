@@ -161,29 +161,44 @@ function generate() {
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
-                                        <th>Patient Name</th>
-                                        <th>Reference Number</th>
-                                        <th>Location</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Person Affected</th>
-                                        <th>Initials</th>
-                                        <th>Description</th>
-                                        <th>Identified Causes</th>
-                                        <th>Completed Forms</th>
-                                        <th>Name of Person</th>
-                                        <th>Date Completed</th>
-                                        <th>Manager on Call</th>
+                                        <th>User Name</th>
+                                        <th>House</th>
+                                        <th>Initials of Person</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>Influencing Factors</th>
+                                        <th>What Happened Before Incident</th>
+                                        <th>Behaviors</th>
+                                        <th>What Happened After Incident</th>
+                                        <th>Immediate Actions</th>
+                                        <th>Done Differently</th>
+                                        <th>Proact SCIP Interventions</th>
+                                        <th>Medication Administered</th>
+                                        <th>Physical Contact/Injury/Intimidation</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
+                                    @foreach($abcReports as $report)
                                     <tr>
-                                      
+                                        <td>{{ $report->user_name }}</td>
+                                        <td>{{ $report->house }}</td>
+                                        <td>{{ $report->initialsOfPerson }}</td>
+                                        <td>{{ $report->start_time }}</td>
+                                        <td>{{ $report->end_time }}</td>
+                                        <td>{{ $report->influencing_factors }}</td>
+                                        <td>{{ $report->what_happened_before_incident }}</td>
+                                        <td>{{ $report->behaviors }}</td>
+                                        <td>{{ $report->what_happened_after_incident }}</td>
+                                        <td>{{ $report->immediate_actions }}</td>
+                                        <td>{{ $report->done_differently }}</td>
+                                        <td>{{ $report->proact_scip_interventions }}</td>
+                                        <td>{{ $report->medication_administered }}</td>
+                                        <td>{{ $report->physical_contact_injury_intimidation }}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
-                            </table>
+                            </table>  
+                            {{ $abcReports->links() }}
                         </div>        
                     </div>
                 </div>

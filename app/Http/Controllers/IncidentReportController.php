@@ -36,8 +36,7 @@ class IncidentReportController extends Controller
         // //get the authenticated users house
         $house = Auth::user()->house;
         //select the number of patients database that are based on the users house eg hearten
-        $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);           
-        //each and every daily entry is going to display a staff name, patient details and daily entry records. the three tables are daily entry, users and patients. the left join joins the three tables and displays the data in the dashboard....
+        $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);          
         $entries = IncidentReport::leftJoin('patients', 'incident_reports.patient_id', '=', 'patients.id')
         ->leftJoin('users', 'incident_reports.user_id', '=', 'users.id')
         ->where('users.house', $house)
@@ -56,22 +55,18 @@ class IncidentReportController extends Controller
             'incident_reports.name_of_person',
             'incident_reports.date_completed',
             'incident_reports.manager_on_call',
-
         )
-        
         ->orderBy('incident_reports.id', 'desc')
         ->paginate(5); 
         return view("pages.allIncidentReports")->with("entries",$entries);
-
     }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         //
-        $validatedData = $request->validate([
+       /* $validatedData = $request->validate([
             'patient_id' => 'required',
             'last_name' => 'required',
             'ref_number' => 'required',
@@ -87,8 +82,7 @@ class IncidentReportController extends Controller
             'date_completed' => 'required|date',
             'manager_on_call' => 'required',
         ]);
-        
-
+        */
         $incidentReport = new IncidentReport([
             'patient_id' => $request->patient_id,
             'last_name' => $request->last_name,

@@ -1,4 +1,6 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
@@ -23,6 +25,17 @@
     <div id="alert">
         @include('components.alert')
     </div>
+    @if(Session::has('success'))
+                <script type="text/javascript">
+                function massge() {
+                Swal.fire(
+                'Success',
+                'Abc Report Saved Succesfully'
+                 );
+                 }
+                window.onload = massge;
+                </script>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">
@@ -63,12 +76,12 @@
                         <label class="form-check-label">Other</label><br>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">What happened immdediately after the incident?</label>
+                        <label class="form-label">What happened immediately after the incident?</label>
                         <input type="text" class="form-control" name="what_happened_after_incident" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Immediate Actions</label>
-                        <input type="text" class="form-control" name="what_happened_after_incident" required>
+                        <input type="text" class="form-control" name="immediate_actions" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">On reflection, is there anything that could have been done differently or ideas to prevent future adverse incidents?</label>

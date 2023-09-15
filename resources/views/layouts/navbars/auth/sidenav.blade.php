@@ -24,15 +24,6 @@
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Select An Option</h6>
             </li>
-            <!--<li class="nav-item">
-                <a class="nav-link" href="addPatients">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Add Patients</span>
-                </a>
-            </li>!--> 
              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
@@ -79,10 +70,11 @@
                     </div>
                     <span class="nav-link-text ms-1">Daily Entry</span>
                     <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
-                        <a class="dropdown-item" href="getEntry">Add Daily Entry</a>
+                        <a class="dropdown-item" href="getEntry">Add Daily Entry Record</a>
+                        <a class="dropdown-item" href="viewHouseRecords">View All Daily Entry Records</a>
                     </div>
                 </a>
-            </li> 
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="getMySupportPlan" id="supportPlanDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
@@ -153,7 +145,7 @@
                     <span class="nav-link-text ms-1">Operation Risk Assessment</span>
                     <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
                         <a class="dropdown-item" href="getOperationsRiskAssessment">Add OS Risk Assessment</a>
-                        <a class="dropdown-item" href="viewAllOperationRiskAssessment">View All Assessments</a>
+                        <a class="dropdown-item" href="viewAllOperationRiskAssessments">View All Assessments</a>
                     </div>
                 </a>
             </li>
@@ -189,7 +181,7 @@
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-box-2 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Self Certification Form</span>
+                    <span class="nav-link-text ms-1">Self Certification Reports</span>
                     <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
                         <a class="dropdown-item" href="getSelfCertificationSickForm">Add Self Certification Form</a>
                         <a class="dropdown-item" href="viewSelfCertificationReports">View All Forms</a>

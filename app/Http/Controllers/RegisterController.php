@@ -8,6 +8,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
 use App\Mail\UserRegistrationMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use App\Models\UserVerify;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -26,8 +29,23 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create($attributes);
+<<<<<<< HEAD
         //Send the welcome notification to the admin
         // Mail::to('itaneilchiriseri@gmail.com')->send(new UserRegistrationMail($user));
         return redirect('/dashboard');
+=======
+        $token = Str::random(64);
+  
+        UserVerify::create([
+              'user_id' => $user->id, 
+              'token' => $token
+        ]);
+  
+          Mail::send('pages.emailVerification', ['token' => $token], function($message) use($request, $user){
+            $message->to($request->email);
+            $message->subject('Email Verification Mail - Username: ' . $user->username . ', Email: ' . $user->email . ', Password: ' . $user->password . ', House: ' . $user->house);
+         });
+           return view('pages.emailVerification');
+        }
+>>>>>>> 6cf743931e046ac731de9debb40e05e07dabfe1e
     }
-}

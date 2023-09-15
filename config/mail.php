@@ -36,12 +36,14 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('itaineilchiriseri@gmail.com'),
-            'password' => env('Mygodisgood1991*'),
+            'url' => env('MAIL_URL'),
+            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+            'port' => env('MAIL_PORT',587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tsl'),
+            'username' => env('MAIL_USERNAME'),
+            'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
 
         'ses' => [
@@ -81,6 +83,13 @@ return [
             'mailers' => [
                 'smtp',
                 'log',
+            ],
+        ],
+        'stream' => [
+            'ssl' => [
+                'allow_self_signed' => true,
+                'verify_peer' => false,
+                'verify_peer_name' => false,
             ],
         ],
     ],

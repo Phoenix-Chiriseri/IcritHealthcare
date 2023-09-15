@@ -55,11 +55,11 @@ function generate() {
 </script>   
 <div class="container-fluid py-4">
     <div class="row">
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-6">
                             <div class="numbers">
                                Welcome {{$name}}
                             </div>
@@ -73,11 +73,11 @@ function generate() {
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-sm-6">
+        <div class="col-xl-6 col-sm-6">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-6">
                             <div class="numbers">
                                 
                                 <a href = "viewMyPatients" class = "btn btn-info">View My Patients</a>
@@ -93,20 +93,6 @@ function generate() {
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="col-xl-4 col-sm-6">
-            <div class="card">
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="numbers">
-                            </div>
-                        </div>
-                        <div class="col-4 text-end"> 
-                            <a href = "{{ route('allRecords') }}" class = "btn btn-info">View House Records</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -161,29 +161,71 @@ function generate() {
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
+                                        <th>User Name</th>
+                                        <th>House</th>
                                         <th>Patient Name</th>
-                                        <th>Reference Number</th>
-                                        <th>Location</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Person Affected</th>
-                                        <th>Initials</th>
-                                        <th>Description</th>
-                                        <th>Identified Causes</th>
-                                        <th>Completed Forms</th>
-                                        <th>Name of Person</th>
-                                        <th>Date Completed</th>
-                                        <th>Manager on Call</th>
+                                        <th>Date of Incident</th>
+                                        <th>Time of Incident</th>
+                                        <th>Other Forms 1</th>
+                                        <th>Other Forms 2</th>
+                                        <th>Did Fall</th>
+                                        <th>Initials of Harm</th>
+                                        <th>Incident Description</th>
+                                        <th>Any Causes to Incident</th>
+                                        <th>Any Other Forms</th>
+                                        <th>Stiffen</th>
+                                        <th>Consciousness</th>
+                                        <th>Color</th>
+                                        <th>Movement</th>
+                                        <th>Breathing</th>
+                                        <th>Parts</th>
+                                        <th>How Long Seizure</th>
+                                        <th>Incontinence</th>
+                                        <th>Condition After Seizure</th>
+                                        <th>Recovery Date</th>
+                                        <th>Person Injury</th>
+                                        <th>Treatment</th>
+                                        <th>Triggers</th>
+                                        <th>Reported By</th>
+                                        <th>Report Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
+                                    @foreach ($seizureReports as $report)
                                     <tr>
-                                      
+                                        <td>{{ $report->user_name }}</td>
+                                        <td>{{ $report->house }}</td>
+                                        <td>{{ $report->patient_name }}</td>
+                                        <td>{{ $report->date_of_incident }}</td>
+                                        <td>{{ $report->time_of_incident }}</td>
+                                        <td>{{ $report->other_forms_1 }}</td>
+                                        <td>{{ $report->other_forms_2 }}</td>
+                                        <td>{{ $report->did_fall }}</td>
+                                        <td>{{ $report->initials_of_harm }}</td>
+                                        <td>{{ $report->incident_description }}</td>
+                                        <td>{{ $report->any_causes_to_incident }}</td>
+                                        <td>{{ $report->any_other_forms }}</td>
+                                        <td>{{ $report->stiffen }}</td>
+                                        <td>{{ $report->consciousness }}</td>
+                                        <td>{{ $report->color }}</td>
+                                        <td>{{ $report->movement }}</td>
+                                        <td>{{ $report->breathing }}</td>
+                                        <td>{{ $report->parts }}</td>
+                                        <td>{{ $report->how_long_seizure }}</td>
+                                        <td>{{ $report->incontinence }}</td>
+                                        <td>{{ $report->condition_after_seizure }}</td>
+                                        <td>{{ $report->recovery_date }}</td>
+                                        <td>{{ $report->person_injury }}</td>
+                                        <td>{{ $report->treatment }}</td>
+                                        <td>{{ $report->triggers }}</td>
+                                        <td>{{ $report->reported_by }}</td>
+                                        <td>{{ $report->report_date }}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            
+                            {{ $seizureReports->links() }} {{-- Display pagination links --}}
                         </div>        
                     </div>
                 </div>
