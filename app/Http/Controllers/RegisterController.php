@@ -29,6 +29,11 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create($attributes);
+<<<<<<< HEAD
+        //Send the welcome notification to the admin
+        // Mail::to('itaneilchiriseri@gmail.com')->send(new UserRegistrationMail($user));
+        return redirect('/dashboard');
+=======
         $token = Str::random(64);
   
         UserVerify::create([
@@ -42,4 +47,5 @@ class RegisterController extends Controller
          });
            return view('pages.emailVerification');
         }
+>>>>>>> 6cf743931e046ac731de9debb40e05e07dabfe1e
     }

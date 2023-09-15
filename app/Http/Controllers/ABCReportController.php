@@ -71,6 +71,21 @@ class ABCReportController extends Controller
             'initialsOfPerson' => 'required|string|max:255',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i',
+<<<<<<< HEAD
+            'influencing_factors' => 'required|string',
+            'what_happened_before_incident' => 'required|string',
+            'behaviors' => 'nullable|array',
+            'what_happened_after_incident' => 'required|string',
+            'immediateActions' => 'required|string',
+            'done_differently' => 'required|string',
+            'proact_scip_interventions' => 'required|string|in:Yes,No',
+            'medication_administered' => 'required|string|in:Yes,No',
+            'physical_contact_injury_intimidation' => 'required|string|in:Yes,No',
+            // Add more validation rules for other fields as needed
+        ]);
+
+        dd($validatedData);
+=======
             'influencing_factors' => 'required|string|max:255',
             'what_happened_before_incident' => 'required|string|max:255',
             'behaviors' => 'required|array', // Assuming it's an array
@@ -96,6 +111,7 @@ $abcReport->proact_scip_interventions = $request->input('proact_scip_interventio
 $abcReport->medication_administered = $request->input('medication_administered');
 $abcReport->physical_contact_injury_intimidation = $request->input('physical_contact_injury_intimidation');
         $user = Auth::user();
+>>>>>>> 6cf743931e046ac731de9debb40e05e07dabfe1e
         
         // Assuming you have a relationship defined between User and ABCReport models
         $user->abcReports()->save($abcReport);
