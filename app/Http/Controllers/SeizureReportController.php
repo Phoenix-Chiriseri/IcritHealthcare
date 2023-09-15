@@ -32,40 +32,40 @@ class SeizureReportController extends Controller
     {
         //
         $usersHouse = Auth::user()->house;
-        $seizureReports = SeizureReport::leftJoin('patients', 'seizure_reports_table.patient_id', '=', 'patients.id')
-            ->leftJoin('users', 'seizure_reports_table.user_id', '=', 'users.id')
+        $seizureReports = SeizureReport::leftJoin('patients', 'seizure_reports.patient_id', '=', 'patients.id')
+            ->leftJoin('users', 'seizure_reports.user_id', '=', 'users.id')
             ->where('users.house', $usersHouse)
             ->select(
                 'users.username as user_name',
                 'users.house as house',
                 'patients.patient_name as patient_name',
-                'seizure_reports_table.date_of_incident', // Fillable field
-                'seizure_reports_table.time_of_incident', // Fillable field
-                'seizure_reports_table.other_forms_1', // Fillable field
-                'seizure_reports_table.other_forms_2', // Fillable field
-                'seizure_reports_table.did_fall', // Fillable field
-                'seizure_reports_table.initials_of_harm', // Fillable field
-                'seizure_reports_table.incident_description', // Fillable field
-                'seizure_reports_table.any_causes_to_incident', // Fillable field
-                'seizure_reports_table.any_other_forms', // Fillable field
-                'seizure_reports_table.stiffen', // Fillable field
-                'seizure_reports_table.conciousness', // Fillable field
-                'seizure_reports_table.color', // Fillable field
-                'seizure_reports_table.movement', // Fillable field
-                'seizure_reports_table.breathing', // Fillable field
-                'seizure_reports_table.parts', // Fillable field
-                'seizure_reports_table.how_long_seizure', // Fillable field
-                'seizure_reports_table.incontinence', // Fillable field
-                'seizure_reports_table.condition_after_seizure', // Fillable field
-                'seizure_reports_table.recovery_date', // Fillable field
-                'seizure_reports_table.person_injury', // Fillable field
-                'seizure_reports_table.treatment', // Fillable field
-                'seizure_reports_table.triggers', // Fillable field
-                'seizure_reports_table.reported_by', // Fillable field
-                'seizure_reports_table.report_date', // Fillable field
+                'seizure_reports.date_of_incident', // Fillable field
+                'seizure_reports.time_of_incident', // Fillable field
+                'seizure_reports.other_forms_1', // Fillable field
+                'seizure_reports.other_forms_2', // Fillable field
+                'seizure_reports.did_fall', // Fillable field
+                'seizure_reports.initials_of_harm', // Fillable field
+                'seizure_reports.incident_description', // Fillable field
+                'seizure_reports.any_causes_to_incident', // Fillable field
+                'seizure_reports.any_other_forms', // Fillable field
+                'seizure_reports.did_stiffen', // Fillable field
+                'seizure_reports.loss_of_consciousness', // Fillable field
+                'seizure_reports.colour_change', // Fillable field
+                'seizure_reports.movement', // Fillable field
+                'seizure_reports.breathing_difficulty', // Fillable field
+                'seizure_reports.parts', // Fillable field
+                'seizure_reports.how_long_seizure', // Fillable field
+                'seizure_reports.yes_incontinence', // Fillable field
+                'seizure_reports.condition_after_seizure', // Fillable field
+                'seizure_reports.recovery_date', // Fillable field
+                'seizure_reports.person_injury', // Fillable field
+                'seizure_reports.treatment', // Fillable field
+                'seizure_reports.triggers', // Fillable field
+                'seizure_reports.reported_by', // Fillable field
+                'seizure_reports.report_date', // Fillable field
                 // Fillable field
             )
-            ->orderBy('seizure_reports_table.id', 'desc')
+            ->orderBy('seizure_reports.id', 'desc')
             ->paginate(5);
         return view("pages.viewAllSeizureReports")->with("seizureReports",$seizureReports);
     }
