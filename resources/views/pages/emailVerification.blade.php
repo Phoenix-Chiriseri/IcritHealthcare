@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +8,6 @@
     <title>
        Icrit HealthCare
     </title>
-    <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href=" {{asset('assets/css/nucleo-icons.css')}} " rel="stylesheet" />
@@ -21,7 +18,6 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css')}}" rel="stylesheet" />
 </head>
-
 <body class="">
     <main class="main-content  mt-0">
         <section>
@@ -32,6 +28,7 @@
                             <div class="card card-plain">
                                 <div class="card-header pb-0 text-start">
                                     <h4 class="font-weight-bolder">Thank You For Registering. We will update you via email when you have been approved</h4>
+                                    <a href="/login" class = "btn btn-info">Back To Login</a>
                                 </div>
                             </div>
                         </div>
