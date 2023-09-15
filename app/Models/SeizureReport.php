@@ -9,7 +9,7 @@ class SeizureReport extends Model
 {
     use HasFactory;
 
-    protected $table = 'seizure_reports_table';
+    protected $table = 'seizure_reports';
 
     protected $fillable = [
         'ref_number',
@@ -24,7 +24,7 @@ class SeizureReport extends Model
         'incident_description',
         'any_causes_to_incident',
         'any_other_forms',
-        'stiffen',
+        'did_stiffen',
         'conciousness', // Note: There's a typo here in the form (should be 'consciousness')
         'color',
         'movement',

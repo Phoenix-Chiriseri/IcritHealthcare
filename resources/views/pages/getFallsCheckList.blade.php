@@ -30,7 +30,7 @@
                 function massge() {
                 Swal.fire(
                 'success',
-                'Falls Checklist Added'
+                'Saved'
                     );
                     }
                     window.onload = massge;

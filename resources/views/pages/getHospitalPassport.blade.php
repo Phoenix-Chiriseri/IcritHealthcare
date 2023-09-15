@@ -43,7 +43,7 @@
     function massge() {
     Swal.fire(
     'success',
-    'Hospital Passport Added'
+    'Saved'
         );
         }
         window.onload = massge;

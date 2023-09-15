@@ -77,7 +77,7 @@ class MedicationIncidentController extends Controller
         // Create a new MedicationIncident instance and fill it with validated data
         // Save the MedicationIncident to the database
         // Optionally, you can redirect to a success page or return a response
-        return back()->with('success', 'Medication Incident Report Saved');
+        return back()->with('success', 'Saved');
     }
 
     /**
