@@ -86,7 +86,7 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
         </div>
 </div>
 <div class="container" style="margin-top:200px;">
-    <h1 class="text-center">Daily Entry Results</h1>
+    <h1 class="text-center">Daily Entry Records</h1>
         <div class="table-responsive">
         <table class="table table-bordered"  id = "dailyEntryTable">
             <thead>

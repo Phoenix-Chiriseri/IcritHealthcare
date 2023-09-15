@@ -155,7 +155,7 @@ function generate() {
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center" style="size: 22px;">Witness Statement</div>
+                    <div class="card-header text-center" style="size: 22px;">Witness Statements</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered">
