@@ -142,9 +142,7 @@ function generate() {
                                     <img src="./img/icritLogo.png" alt="main_logo" style="height:100px;">
                                 </div>
                             </div>
-                            <div class="col-4 text-end"> 
-                                <a href="{{ route('allRecords') }}" class="btn btn-primary">View House Records Fam</a>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
