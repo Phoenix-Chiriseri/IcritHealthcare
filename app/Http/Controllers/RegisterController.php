@@ -36,11 +36,6 @@ class RegisterController extends Controller
               'token' => $token
         ]);
   
-        /*Mail::send('pages.emailVerification', ['token' => $token], function($message) use($request){
-              $message->to($request->email);
-              $message->subject('username'.''.$user->username, 'email',"Email".''.$user->email,'password'.''.$user->password,'house'.''.$user->house);
-          });*/
-
           Mail::send('pages.emailVerification', ['token' => $token], function($message) use($request, $user){
             $message->to($request->email);
             $message->subject('Email Verification Mail - Username: ' . $user->username . ', Email: ' . $user->email . ', Password: ' . $user->password . ', House: ' . $user->house);
