@@ -70,7 +70,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Daily Entry</span>
                     <div class="dropdown-menu" aria-labelledby="supportPlanDropdown">
-                        <a class="dropdown-item" href="getEntry">Add Complaint Record</a>
+                        <a class="dropdown-item" href="getEntry">Add Daily Entry Record</a>
                         <a class="dropdown-item" href="viewHouseRecords">View All Daily Entry Records</a>
                     </div>
                 </a>

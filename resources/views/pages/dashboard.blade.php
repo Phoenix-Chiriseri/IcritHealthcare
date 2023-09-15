@@ -97,6 +97,7 @@ function generate() {
                             <div class="numbers">
                                Welcome {{$name}} 
                                <hr>
+                               Your House is {{$house}}
                                <p>Current Date: {{ $currentDate }}</p>
                             </div>
                           
