@@ -89,73 +89,110 @@ function generate() {
 </script>   
 <div class="container-fluid py-4">
     <div class="row">
-        <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                               Welcome {{$name}} 
-                               <hr>
-                               Your House is {{$house}}
-                               <p>Current Date: {{ $currentDate }}</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold"> Welcome </p>
+                                <h5 class="font-weight-bolder">
+                                    {{$name}} 
+                                </h5>
+                                <p class="mb-0">
+                                  
+                                </p>
                             </div>
-                          
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-user text-center rounded-circle">
-                                <i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-6 col-sm-6">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                Number Of Patients in house {{ $numberOfPatients[0]->count }}
-                                <!--<a href = "viewMyProfile" class = "btn btn-info">View Your Profile</a>!-->
-                                <a href = "viewMyPatients" class = "btn btn-danger">View Your Patients</a>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold"> Your House is </p>
                                 <h5 class="font-weight-bolder">
+                                    {{$house}}
                                 </h5>
+                                <p class="mb-0">
+                                   
+                                </p>
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-s bg-building gradient-warning shadow-warning text-center rounded-circle">
-                                <i class="ni ni-briefcase-24 text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
+                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-            <!--<div class="col-xl-4 col-sm-6">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <img src="./img/icritLogo.png" alt="main_logo" style="height:100px;">
-                                </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Current Date: </p>
+                                <h5 class="font-weight-bolder">
+                                    {{ $currentDate }}
+                                </h5>
+                                <p class="mb-0">
+                                   
+                                </p>
                             </div>
-                           
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+                                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-        </div>!-->
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">House Patients </p>
+                                <h5 class="font-weight-bolder">
+                                    {{ $numberOfPatients[0]->count }}
+                                </h5>
+                                <p class="mb-0">
+                                  
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
+                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/phpYC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <div class="container">
     <a class="navbar-brand" class = "btn btn-info"></a>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center" style="size: 22px;">My Daily Entry Records</div>
+                    <div class="card-header text-center" style="size: 22px;margin-top:100pxk">My Daily Entry Records</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered" id = "DOMContentLoaded">
