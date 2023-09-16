@@ -27,25 +27,18 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255',
             'house' => 'required|min:5|max:255'
         ]);
-
+        
         $user = User::create($attributes);
-<<<<<<< HEAD
-        //Send the welcome notification to the admin
-        // Mail::to('itaneilchiriseri@gmail.com')->send(new UserRegistrationMail($user));
-        return redirect('/dashboard');
-=======
         $token = Str::random(64);
-  
         UserVerify::create([
               'user_id' => $user->id, 
               'token' => $token
         ]);
-  
-          Mail::send('pages.emailVerification', ['token' => $token], function($message) use($request, $user){
+        
+        Mail::send('pages.emailVerification', ['token' => $token], function($message) use($request, $user){
             $message->to($request->email);
             $message->subject('Email Verification Mail - Username: ' . $user->username . ', Email: ' . $user->email . ', Password: ' . $user->password . ', House: ' . $user->house);
          });
            return view('pages.emailVerification');
         }
->>>>>>> 6cf743931e046ac731de9debb40e05e07dabfe1e
     }

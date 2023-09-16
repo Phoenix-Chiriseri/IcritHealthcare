@@ -111,8 +111,6 @@ $abcReport->proact_scip_interventions = $request->input('proact_scip_interventio
 $abcReport->medication_administered = $request->input('medication_administered');
 $abcReport->physical_contact_injury_intimidation = $request->input('physical_contact_injury_intimidation');
         $user = Auth::user();
->>>>>>> 6cf743931e046ac731de9debb40e05e07dabfe1e
-        
         // Assuming you have a relationship defined between User and ABCReport models
         $user->abcReports()->save($abcReport);
         // If the save operation is successful, return a success response

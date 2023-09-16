@@ -23,7 +23,6 @@ public function showHome(){
 
 public function index()
 {
-    //get the current dateand use carbon to fetch the current date with the locale that is United Kingdom
     $currentDate = Carbon::now('Europe/London')->format('d-m-Y');
     //get the user id of the authenticated user
     $userId = Auth::id();
@@ -48,7 +47,8 @@ public function index()
             AND p.id = daily_entries.patient_id
         )
         ORDER BY daily_entries.date DESC
-    ";
+        ";
+        
         $entries = DB::select($query, ['userId' => $userId]);
         return view('pages.dashboard', compact('entries'))->with("name", $username)
             ->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);

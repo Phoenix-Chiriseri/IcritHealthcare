@@ -35,10 +35,6 @@ class PatientController extends Controller
         ->get();
         return view('pages.viewMyPatients')->with("name", $username)->with('userAndPatients', $userAndPatients);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
 
@@ -58,6 +54,7 @@ class PatientController extends Controller
                 ->withInput();
         }*/
         // Create a new patient record
+        
         $patient = new Patient([
             'patient_name' => $request->input('patient_name'),
             'house' => $request->input('house'),

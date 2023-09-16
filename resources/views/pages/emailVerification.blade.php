@@ -28,7 +28,7 @@
                             <div class="card card-plain">
                                 <div class="card-header pb-0 text-start">
                                     <h4 class="font-weight-bolder">Thank You For Registering. We will update you via email when you have been approved</h4>
-                                    <a href="/login" class = "btn btn-info">Back To Login</a>
+                                    <!--<a href="/login" class = "btn btn-info">Back To Login</a>!-->
                                 </div>
                             </div>
                         </div>
