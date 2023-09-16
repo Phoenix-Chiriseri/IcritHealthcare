@@ -109,4 +109,12 @@ use App\Http\Controllers\WitnessStatementController;
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record')->middleware("auth");
-});
+	Route::get('/download/{filename}', function ($filename) {
+		$path = public_path('downloads/' . $filename);
+		if (file_exists($path)) {
+			return response()->download($path, $filename);
+		} else {
+			abort(404, 'File not found');
+		}
+	})->name('downloadFile')->middleware("auth");
+	});

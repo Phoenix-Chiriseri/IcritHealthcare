@@ -411,7 +411,6 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary btn-sm mb-0 w-100"
-            href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank" type="button">Download</a>
+        <a class="btn btn-primary btn-sm mb-0 w-100" href="{{ route('downloadFile', 'IcritUserManual.pdf') }}" type="button"><i class = "fa fa-download"></i>Download</a>
     </div>
 </aside>
