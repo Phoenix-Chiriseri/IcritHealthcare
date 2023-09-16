@@ -5,8 +5,8 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('home') }}"
             target="_blank">
-            <img src="./img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">Welcome to Icrit Healthcare</span>
+            <img src="{{ asset('img/icritLogo.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold">Icrit Healthcare</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -23,7 +23,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Abc Report</h6>
             </li>
@@ -45,7 +45,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Behavioural Monitor Chart</h6>
             </li>
@@ -67,7 +67,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Complaint Record</h6>
             </li>
@@ -89,7 +89,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Daily Entry Record</h6>
             </li>
@@ -111,7 +111,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Falls Checklist</h6>
             </li>
@@ -133,7 +133,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Hospital Passport</h6>
             </li>
@@ -155,7 +155,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Incident Report</h6>
             </li>
@@ -177,7 +177,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">My Support Plan</h6>
             </li>
@@ -199,7 +199,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Medication Incident</h6>
             </li>
@@ -221,7 +221,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Operation Risk Assessment</h6>
             </li>
@@ -243,7 +243,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Positive Behaviour Support Plan</h6>
             </li>
@@ -265,7 +265,7 @@
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Seizure Report</h6>
             </li>
@@ -288,7 +288,7 @@
             
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Self Certification Reports</h6>
             </li>
@@ -310,7 +310,7 @@
             </li>   
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                    <i class="fa fa-book" style="color: blue"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Witness Statement</h6>
             </li>
@@ -318,7 +318,7 @@
                 <a class="nav-link {{ Route::currentRouteName() == 'profile' ? 'active' : '' }}" href="getWitnessStatement">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-ruler-pencil text-dark text-sm opacity-10"></i>
+                        <i class="fa fa-book" style="color: blue"></i>
                     </div>
                     <span class="nav-link-text ms-1">Add Witness Statement</span>
                 </a>
