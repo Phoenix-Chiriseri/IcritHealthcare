@@ -30,9 +30,10 @@ class PatientController extends Controller
         $house = Auth::user()->house;
         $userAndPatients = Patient::leftJoin('users', 'patients.Staff_Id', '=', 'users.id')
         ->where('users.username', $username)
-        ->where('patients.house',$house) // Add this line
+        ->where('users.house', $house)
         ->select('patients.patient_name as patient_name', 'users.username as username') 
         ->get();
+        dd($userAndPatients);
         return view('pages.viewMyPatients')->with("name", $username)->with('userAndPatients', $userAndPatients);
     }
     public function store(Request $request)
