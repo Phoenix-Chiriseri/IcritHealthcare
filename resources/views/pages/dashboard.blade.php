@@ -105,7 +105,7 @@ function generate() {
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
                                 <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>

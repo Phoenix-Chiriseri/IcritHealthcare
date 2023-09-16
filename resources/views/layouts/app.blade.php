@@ -32,7 +32,7 @@
             @yield('content')
         @else
             @if (!in_array(request()->route()->getName(), ['profile', 'profile-static']))
-                <div class="min-height-300 bg-primary position-absolute w-100"></div>
+                <div class="min-height-300 bg-primary position-absolute w-100" style="color:blue;"></div>
             @elseif (in_array(request()->route()->getName(), ['profile-static', 'profile']))
                 <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('/img/51-1.jpg'); background-position-x: 50% no-repeat;">
                     <span class="mask bg-info opacity-2"></span>
