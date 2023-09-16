@@ -55,69 +55,67 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
             </div>
         </div>
     </div>
-<div class="container" style="margin-top:200px;">
-    <h1 class="text-center">Daily Entry Records</h1>
+<div class="container">
         <div class="table-responsive">
-        <table class="table table-bordered"  id = "dailyEntryTable">
-            <thead>
-                <tr>
-                    <th>User</th>
-                    <th>House</th>
-                    <th>Patient Name</th>
-                    <th>Date</th>
-                    <th>Shift</th>
-                    <th>Personal Care</th>
-                    <th>Medication Admin</th>
-                    <th>Appointments</th>
-                    <th>Activities</th>
-                    <th>Incident</th>
-                    <th>View Record</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($entries as $entry)
-                <tr>
-                    <td>{{ $entry->user_name }}</td>
-                    <td>{{ $entry->house }}</td>
-                    <td>{{ $entry->patient_name }}</td>
-                    <td>{{ $entry->date }}</td>
-                    <td>{{ $entry->shift }}</td>
-                    <td>{{ $entry->personal_care }}</td>
-                    <td>{{ $entry->medication_admin }}</td>
-                    <td>{{ $entry->appointments }}</td>
-                    <td>{{ $entry->activities }}</td>
-                    <td>{{ $entry->incident }}</td>
-                    <td><a href="{{ route('view-record', ['id' => $entry->id]) }}"class = "btn btn-info">View Record</a></td>      
-                </tr>
-                @endforeach
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
-                        {{-- Previous Page Link --}}
-                        @if ($entries->onFirstPage())
-                            <li class="page-item disabled">
-                                <span class="page-link" style="padding:30px;">Previous</span>
-                            </li>
-                        @else
-                            <li class="page-item">
-                                <a class="page-link" href="{{ $entries->previousPageUrl() }}" rel="prev">Previous</a>
-                            </li>
-                        @endif
-                        
-                        {{-- Next Page Link --}}
-                        @if ($entries->hasMorePages())
-                            <li class="page-item">
-                                <a class="page-link" style="padding:30px;" href="{{ $entries->nextPageUrl() }}" rel="next">Next</a>
-                            </li>
-                        @else
-                            <li class="page-item disabled">
-                                <span class="page-link">Next</span>
-                            </li>
-                        @endif
-                    </ul>
-                </nav>
-            </tbody>
-        </table>
-      
+            <table class="table table-bordered" id="dailyEntryTable">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>House</th>
+                        <th>Patient Name</th>
+                        <th>Date</th>
+                        <th>Shift</th>
+                        <th>Personal Care</th>
+                        <th>Medication Admin</th>
+                        <th>Appointments</th>
+                        <th>Activities</th>
+                        <th>Incident</th>
+                        <th>View Record</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($entries as $entry)
+                    <tr>
+                        <td>{{ $entry->user_name }}</td>
+                        <td>{{ $entry->house }}</td>
+                        <td>{{ $entry->patient_name }}</td>
+                        <td>{{ $entry->date }}</td>
+                        <td>{{ $entry->shift }}</td>
+                        <td>{{ $entry->personal_care }}</td>
+                        <td>{{ $entry->medication_admin }}</td>
+                        <td>{{ $entry->appointments }}</td>
+                        <td>{{ $entry->activities }}</td>
+                        <td>{{ $entry->incident }}</td>
+                        <td><a href="{{ route('view-record', ['id' => $entry->id]) }}" class="btn btn-info">View Record</a></td>
+                    </tr>
+                    @endforeach
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            {{-- Previous Page Link --}}
+                            @if ($entries->onFirstPage())
+                                <li class="page-item disabled">
+                                    <span class="page-link" style="padding: 30px;">Previous</span>
+                                </li>
+                            @else
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $entries->previousPageUrl() }}" rel="prev">Previous</a>
+                                </li>
+                            @endif
+            
+                            {{-- Next Page Link --}}
+                            @if ($entries->hasMorePages())
+                                <li class="page-item">
+                                    <a class="page-link" style="padding: 30px;" href="{{ $entries->nextPageUrl() }}" rel="next">Next</a>
+                                </li>
+                            @else
+                                <li class="page-item disabled">
+                                    <span class="page-link">Next</span>
+                                </li>
+                            @endif
+                        </ul>
+                    </nav>
+                </tbody>
+            </table>
         </div>
 </div>
 @include('layouts.footers.auth.footer')

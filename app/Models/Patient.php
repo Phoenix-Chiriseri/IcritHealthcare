@@ -26,7 +26,7 @@ class Patient extends Model
 
  public function patient()
 {
-        return $this->belongsTo(Patient::class);
+    return $this->belongsTo(Patient::class);
  }
 
  public function dailyEntries()

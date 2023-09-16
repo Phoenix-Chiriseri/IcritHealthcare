@@ -25,13 +25,14 @@ class PatientController extends Controller
 
     public function viewMyPatients()
     {
+
        
         $username = Auth::user()->username;
         $house = Auth::user()->house;
         $userAndPatients = Patient::leftJoin('users', 'patients.Staff_Id', '=', 'users.id')
         ->where('users.username', $username)
         ->where('users.house', $house)
-        ->select('patients.patient_name as patient_name', 'users.username as username') 
+        ->select('patients.patient_name', 'users.username') 
         ->get();
         dd($userAndPatients);
         return view('pages.viewMyPatients')->with("name", $username)->with('userAndPatients', $userAndPatients);
