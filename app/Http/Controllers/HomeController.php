@@ -32,7 +32,27 @@ public function index()
     $house = Auth::user()->house;
     //get the number of patients in the house where the house is the house of the authenticatd user
     $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);
-    $query = "
+    $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
+    ->leftJoin('users', 'daily_entries.user_id', '=', 'users.id')
+    ->where('users.id', $userId)
+    ->where('users.house',$house)
+    ->select(
+        'users.username as user_name',
+        'users.house as house',
+        'patients.patient_name',
+        'daily_entries.id as entryId',
+        'daily_entries.date',
+        'daily_entries.personal_care',
+        'daily_entries.shift',
+        'daily_entries.id',
+        'daily_entries.medication_admin',
+        'daily_entries.activities',
+        'daily_entries.incident',
+        'daily_entries.appointments'
+    )
+    ->orderBy('daily_entries.id', 'desc')
+    ->paginate(5);  
+        /*$query = "
         SELECT users.id AS user_id, users.username AS user_name, users.house AS house,
         patients.patient_name, daily_entries.id as entryId, daily_entries.date, daily_entries.shift,
         daily_entries.personal_care, daily_entries.medication_admin,
@@ -49,7 +69,7 @@ public function index()
         ORDER BY daily_entries.date DESC
         ";
         
-        $entries = DB::select($query, ['userId' => $userId]);
+        $entries = DB::select($query, ['userId' => $userId]);*/
         return view('pages.dashboard', compact('entries'))->with("name", $username)
             ->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);
   }
