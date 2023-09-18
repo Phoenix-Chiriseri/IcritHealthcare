@@ -65,7 +65,7 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
                         <th>Patient Name</th>
                         <th>Date</th>
                         <th>Shift</th>
-                        <th>Personal Care</th> 
+                        <th>Personal Care</th>
                         <th>Medication Admin</th>
                         <th>Appointments</th>
                         <th>Activities</th>

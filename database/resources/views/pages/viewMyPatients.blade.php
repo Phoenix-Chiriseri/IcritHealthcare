@@ -1,33 +1,58 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
+@include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="
-https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
-"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
-<script>
-    <style>
-    .pagination .page-link {
-        border-radius: 0; /* Remove the default border-radius */
-    }
-</style>
-     document.getElementById('export-pdf').addEventListener('click', function () {
-            var doc = new jsPDF('p', 'pt', 'letter');
-            var options = {
-                pagesplit: true,
-                margin: {
-                    top: 60,
-                    left: 40,
-                    right: 40,
-                    bottom: 40
-                }
-            };
-            doc.fromHTML(document.getElementById('dailyEntryTable'), options);
-            doc.save('daily_entry_results.pdf');
-        });
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
+<script type="text/javascript">  
+function generate() {  
+    var doc = new jsPDF('p', 'pt', 'letter');  
+    var htmlstring = '';  
+    var tempVarToCheckPageHeight = 0;  
+    var pageHeight = 0;  
+    orientation: "landscape";
+    unit: "in";
+    format: [4, 2];
+    pageHeight = doc.internal.pageSize.height;  
+    specialElementHandlers = {  
+        // element with id of "bypass" - jQuery style selector  
+        '#bypassme': function(element, renderer) {  
+            // true = "handled elsewhere, bypass text extraction"  
+            return true  
+        }  
+    };  
+    margins = {  
+        top: 150,  
+        bottom: 60,  
+        left: 40,  
+        right: 40,  
+        width: 600  
+    };  
+    var y = 20;  
+    doc.setLineWidth(2);  
+    doc.text(200, y = y + 30, "Daily Entry");  
+    doc.autoTable({  
+        html: '#simple_table',  
+        startY: 70,  
+        theme: 'grid',  
+        columnStyles: {  
+            0: {  
+                cellWidth: 250,  
+            },  
+            1: {  
+                cellWidth: 250,  
+            },  
+            2: {  
+                cellWidth: 250,  
+            }  
+        },  
+        styles: {  
+            minCellHeight: 80  
+        }  
+    })  
+    doc.save('Daily Entry Reports.pdf');  
+}  
+</script>   
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
@@ -36,12 +61,13 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">View Your Patients </p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Back To Home</p>
                                 <h5 class="font-weight-bolder">
                                 <hr>
-                                  <a href = "viewMyPatients" class = "btn btn-info">View Your Patients</a>
+                                  <a href = "dashboard" class = "btn btn-info">Dashboard</a>
                                 </h5>
-                                <p class="mb-0">                  
+                                <p class="mb-0">
+                                  
                                 </p>
                             </div>
                         </div>
@@ -54,71 +80,34 @@ https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js
                 </div>
             </div>
         </div>
-    </div>
-<div class="container">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dailyEntryTable">
-                <thead>
-                    <tr>
-                        <th>User</th>
-                        <th>House</th>
-                        <th>Patient Name</th>
-                        <th>Date</th>
-                        <th>Shift</th>
-                        <th>Personal Care</th> 
-                        <th>Medication Admin</th>
-                        <th>Appointments</th>
-                        <th>Activities</th>
-                        <th>Incident</th>
-                        <th>View Record</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($entries as $entry)
-                    <tr>
-                        <td>{{ $entry->user_name }}</td>
-                        <td>{{ $entry->house }}</td>
-                        <td>{{ $entry->patient_name }}</td>
-                        <td>{{ $entry->date }}</td>
-                        <td>{{ $entry->shift }}</td>
-                        <td>{{ $entry->personal_care }}</td>
-                        <td>{{ $entry->medication_admin }}</td>
-                        <td>{{ $entry->appointments }}</td>
-                        <td>{{ $entry->activities }}</td>
-                        <td>{{ $entry->incident }}</td>
-                        <td><a href="{{ route('view-record', ['id' => $entry->id]) }}" class="btn btn-info">View Record</a></td>
-                    </tr>
-                    @endforeach
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center">
-                            {{-- Previous Page Link --}}
-                            @if ($entries->onFirstPage())
-                                <li class="page-item disabled">
-                                    <span class="page-link" style="padding: 30px;">Previous</span>
-                                </li>
-                            @else
-                                <li class="page-item">
-                                    <a class="page-link" href="{{ $entries->previousPageUrl() }}" rel="prev">Previous</a>
-                                </li>
-                            @endif
-            
-                            {{-- Next Page Link --}}
-                            @if ($entries->hasMorePages())
-                                <li class="page-item">
-                                    <a class="page-link" style="padding: 30px;" href="{{ $entries->nextPageUrl() }}" rel="next">Next</a>
-                                </li>
-                            @else
-                                <li class="page-item disabled">
-                                    <span class="page-link">Next</span>
-                                </li>
-                            @endif
-                        </ul>
-                    </nav>
-                </tbody>
-            </table>
+    </div>    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <div class="container">
+    <a class="navbar-brand" href="{{ url('/home') }}" class = "btn btn-info">Dashboard</a>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header text-center">My Patients</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($userAndPatients as $uAp)
+                                        <tr>
+                                            <td>{{ $uAp->patient_name }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
         </div>
-</div>
-@include('layouts.footers.auth.footer')
+    </div>
 </div>
 @endsection
 @push('js')
