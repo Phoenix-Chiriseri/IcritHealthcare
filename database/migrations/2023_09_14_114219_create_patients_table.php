@@ -19,9 +19,9 @@ return new class extends Migration
         $table->string('id_number');
         $table->string('address');
         $table->string('phone_number');
+        $table->foreign('Staff_Id')->references('id')->on('users')->onDelete('cascade');
         $table->string('email')->unique();
-        $table->timestamps();
-        
+        $table->timestamps();       
         });
     }
 
