@@ -85,7 +85,8 @@ class DailyEntryController extends Controller
     $user->dailyEntries()->save($dailyEntry);
     //return back to the screen and use sweet alert to show that the data has been saved
     return back()->with('success', 'Daily Entry added successfully.');
-    }
+    
+}
     /**
      * Display the specified resource.
     */
