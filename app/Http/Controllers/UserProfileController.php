@@ -8,6 +8,7 @@ use App\Models\Patient;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Model\User;
+use App\Models\HospitalPassport;
 
 class UserProfileController extends Controller
 {

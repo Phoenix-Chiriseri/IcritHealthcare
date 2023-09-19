@@ -39,6 +39,7 @@ class DailyEntryController extends Controller
     //view each and every daily entry by the users i.d and retrieve the data to the front end
     public function viewRecordById($id)
     {
+    
     $entry = DailyEntry::join('users', 'daily_entries.user_id', '=', 'users.id')
     ->join('patients', 'daily_entries.patient_id', '=', 'patients.id')
     ->select(
@@ -49,10 +50,13 @@ class DailyEntryController extends Controller
     ->where('daily_entries.id', $id)
     ->first();
     return view('pages.singleDailyEntry', ['entry' => $entry]);  
+    
     }
+    
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(Request $request)
     {
        // Validate the request data
