@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
+
+
 class BehaviouralMonitorChartController extends Controller
 {
     /**

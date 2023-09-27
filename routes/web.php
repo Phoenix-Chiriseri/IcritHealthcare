@@ -28,6 +28,8 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\StatisticsController; 
 use App\Http\Controllers\MedicationIncidentController; 
 use App\Http\Controllers\WitnessStatementController; 
+use App\Http\Controllers\ApiController; 
+
 
 	Route::get('/', [HomeController::class, 'showHome']);
 	Route::get('/registerPatient',[PatientController::class,'index'])->middleware("auth");
@@ -57,7 +59,7 @@ use App\Http\Controllers\WitnessStatementController;
 	//behavioural monitor chart routes
 	Route::get('getBehaviouralMonitorChart', [BehaviouralMonitorChartController::class, 'index'])->name('getBehaviouralMonitorChart')->middleware('auth');
 	Route::get('allBehaviourSupportPlans', [BehaviouralMonitorChartController::class, 'allBehaviouralSupportPlans'])->name('allBehaviourSupportPlans')->middleware('auth');
-	Route::post('/save-bChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bChart');
+	Route::post('/save-bChart', [BehaviouralMonitorChartController::class, 'store'])->name('save-bchart');
 	Route::get('/getStatistics', [StatisticsController::class, 'index'])->name('getStatistics')->middleware('auth');
 	//complaint report routes
 	Route::get('getComplaintRecord', [ComplaintRecordController::class, 'index'])->name('getComplaintRecord')->middleware('auth');
@@ -100,6 +102,7 @@ use App\Http\Controllers\WitnessStatementController;
 	Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static'); 
 	Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static'); 
+	Route::get('/allDailyEntries',[ApiController::class, 'getAllDailyEntries']);
 	Route::post('/registerPatient', [PatientController::class, 'create'])->name("registerPatient");
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
@@ -109,6 +112,7 @@ use App\Http\Controllers\WitnessStatementController;
 	Route::get('/generate-pdf/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/get/{entryId}', [PdfController::class, 'showGeneratePDF'])->name('generate.pdf')->middleware('auth');
 	Route::get('/view-record/{id}', [DailyEntryController::class, 'viewRecordById'])->name('view-record')->middleware("auth");
+
 	Route::get('/download/{filename}', function ($filename) {
 		$path = public_path('downloads/' . $filename);
 		if (file_exists($path)) {
